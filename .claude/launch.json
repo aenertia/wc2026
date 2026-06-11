@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "wallchart",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8191", "--directory", "/Users/pleathen/Projects/fifa-wc-2026-wallpaper"],
+      "port": 8191
+    }
+  ]
+}
