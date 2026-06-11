@@ -582,8 +582,8 @@ const dateKey=e=>new Intl.DateTimeFormat("en-CA",{timeZone:tz,year:"numeric",mon
 const hourIn=e=>Number(new Intl.DateTimeFormat("en-IE",{timeZone:tz,hour:"numeric",hourCycle:"h23"}).format(e));
 const isLate=e=>hourIn(e)<6;
 function updateTzLabels(){
-  $("koLine").textContent="Match 1 · Mexico v South Africa · "+fmtDateShort(D[0].epoch)+", "+fmtTime(D[0].epoch);
   $("tzNote").textContent="Times shown in "+tz.replace(/_/g," ")+". ";
+  updateBanner();
 }
 function accent(r){return r[1]==="G"?GROUP_COLORS[r[2]]:STAGE_COLORS[r[1]];}
 function tagFor(r){
@@ -637,6 +637,7 @@ async function fetchScores(){
       }
     });
     scores=map;
+    updateBanner();
     // patch knockout team names once the API knows the real teams
     data.games.forEach(g=>{
       if(g.type==="group"||g.home_team_id==="0"||!g.home_team_name_en)return;
@@ -718,16 +719,39 @@ function render(){
   renderStrip();
 }
 
-/* countdown to match 1 */
-const ko=new Date("2026-06-11T20:00:00+01:00");
-function tick(){
-  const ms=ko-new Date();
-  const el=$("countdown");
-  if(ms<=0){el.textContent="It's on!";return;}
+/* dynamic banner — next match countdown / live indicator */
+function updateBanner(){
+  const now=Date.now();
+  // prefer a live match from scores map
+  let liveRow=null;
+  for(const r of D){
+    const ov=teamOverrides.get(r[0]);
+    const h=ov?.home??r[5], a=ov?.away??r[6];
+    const sc=scores.get(h+"|"+a);
+    if(sc?.live){liveRow={r,sc,h,a};break;}
+  }
+  if(liveRow){
+    const {r,sc,h,a}=liveRow;
+    $("kickoff").querySelector(".k-label").textContent="Live now";
+    $("countdown").textContent=sc.elapsed+"'";
+    $("koLine").textContent="Match "+r[0]+" · "+h+" v "+a;
+    return;
+  }
+  // find next upcoming match
+  const next=D.slice().sort((a,b)=>a.epoch-b.epoch).find(r=>r.epoch>now);
+  if(!next){
+    $("kickoff").querySelector(".k-label").textContent="Tournament";
+    $("countdown").textContent="Complete";
+    $("koLine").textContent="Final · 19 July 2026 · MetLife Stadium";
+    return;
+  }
+  $("kickoff").querySelector(".k-label").textContent="Next kick-off in";
+  $("koLine").textContent="Match "+next[0]+" · "+(teamOverrides.get(next[0])?.home??next[5])+" v "+(teamOverrides.get(next[0])?.away??next[6])+" · "+fmtDateShort(next.epoch)+", "+fmtTime(next.epoch);
+  const ms=next.epoch-now;
   const d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4),s=Math.floor(ms%6e4/1e3);
-  el.textContent=(d>0?d+"d ":"")+String(h).padStart(2,"0")+"h "+String(m).padStart(2,"0")+"m "+String(s).padStart(2,"0")+"s";
+  $("countdown").textContent=(d>0?d+"d ":"")+String(h).padStart(2,"0")+"h "+String(m).padStart(2,"0")+"m "+String(s).padStart(2,"0")+"s";
 }
-tick();setInterval(tick,1000);
+updateBanner();setInterval(updateBanner,1000);
 
 /* ---------- standings ---------- */
 async function fetchStandings(){
