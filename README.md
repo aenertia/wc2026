@@ -7,7 +7,7 @@ A single-file interactive wallchart for all 104 matches of the 2026 FIFA World C
 - All 104 matches with correct IST kick-off times and dates
 - Live scores and final results via the [worldcup26.ir](https://worldcup26.ir) API — no API key required, polls every 2 minutes
 - In-play matches show a live score with pulsing indicator and current minute
-- Full-time matches show the final score with FT stamp and losing team dimmed
+- Full-time matches show the final score with FT stamp, losing team dimmed, and goal scorers listed under each team name
 - Venue (city · stadium) displayed for every match
 - Filter by group, stage, or team search
 - Timezone conversion — remembers your preference via localStorage

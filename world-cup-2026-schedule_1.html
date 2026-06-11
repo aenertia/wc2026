@@ -171,6 +171,7 @@ button{font-family:inherit;cursor:pointer}
 .m-home{text-align:right;min-width:0}
 .m-away{text-align:left;min-width:0}
 .m-home b,.m-away b{font-size:15px;font-weight:600;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m-home .scorers,.m-away .scorers{font-family:var(--font-mono);font-size:10px;font-weight:400;color:var(--chalk-faint);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
 .m-score{
   text-align:center;
   font-family:var(--font-mono);
@@ -602,10 +603,17 @@ async function fetchScores(){
       const elapsed=g.time_elapsed;
       const live=!finished&&elapsed!=="notstarted"&&elapsed!=="null"&&!!elapsed;
       if(finished||live){
+        const parseScorers=v=>{
+          if(!v||v==="null")return [];
+          try{const a=JSON.parse(v);if(Array.isArray(a))return a.map(String);}catch(_){}
+          return v.split(",").map(s=>s.trim()).filter(Boolean);
+        };
         map.set(home+"|"+away,{
           home:g.home_score,
           away:g.away_score,
           finished,live,elapsed,
+          homeScorers:parseScorers(g.home_scorers),
+          awayScorers:parseScorers(g.away_scorers),
         });
       }
     });
@@ -663,8 +671,10 @@ function render(){
 
       /* home / away columns */
       const hLoser=sc?.finished&&hNum<aNum,aLoser=sc?.finished&&aNum<hNum;
-      const homeHtml='<div class="m-home"><b class="'+(hLoser?"loser":"")+'">'+r[5]+'</b></div>';
-      const awayHtml='<div class="m-away"><b class="'+(aLoser?"loser":"")+'">'+r[6]+'</b></div>';
+      const hScorers=sc?.homeScorers?.length?'<span class="scorers">'+sc.homeScorers.join(' · ')+'</span>':'';
+      const aScorers=sc?.awayScorers?.length?'<span class="scorers">'+sc.awayScorers.join(' · ')+'</span>':'';
+      const homeHtml='<div class="m-home"><b class="'+(hLoser?"loser":"")+'">'+r[5]+'</b>'+hScorers+'</div>';
+      const awayHtml='<div class="m-away"><b class="'+(aLoser?"loser":"")+'">'+r[6]+'</b>'+aScorers+'</div>';
 
       const venueHtml=VENUES[r[0]]?'<div class="m-venue">'+VENUES[r[0]]+'</div>':'';
       m.innerHTML=timeHtml+homeHtml+scoreHtml+awayHtml+'<div class="meta">'+tagFor(r)+'<span class="num">#'+String(r[0]).padStart(3,"0")+'</span></div>'+venueHtml;
