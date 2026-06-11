@@ -481,7 +481,6 @@ const state={stage:"",group:"",q:""};
 const $=id=>document.getElementById(id);
 let scores=new Map();
 const teamOverrides=new Map();
-let teamMeta=new Map();
 let groupStandings=new Map();
 
 /* build stage pills */
@@ -605,6 +604,16 @@ const NAME_MAP={
   "United States":"USA",
 };
 const normName=n=>NAME_MAP[n]||n;
+function parseScorers(v){
+  if(!v||v==="null")return [];
+  if(Array.isArray(v))return v.map(String);
+  // API returns {"Name 45'","Name 67'"} using curly quotes — strip braces and quotes
+  if(typeof v==="string"&&v.startsWith("{"))
+    return v.slice(1,-1).split(",").map(s=>s.replace(/[\u201c\u201d"]/g,"").trim()).filter(Boolean);
+  try{const a=JSON.parse(v);if(Array.isArray(a))return a.map(String);}catch(_){}
+  return v.split(",").map(s=>s.trim()).filter(Boolean);
+}
+
 async function fetchScores(){
   try{
     const res=await fetch("/api/games",{cache:"no-store"});
@@ -612,21 +621,12 @@ async function fetchScores(){
     const data=await res.json();
     const map=new Map();
     data.games.forEach(g=>{
-      const home=normName(g.home_team_name_en);
-      const away=normName(g.away_team_name_en);
       const finished=g.finished==="TRUE";
       const elapsed=g.time_elapsed;
       const live=!finished&&elapsed!=="notstarted"&&elapsed!=="null"&&!!elapsed;
       if(finished||live){
-        const parseScorers=v=>{
-          if(!v||v==="null")return [];
-          if(Array.isArray(v))return v.map(String);
-          // API returns {"Name 45'","Name 67'"} using curly quotes — strip braces and quotes
-          if(typeof v==="string"&&v.startsWith("{"))
-            return v.slice(1,-1).split(",").map(s=>s.replace(/[“”"]/g,"").trim()).filter(Boolean);
-          try{const a=JSON.parse(v);if(Array.isArray(a))return a.map(String);}catch(_){}
-          return v.split(",").map(s=>s.trim()).filter(Boolean);
-        };
+        const home=normName(g.home_team_name_en);
+        const away=normName(g.away_team_name_en);
         map.set(home+"|"+away,{
           home:g.home_score,
           away:g.away_score,
@@ -738,7 +738,7 @@ async function fetchStandings(){
     ]);
     if(!tRes.ok||!gRes.ok)return;
     const [td,gd]=await Promise.all([tRes.json(),gRes.json()]);
-    teamMeta=new Map();
+    const teamMeta=new Map();
     td.teams.forEach(t=>teamMeta.set(t.id,{name:normName(t.name_en),flag:t.flag}));
     const map=new Map();
     gd.groups.forEach(grp=>{
