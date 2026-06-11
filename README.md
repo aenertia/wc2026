@@ -36,13 +36,13 @@ This setup uses [Plash](https://apps.apple.com/app/plash/id1494023538) to render
 Create a launchd agent so the HTTP server starts automatically and restarts if it ever dies:
 
 ```bash
-cat > ~/Library/LaunchAgents/dev.pleathen.wallchart-server.plist << 'EOF'
+cat > ~/Library/LaunchAgents/dev.YOUR_USERNAME.wallchart-server.plist << 'EOF'
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>dev.pleathen.wallchart-server</string>
+  <string>dev.YOUR_USERNAME.wallchart-server</string>
   <key>ProgramArguments</key>
   <array>
     <string>/usr/bin/python3</string>
@@ -50,7 +50,7 @@ cat > ~/Library/LaunchAgents/dev.pleathen.wallchart-server.plist << 'EOF'
     <string>http.server</string>
     <string>8191</string>
     <string>--directory</string>
-    <string>/Users/YOUR_USERNAME/Projects/fifa-wc-2026-wallpaper</string>
+    <string>/Users/YOUR_USERNAME/PATH/TO/fifa-wc-2026-wallpaper</string>
   </array>
   <key>RunAtLoad</key>
   <true/>
@@ -64,10 +64,10 @@ cat > ~/Library/LaunchAgents/dev.pleathen.wallchart-server.plist << 'EOF'
 </plist>
 EOF
 
-launchctl load ~/Library/LaunchAgents/dev.pleathen.wallchart-server.plist
+launchctl load ~/Library/LaunchAgents/dev.YOUR_USERNAME.wallchart-server.plist
 ```
 
-Replace `YOUR_USERNAME` with your macOS username. The agent loads at login and restarts automatically if the process exits.
+Replace `YOUR_USERNAME` with your macOS username and `PATH/TO` with the path to the folder. The agent loads at login and restarts automatically if the process exits.
 
 ### 2. Configure Plash
 
@@ -84,7 +84,7 @@ Set your macOS wallpaper to a solid `#0c1713` so the page background matches sea
 ### Stopping the server
 
 ```bash
-launchctl unload ~/Library/LaunchAgents/dev.pleathen.wallchart-server.plist
+launchctl unload ~/Library/LaunchAgents/dev.YOUR_USERNAME.wallchart-server.plist
 ```
 
 ## Data sources
