@@ -603,6 +603,8 @@ const NAME_MAP={
 const normName=n=>NAME_MAP[n]||n;
 let scores=new Map();
 const teamOverrides=new Map(); // match# → {home,away} — filled once API knows knockout teams
+let teamMeta=new Map(); // teamId → {name,flag}
+let groupStandings=new Map(); // group letter → sorted [{name,flag,mp,...,pts}]
 
 async function fetchScores(){
   try{
@@ -634,7 +636,7 @@ async function fetchScores(){
     scores=map;
     // patch knockout team names once the API knows the real teams
     data.games.forEach(g=>{
-      if(g.home_team_id==="0"||!g.home_team_name_en)return;
+      if(g.type==="group"||g.home_team_id==="0"||!g.home_team_name_en)return;
       teamOverrides.set(parseInt(g.id,10),{
         home:normName(g.home_team_name_en),
         away:normName(g.away_team_name_en),
@@ -725,9 +727,6 @@ function tick(){
 tick();setInterval(tick,1000);
 
 /* ---------- standings ---------- */
-let teamMeta=new Map(); // teamId → {name,flag,norm}
-let groupStandings=new Map(); // group letter → sorted [{name,flag,mp,w,d,l,gd,pts}]
-
 async function fetchStandings(){
   try{
     const [tRes,gRes]=await Promise.all([
