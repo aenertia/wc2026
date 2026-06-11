@@ -20,14 +20,12 @@ A single-file interactive wallchart for all 104 matches of the 2026 FIFA World C
 All you need is a browser and a way to serve the file over HTTP. A bare `file://` path won't work due to browser fetch restrictions on the scores API.
 
 ```bash
-# Python (built-in)
-python3 -m http.server 8191 --directory /path/to/folder
-
-# Node
-npx serve .
+python3 server.py
 ```
 
 Then open `http://localhost:8191/world-cup-2026-schedule_1.html`.
+
+> `server.py` serves static files and proxies `/api/*` requests to the scores API on the server side, bypassing browser CORS restrictions. Using `python3 -m http.server` will serve the page but live scores won't load.
 
 ## Running as an interactive desktop wallpaper (macOS)
 
@@ -48,11 +46,8 @@ cat > ~/Library/LaunchAgents/dev.YOUR_USERNAME.wallchart-server.plist << 'EOF'
   <key>ProgramArguments</key>
   <array>
     <string>/usr/bin/python3</string>
-    <string>-m</string>
-    <string>http.server</string>
+    <string>/Users/YOUR_USERNAME/PATH/TO/fifa-wc-2026-wallpaper/server.py</string>
     <string>8191</string>
-    <string>--directory</string>
-    <string>/Users/YOUR_USERNAME/PATH/TO/fifa-wc-2026-wallpaper</string>
   </array>
   <key>RunAtLoad</key>
   <true/>

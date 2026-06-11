@@ -607,7 +607,7 @@ const NAME_MAP={
 const normName=n=>NAME_MAP[n]||n;
 async function fetchScores(){
   try{
-    const res=await fetch("https://worldcup26.ir/get/games",{cache:"no-store"});
+    const res=await fetch("/api/games",{cache:"no-store"});
     if(!res.ok)throw new Error(res.status);
     const data=await res.json();
     const map=new Map();
@@ -620,6 +620,10 @@ async function fetchScores(){
       if(finished||live){
         const parseScorers=v=>{
           if(!v||v==="null")return [];
+          if(Array.isArray(v))return v.map(String);
+          // API returns {"Name 45'","Name 67'"} using curly quotes — strip braces and quotes
+          if(typeof v==="string"&&v.startsWith("{"))
+            return v.slice(1,-1).split(",").map(s=>s.replace(/[“”"]/g,"").trim()).filter(Boolean);
           try{const a=JSON.parse(v);if(Array.isArray(a))return a.map(String);}catch(_){}
           return v.split(",").map(s=>s.trim()).filter(Boolean);
         };
@@ -729,8 +733,8 @@ tick();setInterval(tick,1000);
 async function fetchStandings(){
   try{
     const [tRes,gRes]=await Promise.all([
-      fetch("https://worldcup26.ir/get/teams",{cache:"no-store"}),
-      fetch("https://worldcup26.ir/get/groups",{cache:"no-store"}),
+      fetch("/api/teams",{cache:"no-store"}),
+      fetch("/api/groups",{cache:"no-store"}),
     ]);
     if(!tRes.ok||!gRes.ok)return;
     const [td,gd]=await Promise.all([tRes.json(),gRes.json()]);
