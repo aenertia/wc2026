@@ -588,7 +588,6 @@ const NAME_MAP={
 const normName=n=>NAME_MAP[n]||n;
 const scoreKey=r=>r[5]+"|"+r[6];
 let scores=new Map();
-let scoresFetchedAt=null;
 
 async function fetchScores(){
   try{
@@ -611,7 +610,6 @@ async function fetchScores(){
       }
     });
     scores=map;
-    scoresFetchedAt=Date.now();
     render();
   }catch(e){
     console.warn("Score fetch failed:",e);
@@ -644,8 +642,6 @@ function render(){
     matches.forEach(r=>{
       const m=document.createElement("div");
       const sc=scores.get(scoreKey(r));
-      if(sc?.finished)m.classList.add("finished");
-      else if(sc?.live)m.classList.add("live");
       m.className="match"+(sc?.finished?" finished":sc?.live?" live":"");
       m.style.borderLeftColor=accent(r);
 
@@ -654,8 +650,8 @@ function render(){
 
       /* score / vs column */
       let scoreHtml;
+      const hNum=sc?parseInt(sc.home,10):null,aNum=sc?parseInt(sc.away,10):null;
       if(sc){
-        const hNum=parseInt(sc.home,10),aNum=parseInt(sc.away,10);
         const stateHtml=sc.finished
           ?'<span class="sc-state ft">FT</span>'
           :sc.live?'<span class="sc-state live-label"><span class="live-dot"></span>'+sc.elapsed+"'</span>"
@@ -666,7 +662,6 @@ function render(){
       }
 
       /* home / away columns */
-      const hNum=sc?parseInt(sc.home,10):null,aNum=sc?parseInt(sc.away,10):null;
       const hLoser=sc?.finished&&hNum<aNum,aLoser=sc?.finished&&aNum<hNum;
       const homeHtml='<div class="m-home"><b class="'+(hLoser?"loser":"")+'">'+r[5]+'</b></div>';
       const awayHtml='<div class="m-away"><b class="'+(aLoser?"loser":"")+'">'+r[6]+'</b></div>';
