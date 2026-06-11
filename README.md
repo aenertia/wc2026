@@ -12,6 +12,7 @@ A single-file interactive wallchart for all 104 matches of the 2026 FIFA World C
 - Filter by group, stage, or team search
 - Timezone conversion — remembers your preference via localStorage
 - Late-night kick-off indicator (☾)
+- Live group standings (MP, W, D, L, GD, Pts) with flags — visible as a table in the Groups view and as an inline strip above the schedule when a group filter is active; top 2 qualification places highlighted
 
 ## Running locally
 

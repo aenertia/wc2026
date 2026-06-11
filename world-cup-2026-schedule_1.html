@@ -227,6 +227,31 @@ button{font-family:inherit;cursor:pointer}
 }
 .group-card li:last-child{border-bottom:none}
 .groups .hint{color:var(--chalk-faint);font-size:13px;margin-bottom:16px;font-family:var(--font-mono)}
+/* standings table inside group cards */
+.gc-standings{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:11px}
+.gc-standings thead tr{border-bottom:2px solid var(--line)}
+.gc-standings tbody tr{border-bottom:1px solid var(--line)}
+.gc-standings tbody tr:last-child{border-bottom:none}
+.gc-standings th{padding:4px 4px 4px 0;color:var(--chalk-faint);font-weight:400;text-align:center}
+.gc-standings tr.q{background:rgba(77,201,123,.07)}
+.gc-standings td{padding:5px 4px;color:var(--chalk-faint);white-space:nowrap}
+.gc-standings td.pos{padding-left:14px;width:16px;font-weight:700;color:var(--chalk-faint)}
+.gc-standings td.flag{width:22px;padding:5px 2px}
+.gc-standings td.flag img{width:20px;height:14px;border-radius:2px;display:block}
+.gc-standings td.tn{max-width:85px;overflow:hidden;text-overflow:ellipsis;padding-right:8px;color:var(--chalk)}
+.gc-standings td.pts{font-weight:700;color:var(--chalk);padding-right:14px}
+.gc-standings td.num{text-align:center}
+/* inline standings strip above schedule */
+.standings-strip{display:none;margin-bottom:14px;background:var(--pitch-2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.standings-strip table{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:11px}
+.standings-strip th{padding:4px 6px;color:var(--chalk-faint);font-weight:400;border-bottom:1px solid var(--line);text-align:center}
+.standings-strip th.left{text-align:left;padding-left:10px}
+.standings-strip td{padding:5px 6px;color:var(--chalk-faint);text-align:center;border-bottom:1px solid var(--line)}
+.standings-strip tr:last-child td{border-bottom:none}
+.standings-strip tr.q td{background:rgba(77,201,123,.06)}
+.standings-strip td.left{text-align:left;padding-left:10px;color:var(--chalk);display:flex;align-items:center;gap:6px}
+.standings-strip td.left img{width:18px;height:13px;border-radius:2px;flex-shrink:0}
+.standings-strip td.pts{font-weight:700;color:var(--chalk)}
 
 /* ---------- footer ---------- */
 footer{
@@ -324,6 +349,7 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
 </div>
 
 <main class="wrap">
+  <div class="standings-strip" id="standingsStrip"></div>
   <section class="list" id="list" aria-label="Match schedule"></section>
   <div class="empty" id="empty"><span class="big">Full time.</span>No matches found — try clearing a filter.</div>
   <section class="groups" id="groupsView" aria-label="Group overview">
@@ -499,23 +525,11 @@ $("clearAll").addEventListener("click",()=>{
 });
 
 /* groups view */
-const teams={};
+const localTeams={};
 D.filter(r=>r[1]==="G").forEach(r=>{
-  (teams[r[2]]??=new Set()).add(r[5]);teams[r[2]].add(r[6]);
+  (localTeams[r[2]]??=new Set()).add(r[5]);localTeams[r[2]].add(r[6]);
 });
-const grid=$("groupsGrid");
-"ABCDEFGHIJKL".split("").forEach(g=>{
-  const card=document.createElement("button");
-  card.className="group-card";
-  card.innerHTML='<div class="gc-head" style="background:'+GROUP_COLORS[g]+'"><span class="g">Group '+g+'</span><span class="m">6 matches</span></div>'
-    +'<ul>'+[...teams[g]].map(t=>'<li>'+t+'</li>').join("")+'</ul>';
-  card.addEventListener("click",()=>{
-    state.group=g;state.stage="G";state.q="";$("search").value="";
-    setView("schedule");syncPills();render();
-    window.scrollTo({top:document.querySelector(".controls").offsetTop-10,behavior:"smooth"});
-  });
-  grid.appendChild(card);
-});
+renderGroups();
 
 /* view toggle */
 function setView(v){
@@ -681,6 +695,7 @@ function render(){
       list.appendChild(m);
     });
   });
+  renderStrip();
 }
 
 /* countdown to match 1 */
@@ -694,10 +709,117 @@ function tick(){
 }
 tick();setInterval(tick,1000);
 
+/* ---------- standings ---------- */
+let teamMeta=new Map(); // teamId → {name,flag,norm}
+let groupStandings=new Map(); // group letter → sorted [{name,flag,mp,w,d,l,gd,pts}]
+
+async function fetchStandings(){
+  try{
+    const [tRes,gRes]=await Promise.all([
+      fetch("https://worldcup26.ir/get/teams",{cache:"no-store"}),
+      fetch("https://worldcup26.ir/get/groups",{cache:"no-store"}),
+    ]);
+    if(!tRes.ok||!gRes.ok)return;
+    const [td,gd]=await Promise.all([tRes.json(),gRes.json()]);
+    teamMeta=new Map();
+    td.teams.forEach(t=>teamMeta.set(t.id,{name:normName(t.name_en),flag:t.flag}));
+    const map=new Map();
+    gd.groups.forEach(grp=>{
+      const letter=grp.name;
+      const teams=grp.teams
+        .map(t=>{
+          const meta=teamMeta.get(t.team_id)||{name:"?",flag:""};
+          return{name:meta.name,flag:meta.flag,
+            mp:+t.mp,w:+t.w,d:+t.d,l:+t.l,gf:+t.gf,ga:+t.ga,gd:+t.gd,pts:+t.pts};
+        })
+        .sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf||a.name.localeCompare(b.name));
+      map.set(letter,teams);
+    });
+    groupStandings=map;
+    renderGroups();
+    renderStrip();
+  }catch(e){console.warn("Standings fetch failed:",e);}
+}
+
+function standingsTableRows(teams,qualify){
+  return teams.map((t,i)=>{
+    const q=i<qualify?" class=\"q\"":"";
+    const flagImg=t.flag?'<img src="'+t.flag+'" alt="">':"";
+    return'<tr'+q+'>'
+      +'<td class="pos">'+(i+1)+'</td>'
+      +'<td class="flag">'+flagImg+'</td>'
+      +'<td class="tn">'+t.name+'</td>'
+      +'<td class="num">'+t.mp+'</td>'
+      +'<td class="num">'+t.w+'</td>'
+      +'<td class="num">'+t.d+'</td>'
+      +'<td class="num">'+t.l+'</td>'
+      +'<td class="num">'+(t.gd>0?"+":"")+t.gd+'</td>'
+      +'<td class="pts">'+t.pts+'</td>'
+      +'</tr>';
+  }).join("");
+}
+
+function renderGroups(){
+  const grid=$("groupsGrid");
+  if(!grid)return;
+  grid.innerHTML="";
+  "ABCDEFGHIJKL".split("").forEach(g=>{
+    const card=document.createElement("button");
+    card.className="group-card";
+    const standing=groupStandings.get(g);
+    let body;
+    if(standing){
+      body='<table class="gc-standings"><thead><tr>'
+        +'<th class="pos"></th><th class="flag"></th><th style="text-align:left">Team</th>'
+        +'<th title="Played">MP</th><th title="Won">W</th><th title="Drawn">D</th>'
+        +'<th title="Lost">L</th><th title="Goal difference">GD</th><th title="Points">Pts</th>'
+        +'</tr></thead><tbody>'+standingsTableRows(standing,2)+'</tbody></table>';
+    }else{
+      const names=[...localTeams[g]].map(t=>'<li>'+t+'</li>').join("");
+      body='<ul>'+names+'</ul>';
+    }
+    card.innerHTML='<div class="gc-head" style="background:'+GROUP_COLORS[g]+'"><span class="g">Group '+g+'</span><span class="m">6 matches</span></div>'+body;
+    card.addEventListener("click",()=>{
+      state.group=g;state.stage="G";state.q="";$("search").value="";
+      setView("schedule");syncPills();render();
+      window.scrollTo({top:document.querySelector(".controls").offsetTop-10,behavior:"smooth"});
+    });
+    grid.appendChild(card);
+  });
+}
+
+function renderStrip(){
+  const strip=$("standingsStrip");
+  if(!strip)return;
+  if(!state.group||!groupStandings.has(state.group)){
+    strip.style.display="none";return;
+  }
+  const teams=groupStandings.get(state.group);
+  const color=GROUP_COLORS[state.group];
+  strip.style.display="block";
+  strip.innerHTML='<table>'
+    +'<thead><tr><th class="left" colspan="3" style="color:'+color+'">Group '+state.group+' Standings</th>'
+    +'<th title="Played">MP</th><th title="Won">W</th><th title="Drawn">D</th>'
+    +'<th title="Lost">L</th><th title="Goal difference">GD</th><th title="Points">Pts</th>'
+    +'</tr></thead><tbody>'
+    +teams.map((t,i)=>{
+      const q=i<2?' class="q"':"";
+      const flagImg=t.flag?'<img src="'+t.flag+'" alt="">':"";
+      return'<tr'+q+'>'
+        +'<td class="left"><span style="color:var(--chalk-faint);font-family:var(--font-mono);font-size:11px">'+(i+1)+'</span>'+flagImg+t.name+'</td>'
+        +'<td>'+t.mp+'</td><td>'+t.w+'</td><td>'+t.d+'</td><td>'+t.l+'</td>'
+        +'<td>'+(t.gd>0?"+":"")+t.gd+'</td>'
+        +'<td class="pts">'+t.pts+'</td>'
+        +'</tr>';
+    }).join("")
+    +'</tbody></table>';
+}
+
 updateTzLabels();
 render();
 fetchScores();
-setInterval(fetchScores,2*60*1000);
+fetchStandings();
+setInterval(()=>{fetchScores();fetchStandings();},2*60*1000);
 </script>
 </body>
 </html>
