@@ -4,7 +4,7 @@ Local server for the World Cup 2026 wallchart.
 Serves static files and proxies /api/* to worldcup26.ir to avoid CORS.
 Usage: python3 server.py [port]   (default port: 8191)
 """
-import http.server, subprocess, os, sys, time, threading
+import http.server, subprocess, os, sys, time, threading, logging
 
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8191
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
@@ -54,10 +54,13 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             super().do_GET()
 
     def log_message(self, fmt, *args):
-        pass  # suppress request noise in the log file
+        logging.info("%s - - [%s] %s", self.address_string(),
+                     self.log_date_time_string(), fmt % args)
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s",
+                        datefmt="%Y-%m-%d %H:%M:%S")
     httpd = http.server.ThreadingHTTPServer(("", PORT), Handler)
     print(f"Serving on http://localhost:{PORT}", flush=True)
     httpd.serve_forever()
