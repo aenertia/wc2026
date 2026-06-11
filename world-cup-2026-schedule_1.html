@@ -479,6 +479,10 @@ const D=[
 
 const state={stage:"",group:"",q:""};
 const $=id=>document.getElementById(id);
+let scores=new Map();
+const teamOverrides=new Map();
+let teamMeta=new Map();
+let groupStandings=new Map();
 
 /* build stage pills */
 const stageRow=$("stageRow");
@@ -601,11 +605,6 @@ const NAME_MAP={
   "United States":"USA",
 };
 const normName=n=>NAME_MAP[n]||n;
-let scores=new Map();
-const teamOverrides=new Map(); // match# → {home,away} — filled once API knows knockout teams
-let teamMeta=new Map(); // teamId → {name,flag}
-let groupStandings=new Map(); // group letter → sorted [{name,flag,mp,...,pts}]
-
 async function fetchScores(){
   try{
     const res=await fetch("https://worldcup26.ir/get/games",{cache:"no-store"});
