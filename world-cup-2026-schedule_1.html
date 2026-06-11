@@ -601,8 +601,8 @@ const NAME_MAP={
   "United States":"USA",
 };
 const normName=n=>NAME_MAP[n]||n;
-const scoreKey=r=>r[5]+"|"+r[6];
 let scores=new Map();
+const teamOverrides=new Map(); // match# → {home,away} — filled once API knows knockout teams
 
 async function fetchScores(){
   try{
@@ -632,6 +632,14 @@ async function fetchScores(){
       }
     });
     scores=map;
+    // patch knockout team names once the API knows the real teams
+    data.games.forEach(g=>{
+      if(g.home_team_id==="0"||!g.home_team_name_en)return;
+      teamOverrides.set(parseInt(g.id,10),{
+        home:normName(g.home_team_name_en),
+        away:normName(g.away_team_name_en),
+      });
+    });
     render();
   }catch(e){
     console.warn("Score fetch failed:",e);
@@ -639,11 +647,16 @@ async function fetchScores(){
 }
 
 function render(){
-  let rows=D.filter(r=>
-    (!state.stage||r[1]===state.stage)&&
-    (!state.group||r[2]===state.group)&&
-    (!state.q||r[5].toLowerCase().includes(state.q)||r[6].toLowerCase().includes(state.q))
-  );
+  let rows=D.filter(r=>{
+    if(state.stage&&r[1]!==state.stage)return false;
+    if(state.group&&r[2]!==state.group)return false;
+    if(state.q){
+      const ov=teamOverrides.get(r[0]);
+      const h=(ov?.home??r[5]).toLowerCase(), a=(ov?.away??r[6]).toLowerCase();
+      if(!h.includes(state.q)&&!a.includes(state.q))return false;
+    }
+    return true;
+  });
   rows=rows.slice().sort((a,b)=>a.epoch-b.epoch||a[0]-b[0]);
   $("sCount").textContent=rows.length;
   $("sDays").textContent=new Set(rows.map(r=>dateKey(r.epoch))).size;
@@ -663,7 +676,9 @@ function render(){
     list.appendChild(h);
     matches.forEach(r=>{
       const m=document.createElement("div");
-      const sc=scores.get(scoreKey(r));
+      const ov=teamOverrides.get(r[0]);
+      const homeName=ov?.home??r[5], awayName=ov?.away??r[6];
+      const sc=scores.get(homeName+"|"+awayName);
       m.className="match"+(sc?.finished?" finished":sc?.live?" live":"");
       m.style.borderLeftColor=accent(r);
 
@@ -687,8 +702,8 @@ function render(){
       const hLoser=sc?.finished&&hNum<aNum,aLoser=sc?.finished&&aNum<hNum;
       const hScorers=sc?.homeScorers?.length?'<span class="scorers">'+sc.homeScorers.join(' · ')+'</span>':'';
       const aScorers=sc?.awayScorers?.length?'<span class="scorers">'+sc.awayScorers.join(' · ')+'</span>':'';
-      const homeHtml='<div class="m-home"><b class="'+(hLoser?"loser":"")+'">'+r[5]+'</b>'+hScorers+'</div>';
-      const awayHtml='<div class="m-away"><b class="'+(aLoser?"loser":"")+'">'+r[6]+'</b>'+aScorers+'</div>';
+      const homeHtml='<div class="m-home"><b class="'+(hLoser?"loser":"")+'">'+homeName+'</b>'+hScorers+'</div>';
+      const awayHtml='<div class="m-away"><b class="'+(aLoser?"loser":"")+'">'+awayName+'</b>'+aScorers+'</div>';
 
       const venueHtml=VENUES[r[0]]?'<div class="m-venue">'+VENUES[r[0]]+'</div>':'';
       m.innerHTML=timeHtml+homeHtml+scoreHtml+awayHtml+'<div class="meta">'+tagFor(r)+'<span class="num">#'+String(r[0]).padStart(3,"0")+'</span></div>'+venueHtml;
