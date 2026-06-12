@@ -13,7 +13,19 @@
       "club": "Al Ahly",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34177372",
+      "full_name": "Mohamed El-Sayed Mohamed El-Shenawy Gomaa; محمد الشناوي",
+      "last_name": "Shenawy",
+      "first_name": "Mohamed El",
+      "bio": "Mohamed El-Sayed Mohamed El-Shenawy Gomaa (Arabic: محمد السيد محمد الشناوي جمعة; born 18 December 1988) is an Egyptian professional footballer who plays as a goalkeeper for Egyptian Premier League club Al Ahly, which he captains, and the Egypt national team.\r\n\r\nHe began his career as a youth player with Al Ahly but was released in 2009, joining Tala'ea El Gaish. He spent time on loan with Haras El-Hodoud before joining Petrojet in 2013. He returned to Al Ahly in July 2016 and then displaced Sher",
+      "birth_location": "Al Hamool, Egypt",
+      "height": "1.91 m (6 ft 3 in)",
+      "weight": "86 kg",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 2,
@@ -26,7 +38,19 @@
       "club": "Al Ahly",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34177445",
+      "full_name": "Yasser Ibrahim Ahmed El Hanafi; يَاسِر إبرَاهِيْم أَحمَد الْحَنَفِي",
+      "last_name": "Ibrahim",
+      "first_name": "Yasser",
+      "bio": "Yasser Ibrahim Ahmed El Hanafi (Arabic: يَاسِر إبرَاهِيْم أَحمَد الْحَنَفِي; born 10 February 1993) is an Egyptian professional footballer who plays as a centre-back for Egyptian Premier League club Al Ahly and the Egypt national team.",
+      "birth_location": "Mansoura, Egypt",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 3,
@@ -39,7 +63,19 @@
       "club": "Al Ahly",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34177374",
+      "full_name": "Mohamed Hany Gamal El-Demerdash; محمد هاني الدمرداش",
+      "last_name": "Hany",
+      "first_name": "Mohamed",
+      "bio": "Mohamed Hany Gamal El-Demerdash (Arabic: محمد هاني جمال الدمرداش; born 2 February 1996) is an Egyptian professional footballer who plays as a right-back for Egyptian Premier League club Al Ahly and the Egypt national team.",
+      "birth_location": "Cairo, Egypt",
+      "height": "1.75 m (5 ft 7 in)",
+      "weight": "",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 4,
@@ -52,7 +88,19 @@
       "club": "Zamalek",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34232256",
+      "full_name": "Hossam Abdelmaguid Abdelsalam, حسام عبد المجيد عبد السلام; ",
+      "last_name": "Abdelmaguid",
+      "first_name": "Hossam",
+      "bio": "Hossam Abdelmaguid Abdelsalam (Arabic: حسام عبد المجيد عبد السلام; born 30 April 2001) is an Egyptian professional footballer who plays as a centre-back for Egyptian Premier League club Zamalek and the Egypt national team.",
+      "birth_location": ", Egypt",
+      "height": "1.93 m (6 ft 4 in)",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 5,
@@ -65,7 +113,19 @@
       "club": "Al Ain",
       "club_nation": "UAE",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34183890",
+      "full_name": "Ramy Hisham Abdel Aziz Mostafa Rabia; رامى ربيعة",
+      "last_name": "Rabia",
+      "first_name": "Ramy",
+      "bio": "Ramy Hisham Abdel Aziz Mostafa Rabia (Arabic: رامي هشام عبد العزيز مصطفى ربيعة; born 20 May 1993) is an Egyptian professional footballer who plays as a centre-back for UAE Pro League club Al Ain and the Egypt national football team.\r\n\r\nHe began his career with Al Ahly, making his professional debut at the age of seventeen in 2010. Regarded as one of the brightest prospects in Egyptian football, he attracted attention from several clubs before joining Portuguese side Sporting CP in 2014 for a fee",
+      "birth_location": "Kairo, Egypt",
+      "height": "180 cm",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 6,
@@ -78,7 +138,19 @@
       "club": "Nice",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34196914",
+      "full_name": "Mohamed Abdelmonem El-Sayed Mohamed Ahmed; محمد عبد المنعم",
+      "last_name": "Abdelmonem",
+      "first_name": "Mohamed",
+      "bio": "Mohamed Abdelmonem El-Sayed Mohamed Ahmed (Arabic: مُحَمَّد عَبد الْمُنْعِم السَّيِّد مُحَمَّد أَحمَد; born 1 February 1999) is an Egyptian professional footballer who plays as a centre-back for Ligue 1 club Nice and the Egypt national team.",
+      "birth_location": "Zagazig, Egypt",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 7,
@@ -91,7 +163,22 @@
       "club": "Al Ahly",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34167707",
+      "full_name": "Mahmoud Ahmed Ibrahim Hassan; محمود حسن",
+      "last_name": "Trézéguet",
+      "bio": "Mahmoud Ahmed Ibrahim Hassan (born 1 October 1994), commonly known as Trézéguet, is an Egyptian professional footballer who plays as a forward for Egyptian Premier League club Al Ahly and the Egypt national team. His nickname is taken from the French former footballer David Trezeguet, after his former youth coach noticed similarities of playing style and appearance between the pair.\r\n\r\nHe began his career with Al Ahly, breaking into the first team at the age of 18 and helping them win the 2012 C",
+      "birth_location": "Kafr El Sheikh, Egypt",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "157 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "Nike Mercurial Vapor XIII Elite FG",
+      "social": {
+        "instagram": "www.instagram.com/mahmoudtrezeguet/",
+        "facebook": "www.facebook.com/Trezeguet27/"
+      },
+      "wikidata_id": "Q6734350"
     },
     {
       "number": 8,
@@ -104,7 +191,19 @@
       "club": "Al Ahly",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34196982",
+      "full_name": "Emam Ashour Metwally Abdelghany; إمام عاشور",
+      "last_name": "Ashour",
+      "first_name": "Emam",
+      "bio": "Emam Ashour Metwally Abdelghany (Arabic: إمام عاشور متولي عبدالغني الاسد; born 20 February 1998) is an Egyptian professional footballer who plays as a midfielder for Egyptian Premier League club Al Ahly and the Egypt national football team.",
+      "birth_location": "El Senbellawein, Egypt",
+      "height": "181 cm",
+      "weight": "",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 9,

@@ -156,7 +156,19 @@
       "club": "Newcastle United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34192616",
+      "full_name": "Valentino Livramento",
+      "last_name": "Livramento",
+      "first_name": "Tino",
+      "bio": "Valentino \"Tino\" Francisco Livramento (born 12 November 2002) is an English footballer who plays as a full-back for Premier League club Newcastle United. \r\nEarly life\r\nBorn in Croydon, Livramento joined Chelsea at under-9 level from local club Roundshaw. Growing up, he supported Chelsea.\r\n\r\nClub career\r\nChelsea\r\nHe was named Chelsea academy player of the year for the 2020–21 season. Towards the end of the season, Livramento featured on the bench in Premier League fixtures against Manchester City",
+      "birth_location": "Croydon, England",
+      "height": "1.73 m (5 ft 8 in)",
+      "weight": "141 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
@@ -169,7 +181,24 @@
       "club": "Crystal Palace",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34160940",
+      "full_name": "Dean Henderson",
+      "last_name": "Henderson",
+      "first_name": "Dean",
+      "bio": "Dean Bradley Henderson (born 12 March 1997) is an English professional footballer who plays as a goalkeeper for Premier League club Crystal Palace and the England national team. \r\n\r\nHenderson signed his first professional contract with Manchester United in 2015 and extended it in 2018 for a further two years until 2022. He made his debut for Manchester United against Luton Town in the third round of the EFL Cup in 2020. He has also been loaned out to a number of other teams. Having played in var",
+      "birth_location": "Whitehaven, England",
+      "height": "1.90 m (6 ft 3 in)",
+      "weight": "185 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "Nike Phantom VNM",
+      "social": {
+        "instagram": "www.instagram.com/dean.henderson97",
+        "facebook": "www.facebook.com/deanhendersonofficial/",
+        "twitter": "twitter.com/deanoooo97"
+      },
+      "wikidata_id": "Q28059260"
     },
     {
       "number": 14,
@@ -182,7 +211,24 @@
       "club": "Brentford",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34145912",
+      "full_name": "Jordan Henderson",
+      "last_name": "Henderson",
+      "first_name": "Jordan",
+      "bio": "Jordan Brian Henderson (born 17 June 1990) is an English professional footballer who plays as a midfielder for Premier League club Brentford and the England national team. He is known for his leadership, versatility, and physicality.\r\n\r\nHenderson joined the Sunderland Academy at the age of eight, making his first-team debut a decade later in November 2008. He spent six months on loan at Coventry City in 2009, before returning to Sunderland. In 2011, Henderson signed for Liverpool, winning his fi",
+      "birth_location": "Sunderland, England",
+      "height": "187cm / 6'2\"",
+      "weight": "172 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "Nike Tiempo Legend VIII",
+      "social": {
+        "instagram": "instagram.com/jhenderson",
+        "facebook": "www.facebook.com/pages/Jordan-Henderson/180362872019250",
+        "twitter": "twitter.com/jhenderson"
+      },
+      "wikidata_id": "Q273715"
     },
     {
       "number": 15,
@@ -195,7 +241,20 @@
       "club": "Newcastle United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34148591",
+      "full_name": "Dan Burn",
+      "last_name": "Burn",
+      "first_name": "Dan",
+      "bio": "Daniel Johnson Burn (born 9 May 1992) is an English professional footballer who plays as a defender for Premier League club Newcastle United.\r\n He plays as a defender. Burn made his debut in the Football League for Darlington in 2009 and joined Fulham at the end of the 2010–11 season, having made 19 appearances for Darlington. He spent the 2012–13 season on loan to Yeovil Town, for whom he made 41 appearances, and spent part of the following season on loan to Birmingham City. He joined Wigan whe",
+      "birth_location": "Blyth, England",
+      "height": "6 ft 7 in (2.01 m)",
+      "weight": "192 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q5213217"
     },
     {
       "number": 16,
@@ -208,7 +267,20 @@
       "club": "Manchester United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34221702",
+      "full_name": "Kobbie Mainoo",
+      "last_name": "Mainoo",
+      "first_name": "Kobbie",
+      "bio": "Kobbie Boateng Mainoo (born 19 April 2005) is an English professional footballer who plays as a midfielder for Premier League club Manchester United.\r\n\r\nBorn in Stockport, Mainoo started his youth career at Cheadle & Gatley Junior Football Club, before joining Manchester United at the age of nine.\r\n\r\nMainoo signed his first professional contract in May 2022. His performances, including a good midfield display against Carlisle United in the EFL Trophy, earned him a callup to the senior squad for ",
+      "birth_location": "Stockport, England",
+      "height": "181cm / 5'11\"",
+      "weight": "159 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q114703020"
     },
     {
       "number": 17,
@@ -221,7 +293,20 @@
       "club": "Aston Villa",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34177247",
+      "full_name": "Morgan Rogers",
+      "last_name": "Rogers",
+      "first_name": "Morgan",
+      "bio": "Morgan Elliot Rogers (born 26 July 2002) is an English professional footballer who plays as a midfielder or forward for Premier League club Aston Villa. Rogers is a product of the West Bromwich Albion academy. He has represented England at all youth levels up to U20.",
+      "birth_location": "Halesowen, England",
+      "height": "187 cm",
+      "weight": "174 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q61598452"
     },
     {
       "number": 18,
@@ -234,7 +319,23 @@
       "club": "Newcastle United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34170142",
+      "full_name": "Anthony Gordon",
+      "last_name": "Gordon",
+      "first_name": "Anthony",
+      "bio": "Anthony Michael Gordon (born 24 February 2001) is an English professional footballer who plays primarily as a winger for Premier League club Newcastle United and the England national team. He will join La Liga club Barcelona on 1 July 2026.\r\n\r\nGordon began his professional career with Everton, making his senior debut in December 2017 in a Europa League match, before joining Newcastle United in 2023. In 2026, he completed a transfer to join Barcelona for £69.3 million.",
+      "birth_location": "Liverpool, England",
+      "height": "6 ft 0 in (1.83 m)",
+      "weight": "159 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/anthonygordon/",
+        "twitter": "twitter.com/anthonygordon59"
+      },
+      "wikidata_id": "Q45179405"
     },
     {
       "number": 19,
@@ -247,7 +348,20 @@
       "club": "Aston Villa",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34157367",
+      "full_name": "Ollie Watkins",
+      "last_name": "Watkins",
+      "first_name": "Ollie",
+      "bio": "Oliver George Arthur Watkins (born 30 December 1995) is an English professional footballer who plays as a forward for Premier League club Aston Villa and the England national team. Described as a complete forward, Watkins is known for his finishing ability and work ethic.\r\n\r\nWatkins is a product of the Exeter City academy and made his breakthrough at the club, winning the EFL Young Player of the Year award, before departing in 2017 for Brentford. He had a successful three-year spell at the club,",
+      "birth_location": "Torquay, England",
+      "height": "5 ft 11 in (1.80 m)",
+      "weight": "163 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q16911979"
     },
     {
       "number": 20,
@@ -260,7 +374,22 @@
       "club": "Arsenal",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34170520",
+      "full_name": "Noni Madueke",
+      "last_name": "Madueke",
+      "first_name": "Noni",
+      "bio": "Chukwunonso Azuka Tristan \"Noni\" Madueke (born 10 March 2002) is an English professional footballer who plays as a winger for Premier League club Arsenal and the England national team.",
+      "birth_location": "London, England",
+      "height": "182cm / 6'0\"",
+      "weight": "163 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/nonzinoo10/"
+      },
+      "wikidata_id": "Q66801705"
     },
     {
       "number": 21,
@@ -273,7 +402,20 @@
       "club": "Arsenal",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34172278",
+      "full_name": "Eberechi Eze",
+      "last_name": "Eze",
+      "first_name": "Eberechi",
+      "bio": "Eberechi Oluchi \"Ebere\" Eze is an English professional footballer who plays as an attacking midfielder or winger for Premier League club Arsenal and the England national team. \r\n\r\nA product of numerous English academies, Eze began his senior career with Queens Park Rangers in 2016. His breakthrough came in the 2019–20 season, in which he scored 14 goals and was named the club's Player of the Year. He was subsequently signed by Crystal Palace for £17 million, and has since gone on to make over 12",
+      "birth_location": "London, England",
+      "height": "5 ft 10 in (1.78 m)",
+      "weight": "161 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q28445512"
     },
     {
       "number": 22,
@@ -286,7 +428,23 @@
       "club": "Al-Ahli",
       "club_nation": "KSA",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34157545",
+      "full_name": "Ivan Toney",
+      "last_name": "Toney",
+      "first_name": "Ivan",
+      "bio": "Ivan Benjamin Elijah Toney (born 16 March 1996) is an English professional footballer who plays as a striker for Saudi Pro League club Al-Ahli and the England national team. \r\n\r\nToney became the youngest player to represent Northampton Town when he made his first-team debut in 2012, and scored 13 goals in 60 matches across all competitions before joining Newcastle United in 2015. In his first season at Newcastle, he had two loans at Barnsley, winning the Football League Trophy and the League One",
+      "birth_location": "Northampton, England",
+      "height": "5 ft 10 in (1.79 m)",
+      "weight": "192 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/ivantoney1/",
+        "twitter": "twitter.com/ivantoney24"
+      },
+      "wikidata_id": "Q16239819"
     },
     {
       "number": 23,
@@ -299,7 +457,20 @@
       "club": "Manchester City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34175792",
+      "full_name": "James Trafford",
+      "last_name": "Trafford",
+      "first_name": "James",
+      "bio": "James Harrington Trafford (born 10 October 2002) is an English professional footballer who plays as a goalkeeper for Premier League club Manchester City.\r\nJames signed from Carlisle United as an Under-12 and has progressed through to the EDS squad in 2020/21 after signing his first professional contract in July 2020.\r\nA vocal figure in goal, James has also featured regularly for England teams up to Under-19 level.\r\nCurrently on loan to Accrington.",
+      "birth_location": "Greysouthen, England",
+      "height": "6' 6\"",
+      "weight": "183 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q107985608"
     },
     {
       "number": 24,

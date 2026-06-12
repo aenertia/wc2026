@@ -221,7 +221,22 @@
       "club": "Arsenal",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34172293",
+      "full_name": "William Alain André Gabriel Saliba",
+      "last_name": "Saliba",
+      "first_name": "William",
+      "bio": "William Alain André Gabriel Saliba (French: ; born 24 March 2001) is a French professional footballer who plays as a centre-back for Premier League club Arsenal and the France national team. Regarded as one of the best centre-backs in the world, he is known for his strength, pace, tackling, and composure.\r\n\r\nSaliba began his career in 2018 with Saint-Étienne, helping them qualify for the UEFA Europa League. Saliba joined Arsenal in 2019 in a transfer for a reported fee of £27 million. After cons",
+      "birth_location": "Bondy, France",
+      "height": "1.92 m (6 ft 4 in)",
+      "weight": "203 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "Nike Mercurial Vapor XIII Elite FG",
+      "social": {
+        "instagram": "www.instagram.com/w.saliba4/"
+      },
+      "wikidata_id": "Q56868118"
     },
     {
       "number": 18,
@@ -234,7 +249,22 @@
       "club": "Paris Saint-Germain",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34202661",
+      "full_name": "Warren Marie Jean-Pierre Zaïre-Emery",
+      "last_name": "Zaïre-Emery",
+      "first_name": "Warren",
+      "bio": "Warren Zaïre-Emery (born 8 March 2006) is a French professional footballer who plays as a midfielder for Ligue 1 club Paris Saint-Germain.",
+      "birth_location": "Montreuil, France",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "68 kg (150 lb)",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/wzairemery6/"
+      },
+      "wikidata_id": "Q111280241"
     },
     {
       "number": 19,
@@ -247,7 +277,23 @@
       "club": "Al-Hilal",
       "club_nation": "KSA",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34169488",
+      "full_name": "Théo Bernard François Hernandez",
+      "last_name": "Hernandez",
+      "first_name": "Théo",
+      "bio": "Théo Bernard François Hernandez (French pronunciation: ; born 6 October 1997) is a French professional footballer who plays primarily as a left-back for Saudi Pro League club Al Hilal and the France national team. He is known for his speed, dribbling, and goal scoring ability.\r\n\r\nThéo is the younger brother of fellow professional footballer Lucas Hernandez, and the son of Jean-François Hernandez, a retired footballer.",
+      "birth_location": "Marseille, France",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "81 kg (179 lb)",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/theo3hernandez/",
+        "twitter": "twitter.com/theohernandez"
+      },
+      "wikidata_id": "Q23703372"
     },
     {
       "number": 20,
@@ -260,7 +306,22 @@
       "club": "Paris Saint-Germain",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34200291",
+      "full_name": "Désiré Nonka-Maho Doué",
+      "last_name": "Doué",
+      "first_name": "Désiré",
+      "bio": "Désiré Nonka-Maho Doué (born 3 June 2005) is a French professional footballer who plays as a winger for Ligue 1 club Paris Saint-Germain. He is widely considered to be one of the most talented prospects in European football.\r\n\r\nDoué is a youth international for France, having played for the national team at the under-17, under-19 and under-21 levels, as well as representing the Olympic team in 2024.",
+      "birth_location": "Angers, France",
+      "height": "1.81 m (5 ft 11 in)",
+      "weight": "79 kg (174 lb)",
+      "position_detail": "Left Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/desire.doue/"
+      },
+      "wikidata_id": "Q112170256"
     },
     {
       "number": 21,
@@ -273,7 +334,23 @@
       "club": "Paris Saint-Germain",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34160701",
+      "full_name": "Lucas François Bernard Hernandez",
+      "last_name": "Hernandez",
+      "first_name": "Lucas",
+      "bio": "Lucas François Bernard Hernandez (French pronunciation: ; born 14 February 1996) is a French professional footballer who plays as a centre-back or full-back for Ligue 1 club Paris Saint-Germain and the France national team. He is known for his versatility and defensive prowess. He is the older brother of fellow professional footballer Théo Hernandez, and their father Jean-François Hernandez was also a footballer.\r\n\r\nHernandez started his career with Atlético Madrid, where he made more than 100 c",
+      "birth_location": "Marseille, France",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "Nike Tiempo Legend VII",
+      "social": {
+        "instagram": "www.instagram.com/lucashernandez21/",
+        "twitter": "twitter.com/lucashernandez"
+      },
+      "wikidata_id": "Q18924954"
     },
     {
       "number": 22,
@@ -286,7 +363,20 @@
       "club": "Crystal Palace",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34169248",
+      "full_name": "Jean-Philippe Mateta",
+      "last_name": "Mateta",
+      "first_name": "Jean-Philippe",
+      "bio": "Jean-Philippe Mateta (born 28 June 1997) is a French professional footballer who plays as a striker for Premier League club Crystal Palace. He has represented France internationally at U19 and U21 youth levels.",
+      "birth_location": "Sevran, France",
+      "height": "1.92 m (6 ft 4 in)",
+      "weight": "192 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q26964668"
     },
     {
       "number": 23,
@@ -299,7 +389,19 @@
       "club": "Lens",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34349099",
+      "full_name": "Robin Risser Birckel",
+      "last_name": "Risser",
+      "first_name": "Robin",
+      "bio": "Robin Risser Birckel (born 2 December 2004) is a French professional footballer who plays as a goalkeeper for Ligue 1 club Lens.",
+      "birth_location": "Colmar, France",
+      "height": "193 cm",
+      "weight": "83 kg",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 24,
@@ -312,7 +414,22 @@
       "club": "Manchester City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34172185",
+      "full_name": "Mathis Rayan Cherki",
+      "last_name": "Cherki",
+      "first_name": "Rayan",
+      "bio": "Mathis Rayan Cherki (born 17 August 2003) is a French professional footballer who plays as an attacking midfielder or winger for Premier League club Manchester City and the France national team.",
+      "birth_location": "Lyon, France",
+      "height": "177 cm",
+      "weight": "157 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Both",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/rayan_cherki/"
+      },
+      "wikidata_id": "Q64736321"
     },
     {
       "number": 25,
@@ -325,7 +442,19 @@
       "club": "Monaco",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34196431",
+      "full_name": "Maghnes Akliouche",
+      "last_name": "Akliouche",
+      "first_name": "Maghnes",
+      "bio": "Maghnes Akliouche (born 25 February 2002) is a French professional footballer who plays as an attacking midfielder for Ligue 1 club Monaco and the France national team.",
+      "birth_location": "Tremblay-en-France, France",
+      "height": "183 cm",
+      "weight": "159 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -338,7 +467,19 @@
       "club": "Crystal Palace",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34173076",
+      "full_name": "Maxence Guy Lacroix",
+      "last_name": "Lacroix",
+      "first_name": "Maxence",
+      "bio": "Maxence Guy Lacroix (born 6 April 2000) is a French professional footballer who plays as a centre-back for Premier League club Crystal Palace. \r\nClub career\r\nOn 21 August 2017, Lacroix signed his first professional contract with FC Sochaux-Montbéliard. Lacroix made his professional debut with Sochaux in a 1–0 Ligue 2 win over FC Lorient on 22 December 2018.+\r\n\r\nOn 25 August 2020, Lacroix joined VfL Wolfsburg on a four-year deal.\r\n\r\nInternational career\r\nLacroix is a youth international for Franc",
+      "birth_location": "Villeneuve-Saint-Georges, France",
+      "height": "1.90 m (6 ft 3 in)",
+      "weight": "192 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     }
   ]
 }

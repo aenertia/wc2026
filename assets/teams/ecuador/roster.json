@@ -325,7 +325,19 @@
       "club": "Tijuana",
       "club_nation": "MEX",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34178310",
+      "full_name": "Jackson Gabriel Porozo Vernaza",
+      "last_name": "Porozo",
+      "first_name": "Jackson",
+      "bio": "Jackson Gabriel Porozo Vernaza (born 4 August 2000) is an Ecuadorian professional footballer who plays as a centre-back for Liga MX club Tijuana and the Ecuador national team.",
+      "birth_location": "San Lorenzo, Ecuador",
+      "height": "1.92 m (6 ft 3 in)",
+      "weight": "181 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -338,7 +350,19 @@
       "club": "Genk",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34237571",
+      "full_name": "Yaimar Abel Medina Ortiz",
+      "last_name": "Medina",
+      "first_name": "Yaimar",
+      "bio": "Yaimar Abel Medina Ortiz (born 5 November 2004) is an Ecuadorian professional footballer who plays as a midfielder for Belgian Pro League club Genk and the Ecuador national team.",
+      "birth_location": "Eloy Alfaro, Ecuador",
+      "height": "177 cm",
+      "weight": "73 kg",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     }
   ]
 }
