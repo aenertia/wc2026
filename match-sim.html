@@ -1156,6 +1156,13 @@ let pauseTimer = 0;
 let halfSwapped = false;
 let animId = null;
 let varActive = false, varTimer = 0, varResult = '';
+
+// ---- FRAME STATS (toggle with 'D' key during gameplay) ----
+window.FRAME_STATS = { times: [], mean: 0, min: 0, max: 0, show: false };
+let _lastFrameTime = 0;
+document.addEventListener('keydown', e => {
+  if (e.key === 'd' || e.key === 'D') window.FRAME_STATS.show = !window.FRAME_STATS.show;
+});
 let pitchInvader = null;
 let celebrationTimer = 0;
 let canvas, ctx;
@@ -3486,6 +3493,20 @@ function updateScoreboard() {
 function gameLoop() {
   animId = requestAnimationFrame(gameLoop);
 
+  // Frame timing measurement
+  const _now = performance.now();
+  if (_lastFrameTime) {
+    const dt = _now - _lastFrameTime;
+    const fs = window.FRAME_STATS;
+    fs.times.push(dt);
+    if (fs.times.length > 60) fs.times.shift();
+    const sum = fs.times.reduce((a,b)=>a+b,0);
+    fs.mean = sum / fs.times.length;
+    fs.min = Math.min(...fs.times);
+    fs.max = Math.max(...fs.times);
+  }
+  _lastFrameTime = _now;
+
   if (gameState === 'teamSelect' || gameState === 'fulltime') return;
 
   // Lineup animation — move players to positions + render
@@ -3938,6 +3959,25 @@ function drawFrame() {
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('GOAL!', CW / 2, CH / 2);
+  }
+
+  // Frame stats debug overlay (press 'D' to toggle)
+  if (window.FRAME_STATS.show) {
+    const fs = window.FRAME_STATS;
+    const fps = fs.mean > 0 ? Math.round(1000 / fs.mean) : 0;
+    ctx.save();
+    ctx.fillStyle = 'rgba(0,0,0,0.65)';
+    ctx.fillRect(CW - 130, CH - 50, 125, 45);
+    ctx.fillStyle = fps >= 55 ? '#44ff88' : fps >= 30 ? '#ffcc00' : '#ff4444';
+    ctx.font = 'bold 11px monospace';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillText(`FPS: ${fps}`, CW - 122, CH - 46);
+    ctx.fillStyle = '#aaa';
+    ctx.font = '9px monospace';
+    ctx.fillText(`mean:${fs.mean.toFixed(1)}ms`, CW - 122, CH - 32);
+    ctx.fillText(`min:${fs.min.toFixed(1)} max:${fs.max.toFixed(1)}`, CW - 122, CH - 22);
+    ctx.restore();
   }
 }
 
