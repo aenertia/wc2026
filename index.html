@@ -362,7 +362,10 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
   max-width:min(95vw,900px);max-height:90vh;
   width:min(95vw,900px);
   background:var(--pitch);color:var(--chalk);
-  overflow:hidden;display:flex;flex-direction:column;
+  overflow:hidden;
+}
+#teamDialog[open]{
+  display:flex;flex-direction:column;
 }
 #teamDialog::backdrop{background:rgba(0,0,0,.65);backdrop-filter:blur(5px)}
 .td-header{
