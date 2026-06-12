@@ -778,8 +778,8 @@ function addEffect(type, worldX, worldY, data = {}) {
   });
 }
 
-function updateAndDrawEffects() {
-  const now = Date.now();
+function updateAndDrawEffects(frameTime = Date.now()) {
+  const now = frameTime;
   for (let i = activeEffects.length - 1; i >= 0; i--) {
     const e = activeEffects[i];
     const age = (now - e.startTime) / 1000; // seconds
@@ -1155,7 +1155,12 @@ let comedyStats = { dives: 0, varReviews: 0, fights: 0, redCards: 0, pitchInvade
 let pauseTimer = 0;
 let halfSwapped = false;
 let animId = null;
+let allPlayers = []; // cached array rebuilt by buildAllPlayers()
+function buildAllPlayers() {
+  allPlayers = [...homePlayers, ...awayPlayers];
+}
 let varActive = false, varTimer = 0, varResult = '';
+let _prevSbScore = '', _prevSbClock = '';
 
 // ---- FRAME STATS (toggle with 'D' key during gameplay) ----
 window.FRAME_STATS = { times: [], mean: 0, min: 0, max: 0, show: false };
@@ -1549,13 +1554,13 @@ function drawPitch(ctx) {
 }
 
 // ---- DRAW PLAYER (Sensible Soccer style: oversized head on tiny body) ----
-function drawPlayer(ctx, p) {
+function drawPlayer(ctx, p, frameTime = Date.now()) {
   if (p.sentOff) return;
 
   let x = p.x + (p.slideX || 0);
   let y = p.y + (p.slideY || 0);
   const isMoving = Math.abs(p.vx) > 0.3 || Math.abs(p.vy) > 0.3;
-  const frame = Math.floor(Date.now() / 120) % 2; // 2-frame walk cycle ~8fps
+  const frame = Math.floor(frameTime / 120) % 2; // 2-frame walk cycle ~8fps
   const hasBall = ball.owner === p;
 
   // Dramatic states: rotate player horizontal + jiggle
@@ -1566,19 +1571,19 @@ function drawPlayer(ctx, p) {
     if (p.state === 'diving') {
       ctx.rotate(Math.PI / 2 + Math.sin(p.stateTimer * 0.4) * 0.3); // on their side, writhing
     } else if (p.state === 'fighting') {
-      ctx.rotate(Math.sin(Date.now() / 80) * 0.5); // jiggling aggressively
-      ctx.translate(Math.sin(Date.now() / 50) * 4, Math.cos(Date.now() / 60) * 3); // shaking
+      ctx.rotate(Math.sin(frameTime / 80) * 0.5); // jiggling aggressively
+      ctx.translate(Math.sin(frameTime / 50) * 4, Math.cos(frameTime / 60) * 3); // shaking
     } else if (p.state === 'celebrating') {
       // Varied celebration rotations based on type
       if (p.celebrationType === 'kneeSlide') {
         ctx.rotate(0.3); // slight lean forward
         ctx.translate((p.celebSlideX || 0), 4); // sliding forward + lower
       } else if (p.celebrationType === 'cornerFlag' && p.celebPhase > 30) {
-        ctx.rotate(Math.sin(Date.now() / 100) * 0.8); // wild dance at corner
+        ctx.rotate(Math.sin(frameTime / 100) * 0.8); // wild dance at corner
       } else if (p.celebrationType === 'shirtPull') {
         ctx.translate(0, -3); // shirt over head lifts body
       } else {
-        ctx.rotate(Math.sin(Date.now() / 200) * 0.4); // default sway
+        ctx.rotate(Math.sin(frameTime / 200) * 0.4); // default sway
       }
     } else if (p.state === 'dejected') {
       if (p.dejectionType === 'dropToKnees') {
@@ -1587,7 +1592,7 @@ function drawPlayer(ctx, p) {
       } else if (p.dejectionType === 'stareAtGround') {
         ctx.rotate(0.2); // head down
       } else if (p.dejectionType === 'argueWithRef') {
-        ctx.rotate(Math.sin(Date.now() / 60) * 0.15); // agitated
+        ctx.rotate(Math.sin(frameTime / 60) * 0.15); // agitated
       }
       // handsOnHead: no rotation, just the overlaid visual
     } else if (p.state === 'slacking') {
@@ -1726,7 +1731,7 @@ function drawPlayer(ctx, p) {
 
   // --- Fighting effect: big cartoon boxing gloves ---
   if (p.state === 'fighting') {
-    const punchT = Date.now() / 120;
+    const punchT = frameTime / 120;
     const leftPunch = Math.sin(punchT) * 0.5 + 0.5;
     const rightPunch = Math.sin(punchT + Math.PI) * 0.5 + 0.5;
     const fistR = 10;
@@ -1774,7 +1779,7 @@ function drawPlayer(ctx, p) {
       ctx.fillStyle = 'rgba(255,200,0,0.8)';
       ctx.beginPath();
       for (let s = 0; s < 8; s++) {
-        const angle = (s / 8) * Math.PI * 2 + Date.now() / 200;
+        const angle = (s / 8) * Math.PI * 2 + frameTime / 200;
         const r = s % 2 === 0 ? 8 : 4;
         ctx[s === 0 ? 'moveTo' : 'lineTo'](lfx - 6 + Math.cos(angle) * r, lfy + Math.sin(angle) * r);
       }
@@ -1784,7 +1789,7 @@ function drawPlayer(ctx, p) {
       ctx.fillStyle = 'rgba(255,200,0,0.8)';
       ctx.beginPath();
       for (let s = 0; s < 8; s++) {
-        const angle = (s / 8) * Math.PI * 2 + Date.now() / 200;
+        const angle = (s / 8) * Math.PI * 2 + frameTime / 200;
         const r = s % 2 === 0 ? 8 : 4;
         ctx[s === 0 ? 'moveTo' : 'lineTo'](rfx + 6 + Math.cos(angle) * r, rfy + Math.sin(angle) * r);
       }
@@ -1804,7 +1809,7 @@ function drawPlayer(ctx, p) {
       // Two lines extending upward from shoulders (raised arms)
       ctx.strokeStyle = 'rgba(255,255,255,0.8)';
       ctx.lineWidth = 2;
-      const armWave = Math.sin(Date.now() / 150) * 3;
+      const armWave = Math.sin(frameTime / 150) * 3;
       ctx.beginPath(); ctx.moveTo(x - 3, y - bh/2); ctx.lineTo(x - 6 + armWave, y - bh - 8); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(x + 3, y - bh/2); ctx.lineTo(x + 6 - armWave, y - bh - 8); ctx.stroke();
       ctx.lineWidth = 1;
@@ -1838,7 +1843,7 @@ function drawPlayer(ctx, p) {
       ctx.globalAlpha = 0.85;
     } else if (p.dejectionType === 'argueWithRef') {
       // Arm lines flailing
-      const wave = Math.sin(Date.now() / 80) * 8;
+      const wave = Math.sin(frameTime / 80) * 8;
       ctx.strokeStyle = 'rgba(255,255,255,0.7)';
       ctx.lineWidth = 2;
       ctx.beginPath(); ctx.moveTo(x - 3, y); ctx.lineTo(x - 12 + wave, y - 10); ctx.stroke();
@@ -1993,7 +1998,7 @@ function drawPossessionArrow(ctx) {
   ctx.lineWidth = 1;
 }
 
-function drawBall(ctx) {
+function drawBall(ctx, frameTime = Date.now()) {
   const bx = ball.x, by = ball.y;
   const speed = Math.sqrt(ball.vx*ball.vx + ball.vy*ball.vy);
   // Ball grows when kicked hard — simulates "coming toward camera" effect
@@ -2029,7 +2034,7 @@ function drawBall(ctx) {
 
   // Classic dodecahedron pentagon pattern (5 dark patches)
   ctx.fillStyle = '#222';
-  const spin = (Date.now() / 300) * (Math.abs(ball.vx) + Math.abs(ball.vy)) * 0.05;
+  const spin = (frameTime / 300) * (Math.abs(ball.vx) + Math.abs(ball.vy)) * 0.05;
   for (let i = 0; i < 5; i++) {
     const angle = spin + (i / 5) * Math.PI * 2;
     const px = bx + Math.cos(angle) * br * 0.52;
@@ -3489,8 +3494,10 @@ function addCommentary(type, text) {
 
 // ---- SCOREBOARD ----
 function updateScoreboard() {
-  $('sbScore').textContent = `${homeScore} – ${awayScore}`;
-  $('clockDisplay').textContent = `${Math.floor(matchClock)}'`;
+  const newScore = `${homeScore} – ${awayScore}`;
+  if (newScore !== _prevSbScore) { $('sbScore').textContent = newScore; _prevSbScore = newScore; }
+  const newClock = `${Math.floor(matchClock)}'`;
+  if (newClock !== _prevSbClock) { $('clockDisplay').textContent = newClock; _prevSbClock = newClock; }
 }
 
 // ---- MAIN GAME LOOP ----
@@ -3509,13 +3516,15 @@ function gameLoop() {
     fs.min = Math.min(...fs.times);
     fs.max = Math.max(...fs.times);
   }
-  _lastFrameTime = _now;
+   _lastFrameTime = _now;
+
+  const frameTime = Date.now();
 
   if (gameState === 'teamSelect' || gameState === 'fulltime') return;
 
   // Lineup animation — move players to positions + render
   if (gameState === 'lineup') {
-    [...homePlayers, ...awayPlayers].forEach(p => {
+    allPlayers.forEach(p => {
       if (p.targetX !== undefined) {
         const dx = p.targetX - p.x, dy = p.targetY - p.y;
         const d = Math.sqrt(dx*dx+dy*dy);
@@ -3524,7 +3533,7 @@ function gameLoop() {
       }
     });
     updateCamera();
-    drawFrame();
+    drawFrame(frameTime);
     return;
   }
 
@@ -3540,7 +3549,7 @@ function gameLoop() {
         triggerPenaltyKick(penTeam, null);
       }
     }
-    drawFrame();
+    drawFrame(frameTime);
     return;
   }
 
@@ -3558,7 +3567,7 @@ function gameLoop() {
         addCommentary('default', `Second half underway! ${awayTeamName} kick off.`);
       }
     }
-    drawFrame();
+    drawFrame(frameTime);
     return;
   }
 
@@ -3598,7 +3607,7 @@ function gameLoop() {
       };
       addCommentary('info', pickComment('halftime', htVars));
       updateScoreboard();
-      drawFrame();
+      drawFrame(frameTime);
       return;
     }
 
@@ -3626,9 +3635,9 @@ function gameLoop() {
     if (penaltyState) {
       const blocking = updatePenaltyKick();
       // Still draw players moving during penalty
-      for (const p of [...homePlayers, ...awayPlayers]) applyVelocity(p);
+      for (const p of allPlayers) applyVelocity(p);
       updateCamera();
-      drawFrame();
+      drawFrame(frameTime);
       return;
     }
 
@@ -3661,7 +3670,7 @@ function gameLoop() {
 
     // Ball pickup (free ball)
     if (!ball.owner) {
-      const all = [...homePlayers, ...awayPlayers].filter(p => canAct(p));
+      const all = allPlayers.filter(p => canAct(p));
       for (const p of all) {
         if (dist(p.x, p.y, ball.x, ball.y) < 20) {
           ball.owner = p; ball.lastTouchedBy = p;
@@ -3706,7 +3715,7 @@ function gameLoop() {
     }
   }
 
-  drawFrame();
+  drawFrame(frameTime);
 }
 
 function applyVelocity(p) {
@@ -3727,6 +3736,7 @@ function resetPositions() {
   for (const p of awayPlayers) { p.x = p.homeX; p.y = p.homeY; p.vx = 0; p.vy = 0; if (p.state !== 'sentOff') p.state = 'idle'; }
   ball.x = WORLD_W / 2; ball.y = WORLD_H / 2; ball.vx = 0; ball.vy = 0; ball.owner = null; ball.free = true;
   snapCamera(WORLD_W / 2, WORLD_H / 2);
+  buildAllPlayers();
 }
 
 function swapSides() {
@@ -3742,7 +3752,7 @@ function swapSides() {
 }
 
 // ---- MINIMAP ----
-function drawMinimap() {
+function drawMinimap(frameTime = Date.now()) {
   const mw = 120, mh = 78;
   const mx = CW - mw - 10, my = CH - mh - 10;
   // Background
@@ -3761,8 +3771,7 @@ function drawMinimap() {
   ctx.lineWidth = 1;
   ctx.strokeRect(vx, vy, vw, vh);
   // Players as dots
-  const allP = [...homePlayers, ...awayPlayers];
-  for (const p of allP) {
+  for (const p of allPlayers) {
     if (p.sentOff) continue;
     const px = mx + (p.x / WORLD_W) * mw;
     const py = my + (p.y / WORLD_H) * mh;
@@ -3779,8 +3788,8 @@ function drawMinimap() {
   if (minimapZoomTimer > 0 && minimapZoomTarget) {
     const ztx = mx + (minimapZoomTarget.x / WORLD_W) * mw;
     const zty = my + (minimapZoomTarget.y / WORLD_H) * mh;
-    const pulse = 3 + Math.sin(Date.now() / 150) * 2;
-    ctx.strokeStyle = `rgba(240,196,76,${0.5 + Math.sin(Date.now()/200)*0.3})`;
+    const pulse = 3 + Math.sin(frameTime / 150) * 2;
+    ctx.strokeStyle = `rgba(240,196,76,${0.5 + Math.sin(frameTime/200)*0.3})`;
     ctx.lineWidth = 1.5;
     ctx.beginPath(); ctx.arc(ztx, zty, pulse, 0, Math.PI * 2); ctx.stroke();
     ctx.lineWidth = 1;
@@ -3793,7 +3802,7 @@ function drawMinimap() {
   ctx.fillText('click to explore', mx + mw/2, my + mh + 8);
 }
 
-function drawFrame() {
+function drawFrame(frameTime = Date.now()) {
   ctx.clearRect(0, 0, CW, CH);
 
   // === WORLD SPACE (camera-offset) ===
@@ -3801,13 +3810,13 @@ function drawFrame() {
   ctx.translate(-Math.round(camera.x), -Math.round(camera.y));
 
   drawPitch(ctx);
-  const allPlayers = [...homePlayers, ...awayPlayers].sort((a, b) => a.y - b.y);
-  for (const p of allPlayers) drawPlayer(ctx, p);
+  const sortedPlayers = [...allPlayers].sort((a, b) => a.y - b.y);
+  for (const p of sortedPlayers) drawPlayer(ctx, p, frameTime);
   drawReferee(ctx);
-  drawBall(ctx);
+  drawBall(ctx, frameTime);
   drawPossessionArrow(ctx);
   drawPitchInvader(ctx);
-  updateAndDrawEffects(); // Visual effects in world space
+  updateAndDrawEffects(frameTime); // Visual effects in world space
 
   ctx.restore();
 
@@ -3817,7 +3826,7 @@ function drawFrame() {
   // VAR overlay text in screen space (from activeEffects)
   const varEffects = activeEffects.filter(e => e.type === 'var_overlay');
   if (varEffects.length > 0) {
-    const age = (Date.now() - varEffects[0].startTime) / 1000;
+    const age = (frameTime - varEffects[0].startTime) / 1000;
     if (age < varEffects[0].duration - 0.5) {
       ctx.fillStyle = 'rgba(180,0,255,0.9)';
       ctx.font = "bold 28px 'Anton', sans-serif";
@@ -3839,27 +3848,27 @@ function drawFrame() {
   // Red card screen flash (screen-space)
   const redFlash = activeEffects.find(e => e.type === 'red_flash');
   if (redFlash) {
-    const age = (Date.now() - redFlash.startTime) / 1000;
+    const age = (frameTime - redFlash.startTime) / 1000;
     if (age < 0.3) {
       ctx.fillStyle = `rgba(220,30,30,${0.3 * (1 - age / 0.3)})`;
       ctx.fillRect(0, 0, CW, CH);
     }
   }
 
-  drawMinimap();
+  drawMinimap(frameTime);
 
   // Special team event overlay (cinematic — FILLS ENTIRE SCREEN)
   const specialEvt = activeEffects.find(e => e.type === 'special_event');
   if (specialEvt) {
-    const age = (Date.now() - specialEvt.startTime) / 1000;
+    const age = (frameTime - specialEvt.startTime) / 1000;
     if (age < specialEvt.duration) {
       ctx.save();
 
       // SCREEN SHAKE — violent at start, settles
       const shakeIntensity = age < 1.5 ? (1.5 - age) * 6 : Math.sin(age * 8) * 1.5;
       ctx.translate(
-        Math.sin(Date.now() * 0.03) * shakeIntensity,
-        Math.cos(Date.now() * 0.04) * shakeIntensity
+        Math.sin(frameTime * 0.03) * shakeIntensity,
+        Math.cos(frameTime * 0.04) * shakeIntensity
       );
 
       // FULL SCREEN dramatic overlay — near-total blackout
@@ -3997,8 +4006,8 @@ function showResult() {
   $('resScorers').innerHTML = scorerLines || 'No goals. A defensive masterclass. Or terrible finishing.';
 
   // Man of the match
-  const allPlayers = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff);
-  let motm = allPlayers.sort((a, b) => b.goals - a.goals)[0];
+  const motmCandidates = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff);
+  let motm = motmCandidates.sort((a, b) => b.goals - a.goals)[0];
   const funnyReasons = [
     'Most hair-ruffling celebrations',
     'Least offside decisions against them',
@@ -4008,7 +4017,7 @@ function showResult() {
     'Completed more passes than arguments with the referee',
   ];
   let motmReason = motm && motm.goals > 0 ? `${motm.goals} goal${motm.goals > 1 ? 's' : ''}` : funnyReasons[Math.floor(Math.random() * funnyReasons.length)];
-  if (!motm) { motm = allPlayers[0]; }
+  if (!motm) { motm = motmCandidates[0]; }
 
   $('resMotm').innerHTML = `
     <div class="label">Man of the Match</div>
@@ -4076,6 +4085,7 @@ async function startMatch() {
   // Create players
   homePlayers = createPlayers(homeData, homeTeamName, 0);
   awayPlayers = createPlayers(awayData, awayTeamName, 1);
+  buildAllPlayers();
 
   // Build sprite caches (uses player img objects loaded in createPlayers)
   const homeImgs = {}; homePlayers.forEach(p => { homeImgs[p.number] = p.img; });
