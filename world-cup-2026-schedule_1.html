@@ -583,7 +583,8 @@ $("clearAll").addEventListener("click",()=>{
 /* groups view */
 const localTeams={};
 D.filter(r=>r[1]==="G").forEach(r=>{
-  (localTeams[r[2]]??=new Set()).add(r[5]);localTeams[r[2]].add(r[6]);
+  if(!localTeams[r[2]])localTeams[r[2]]=new Set();
+  localTeams[r[2]].add(r[5]);localTeams[r[2]].add(r[6]);
 });
 renderGroups();
 

@@ -61,6 +61,12 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         else:
             super().do_GET()
 
+    def end_headers(self):
+        # Prevent browsers from caching HTML — ensures iOS always gets fresh code
+        if self.path.endswith(".html") or self.path == "/" or "." not in self.path.split("/")[-1]:
+            self.send_header("Cache-Control", "no-cache, must-revalidate")
+        super().end_headers()
+
     def _send_json(self, data: bytes):
         self.send_response(200)
         self.send_header("Content-Type", "application/json; charset=utf-8")
