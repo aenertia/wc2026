@@ -13,7 +13,7 @@
       "club": "Al-Nassr",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/1.png"
     },
     {
       "number": 2,
@@ -26,7 +26,7 @@
       "club": "Al-Ahli",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/2.png"
     },
     {
       "number": 3,
@@ -39,7 +39,7 @@
       "club": "Al-Hilal",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/3.png"
     },
     {
       "number": 4,
@@ -52,7 +52,7 @@
       "club": "Al-Nassr",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/4.png"
     },
     {
       "number": 5,
@@ -65,7 +65,7 @@
       "club": "Al-Hilal",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/5.png"
     },
     {
       "number": 6,
@@ -78,7 +78,7 @@
       "club": "Al-Hilal",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/6.png"
     },
     {
       "number": 7,
@@ -91,7 +91,7 @@
       "club": "Al-Qadsiah",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/7.png"
     },
     {
       "number": 8,
@@ -104,7 +104,7 @@
       "club": "Al-Nassr",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/8.png"
     },
     {
       "number": 9,
@@ -117,7 +117,7 @@
       "club": "Al-Ahli",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/9.png"
     },
     {
       "number": 10,
@@ -130,7 +130,7 @@
       "club": "Al-Hilal",
       "club_nation": "KSA",
       "captain": true,
-      "photo": null
+      "photo": "players/10.png"
     },
     {
       "number": 11,
@@ -143,7 +143,7 @@
       "club": "Al-Ittihad",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/11.png"
     },
     {
       "number": 12,
@@ -156,7 +156,7 @@
       "club": "Lens",
       "club_nation": "FRA",
       "captain": false,
-      "photo": null
+      "photo": "players/12.png"
     },
     {
       "number": 13,
@@ -169,7 +169,7 @@
       "club": "Al-Nassr",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/13.png"
     },
     {
       "number": 14,
@@ -182,7 +182,7 @@
       "club": "Al-Ittihad",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/14.png"
     },
     {
       "number": 15,
@@ -195,7 +195,7 @@
       "club": "Al-Nassr",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/15.png"
     },
     {
       "number": 16,
@@ -208,7 +208,7 @@
       "club": "Al-Ahli",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/16.png"
     },
     {
       "number": 17,
@@ -221,7 +221,7 @@
       "club": "Al-Ettifaq",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/17.png"
     },
     {
       "number": 18,
@@ -234,7 +234,7 @@
       "club": "Neom",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/18.png"
     },
     {
       "number": 19,
@@ -247,7 +247,7 @@
       "club": "Al-Nassr",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/19.png"
     },
     {
       "number": 20,
@@ -260,7 +260,7 @@
       "club": "Al-Hilal",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/20.png"
     },
     {
       "number": 21,
@@ -273,7 +273,7 @@
       "club": "Al-Ula",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/21.png"
     },
     {
       "number": 22,
@@ -286,7 +286,7 @@
       "club": "Al-Qadsiah",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/22.png"
     },
     {
       "number": 23,
@@ -299,7 +299,7 @@
       "club": "Al-Hilal",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/23.png"
     },
     {
       "number": 24,
@@ -312,7 +312,7 @@
       "club": "Al-Hilal",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/24.png"
     },
     {
       "number": 25,
@@ -325,7 +325,7 @@
       "club": "Al-Qadsiah",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/25.png"
     },
     {
       "number": 26,
@@ -338,7 +338,7 @@
       "club": "Al-Qadsiah",
       "club_nation": "KSA",
       "captain": false,
-      "photo": null
+      "photo": "players/26.png"
     }
   ]
 }
