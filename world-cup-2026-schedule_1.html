@@ -741,7 +741,8 @@ function render(){
 /* dynamic banner — next match countdown / live indicator */
 function updateBanner(){
   const now=Date.now();
-  // prefer a live match from scores map
+  const MATCH_WINDOW=115*60*1000; // 115 min covers 90 + HT + extra time
+  // prefer a live match from scores map (API-flagged live)
   let liveRow=null;
   for(const r of D){
     const ov=teamOverrides.get(r[0]);
@@ -749,11 +750,24 @@ function updateBanner(){
     const sc=scores.get(h+"|"+a)??scores.get(a+"|"+h);
     if(sc?.live){liveRow={r,sc,h,a};break;}
   }
+  // fallback: time-based — kick-off passed within last 115 min and not finished
+  if(!liveRow){
+    const sorted=D.slice().sort((a,b)=>a.epoch-b.epoch);
+    for(const r of sorted){
+      if(r.epoch>now)break; // past this we haven't kicked off yet
+      if(now-r.epoch>MATCH_WINDOW)continue; // likely over
+      const ov=teamOverrides.get(r[0]);
+      const h=ov?.home??r[5], a=ov?.away??r[6];
+      const sc=scores.get(h+"|"+a)??scores.get(a+"|"+h);
+      if(sc?.finished)continue; // API confirmed it's done
+      liveRow={r,sc,h,a};break;
+    }
+  }
   if(liveRow){
     const {r,sc,h,a}=liveRow;
     $("kickoff").querySelector(".k-label").textContent="Live now";
-    $("countdown").textContent=sc.home+" – "+sc.away;
-    $("koLine").textContent="Match "+r[0]+" · "+h+" v "+a+" · "+sc.elapsed+"'";
+    $("countdown").textContent=(sc?.home??"0")+" – "+(sc?.away??"0");
+    $("koLine").textContent="Match "+r[0]+" · "+h+" v "+a+(sc?.elapsed&&sc.elapsed!=="notstarted"?" · "+sc.elapsed+"'":"");
     return;
   }
   // find next upcoming match
