@@ -595,7 +595,8 @@ const CW = 800, CH = 520;                // viewport (canvas) size
 const WORLD_W = 1600, WORLD_H = 1040;    // world pitch size (2× canvas)
 const PITCH_L = 40, PITCH_R = WORLD_W - 40, PITCH_T = 30, PITCH_B = WORLD_H - 30;
 const PW = PITCH_R - PITCH_L, PH = PITCH_B - PITCH_T;
-const GOAL_W = 120, GOAL_H = 32;
+const PITCH_M = PW / 105; // pixels per metre (pitch width = 105m)
+const GOAL_W = Math.round(7.32 * PITCH_M), GOAL_H = Math.round(2.4 * PITCH_M);
 const GOAL_L = (WORLD_W / 2) - (GOAL_W / 2), GOAL_R = (WORLD_W / 2) + (GOAL_W / 2);
 const GOAL_TOP_Y = PITCH_T - GOAL_H, GOAL_BOT_Y = PITCH_B;
 const BALL_R = 4, PLAYER_HEAD_R = 9, PLAYER_BODY_W = 6, PLAYER_BODY_H = 10;
@@ -848,84 +849,133 @@ function buildSpriteCache(slug, players, images) {
 
 // ---- PITCH DRAWING ----
 function drawPitch(ctx) {
-  // Grass (full world)
-  ctx.fillStyle = '#1a472a';
+  const px = PITCH_L, py = PITCH_T, pw = PW, ph = PH;
+  const m = PITCH_M; // pixels per metre
+
+  // --- Background (beyond touchlines) ---
+  ctx.fillStyle = '#1e5c32';
   ctx.fillRect(0, 0, WORLD_W, WORLD_H);
 
-  // Grass stripes
-  const stripeW = PW / 10;
-  for (let i = 0; i < 10; i++) {
-    ctx.fillStyle = i % 2 === 0 ? '#1d5030' : '#1a472a';
-    ctx.fillRect(PITCH_L + i * stripeW, PITCH_T, stripeW, PH);
+  // --- Mowing stripes (horizontal bands, Sensible Soccer style) ---
+  const stripeCount = 18;
+  const stripeH = ph / stripeCount;
+  const greens = ['#2a7a42', '#2d8c4e', '#31985a'];
+  for (let i = 0; i < stripeCount; i++) {
+    ctx.fillStyle = greens[i % 2 === 0 ? 0 : (i % 4 === 1 ? 1 : 2)];
+    ctx.fillRect(px, py + i * stripeH, pw, stripeH + 1); // +1 prevents sub-pixel gaps
   }
 
-  // Pitch border
-  ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+  // Subtle vignette edges (darker border strips)
+  ctx.fillStyle = '#1e5c32';
+  ctx.fillRect(px, py, pw, 4);
+  ctx.fillRect(px, py + ph - 4, pw, 4);
+  ctx.fillRect(px, py, 4, ph);
+  ctx.fillRect(px + pw - 4, py, 4, ph);
+
+  // --- Pitch outline (touchlines) ---
+  ctx.strokeStyle = 'rgba(255,255,255,0.9)';
   ctx.lineWidth = 2;
-  ctx.strokeRect(PITCH_L, PITCH_T, PW, PH);
+  ctx.strokeRect(px, py, pw, ph);
 
-  // Halfway line
-  const midY = PITCH_T + PH / 2;
+  // --- Halfway line ---
+  const midY = py + ph / 2;
   ctx.beginPath();
-  ctx.moveTo(PITCH_L, midY);
-  ctx.lineTo(PITCH_R, midY);
+  ctx.moveTo(px, midY);
+  ctx.lineTo(px + pw, midY);
   ctx.stroke();
 
-  // Center circle
+  // --- Center circle ---
   ctx.beginPath();
-  ctx.arc(WORLD_W / 2, midY, 100, 0, Math.PI * 2);
+  ctx.arc(px + pw / 2, midY, 100, 0, Math.PI * 2);
   ctx.stroke();
-
-  // Center spot
-  ctx.fillStyle = 'rgba(255,255,255,0.8)';
-  ctx.beginPath();
-  ctx.arc(WORLD_W / 2, midY, 4, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(255,255,255,0.06)';
   ctx.fill();
 
-  // Penalty areas
-  const paW = 360, paH = 140;
-  ctx.strokeRect(WORLD_W / 2 - paW / 2, PITCH_T, paW, paH);
-  ctx.strokeRect(WORLD_W / 2 - paW / 2, PITCH_B - paH, paW, paH);
+  // --- Center spot ---
+  ctx.fillStyle = 'rgba(255,255,255,0.9)';
+  ctx.beginPath();
+  ctx.arc(px + pw / 2, midY, 4, 0, Math.PI * 2);
+  ctx.fill();
 
-  // Goal areas
-  const gaW = 180, gaH = 60;
-  ctx.strokeRect(WORLD_W / 2 - gaW / 2, PITCH_T, gaW, gaH);
-  ctx.strokeRect(WORLD_W / 2 - gaW / 2, PITCH_B - gaH, gaW, gaH);
+  // --- Penalty boxes (16.5m deep × 40.32m wide) ---
+  const pbW = 40.32 * m;
+  const pbH = 16.5 * m;
+  const pbX = px + (pw - pbW) / 2;
+  ctx.strokeRect(pbX, py, pbW, pbH);
+  ctx.strokeRect(pbX, py + ph - pbH, pbW, pbH);
 
-  // Penalty spots
-  ctx.fillStyle = 'rgba(255,255,255,0.8)';
-  ctx.beginPath(); ctx.arc(WORLD_W / 2, PITCH_T + 110, 4, 0, Math.PI * 2); ctx.fill();
-  ctx.beginPath(); ctx.arc(WORLD_W / 2, PITCH_B - 110, 4, 0, Math.PI * 2); ctx.fill();
+  // --- 6-yard boxes (5.5m deep × 18.32m wide) ---
+  const gbW = 18.32 * m;
+  const gbH = 5.5 * m;
+  const gbX = px + (pw - gbW) / 2;
+  ctx.strokeRect(gbX, py, gbW, gbH);
+  ctx.strokeRect(gbX, py + ph - gbH, gbW, gbH);
 
-  // Corner arcs
-  ctx.beginPath(); ctx.arc(PITCH_L, PITCH_T, 20, 0, Math.PI / 2); ctx.stroke();
-  ctx.beginPath(); ctx.arc(PITCH_R, PITCH_T, 20, Math.PI / 2, Math.PI); ctx.stroke();
-  ctx.beginPath(); ctx.arc(PITCH_L, PITCH_B, 20, -Math.PI / 2, 0); ctx.stroke();
-  ctx.beginPath(); ctx.arc(PITCH_R, PITCH_B, 20, Math.PI, Math.PI * 1.5); ctx.stroke();
+  // --- Penalty spots (11m from goal line) ---
+  const pspY = 11 * m;
+  ctx.fillStyle = 'rgba(255,255,255,0.9)';
+  ctx.beginPath(); ctx.arc(px + pw / 2, py + pspY, 4, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(px + pw / 2, py + ph - pspY, 4, 0, Math.PI * 2); ctx.fill();
 
-  // Goals
+  // --- Penalty arcs (D) ---
+  // Arc outside the penalty box, centred on penalty spot, radius = 9.15m
+  const arcR = 9.15 * m;
+  // Top penalty arc: arc below the penalty box top edge
+  ctx.beginPath();
+  ctx.arc(px + pw / 2, py + pspY, arcR, 0.6, Math.PI - 0.6);
+  ctx.stroke();
+  // Bottom penalty arc: arc above the penalty box bottom edge
+  ctx.beginPath();
+  ctx.arc(px + pw / 2, py + ph - pspY, arcR, Math.PI + 0.6, -0.6);
+  ctx.stroke();
+
+  // --- Corner arcs (1m radius) ---
+  const cr = 1 * m;
+  ctx.beginPath(); ctx.arc(px, py, cr, 0, Math.PI / 2); ctx.stroke();
+  ctx.beginPath(); ctx.arc(px + pw, py, cr, Math.PI / 2, Math.PI); ctx.stroke();
+  ctx.beginPath(); ctx.arc(px, py + ph, cr, -Math.PI / 2, 0); ctx.stroke();
+  ctx.beginPath(); ctx.arc(px + pw, py + ph, cr, Math.PI, Math.PI * 1.5); ctx.stroke();
+
+  // --- Goals ---
+  const goalW = GOAL_W;
+  const goalD = GOAL_H;
+  const goalX = GOAL_L;
+
   // Top goal (home attacks here → away's goal)
-  ctx.fillStyle = 'rgba(255,255,255,0.08)';
-  ctx.fillRect(GOAL_L, GOAL_TOP_Y, GOAL_W, GOAL_H);
-  ctx.strokeStyle = 'rgba(255,255,255,0.4)';
-  ctx.lineWidth = 1;
-  ctx.strokeRect(GOAL_L, GOAL_TOP_Y, GOAL_W, GOAL_H);
-  for (let nx = GOAL_L; nx < GOAL_R; nx += 12) {
-    ctx.beginPath(); ctx.moveTo(nx, GOAL_TOP_Y); ctx.lineTo(nx, PITCH_T); ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.stroke();
-  }
+  ctx.fillStyle = '#1a3a28';
+  ctx.fillRect(goalX, GOAL_TOP_Y, goalW, goalD);
+  ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+  ctx.lineWidth = 2.5;
+  ctx.strokeRect(goalX, GOAL_TOP_Y, goalW, goalD);
 
   // Bottom goal (away attacks here → home's goal)
-  ctx.fillStyle = 'rgba(255,255,255,0.08)';
-  ctx.fillRect(GOAL_L, GOAL_BOT_Y, GOAL_W, GOAL_H);
-  ctx.strokeStyle = 'rgba(255,255,255,0.4)';
-  ctx.lineWidth = 1;
-  ctx.strokeRect(GOAL_L, GOAL_BOT_Y, GOAL_W, GOAL_H);
-  for (let nx = GOAL_L; nx < GOAL_R; nx += 12) {
-    ctx.beginPath(); ctx.moveTo(nx, GOAL_BOT_Y); ctx.lineTo(nx, GOAL_BOT_Y + GOAL_H); ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.stroke();
+  ctx.fillStyle = '#1a3a28';
+  ctx.fillRect(goalX, GOAL_BOT_Y, goalW, goalD);
+  ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+  ctx.lineWidth = 2.5;
+  ctx.strokeRect(goalX, GOAL_BOT_Y, goalW, goalD);
+
+  // Netting: crosshatch pattern
+  ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+  ctx.lineWidth = 0.5;
+  const netSpacing = goalD / 3;
+  // Horizontal net lines
+  for (let n = 0; n < 3; n++) {
+    const hy = n * netSpacing;
+    ctx.beginPath(); ctx.moveTo(goalX, GOAL_TOP_Y + hy); ctx.lineTo(goalX + goalW, GOAL_TOP_Y + hy); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(goalX, GOAL_BOT_Y + hy); ctx.lineTo(goalX + goalW, GOAL_BOT_Y + hy); ctx.stroke();
+  }
+  // Vertical net lines
+  const vNetCount = Math.floor(goalW / netSpacing);
+  for (let v = 0; v <= vNetCount; v++) {
+    const nx = goalX + v * netSpacing;
+    ctx.beginPath(); ctx.moveTo(nx, GOAL_TOP_Y); ctx.lineTo(nx, PITCH_T); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(nx, GOAL_BOT_Y); ctx.lineTo(nx, GOAL_BOT_Y + goalD); ctx.stroke();
   }
 
+  // Reset line style
   ctx.lineWidth = 2;
-  ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+  ctx.strokeStyle = 'rgba(255,255,255,0.9)';
 }
 
 // ---- DRAW PLAYER ----
