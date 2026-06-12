@@ -1247,7 +1247,7 @@ function shootBall(p) {
 
 function passBall(p, target) {
   const d = dist(p.x, p.y, target.x, target.y);
-  const inaccuracy = (Math.random() - 0.5) * 1.5;
+  const inaccuracy = (Math.random() - 0.5) * 3;
   ball.vx = ((target.x - p.x) / d) * PASS_SPEED + inaccuracy;
   ball.vy = ((target.y - p.y) / d) * PASS_SPEED + inaccuracy;
   ball.owner = null;
@@ -1296,7 +1296,7 @@ function updatePlayerAI(p, teammates, opponents) {
 
     // Shooting range
     if (distToGoal < 360 && Math.abs(p.x - WORLD_W / 2) < 280) {
-      if (Math.random() < 0.03 + (180 - distToGoal) / 3000) {
+      if (Math.random() < 0.03 + (360 - distToGoal) / 6000) {
         shootBall(p);
         return;
       }
@@ -1345,14 +1345,14 @@ function updatePlayerAI(p, teammates, opponents) {
 
   // Drift toward formation position
   p.state = 'idle';
-  const homeX = p.homeX + (Math.random() - 0.5) * 20;
-  const homeY = p.homeY + (ball.y - CH / 2) * 0.15 + (Math.random() - 0.5) * 15;
+  const homeX = p.homeX + (Math.random() - 0.5) * 40;
+  const homeY = p.homeY + (ball.y - WORLD_H / 2) * 0.15 + (Math.random() - 0.5) * 30;
   moveToward(p, homeX, homeY, JOG_SPEED * 0.5);
 }
 
 function updateGK(gk, opponents) {
-  const goalY = gk.team === 0 ? PITCH_B - 6 : PITCH_T + 6;
-  const goalCenterX = CW / 2;
+  const goalY = gk.team === 0 ? PITCH_B - 12 : PITCH_T + 12;
+  const goalCenterX = WORLD_W / 2;
 
   // Track ball laterally
   const targetX = Math.max(GOAL_L + 5, Math.min(GOAL_R - 5, ball.x));
@@ -1360,7 +1360,7 @@ function updateGK(gk, opponents) {
   // Rush out for close balls
   let targetY = goalY;
   const ballDistToGoal = dist(ball.x, ball.y, goalCenterX, goalY);
-  if (ballDistToGoal < 120 && !ball.owner) {
+  if (ballDistToGoal < 240 && !ball.owner) {
     targetY = goalY + (ball.y - goalY) * 0.3;
   }
 
@@ -1372,13 +1372,13 @@ function updateGK(gk, opponents) {
     if (ball.vy * goalDir > 0) {
       const timeToGoal = Math.abs((goalY - ball.y) / ball.vy);
       const ballArriveX = ball.x + ball.vx * timeToGoal;
-      if (timeToGoal < 30 && ballArriveX > GOAL_L - 10 && ballArriveX < GOAL_R + 10) {
+      if (timeToGoal < 30 && ballArriveX > GOAL_L - 20 && ballArriveX < GOAL_R + 20) {
         // Dive!
         moveToward(gk, ballArriveX, ball.y, GK_SPEED * 1.5);
-        if (dist(gk.x, gk.y, ball.x, ball.y) < 20) {
+        if (dist(gk.x, gk.y, ball.x, ball.y) < 40) {
           // Save!
           AudioManager.playSave();
-          ball.vx = (Math.random() - 0.5) * 3;
+          ball.vx = (Math.random() - 0.5) * 6;
           ball.vy = -ball.vy * 0.3;
           ball.owner = null;
           if (Math.random() < 0.3) {
@@ -1391,7 +1391,7 @@ function updateGK(gk, opponents) {
   }
 
   // Pick up ball if close
-  if (!ball.owner && dist(gk.x, gk.y, ball.x, ball.y) < 15) {
+  if (!ball.owner && dist(gk.x, gk.y, ball.x, ball.y) < 30) {
     ball.owner = gk;
     ball.free = false;
     // Kick it out
@@ -1400,8 +1400,8 @@ function updateGK(gk, opponents) {
         const tm = findTeammate(gk, gk.team === 0 ? homePlayers : awayPlayers);
         if (tm) passBall(gk, tm);
         else {
-          ball.vx = (Math.random() - 0.5) * 4;
-          ball.vy = (gk.team === 0 ? -1 : 1) * 5;
+          ball.vx = (Math.random() - 0.5) * 8;
+          ball.vy = (gk.team === 0 ? -1 : 1) * 10;
           ball.owner = null;
           ball.free = true;
         }
@@ -1427,8 +1427,8 @@ function attemptTackle(tackler, ballCarrier) {
     // Clean tackle
     ball.owner = null;
     ball.free = true;
-    ball.vx = (Math.random() - 0.5) * 3;
-    ball.vy = (Math.random() - 0.5) * 3;
+    ball.vx = (Math.random() - 0.5) * 6;
+    ball.vy = (Math.random() - 0.5) * 6;
     ballCarrier.state = 'idle';
   } else if (roll < 0.75) {
     // Foul
@@ -1523,14 +1523,13 @@ function triggerMassConfrontation() {
 function triggerKeeperRush(team) {
   const gk = (team === 0 ? homePlayers : awayPlayers).find(p => p.position === 'GK' && !p.sentOff);
   if (!gk) return;
-  gk.homeX = CW / 2;
-  gk.homeY = CH / 2;
-  moveToward(gk, CW / 2 + (Math.random() - 0.5) * 100, CH / 2, GK_SPEED);
+  gk.homeX = WORLD_W / 2;
+  gk.homeY = WORLD_H / 2;
+  moveToward(gk, WORLD_W / 2 + (Math.random() - 0.5) * 200, WORLD_H / 2, GK_SPEED);
   addCommentary('comedy', `${gk.lastName} has LOST THE PLOT! The goalkeeper is sprinting to the halfway line! The goal is completely empty!`);
-  // Reset after a bit
   setTimeout(() => {
-    gk.homeX = CW / 2;
-    gk.homeY = team === 0 ? PITCH_B - 6 : PITCH_T + 6;
+    gk.homeX = WORLD_W / 2;
+    gk.homeY = team === 0 ? PITCH_B - 12 : PITCH_T + 12;
   }, 4000);
 }
 
@@ -1538,9 +1537,9 @@ function triggerPitchInvader() {
   comedyStats.pitchInvaders++;
   pitchInvader = {
     x: PITCH_L, y: PITCH_T + Math.random() * PH,
-    vx: 2.5 + Math.random(), vy: (Math.random() - 0.5) * 2,
+    vx: 5 + Math.random() * 2, vy: (Math.random() - 0.5) * 4,
     timer: 200,
-    steward: { x: PITCH_L - 20, y: PITCH_T + PH / 2 }
+    steward: { x: PITCH_L - 40, y: PITCH_T + PH / 2 }
   };
   addCommentary('comedy', "A pitch invader has breached security! Stewards in pursuit! Players scattering like startled pigeons!");
 }
@@ -1552,7 +1551,7 @@ function triggerOwnGoal(team) {
   const ownGoalY = team === 0 ? PITCH_B + 5 : PITCH_T - 5;
   ball.x = unlucky.x;
   ball.y = unlucky.y;
-  ball.vx = (CW / 2 - unlucky.x) * 0.05;
+  ball.vx = (WORLD_W / 2 - unlucky.x) * 0.05;
   ball.vy = (ownGoalY - unlucky.y) * 0.04;
   ball.owner = null;
   ball.free = true;
@@ -1628,10 +1627,10 @@ function gameLoop() {
         const players = team === 0 ? homePlayers : awayPlayers;
         const taker = players.find(p => !p.sentOff && p.position === 'FW') || players.find(p => !p.sentOff && p.position !== 'GK');
         if (taker) {
-          const penY = team === 0 ? PITCH_T + 55 : PITCH_B - 55;
-          taker.x = CW / 2;
+          const penY = team === 0 ? PITCH_T + 110 : PITCH_B - 110;
+          taker.x = WORLD_W / 2;
           taker.y = penY;
-          ball.x = CW / 2;
+          ball.x = WORLD_W / 2;
           ball.y = penY;
           ball.owner = taker;
           ball.free = false;
@@ -1672,6 +1671,7 @@ function gameLoop() {
       gameState = 'halftime';
       halfSwapped = true;
       pauseTimer = 180;
+      snapCamera(WORLD_W / 2, WORLD_H / 2);
       addCommentary('default', `Half time! ${homeTeamName} ${homeScore}–${awayScore} ${awayTeamName}. ${Math.random() < 0.5 ? 'Time for some questionable tactical analysis.' : 'Players head to the tunnel. Someone\'s nicked the half-time oranges.'}`);
       updateScoreboard();
       drawFrame();
@@ -1698,11 +1698,14 @@ function gameLoop() {
     for (const p of homePlayers) { updatePlayerAI(p, homePlayers, awayPlayers); applyVelocity(p); }
     for (const p of awayPlayers) { updatePlayerAI(p, awayPlayers, homePlayers); applyVelocity(p); }
 
+    // Update camera
+    updateCamera();
+
     // Ball pickup (free ball)
     if (!ball.owner) {
       const all = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff && p.state !== 'diving' && p.state !== 'celebrating');
       for (const p of all) {
-        if (dist(p.x, p.y, ball.x, ball.y) < 10) {
+        if (dist(p.x, p.y, ball.x, ball.y) < 20) {
           ball.owner = p;
           ball.free = false;
           p.state = 'hasBall';
@@ -1713,8 +1716,8 @@ function gameLoop() {
 
     // Crowd intensity modulation based on ball position
     if (realTick % 30 === 0) {
-      const nearGoalTop = Math.max(0, 1 - dist(ball.x, ball.y, CW/2, PITCH_T) / 250);
-      const nearGoalBot = Math.max(0, 1 - dist(ball.x, ball.y, CW/2, PITCH_B) / 250);
+      const nearGoalTop = Math.max(0, 1 - dist(ball.x, ball.y, WORLD_W/2, PITCH_T) / 500);
+      const nearGoalBot = Math.max(0, 1 - dist(ball.x, ball.y, WORLD_W/2, PITCH_B) / 500);
       AudioManager.setCrowd(0.15 + Math.max(nearGoalTop, nearGoalBot) * 0.5);
     }
 
@@ -1731,7 +1734,7 @@ function gameLoop() {
         pitchInvader.steward.x += (pitchInvader.x - pitchInvader.steward.x) * 0.02;
         pitchInvader.steward.y += (pitchInvader.y - pitchInvader.steward.y) * 0.02;
       }
-      if (pitchInvader.timer <= 0 || pitchInvader.x > PITCH_R + 30) {
+      if (pitchInvader.timer <= 0 || pitchInvader.x > PITCH_R + 60) {
         pitchInvader = null;
         addCommentary('comedy', 'The pitch invader has been escorted off. Normal service resumes.');
       }
@@ -1757,33 +1760,75 @@ function applyVelocity(p) {
 function resetPositions() {
   for (const p of homePlayers) { p.x = p.homeX; p.y = p.homeY; p.vx = 0; p.vy = 0; if (p.state !== 'sentOff') p.state = 'idle'; }
   for (const p of awayPlayers) { p.x = p.homeX; p.y = p.homeY; p.vx = 0; p.vy = 0; if (p.state !== 'sentOff') p.state = 'idle'; }
-  ball.x = CW / 2; ball.y = CH / 2; ball.vx = 0; ball.vy = 0; ball.owner = null; ball.free = true;
+  ball.x = WORLD_W / 2; ball.y = WORLD_H / 2; ball.vx = 0; ball.vy = 0; ball.owner = null; ball.free = true;
+  snapCamera(WORLD_W / 2, WORLD_H / 2);
 }
 
 function swapSides() {
-  // Mirror all home positions
   for (const p of homePlayers) {
-    p.homeX = CW - p.homeX;
-    p.homeY = CH - p.homeY;
+    p.homeX = WORLD_W - p.homeX;
+    p.homeY = WORLD_H - p.homeY;
   }
   for (const p of awayPlayers) {
-    p.homeX = CW - p.homeX;
-    p.homeY = CH - p.homeY;
+    p.homeX = WORLD_W - p.homeX;
+    p.homeY = WORLD_H - p.homeY;
   }
   resetPositions();
 }
 
+// ---- MINIMAP ----
+function drawMinimap() {
+  const mw = 120, mh = 78;
+  const mx = CW - mw - 10, my = CH - mh - 10;
+  // Background
+  ctx.fillStyle = 'rgba(0,0,0,0.55)';
+  ctx.fillRect(mx, my, mw, mh);
+  // Pitch outline
+  ctx.strokeStyle = 'rgba(255,255,255,0.35)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(mx + 2, my + 2, mw - 4, mh - 4);
+  // Camera viewport rect
+  const vx = mx + (camera.x / WORLD_W) * mw;
+  const vy = my + (camera.y / WORLD_H) * mh;
+  const vw = (CW / WORLD_W) * mw;
+  const vh = (CH / WORLD_H) * mh;
+  ctx.strokeStyle = 'rgba(240,196,76,0.7)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(vx, vy, vw, vh);
+  // Players as dots
+  const allP = [...homePlayers, ...awayPlayers];
+  for (const p of allP) {
+    if (p.sentOff) continue;
+    const px = mx + (p.x / WORLD_W) * mw;
+    const py = my + (p.y / WORLD_H) * mh;
+    ctx.fillStyle = p.team === 0 ? '#fff' : '#f0c44c';
+    ctx.beginPath(); ctx.arc(px, py, 1.5, 0, Math.PI * 2); ctx.fill();
+  }
+  // Ball
+  const bx = mx + (ball.x / WORLD_W) * mw;
+  const by = my + (ball.y / WORLD_H) * mh;
+  ctx.fillStyle = '#fff';
+  ctx.beginPath(); ctx.arc(bx, by, 2, 0, Math.PI * 2); ctx.fill();
+}
+
 function drawFrame() {
   ctx.clearRect(0, 0, CW, CH);
-  drawPitch(ctx);
 
-  // Draw players (sorted by y for depth)
+  // === WORLD SPACE (camera-offset) ===
+  ctx.save();
+  ctx.translate(-Math.round(camera.x), -Math.round(camera.y));
+
+  drawPitch(ctx);
   const allPlayers = [...homePlayers, ...awayPlayers].sort((a, b) => a.y - b.y);
   for (const p of allPlayers) drawPlayer(ctx, p);
-
   drawBall(ctx);
   drawPitchInvader(ctx);
+
+  ctx.restore();
+
+  // === SCREEN SPACE (HUD) ===
   drawVAR(ctx);
+  drawMinimap();
 
   // Halftime overlay
   if (gameState === 'halftime') {
@@ -1896,10 +1941,13 @@ async function startMatch() {
   goalScorers = [];
   comedyStats = { dives: 0, varReviews: 0, fights: 0, redCards: 0, pitchInvaders: 0, selfies: 0 };
   events = [];
-  ball = { x: CW / 2, y: CH / 2, vx: 0, vy: 0, owner: null, free: true };
+  ball = { x: WORLD_W / 2, y: WORLD_H / 2, vx: 0, vy: 0, owner: null, free: true };
   varActive = false;
   pitchInvader = null;
   $('commentary').innerHTML = '';
+
+  // Snap camera to center for kickoff
+  snapCamera(WORLD_W / 2, WORLD_H / 2);
 
   updateScoreboard();
 
@@ -1913,8 +1961,8 @@ async function startMatch() {
   // Give ball to home team striker
   const striker = homePlayers.find(p => p.position === 'FW' && !p.sentOff);
   if (striker) {
-    striker.x = CW / 2 + 5;
-    striker.y = CH / 2 + 5;
+    striker.x = WORLD_W / 2 + 5;
+    striker.y = WORLD_H / 2 + 5;
     ball.owner = striker;
     ball.free = false;
   }
