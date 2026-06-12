@@ -3007,8 +3007,8 @@ async function showPrematch(homeName, awayName, onComplete) {
   snapCamera(WORLD_W/2, WORLD_H/2);
 
   // Build anthem name display
-  const homeAnthemName = (ANTHEM_TRANSLATIONS?.[homeName])?.[0] || '';
-  const awayAnthemName = (ANTHEM_TRANSLATIONS?.[awayName])?.[0] || '';
+  const homeAnthemName = (typeof ANTHEM_TRANSLATIONS !== 'undefined' && ANTHEM_TRANSLATIONS[homeName]) ? ANTHEM_TRANSLATIONS[homeName][0] : '';
+  const awayAnthemName = (typeof ANTHEM_TRANSLATIONS !== 'undefined' && ANTHEM_TRANSLATIONS[awayName]) ? ANTHEM_TRANSLATIONS[awayName][0] : '';
 
   // Home anthem
   $('pmHomeName').textContent = homeName + (TEAM_NICKNAMES[homeName] ? ` — ${TEAM_NICKNAMES[homeName]}` : '');
