@@ -552,6 +552,84 @@ const GROUP_COLORS={A:"#f25c5c",B:"#f2913d",C:"#f2c14e",D:"#a8d44d",E:"#4dc97b",
 window.DEBUG_STATS = {goals:0, passes:0, fouls:0, dives:0, fights:0, varReviews:0, matchId:''};
 
 // ---- COMMENTARY TEMPLATE SYSTEM (sardonic pub pundit voice) ----
+// Bio keyword hooks — scan player bio for these words and use contextual commentary
+const BIO_HOOKS = [
+  {keyword:"captain",    line:"{player}, the captain, {action}. Leadership in its purest form."},
+  {keyword:"veteran",    line:"The veteran {player} {action}. They've seen it all. Including this."},
+  {keyword:"experienced",line:"The experienced {player} {action}. Years of wisdom, seconds of madness."},
+  {keyword:"debut",      line:"{player}, on debut, {action}. Welcome to the chaos."},
+  {keyword:"youngest",   line:"The prodigy {player} {action}. Youth is wasted on the young."},
+  {keyword:"record",     line:"Record-breaker {player} {action}. One for the CV."},
+  {keyword:"injury",     line:"{player}, no stranger to the physio table, {action}."},
+  {keyword:"knee",       line:"{player}, who knows a physio by first name, {action}."},
+  {keyword:"controversial",line:"Controversy magnet {player} {action}. Absolutely on brand."},
+  {keyword:"banned",     line:"{player}, who's been banned before, {action}. Muscle memory."},
+  {keyword:"world cup",  line:"{player}, in their element at a World Cup, {action}."},
+];
+
+function matchBioHook(playerName, bio, action) {
+  if (!bio) return null;
+  const bl = bio.toLowerCase();
+  for (const h of BIO_HOOKS) {
+    if (bl.includes(h.keyword)) {
+      return h.line.replace('{player}', playerName).replace('{action}', action);
+    }
+  }
+  return null;
+}
+
+// Country-specific event hooks — fired on goals/concedes
+const COUNTRY_EVENT_HOOKS = {
+  "Algeria":{"onGoal":"Les Fennecs strike! The desert foxes hunt!","onConcede":"Gijón '82 flashbacks..."},
+  "Argentina":{"onGoal":"Maradona's ghost nods approvingly.","onConcede":"2014 final heartbreak echoes..."},
+  "Australia":{"onGoal":"The Socceroos score! Crikey!","onConcede":"Asian qualification feels a long way away."},
+  "Austria":{"onGoal":"Das Team delivers!","onConcede":"Austria: always nearly, never quite."},
+  "Belgium":{"onGoal":"The Red Devils strike! Golden generation activated.","onConcede":"Belgium: the perennial nearly-men."},
+  "Bosnia & Herzegovina":{"onGoal":"Zmajevi breathe fire! Dragons do exist!","onConcede":"The Dragons are wounded."},
+  "Brazil":{"onGoal":"Jogo bonito! Beautiful football!","onConcede":"7-1 PTSD intensifies..."},
+  "Cabo Verde":{"onGoal":"The Blue Sharks bite!","onConcede":"Qualification alone was the dream."},
+  "Canada":{"onGoal":"Les Rouges! CanMNT delivers!","onConcede":"At least they qualified this time."},
+  "Colombia":{"onGoal":"Los Cafeteros are brewing something special!","onConcede":"Andrés Escobar's ghost weeps quietly."},
+  "Congo DR":{"onGoal":"Les Léopards pounce!","onConcede":"The leopard retreats."},
+  "Côte d'Ivoire":{"onGoal":"Les Éléphants charge!","onConcede":"The ivory is cracked."},
+  "Croatia":{"onGoal":"Vatreni! The Blazers are on fire!","onConcede":"From runners-up to shambles."},
+  "Curaçao":{"onGoal":"Nos Seleccion! Caribbean magic!","onConcede":"The island nation fights on."},
+  "Czechia":{"onGoal":"Czech excellence! Národní Tým delivers!","onConcede":"Czech Republic... I mean Czechia... concedes."},
+  "Ecuador":{"onGoal":"La Tri strikes! Ecuador are electric!","onConcede":"La Tri stumbles."},
+  "Egypt":{"onGoal":"The Pharaohs strike! Ancient power!","onConcede":"The mummies are stirring with frustration."},
+  "England":{"onGoal":"IS IT COMING HOME? IT MIGHT BE COMING HOME.","onConcede":"Penalty shootout PTSD activated. It never comes home."},
+  "France":{"onGoal":"Les Bleus! Liberté, égalité, footballité!","onConcede":"France stumbles. Zidane headbutt energy."},
+  "Germany":{"onGoal":"German efficiency. Always on time, always on target.","onConcede":"German efficiency does not extend to defending today."},
+  "Ghana":{"onGoal":"Black Stars shine! Africa stand up!","onConcede":"The hand of Suárez haunts them still."},
+  "Haiti":{"onGoal":"Les Grenadiers explode! Haiti on the world stage!","onConcede":"The resilience of Les Grenadiers is tested."},
+  "IR Iran":{"onGoal":"Team Melli! Iran makes a statement!","onConcede":"The players refused to sing the anthem once. Today they're scoring."},
+  "Iraq":{"onGoal":"Mawtini! Lions of Mesopotamia roar!","onConcede":"The lions lick their wounds."},
+  "Japan":{"onGoal":"Samurai Blue strikes! Japan's football revolution continues!","onConcede":"The Samurai's blade dulls momentarily."},
+  "Jordan":{"onGoal":"Al-Nashama! Jordan surprises everyone!","onConcede":"Jordan were surprising just to be here."},
+  "Korea Republic":{"onGoal":"Taegeuk Warriors! The K-football wave continues!","onConcede":"2002 semi-final energy has left the building."},
+  "Mexico":{"onGoal":"EL TRI! GOLAZO! Mexico are magnificent!","onConcede":"Mexico: still can't get past the Round of 16. Oh wait—"},
+  "Morocco":{"onGoal":"Atlas Lions ROAR! Africa's pride!","onConcede":"2022 semi-final feels very far away."},
+  "Netherlands":{"onGoal":"ORANJE! Total Football! Well, partial football!","onConcede":"The Dutch are having a crisis. Again."},
+  "New Zealand":{"onGoal":"An All White goal! Genuinely rare. Mark this day.","onConcede":"The draw streak was already ambitious."},
+  "Norway":{"onGoal":"Løvene strikes! Haaland adjacent!","onConcede":"Norway: perpetually almost qualifying. Now they're here."},
+  "Panama":{"onGoal":"Los Canaleros open the locks!","onConcede":"The canal flows the wrong way."},
+  "Paraguay":{"onGoal":"La Albirroja! Paraguay's bite!","onConcede":"The Guaraní spirit is tested."},
+  "Portugal":{"onGoal":"CRISTIANO! Oh wait, is he still playing? Yes. Yes he is.","onConcede":"Portugal: all the talent, perpetual tournament heartbreak."},
+  "Qatar":{"onGoal":"Al-Annabi! The host nation's legacy grows!","onConcede":"At least they hosted it."},
+  "Saudi Arabia":{"onGoal":"The Green Falcons soar! Remember Argentina 2022?","onConcede":"The Argentina miracle was one-off. Apparently."},
+  "Scotland":{"onGoal":"FLOWER OF SCOTLAND! The Tartan Army erupts!","onConcede":"Scotland: best fans, worst heartbreak."},
+  "Senegal":{"onGoal":"Lions of Teranga! African champions hunt!","onConcede":"Sadio's legacy is being tested."},
+  "South Africa":{"onGoal":"BAFANA BAFANA! Diski dance activated!","onConcede":"The rainbow nation's colours fade momentarily."},
+  "Spain":{"onGoal":"La Roja! Tiki-taka or whatever they're calling it now!","onConcede":"Spain: four world titles and still finding ways to be dramatic."},
+  "Sweden":{"onGoal":"Blågult strikes! Zlatan would have done it better. Probably.","onConcede":"Without Zlatan, Sweden are merely mortal."},
+  "Switzerland":{"onGoal":"The Nati! Swiss precision! Swiss timing!","onConcede":"Swiss neutrality extends to their defence, apparently."},
+  "Tunisia":{"onGoal":"Eagles of Carthage soar!","onConcede":"Carthage must be rebuilt. Starting from defence."},
+  "Türkiye":{"onGoal":"Crescent Stars rise! Türkiye plays!","onConcede":"The star crescent dims."},
+  "Uruguay":{"onGoal":"La Celeste! Two World Cup winners, eternal overachievers!","onConcede":"The celestial blues fade."},
+  "USA":{"onGoal":"USA! USA! USA! Soccer, football, whatever!","onConcede":"The USMNT is a work in progress. An expensive one."},
+  "Uzbekistan":{"onGoal":"The White Wolves howl! Central Asia announces itself!","onConcede":"The wolves retreat to the steppe."},
+};
+
 const COMMENT = {
   kick_off: [
     "{home} get us underway. {home_anecdote}",
@@ -669,6 +747,9 @@ let lastCornerTime = 0;
 const CORNER_COOLDOWN = 3000;
 // Referee sprite state
 const ref = { x: WORLD_W/2, y: WORLD_H/2, targetX: WORLD_W/2, targetY: WORLD_H/2, inFight: false, fightX: 0, fightY: 0 };
+// User interaction state
+let clickTarget = null; // {x, y, framesLeft}
+let mouseWorldX = WORLD_W/2, mouseWorldY = WORLD_H/2;
 const COMEDY_COOLDOWN = 10000; // 10 seconds minimum between comedy events
 const playerEventCounts = new Map(); // name → {dives:0, fights:0, selfies:0}
 
@@ -814,7 +895,7 @@ function updateAndDrawEffects() {
       ctx.arc(ix, iy - 6, 6, 0, Math.PI * 2);
       ctx.fill();
       ctx.fillRect(ix - 3, iy, 6, 9);
-      // Two stewards chasing
+       // Two stewards chasing
       for (let st = 0; st < 2; st++) {
         const sx = ix - 30 - st * 20;
         const sy = iy + st * 8;
@@ -824,6 +905,39 @@ function updateAndDrawEffects() {
         ctx.fill();
         ctx.fillRect(sx - 3, sy, 6, 9);
       }
+    }
+
+    else if (e.type === 'target_circle') {
+      // Gold shrinking target ring for click direction hint
+      if (age > e.duration) { activeEffects.splice(i, 1); continue; }
+      const alpha = 1 - age / e.duration;
+      const r = 20 * (1 - age / e.duration) + 5;
+      ctx.strokeStyle = `rgba(240,196,76,${alpha})`;
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(e.x, e.y, r, 0, Math.PI * 2); ctx.stroke();
+      ctx.lineWidth = 1;
+    }
+
+    else if (e.type === 'fist_click') {
+      // 👊 fist emoji scaling up then fading at click position
+      if (age > e.duration) { activeEffects.splice(i, 1); continue; }
+      const alpha = 1 - age / e.duration;
+      const scale = 1 + age * 3;
+      ctx.globalAlpha = alpha;
+      ctx.font = `${Math.floor(16 * scale)}px serif`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText('👊', e.x, e.y);
+      ctx.globalAlpha = 1;
+    }
+
+    else if (e.type === 'player_highlight') {
+      // Gold ring flash around player
+      if (age > e.duration) { activeEffects.splice(i, 1); continue; }
+      const alpha = 1 - age / e.duration;
+      ctx.strokeStyle = `rgba(240,196,76,${alpha})`;
+      ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(e.x, e.y - PLAYER_HEAD_R, PLAYER_HEAD_R + 6, 0, Math.PI*2); ctx.stroke();
+      ctx.lineWidth = 1;
     }
   }
 }
@@ -956,8 +1070,20 @@ const camera = { x: 0, y: 0, targetX: 0, targetY: 0 };
 const DEAD_ZONE = 80;
 
 function updateCamera() {
+  if (gameState === 'lineup') {
+    // Slow pan during anthem ceremony
+    const pan = Math.sin(Date.now()/3200) * PW * 0.28;
+    camera.x += (Math.max(0, Math.min(WORLD_W-CW, WORLD_W/2-CW/2+pan)) - camera.x) * 0.018;
+    camera.y += (Math.max(0, Math.min(WORLD_H-CH, WORLD_H/2-CH/2)) - camera.y) * 0.018;
+    return;
+  }
   let tx = ball.x - CW / 2;
   let ty = ball.y - CH / 2;
+  // Subtle mouse look-ahead (10% bias toward cursor)
+  if (typeof mouseWorldX !== 'undefined') {
+    tx += (mouseWorldX - ball.x) * 0.1;
+    ty += (mouseWorldY - ball.y) * 0.1;
+  }
   tx = Math.max(0, Math.min(tx, WORLD_W - CW));
   ty = Math.max(0, Math.min(ty, WORLD_H - CH));
   if (Math.abs(tx - camera.targetX) > DEAD_ZONE || Math.abs(ty - camera.targetY) > DEAD_ZONE) {
@@ -1647,6 +1773,24 @@ function scoreGoal(scoringTeam) {
   };
   addCommentary('goal', pickComment('goal', goalVars));
 
+  // Country event hooks on goal/concede
+  const concedingTeamName = scoringTeam === 0 ? awayTeamName : homeTeamName;
+  const scoringHook = COUNTRY_EVENT_HOOKS?.[teamName];
+  const concedingHook = COUNTRY_EVENT_HOOKS?.[concedingTeamName];
+  if (scoringHook?.onGoal && Math.random() < 0.65)
+    setTimeout(() => addCommentary('comedy', scoringHook.onGoal), 2200);
+  if (concedingHook?.onConcede && Math.random() < 0.45)
+    setTimeout(() => addCommentary('comedy', concedingHook.onConcede), 3500);
+
+  // Bio hook follow-up for goal scorer
+  if (scorer) {
+    const rp = findPlayerInRoster(scorer.lastName, scoringTeam===0?homeTeamName:awayTeamName);
+    if (rp?.bio) {
+      const bioLine = matchBioHook(scorer.lastName, rp.bio, 'scores at the World Cup');
+      if (bioLine) setTimeout(() => addCommentary('info', bioLine), 1800);
+    }
+  }
+
   // Celebration
   for (const p of scoringPlayers) {
     if (p.sentOff) continue;
@@ -1805,6 +1949,34 @@ function passBall(p, target) {
   }
 }
 
+function handlePitchClick(wx, wy) {
+  if (gameState !== 'playing') return;
+  const allP = [...homePlayers, ...awayPlayers];
+
+  // Check if clicked on a specific player
+  const clicked = allP.find(p => !p.sentOff && dist(p.x, p.y, wx, wy) < 22);
+  if (clicked) {
+    addEffect('player_highlight', clicked.x, clicked.y, {duration: 0.5});
+    addCommentary('default', `${clicked.lastName} feels the crowd's energy!`);
+    return;
+  }
+
+  // During fight: show fist emoji
+  const fighting = allP.some(p => p.state === 'fighting');
+  if (fighting) {
+    addEffect('fist_click', wx, wy, {duration: 0.35});
+    AudioManager.playComedy();
+    allP.filter(p => p.state === 'fighting').forEach(p => p.stateTimer = Math.min(p.stateTimer + 30, 300));
+    return;
+  }
+
+  // Direction hint: ball carrier biases toward click for 1 second
+  if (ball.owner && ball.owner.team === 0) {
+    clickTarget = {x: wx, y: wy, framesLeft: 60};
+    addEffect('target_circle', wx, wy, {duration: 1.0});
+  }
+}
+
 function triggerCornerKick(attackingTeam, goalEnd, side) {
   const cx = side === 'left' ? PITCH_L + 10 : PITCH_R - 10;
   const cy = goalEnd === 'top' ? PITCH_T + 10 : PITCH_B - 10;
@@ -1872,6 +2044,14 @@ function updatePlayerAI(p, teammates, opponents, roles) {
   // Check if this player has the ball
   if (ball.owner === p) {
     p.state = 'hasBall';
+    // Apply click direction bias if active
+    if (clickTarget && clickTarget.framesLeft > 0 && p.team === 0) {
+      const cdx = clickTarget.x - p.x, cdy = clickTarget.y - p.y;
+      const cd = Math.sqrt(cdx*cdx+cdy*cdy)||1;
+      p.x += (cdx/cd) * p.speed * 0.3;
+      p.y += (cdy/cd) * p.speed * 0.3;
+      clickTarget.framesLeft--;
+    }
     const attackGoalY = isHomeTeam ? PITCH_T : PITCH_B;
     const distToGoal = dist(p.x, p.y, WORLD_W / 2, attackGoalY);
 
@@ -2660,6 +2840,20 @@ async function startMatch() {
 
   canvas = $('pitchCanvas');
   ctx = canvas.getContext('2d');
+
+  // User click interaction
+  canvas.onclick = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const sx = (e.clientX - rect.left) * (CW / rect.width);
+    const sy = (e.clientY - rect.top) * (CH / rect.height);
+    const wx = sx + camera.x, wy = sy + camera.y;
+    handlePitchClick(wx, wy);
+  };
+  canvas.onmousemove = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouseWorldX = (e.clientX - rect.left) * (CW / rect.width) + camera.x;
+    mouseWorldY = (e.clientY - rect.top) * (CH / rect.height) + camera.y;
+  };
 
   // Set scoreboard
   const homeMeta = TEAM_META[homeTeamName];
