@@ -77,6 +77,15 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         pass  # suppress request noise in the log file
 
 if __name__ == "__main__":
-    httpd = http.server.HTTPServer(("", PORT), Handler)
-    print(f"Serving on http://localhost:{PORT}", flush=True)
+    import socket
+    class DualStackServer(http.server.HTTPServer):
+        def server_bind(self):
+            self.socket.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 0)
+            super().server_bind()
+    try:
+        httpd = DualStackServer(("::", PORT), Handler)
+        print(f"Serving on http://localhost:{PORT} (dual-stack IPv4+IPv6)", flush=True)
+    except OSError:
+        httpd = http.server.HTTPServer(("", PORT), Handler)
+        print(f"Serving on http://localhost:{PORT} (IPv4 only)", flush=True)
     httpd.serve_forever()
