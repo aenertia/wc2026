@@ -105,6 +105,17 @@ body{background:var(--pitch);color:var(--chalk);font-family:var(--font-body);ove
 .res-btn.outline:hover{color:var(--chalk)}
 a.back-link{font-family:var(--font-mono);font-size:12px;color:var(--chalk-faint);text-decoration:underline;text-underline-offset:3px;margin-top:8px}
 a.back-link:hover{color:var(--chalk)}
+
+/* ---- Start Overlay & Mute ---- */
+#startOverlay{
+  position:fixed;inset:0;background:rgba(12,23,19,.9);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  z-index:999;cursor:pointer;
+}
+#startOverlay .so-title{font-family:var(--font-display);font-size:clamp(32px,6vw,64px);color:var(--chalk);text-transform:uppercase}
+#startOverlay .so-sub{font-family:var(--font-mono);font-size:14px;color:var(--gold);letter-spacing:.2em;margin-top:16px;animation:blink 1.2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.mute-btn{position:fixed;bottom:16px;right:16px;background:var(--pitch-2);border:1px solid var(--line);color:var(--chalk);font-size:18px;width:36px;height:36px;border-radius:50%;cursor:pointer;z-index:100;display:none;align-items:center;justify-content:center}
 </style>
 </head>
 <body>
@@ -157,6 +168,13 @@ a.back-link:hover{color:var(--chalk)}
     <a href="world-cup-2026-schedule_1.html" class="res-btn outline">Back to Wallchart</a>
   </div>
 </div>
+
+<!-- ===== START OVERLAY (audio unlock) ===== -->
+<div id="startOverlay">
+  <div class="so-title">&#9917; Match Simulator</div>
+  <div class="so-sub">CLICK TO START</div>
+</div>
+<button class="mute-btn" id="muteBtn" aria-label="Toggle sound">&#128266;</button>
 
 <script>
 /* ================================================================
@@ -483,6 +501,83 @@ const GROUP_COLORS={A:"#f25c5c",B:"#f2913d",C:"#f2c14e",D:"#a8d44d",E:"#4dc97b",
 
 window.DEBUG_STATS = {goals:0, passes:0, fouls:0, dives:0, fights:0, varReviews:0, matchId:''};
 
+// ---- AUDIO MANAGER (Web Audio API — all procedural, zero files) ----
+const AudioManager = {
+  ctx: null, crowdGain: null, muted: false,
+
+  init() {
+    if (this.ctx) return;
+    this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+    // Crowd ambient: filtered white noise loop
+    const bufLen = this.ctx.sampleRate * 2;
+    const buf = this.ctx.createBuffer(1, bufLen, this.ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < bufLen; i++) data[i] = Math.random() * 2 - 1;
+    const src = this.ctx.createBufferSource();
+    src.buffer = buf; src.loop = true;
+    const bp = this.ctx.createBiquadFilter();
+    bp.type = 'bandpass'; bp.frequency.value = 400; bp.Q.value = 0.8;
+    this.crowdGain = this.ctx.createGain();
+    this.crowdGain.gain.value = 0.04;
+    src.connect(bp); bp.connect(this.crowdGain);
+    this.crowdGain.connect(this.ctx.destination);
+    src.start();
+  },
+
+  setCrowd(intensity) {
+    if (!this.crowdGain || this.muted) return;
+    this.crowdGain.gain.setTargetAtTime(Math.min(intensity, 1) * 0.12, this.ctx.currentTime, 0.5);
+  },
+
+  _osc(type, freq, dur, gainVal, freqEnd) {
+    if (!this.ctx || this.muted) return;
+    const t = this.ctx.currentTime;
+    const g = this.ctx.createGain();
+    const o = this.ctx.createOscillator();
+    o.type = type; o.frequency.setValueAtTime(freq, t);
+    if (freqEnd) o.frequency.linearRampToValueAtTime(freqEnd, t + dur);
+    g.gain.setValueAtTime(gainVal, t);
+    g.gain.linearRampToValueAtTime(0, t + dur);
+    o.connect(g); g.connect(this.ctx.destination);
+    o.start(t); o.stop(t + dur);
+  },
+
+  _noise(dur, gainVal, hipass) {
+    if (!this.ctx || this.muted) return;
+    const t = this.ctx.currentTime;
+    const bufLen = Math.ceil(this.ctx.sampleRate * dur);
+    const buf = this.ctx.createBuffer(1, bufLen, this.ctx.sampleRate);
+    const d = buf.getChannelData(0);
+    for (let i = 0; i < bufLen; i++) d[i] = Math.random() * 2 - 1;
+    const src = this.ctx.createBufferSource(); src.buffer = buf;
+    const g = this.ctx.createGain();
+    g.gain.setValueAtTime(gainVal, t);
+    g.gain.linearRampToValueAtTime(0, t + dur);
+    if (hipass) {
+      const f = this.ctx.createBiquadFilter();
+      f.type = 'highpass'; f.frequency.value = 2000;
+      src.connect(f); f.connect(g);
+    } else { src.connect(g); }
+    g.connect(this.ctx.destination); src.start(t); src.stop(t + dur);
+  },
+
+  playKick()       { this._osc('triangle', 200, 0.05, 0.4, 40); },
+  playWhistle(long){ this._osc('square', 880, long ? 0.8 : 0.3, 0.3, long ? 780 : 860); },
+  playCard()       { this._osc('square', 440, 0.2, 0.3, 220); },
+  playComedy()     { this._osc('square', 400, 0.4, 0.25, 80); },
+  playSave()       { this._noise(0.08, 0.5, true); },
+  playVAR() {
+    this._osc('sine', 220, 0.15, 0.3);
+    setTimeout(() => this._osc('sine', 330, 0.15, 0.3), 180);
+  },
+  playGoal() {
+    const notes = [261, 329, 392, 523];
+    notes.forEach((f, i) => setTimeout(() => this._osc('square', f, 0.12, 0.4), i * 110));
+    setTimeout(() => { this._noise(0.5, 0.3, false); this.setCrowd(1); }, 450);
+    setTimeout(() => this.setCrowd(0.3), 3000);
+  },
+};
+
 const TEAM_NAMES = Object.keys(TEAM_META);
 
 // ---- FORMATION POSITIONS (percentage of pitch, 0,0 = top-left) ----
@@ -496,15 +591,16 @@ const FORMATION_POSITIONS = {
 };
 
 // ---- CANVAS & GAME CONSTANTS ----
-const CW = 800, CH = 520;
-const PITCH_L = 40, PITCH_R = CW - 40, PITCH_T = 30, PITCH_B = CH - 30;
+const CW = 800, CH = 520;                // viewport (canvas) size
+const WORLD_W = 1600, WORLD_H = 1040;    // world pitch size (2× canvas)
+const PITCH_L = 40, PITCH_R = WORLD_W - 40, PITCH_T = 30, PITCH_B = WORLD_H - 30;
 const PW = PITCH_R - PITCH_L, PH = PITCH_B - PITCH_T;
-const GOAL_W = 60, GOAL_H = 16;
-const GOAL_L = (CW / 2) - (GOAL_W / 2), GOAL_R = (CW / 2) + (GOAL_W / 2);
+const GOAL_W = 120, GOAL_H = 32;
+const GOAL_L = (WORLD_W / 2) - (GOAL_W / 2), GOAL_R = (WORLD_W / 2) + (GOAL_W / 2);
 const GOAL_TOP_Y = PITCH_T - GOAL_H, GOAL_BOT_Y = PITCH_B;
 const BALL_R = 4, PLAYER_HEAD_R = 9, PLAYER_BODY_W = 6, PLAYER_BODY_H = 10;
-const FRICTION = 0.98, MAX_SPEED = 5, SPRINT_SPEED = 2.8, JOG_SPEED = 1.2, GK_SPEED = 3.5;
-const TACKLE_RANGE = 16, PASS_SPEED = 4.5, SHOOT_SPEED = 7, DRIBBLE_SPEED = 2.2;
+const FRICTION = 0.98, MAX_SPEED = 10, SPRINT_SPEED = 5.6, JOG_SPEED = 2.4, GK_SPEED = 7;
+const TACKLE_RANGE = 32, PASS_SPEED = 9, SHOOT_SPEED = 14, DRIBBLE_SPEED = 4.4;
 
 // ---- STATE ----
 let gameState = 'teamSelect'; // teamSelect | playing | halftime | goalScored | fulltime
@@ -512,7 +608,7 @@ let matchClock = 0; // in "minutes" (0-90)
 let realTick = 0;
 const TICKS_PER_MINUTE = 120; // ~2 sec real per game minute → 90min ≈ 3min
 let homeScore = 0, awayScore = 0;
-let ball = { x: CW/2, y: CH/2, vx: 0, vy: 0, owner: null, free: true };
+let ball = { x: WORLD_W/2, y: WORLD_H/2, vx: 0, vy: 0, owner: null, free: true };
 let homePlayers = [], awayPlayers = [];
 let homeData = null, awayData = null;
 let homeTeamName = '', awayTeamName = '';
@@ -526,6 +622,28 @@ let varActive = false, varTimer = 0, varResult = '';
 let pitchInvader = null;
 let celebrationTimer = 0;
 let canvas, ctx;
+
+// ---- CAMERA ----
+const camera = { x: 0, y: 0, targetX: 0, targetY: 0 };
+const DEAD_ZONE = 80;
+
+function updateCamera() {
+  let tx = ball.x - CW / 2;
+  let ty = ball.y - CH / 2;
+  tx = Math.max(0, Math.min(tx, WORLD_W - CW));
+  ty = Math.max(0, Math.min(ty, WORLD_H - CH));
+  if (Math.abs(tx - camera.targetX) > DEAD_ZONE || Math.abs(ty - camera.targetY) > DEAD_ZONE) {
+    camera.targetX = tx;
+    camera.targetY = ty;
+  }
+  camera.x += (camera.targetX - camera.x) * 0.06;
+  camera.y += (camera.targetY - camera.y) * 0.06;
+}
+
+function snapCamera(worldX, worldY) {
+  camera.x = camera.targetX = Math.max(0, Math.min(worldX - CW / 2, WORLD_W - CW));
+  camera.y = camera.targetY = Math.max(0, Math.min(worldY - CH / 2, WORLD_H - CH));
+}
 
 // ---- DOM REFS ----
 const $ = id => document.getElementById(id);
@@ -730,9 +848,9 @@ function buildSpriteCache(slug, players, images) {
 
 // ---- PITCH DRAWING ----
 function drawPitch(ctx) {
-  // Grass
+  // Grass (full world)
   ctx.fillStyle = '#1a472a';
-  ctx.fillRect(0, 0, CW, CH);
+  ctx.fillRect(0, 0, WORLD_W, WORLD_H);
 
   // Grass stripes
   const stripeW = PW / 10;
@@ -755,37 +873,35 @@ function drawPitch(ctx) {
 
   // Center circle
   ctx.beginPath();
-  ctx.arc(CW / 2, midY, 50, 0, Math.PI * 2);
+  ctx.arc(WORLD_W / 2, midY, 100, 0, Math.PI * 2);
   ctx.stroke();
 
   // Center spot
   ctx.fillStyle = 'rgba(255,255,255,0.8)';
   ctx.beginPath();
-  ctx.arc(CW / 2, midY, 3, 0, Math.PI * 2);
+  ctx.arc(WORLD_W / 2, midY, 4, 0, Math.PI * 2);
   ctx.fill();
 
   // Penalty areas
-  const paW = 180, paH = 70;
-  // Top
-  ctx.strokeRect(CW / 2 - paW / 2, PITCH_T, paW, paH);
-  // Bottom
-  ctx.strokeRect(CW / 2 - paW / 2, PITCH_B - paH, paW, paH);
+  const paW = 360, paH = 140;
+  ctx.strokeRect(WORLD_W / 2 - paW / 2, PITCH_T, paW, paH);
+  ctx.strokeRect(WORLD_W / 2 - paW / 2, PITCH_B - paH, paW, paH);
 
   // Goal areas
-  const gaW = 90, gaH = 30;
-  ctx.strokeRect(CW / 2 - gaW / 2, PITCH_T, gaW, gaH);
-  ctx.strokeRect(CW / 2 - gaW / 2, PITCH_B - gaH, gaW, gaH);
+  const gaW = 180, gaH = 60;
+  ctx.strokeRect(WORLD_W / 2 - gaW / 2, PITCH_T, gaW, gaH);
+  ctx.strokeRect(WORLD_W / 2 - gaW / 2, PITCH_B - gaH, gaW, gaH);
 
   // Penalty spots
   ctx.fillStyle = 'rgba(255,255,255,0.8)';
-  ctx.beginPath(); ctx.arc(CW / 2, PITCH_T + 55, 3, 0, Math.PI * 2); ctx.fill();
-  ctx.beginPath(); ctx.arc(CW / 2, PITCH_B - 55, 3, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(WORLD_W / 2, PITCH_T + 110, 4, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(WORLD_W / 2, PITCH_B - 110, 4, 0, Math.PI * 2); ctx.fill();
 
   // Corner arcs
-  ctx.beginPath(); ctx.arc(PITCH_L, PITCH_T, 10, 0, Math.PI / 2); ctx.stroke();
-  ctx.beginPath(); ctx.arc(PITCH_R, PITCH_T, 10, Math.PI / 2, Math.PI); ctx.stroke();
-  ctx.beginPath(); ctx.arc(PITCH_L, PITCH_B, 10, -Math.PI / 2, 0); ctx.stroke();
-  ctx.beginPath(); ctx.arc(PITCH_R, PITCH_B, 10, Math.PI, Math.PI * 1.5); ctx.stroke();
+  ctx.beginPath(); ctx.arc(PITCH_L, PITCH_T, 20, 0, Math.PI / 2); ctx.stroke();
+  ctx.beginPath(); ctx.arc(PITCH_R, PITCH_T, 20, Math.PI / 2, Math.PI); ctx.stroke();
+  ctx.beginPath(); ctx.arc(PITCH_L, PITCH_B, 20, -Math.PI / 2, 0); ctx.stroke();
+  ctx.beginPath(); ctx.arc(PITCH_R, PITCH_B, 20, Math.PI, Math.PI * 1.5); ctx.stroke();
 
   // Goals
   // Top goal (home attacks here → away's goal)
@@ -794,8 +910,7 @@ function drawPitch(ctx) {
   ctx.strokeStyle = 'rgba(255,255,255,0.4)';
   ctx.lineWidth = 1;
   ctx.strokeRect(GOAL_L, GOAL_TOP_Y, GOAL_W, GOAL_H);
-  // Netting
-  for (let nx = GOAL_L; nx < GOAL_R; nx += 6) {
+  for (let nx = GOAL_L; nx < GOAL_R; nx += 12) {
     ctx.beginPath(); ctx.moveTo(nx, GOAL_TOP_Y); ctx.lineTo(nx, PITCH_T); ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.stroke();
   }
 
@@ -805,7 +920,7 @@ function drawPitch(ctx) {
   ctx.strokeStyle = 'rgba(255,255,255,0.4)';
   ctx.lineWidth = 1;
   ctx.strokeRect(GOAL_L, GOAL_BOT_Y, GOAL_W, GOAL_H);
-  for (let nx = GOAL_L; nx < GOAL_R; nx += 6) {
+  for (let nx = GOAL_L; nx < GOAL_R; nx += 12) {
     ctx.beginPath(); ctx.moveTo(nx, GOAL_BOT_Y); ctx.lineTo(nx, GOAL_BOT_Y + GOAL_H); ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.stroke();
   }
 
@@ -1032,6 +1147,7 @@ function scoreGoal(scoringTeam) {
   const minute = Math.floor(matchClock);
   goalScorers.push({ player: scorer, team: teamName, minute });
 
+  AudioManager.playGoal();
   addCommentary('goal', `GOOOAL! ${scorer.lastName} makes it ${homeScore}–${awayScore}! The ${TEAM_NICKNAMES[teamName] || teamName} go wild!`);
 
   // Celebration
@@ -1051,9 +1167,13 @@ function scoreGoal(scoringTeam) {
   }
 
   // Reset ball
-  ball.x = CW / 2; ball.y = CH / 2;
+  ball.x = WORLD_W / 2; ball.y = WORLD_H / 2;
   ball.vx = 0; ball.vy = 0;
   ball.owner = null; ball.free = true;
+
+  // Snap camera toward goal mouth
+  const goalCamY = scoringTeam === 0 ? PITCH_T + 100 : PITCH_B - 100;
+  snapCamera(WORLD_W / 2, goalCamY);
 
   gameState = 'goalScored';
   pauseTimer = 120;
@@ -1109,7 +1229,7 @@ function nearestOpponentDist(p) {
 }
 
 function shootBall(p) {
-  const goalX = CW / 2 + (Math.random() - 0.5) * GOAL_W * 0.7;
+  const goalX = WORLD_W / 2 + (Math.random() - 0.5) * GOAL_W * 0.7;
   const goalY = p.team === 0 ? PITCH_T - 5 : PITCH_B + 5;
   const d = dist(p.x, p.y, goalX, goalY);
   const accuracy = 0.85 + Math.random() * 0.3; // some randomness
@@ -1118,6 +1238,7 @@ function shootBall(p) {
   ball.owner = null;
   ball.free = true;
   p.state = 'idle';
+  AudioManager.playKick();
 
   if (Math.random() < 0.4) {
     addCommentary('default', `${p.lastName} lets fly! ${Math.random() < 0.5 ? 'Powerful effort!' : 'What a strike!'}`);
@@ -1132,6 +1253,7 @@ function passBall(p, target) {
   ball.owner = null;
   ball.free = true;
   p.state = 'idle';
+  AudioManager.playKick();
 
   if (Math.random() < 0.15) {
     addCommentary('default', `${p.lastName} finds ${target.lastName} with a lovely ball.`);
@@ -1170,10 +1292,10 @@ function updatePlayerAI(p, teammates, opponents) {
   if (ball.owner === p) {
     p.state = 'hasBall';
     const attackGoalY = p.team === 0 ? PITCH_T : PITCH_B;
-    const distToGoal = dist(p.x, p.y, CW / 2, attackGoalY);
+    const distToGoal = dist(p.x, p.y, WORLD_W / 2, attackGoalY);
 
     // Shooting range
-    if (distToGoal < 180 && Math.abs(p.x - CW / 2) < 140) {
+    if (distToGoal < 360 && Math.abs(p.x - WORLD_W / 2) < 280) {
       if (Math.random() < 0.03 + (180 - distToGoal) / 3000) {
         shootBall(p);
         return;
@@ -1189,8 +1311,8 @@ function updatePlayerAI(p, teammates, opponents) {
 
     // Dribble toward goal
     const dribDir = p.team === 0 ? -1 : 1;
-    p.vx = (CW / 2 - p.x) * 0.02 + (Math.random() - 0.5) * 0.8;
-    p.vy = DRIBBLE_SPEED * dribDir + (Math.random() - 0.5) * 0.3;
+    p.vx = (WORLD_W / 2 - p.x) * 0.02 + (Math.random() - 0.5) * 1.6;
+    p.vy = DRIBBLE_SPEED * dribDir + (Math.random() - 0.5) * 0.6;
     return;
   }
 
@@ -1201,7 +1323,7 @@ function updatePlayerAI(p, teammates, opponents) {
     moveToward(p, ball.x, ball.y, p.speed);
 
     // Pick up ball if close
-    if (dist(p.x, p.y, ball.x, ball.y) < 12) {
+    if (dist(p.x, p.y, ball.x, ball.y) < 24) {
       ball.owner = p;
       ball.free = false;
       p.state = 'hasBall';
@@ -1212,7 +1334,7 @@ function updatePlayerAI(p, teammates, opponents) {
   // If ball owned by opponent nearby — try to tackle
   if (ball.owner && ball.owner.team !== p.team) {
     const dToBallCarrier = dist(p.x, p.y, ball.owner.x, ball.owner.y);
-    if (dToBallCarrier < 60 && p.position !== 'GK') {
+    if (dToBallCarrier < 120 && p.position !== 'GK') {
       moveToward(p, ball.owner.x, ball.owner.y, p.speed * 0.9);
       if (dToBallCarrier < TACKLE_RANGE) {
         attemptTackle(p, ball.owner);
@@ -1255,6 +1377,7 @@ function updateGK(gk, opponents) {
         moveToward(gk, ballArriveX, ball.y, GK_SPEED * 1.5);
         if (dist(gk.x, gk.y, ball.x, ball.y) < 20) {
           // Save!
+          AudioManager.playSave();
           ball.vx = (Math.random() - 0.5) * 3;
           ball.vy = -ball.vy * 0.3;
           ball.owner = null;
@@ -1320,6 +1443,7 @@ function attemptTackle(tackler, ballCarrier) {
 
     // Card chance
     if (Math.random() < 0.15) {
+      AudioManager.playCard();
       addCommentary('card', `Yellow card shown to ${tackler.lastName}!`);
       if (Math.random() < 0.05) {
         addCommentary('card', `That's a SECOND yellow! ${tackler.lastName} is OFF!`);
@@ -1337,6 +1461,7 @@ function attemptTackle(tackler, ballCarrier) {
 
 // ---- COMEDY EVENTS ----
 function theatricalDive(victim, fouler) {
+  AudioManager.playComedy();
   victim.state = 'diving';
   victim.stateTimer = 60;
   victim.slideX = (Math.random() > 0.5 ? 1 : -1) * 20;
@@ -1356,6 +1481,7 @@ function theatricalDive(victim, fouler) {
 
 function triggerVAR() {
   if (varActive) return;
+  AudioManager.playVAR();
   varActive = true;
   varTimer = 180;
   comedyStats.varReviews++;
@@ -1374,6 +1500,7 @@ function triggerVAR() {
 }
 
 function triggerMassConfrontation() {
+  AudioManager.playComedy();
   comedyStats.fights++;
   window.DEBUG_STATS.fights++;
   // 6+ players cluster around center
@@ -1435,6 +1562,7 @@ function triggerOwnGoal(team) {
 function triggerDoubleRedCard(team) {
   const players = (team === 0 ? homePlayers : awayPlayers).filter(p => !p.sentOff && p.position !== 'GK');
   if (players.length < 2) return;
+  AudioManager.playCard();
   const [p1, p2] = players.sort(() => Math.random() - 0.5).slice(0, 2);
   p1.sentOff = true; p1.state = 'sentOff';
   p2.sentOff = true; p2.state = 'sentOff';
@@ -1539,6 +1667,8 @@ function gameLoop() {
 
     // Halftime
     if (!halfSwapped && matchClock >= 45) {
+      AudioManager.playWhistle(false);
+      AudioManager.setCrowd(0.05);
       gameState = 'halftime';
       halfSwapped = true;
       pauseTimer = 180;
@@ -1550,6 +1680,8 @@ function gameLoop() {
 
     // Full time
     if (matchClock >= 90) {
+      AudioManager.playWhistle(true);
+      AudioManager.setCrowd(0.6);
       gameState = 'fulltime';
       addCommentary('default', `Full time! ${homeTeamName} ${homeScore}–${awayScore} ${awayTeamName}.`);
       updateScoreboard();
@@ -1577,6 +1709,13 @@ function gameLoop() {
           break;
         }
       }
+    }
+
+    // Crowd intensity modulation based on ball position
+    if (realTick % 30 === 0) {
+      const nearGoalTop = Math.max(0, 1 - dist(ball.x, ball.y, CW/2, PITCH_T) / 250);
+      const nearGoalBot = Math.max(0, 1 - dist(ball.x, ball.y, CW/2, PITCH_B) / 250);
+      AudioManager.setCrowd(0.15 + Math.max(nearGoalTop, nearGoalBot) * 0.5);
     }
 
     // Comedy events
@@ -1767,6 +1906,8 @@ async function startMatch() {
   // Kickoff commentary
   const homeNick = TEAM_NICKNAMES[homeTeamName] || homeTeamName;
   const awayNick = TEAM_NICKNAMES[awayTeamName] || awayTeamName;
+  AudioManager.playWhistle(false);
+  AudioManager.setCrowd(0.2);
   addCommentary('default', `We're underway! ${homeTeamName} kick off against ${awayTeamName}. The ${homeNick} looking to make a statement today.`);
 
   // Give ball to home team striker
@@ -1801,11 +1942,20 @@ $('awaySelect').addEventListener('change', () => updateSelectUI('away'));
 $('kickoffBtn').addEventListener('click', startMatch);
 $('rematchBtn').addEventListener('click', rematch);
 
-// Auto-kick-off if both URL params present
-if ($('homeSelect').value && $('awaySelect').value && $('homeSelect').value !== $('awaySelect').value) {
-  // Short delay so page renders first
-  setTimeout(startMatch, 300);
-}
+$('startOverlay').addEventListener('click', function() {
+  AudioManager.init();
+  this.style.display = 'none';
+  $('muteBtn').style.display = 'flex';
+  if ($('homeSelect').value && $('awaySelect').value && $('homeSelect').value !== $('awaySelect').value) {
+    startMatch();
+  }
+});
+
+$('muteBtn').addEventListener('click', function() {
+  AudioManager.muted = !AudioManager.muted;
+  this.textContent = AudioManager.muted ? '\u{1F507}' : '\u{1F50A}';
+  if (AudioManager.crowdGain) AudioManager.crowdGain.gain.value = AudioManager.muted ? 0 : 0.04;
+});
 </script>
 </body>
 </html>
