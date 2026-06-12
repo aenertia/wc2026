@@ -746,10 +746,11 @@ let lastComedyTime = 0;
 let lastCornerTime = 0;
 const CORNER_COOLDOWN = 3000;
 // Referee sprite state
-const ref = { x: WORLD_W/2, y: WORLD_H/2, targetX: WORLD_W/2, targetY: WORLD_H/2, inFight: false, fightX: 0, fightY: 0 };
+// ref and mouse positions initialized to 0 — updated to WORLD_W/2 in startMatch()
+const ref = { x: 0, y: 0, targetX: 0, targetY: 0, inFight: false, fightX: 0, fightY: 0 };
 // User interaction state
 let clickTarget = null; // {x, y, framesLeft}
-let mouseWorldX = WORLD_W/2, mouseWorldY = WORLD_H/2;
+let mouseWorldX = 0, mouseWorldY = 0;
 const COMEDY_COOLDOWN = 10000; // 10 seconds minimum between comedy events
 const playerEventCounts = new Map(); // name → {dives:0, fights:0, selfies:0}
 
