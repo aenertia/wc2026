@@ -920,15 +920,28 @@ function updateAndDrawEffects() {
     }
 
     else if (e.type === 'fist_click') {
-      // 👊 fist emoji scaling up then fading at click position
+      // Canvas-drawn fist scaling up then fading at click position
       if (age > e.duration) { activeEffects.splice(i, 1); continue; }
       const alpha = 1 - age / e.duration;
       const scale = 1 + age * 3;
+      const fR = 8 * scale;
       ctx.globalAlpha = alpha;
-      ctx.font = `${Math.floor(16 * scale)}px serif`;
-      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillText('👊', e.x, e.y);
+      // Glove
+      ctx.fillStyle = '#cc2222';
+      ctx.beginPath(); ctx.arc(e.x, e.y, fR, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = '#881111'; ctx.lineWidth = 1.5 * scale;
+      ctx.stroke();
+      // Knuckles
+      ctx.strokeStyle = '#991111';
+      ctx.lineWidth = Math.max(1, scale);
+      for (let k = -1; k <= 1; k++) {
+        ctx.beginPath();
+        ctx.moveTo(e.x + k * 3 * scale, e.y - 2.5 * scale);
+        ctx.lineTo(e.x + k * 3 * scale, e.y + 2.5 * scale);
+        ctx.stroke();
+      }
       ctx.globalAlpha = 1;
+      ctx.lineWidth = 1;
     }
 
     else if (e.type === 'player_highlight') {
@@ -1657,12 +1670,73 @@ function drawPlayer(ctx, p) {
     }
   }
 
-  // --- Fighting effect ---
+  // --- Fighting effect: big cartoon boxing gloves ---
   if (p.state === 'fighting') {
-    const t = p.stateTimer;
-    ctx.font = '12px serif';
-    ctx.textAlign = 'center';
-    ctx.fillText(['\u{1F4A5}', '\u{1F44A}', '\u{1F92C}'][Math.floor(t / 10) % 3], x + 10, headY - 8);
+    const punchT = Date.now() / 120;
+    const leftPunch = Math.sin(punchT) * 0.5 + 0.5;
+    const rightPunch = Math.sin(punchT + Math.PI) * 0.5 + 0.5;
+    const fistR = 10;
+
+    // Left fist
+    const lfExtend = 12 + leftPunch * 14;
+    const lfx = x - lfExtend;
+    const lfy = y - 2 + leftPunch * -6;
+    ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(x - 3, y); ctx.lineTo(lfx, lfy); ctx.stroke();
+    ctx.fillStyle = '#cc2222';
+    ctx.beginPath(); ctx.arc(lfx, lfy, fistR, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#881111'; ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.strokeStyle = '#991111'; ctx.lineWidth = 1;
+    for (let k = -1; k <= 1; k++) {
+      ctx.beginPath();
+      ctx.moveTo(lfx + k * 3.5, lfy - 3);
+      ctx.lineTo(lfx + k * 3.5, lfy + 3);
+      ctx.stroke();
+    }
+
+    // Right fist (opposite phase)
+    const rfExtend = 12 + rightPunch * 14;
+    const rfx = x + rfExtend;
+    const rfy = y - 2 + rightPunch * -6;
+    ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(x + 3, y); ctx.lineTo(rfx, rfy); ctx.stroke();
+    ctx.fillStyle = '#cc2222';
+    ctx.beginPath(); ctx.arc(rfx, rfy, fistR, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#881111'; ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.strokeStyle = '#991111'; ctx.lineWidth = 1;
+    for (let k = -1; k <= 1; k++) {
+      ctx.beginPath();
+      ctx.moveTo(rfx + k * 3.5, rfy - 3);
+      ctx.lineTo(rfx + k * 3.5, rfy + 3);
+      ctx.stroke();
+    }
+
+    // Impact starburst when fist fully extended
+    if (leftPunch > 0.9) {
+      ctx.fillStyle = 'rgba(255,200,0,0.8)';
+      ctx.beginPath();
+      for (let s = 0; s < 8; s++) {
+        const angle = (s / 8) * Math.PI * 2 + Date.now() / 200;
+        const r = s % 2 === 0 ? 8 : 4;
+        ctx[s === 0 ? 'moveTo' : 'lineTo'](lfx - 6 + Math.cos(angle) * r, lfy + Math.sin(angle) * r);
+      }
+      ctx.closePath(); ctx.fill();
+    }
+    if (rightPunch > 0.9) {
+      ctx.fillStyle = 'rgba(255,200,0,0.8)';
+      ctx.beginPath();
+      for (let s = 0; s < 8; s++) {
+        const angle = (s / 8) * Math.PI * 2 + Date.now() / 200;
+        const r = s % 2 === 0 ? 8 : 4;
+        ctx[s === 0 ? 'moveTo' : 'lineTo'](rfx + 6 + Math.cos(angle) * r, rfy + Math.sin(angle) * r);
+      }
+      ctx.closePath(); ctx.fill();
+    }
+    ctx.lineWidth = 1;
   }
 
   // Slacking — idle comedy antic when camera zooms via minimap
