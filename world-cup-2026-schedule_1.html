@@ -1389,14 +1389,31 @@ function renderCountryProfile(data, container) {
         `<track kind="subtitles" src="assets/teams/${slug}/${c.file}" srclang="${c.lang}" label="${c.label}">`
       ).join('');
       const hasLyrics = (anthem.captions || []).length > 0;
+      // MIDI fallback source element (browsers that support MIDI, or as download link)
+      const midiSrc = anthem.midi_file
+        ? `<source src="assets/teams/${slug}/${anthem.midi_file}" type="audio/midi">`
+        : '';
       audioHtml = `
-        <audio controls src="${audioSrc}" preload="none" style="width:100%" id="td-anthem-audio">
+        <audio controls preload="none" style="width:100%" id="td-anthem-audio">
+          <source src="${audioSrc}" type="audio/mp4">
+          ${midiSrc}
           ${tracks}
         </audio>
+        ${anthem.midi_file ? `<a href="assets/teams/${slug}/${anthem.midi_file}" download
+           class="td-lyrics-btn" style="margin-left:6px" title="Download MIDI">⬇ MIDI</a>` : ''}
         ${hasLyrics ? `<button class="td-lyrics-btn" onclick="toggleLyrics(this)" aria-expanded="false">
           Show lyrics / subtitles
         </button>
         <div class="td-lyrics" id="td-lyrics" hidden></div>` : ''}
+      `;
+    } else if (anthem.midi_file) {
+      // MIDI only (no m4a audio) — offer as download + try to play
+      audioHtml = `
+        <audio controls preload="none" style="width:100%" id="td-anthem-audio">
+          <source src="assets/teams/${slug}/${anthem.midi_file}" type="audio/midi">
+        </audio>
+        <a href="assets/teams/${slug}/${anthem.midi_file}" download
+           class="td-lyrics-btn" title="Download MIDI">⬇ MIDI</a>
       `;
     }
     anthemHtml = `
