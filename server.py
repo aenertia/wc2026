@@ -9,13 +9,50 @@ import http.server, subprocess, os, sys
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8191
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 API_BASE = "https://worldcup26.ir/get"
+TSDB_BASE = "https://www.thesportsdb.com/api/v1/json/3"
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
 
     def do_GET(self):
-        if self.path.startswith("/api/"):
+        if self.path.startswith("/api/tsdb/"):
+            endpoint = self.path[10:]  # strip /api/tsdb/
+            url = f"{TSDB_BASE}/{endpoint}"
+            try:
+                result = subprocess.run(
+                    ["curl", "-s", "--max-time", "10", "-H", "Accept: application/json", url],
+                    capture_output=True, timeout=12
+                )
+                if result.returncode != 0:
+                    raise RuntimeError(f"curl exit {result.returncode}")
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.send_header("Access-Control-Allow-Origin", "*")
+                self.send_header("Cache-Control", "public, max-age=86400")
+                self.end_headers()
+                self.wfile.write(result.stdout)
+            except Exception:
+                self.send_error(502, "Proxy error")
+        elif self.path.startswith("/api/invidious/"):
+            endpoint = self.path[15:]  # strip /api/invidious/
+            url = f"https://invidious.awa.3d.ae.net.nz/{endpoint}"
+            try:
+                result = subprocess.run(
+                    ["curl", "-s", "--max-time", "30", "-H", "Accept: */*", url],
+                    capture_output=True, timeout=35
+                )
+                if result.returncode != 0:
+                    raise RuntimeError(f"curl exit {result.returncode}")
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.send_header("Access-Control-Allow-Origin", "*")
+                self.send_header("Cache-Control", "public, max-age=3600")
+                self.end_headers()
+                self.wfile.write(result.stdout)
+            except Exception:
+                self.send_error(502, "Proxy error")
+        elif self.path.startswith("/api/"):
             endpoint = self.path[5:]  # strip /api/
             url = f"{API_BASE}/{endpoint}"
             try:

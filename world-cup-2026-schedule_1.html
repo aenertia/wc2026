@@ -305,6 +305,237 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
   font-family:var(--font-mono);font-size:10px;color:var(--chalk-faint);
   padding:2px 6px;border:1px solid var(--line);border-radius:4px;
 }
+/* ---------- team profile dialog ---------- */
+#teamDialog{
+  border:none;border-radius:var(--radius);padding:0;
+  max-width:min(95vw,900px);max-height:90vh;
+  width:min(95vw,900px);
+  background:var(--pitch);color:var(--chalk);
+  overflow:hidden;display:flex;flex-direction:column;
+}
+#teamDialog::backdrop{background:rgba(0,0,0,.65);backdrop-filter:blur(5px)}
+.td-header{
+  display:flex;align-items:center;gap:14px;padding:18px 20px 14px;
+  border-bottom:2px solid var(--line);flex-shrink:0;
+}
+.td-team-name{font-family:var(--font-display);font-size:clamp(22px,4vw,36px);flex:1;line-height:1}
+.td-flag{border-radius:3px;flex-shrink:0;object-fit:cover}
+.td-close{
+  background:none;border:none;color:var(--chalk-dim);font-size:22px;
+  cursor:pointer;padding:6px;border-radius:6px;flex-shrink:0;line-height:1;
+}
+.td-close:hover{background:var(--pitch-2);color:var(--chalk)}
+.td-close:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.td-body{overflow-y:auto;flex:1;padding:20px}
+.td-footer{
+  border-top:2px solid var(--line);padding:14px 20px;flex-shrink:0;
+  display:flex;gap:12px;align-items:center;
+}
+.td-fifa-btn{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--gold);color:var(--pitch);
+  border:none;border-radius:999px;padding:8px 18px;
+  text-decoration:none;cursor:pointer;
+}
+.td-fifa-btn:hover{opacity:.85}
+.td-loading{
+  text-align:center;padding:60px 20px;
+  font-family:var(--font-mono);color:var(--chalk-dim);font-size:13px;letter-spacing:.1em;
+}
+@media(max-width:560px){
+  #teamDialog{max-width:100vw;max-height:100vh;border-radius:0}
+  .td-body{padding:14px}
+}
+
+/* ---------- pitch layout ---------- */
+.pitch{
+  position:relative;width:100%;
+  aspect-ratio:68/105;
+  background:linear-gradient(180deg,#2a7a42 0%,#2d8c4e 50%,#2a7a42 100%);
+  border:2px solid rgba(255,255,255,.15);
+  border-radius:4px;overflow:hidden;
+  margin-bottom:20px;
+}
+/* halfway line */
+.pitch::before{
+  content:"";position:absolute;left:0;right:0;top:50%;
+  border-top:2px solid rgba(255,255,255,.25);
+}
+/* center circle */
+.pitch::after{
+  content:"";position:absolute;
+  width:27%;height:0;padding-bottom:27%;
+  border:2px solid rgba(255,255,255,.25);border-radius:50%;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.pitch-top-box,.pitch-bot-box{
+  position:absolute;left:50%;transform:translateX(-50%);
+  border:2px solid rgba(255,255,255,.25);
+  width:52%;height:16%;
+}
+.pitch-top-box{top:0}
+.pitch-bot-box{bottom:0}
+.pitch-top-six,.pitch-bot-six{
+  position:absolute;left:50%;transform:translateX(-50%);
+  border:2px solid rgba(255,255,255,.18);
+  width:26%;height:8%;
+}
+.pitch-top-six{top:0}
+.pitch-bot-six{bottom:0}
+/* center spot */
+.pitch-spot{
+  position:absolute;width:4px;height:4px;border-radius:50%;
+  background:rgba(255,255,255,.4);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+/* formation label */
+.pitch-formation{
+  position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.15em;
+  background:rgba(0,0,0,.45);color:rgba(255,255,255,.8);
+  padding:3px 10px;border-radius:999px;pointer-events:none;
+}
+
+/* ---------- player cards ---------- */
+.player-card{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  display:flex;flex-direction:column;align-items:center;
+  cursor:default;z-index:2;
+}
+.player-card .pc-avatar{
+  width:48px;height:48px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.35);
+  overflow:hidden;background:var(--pitch-2);
+  position:relative;flex-shrink:0;
+}
+.player-card .pc-avatar img{
+  width:100%;height:100%;object-fit:cover;object-position:top;
+  display:block;
+}
+.player-card .pc-num{
+  position:absolute;top:-4px;left:-4px;
+  font-family:var(--font-mono);font-size:9px;font-weight:700;
+  background:var(--gold);color:var(--pitch);
+  border-radius:50%;width:16px;height:16px;
+  display:flex;align-items:center;justify-content:center;
+  line-height:1;
+}
+.player-card .pc-name{
+  font-family:var(--font-mono);font-size:9px;letter-spacing:.04em;
+  color:var(--chalk);text-align:center;margin-top:3px;
+  max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  text-shadow:0 1px 3px rgba(0,0,0,.8);line-height:1.2;
+}
+.player-card.captain .pc-avatar{border-color:var(--gold);border-width:3px}
+
+/* stats tooltip */
+.player-card .pc-stats{
+  display:none;position:absolute;bottom:calc(100% + 6px);left:50%;
+  transform:translateX(-50%);
+  background:rgba(12,23,19,.95);border:1px solid var(--line);
+  border-radius:8px;padding:8px 10px;
+  font-family:var(--font-mono);font-size:10px;color:var(--chalk);
+  white-space:nowrap;z-index:10;pointer-events:none;
+  min-width:130px;
+}
+.player-card:hover .pc-stats,.player-card:focus .pc-stats{display:block}
+.player-card .pc-stats .ps-row{
+  display:flex;justify-content:space-between;gap:12px;padding:1px 0;
+}
+.player-card .pc-stats .ps-label{color:var(--chalk-faint)}
+
+/* silhouette fallback */
+.player-card.no-photo .pc-avatar img{display:none}
+.player-card.no-photo .pc-avatar::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 35%,var(--chalk-faint) 18%,transparent 19%),
+    radial-gradient(ellipse 55% 45% at 50% 72%,var(--chalk-faint) 100%,transparent 101%);
+}
+/* GK silhouette slightly different (gloves hint) */
+.player-card.no-photo.gk .pc-avatar::after{
+  background:radial-gradient(circle at 50% 35%,var(--gold) 18%,transparent 19%),
+    radial-gradient(ellipse 55% 45% at 50% 72%,var(--gold) 100%,transparent 101%);
+  opacity:.6;
+}
+
+/* ---------- subs strip ---------- */
+.subs-strip{
+  display:flex;flex-wrap:wrap;gap:6px;justify-content:center;
+  padding:10px 0 4px;
+  border-top:1px solid var(--line);
+}
+.subs-strip .sub-card{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  width:40px;
+}
+.subs-strip .sub-card .pc-avatar{
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.2);
+  overflow:hidden;background:var(--pitch-2);
+}
+.subs-strip .sub-card .pc-avatar img{width:100%;height:100%;object-fit:cover;object-position:top}
+.subs-strip .sub-card .pc-name{
+  font-family:var(--font-mono);font-size:8px;color:var(--chalk-faint);
+  max-width:40px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center;
+}
+.subs-label{
+  width:100%;text-align:center;font-family:var(--font-mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--chalk-faint);
+  padding-bottom:6px;
+}
+
+/* ---------- country profile ---------- */
+.country-profile{
+  border-top:2px solid var(--line);padding-top:20px;margin-top:4px;
+}
+.cp-flag-row{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.cp-flag-row img{height:64px;border-radius:4px;border:1px solid var(--line)}
+.cp-country-name{font-family:var(--font-display);font-size:clamp(20px,3vw,28px);line-height:1}
+.cp-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:10px;margin-bottom:16px;
+}
+.cp-cell{background:var(--pitch-2);border-radius:8px;padding:10px 12px}
+.cp-cell .cc-label{
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--chalk-faint);margin-bottom:3px;
+}
+.cp-cell .cc-val{font-size:14px;color:var(--chalk);font-family:var(--font-body);font-weight:500}
+.cp-factoids{
+  font-family:var(--font-body);font-size:13px;color:var(--chalk-dim);
+  font-style:italic;margin-bottom:16px;line-height:1.7;
+}
+.cp-factoids span{margin-right:12px}
+
+/* anthem */
+.cp-anthem{
+  display:flex;flex-direction:column;gap:6px;
+  background:var(--pitch-2);border-radius:var(--radius);padding:14px 16px;
+  margin-bottom:16px;
+}
+.cp-anthem-name{
+  font-family:var(--font-display);font-size:16px;color:var(--chalk);line-height:1;
+}
+.cp-anthem-sub{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--chalk-faint)}
+.cp-anthem audio{width:100%;margin-top:6px;height:32px;border-radius:4px}
+.td-lyrics-btn{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  background:none;border:1px solid var(--line);border-radius:999px;
+  color:var(--chalk-faint);padding:5px 14px;margin-top:6px;cursor:pointer;
+}
+.td-lyrics-btn:hover{color:var(--chalk);border-color:rgba(242,244,236,.3)}
+.td-lyrics{margin-top:10px;padding:12px 14px;background:var(--pitch-3);border-radius:8px;
+  max-height:200px;overflow-y:auto}
+
+/* ---------- pitch + player responsive ---------- */
+@media(max-width:560px){
+  .player-card .pc-avatar{width:36px;height:36px}
+  .player-card .pc-name{font-size:8px;max-width:48px}
+  .cp-grid{grid-template-columns:1fr 1fr}
+}
+.team-link{color:inherit;text-decoration:none;cursor:pointer}
+.team-link:hover{text-decoration:underline;text-underline-offset:3px;color:var(--gold)}
 </style>
 </head>
 <body>
@@ -405,6 +636,77 @@ const VENUES={
   97:"Boston · Gillette Stadium",98:"Los Angeles · SoFi Stadium",99:"Miami · Hard Rock Stadium",
   100:"Kansas City · Arrowhead Stadium",101:"Dallas · AT&T Stadium",102:"Atlanta · Mercedes-Benz Stadium",
   103:"Miami · Hard Rock Stadium",104:"New York/NJ · MetLife Stadium"
+};
+const TEAM_META={
+  "Algeria":{slug:"algeria",iso2:"dz",flagcdn:"dz",qid:"Q262"},
+  "Argentina":{slug:"argentina",iso2:"ar",flagcdn:"ar",qid:"Q414"},
+  "Australia":{slug:"australia",iso2:"au",flagcdn:"au",qid:"Q408"},
+  "Austria":{slug:"austria",iso2:"at",flagcdn:"at",qid:"Q40"},
+  "Belgium":{slug:"belgium",iso2:"be",flagcdn:"be",qid:"Q31"},
+  "Bosnia & Herzegovina":{slug:"bosnia-and-herzegovina",iso2:"ba",flagcdn:"ba",qid:"Q225"},
+  "Brazil":{slug:"brazil",iso2:"br",flagcdn:"br",qid:"Q155"},
+  "Cabo Verde":{slug:"cabo-verde",iso2:"cv",flagcdn:"cv",qid:"Q1011"},
+  "Canada":{slug:"canada",iso2:"ca",flagcdn:"ca",qid:"Q16"},
+  "Colombia":{slug:"colombia",iso2:"co",flagcdn:"co",qid:"Q739"},
+  "Congo DR":{slug:"congo-dr",iso2:"cd",flagcdn:"cd",qid:"Q974"},
+  "Côte d'Ivoire":{slug:"cote-d-ivoire",iso2:"ci",flagcdn:"ci",qid:"Q1008"},
+  "Croatia":{slug:"croatia",iso2:"hr",flagcdn:"hr",qid:"Q224"},
+  "Curaçao":{slug:"curacao",iso2:"cw",flagcdn:"cw",qid:"Q25279"},
+  "Czechia":{slug:"czechia",iso2:"cz",flagcdn:"cz",qid:"Q213"},
+  "Ecuador":{slug:"ecuador",iso2:"ec",flagcdn:"ec",qid:"Q736"},
+  "Egypt":{slug:"egypt",iso2:"eg",flagcdn:"eg",qid:"Q79"},
+  "England":{slug:"england",iso2:"gb",flagcdn:"gb-eng",qid:"Q145"},
+  "France":{slug:"france",iso2:"fr",flagcdn:"fr",qid:"Q142"},
+  "Germany":{slug:"germany",iso2:"de",flagcdn:"de",qid:"Q183"},
+  "Ghana":{slug:"ghana",iso2:"gh",flagcdn:"gh",qid:"Q117"},
+  "Haiti":{slug:"haiti",iso2:"ht",flagcdn:"ht",qid:"Q790"},
+  "IR Iran":{slug:"ir-iran",iso2:"ir",flagcdn:"ir",qid:"Q794"},
+  "Iraq":{slug:"iraq",iso2:"iq",flagcdn:"iq",qid:"Q796"},
+  "Japan":{slug:"japan",iso2:"jp",flagcdn:"jp",qid:"Q17"},
+  "Jordan":{slug:"jordan",iso2:"jo",flagcdn:"jo",qid:"Q810"},
+  "Korea Republic":{slug:"korea-republic",iso2:"kr",flagcdn:"kr",qid:"Q884"},
+  "Mexico":{slug:"mexico",iso2:"mx",flagcdn:"mx",qid:"Q96"},
+  "Morocco":{slug:"morocco",iso2:"ma",flagcdn:"ma",qid:"Q1028"},
+  "Netherlands":{slug:"netherlands",iso2:"nl",flagcdn:"nl",qid:"Q55"},
+  "New Zealand":{slug:"new-zealand",iso2:"nz",flagcdn:"nz",qid:"Q664"},
+  "Norway":{slug:"norway",iso2:"no",flagcdn:"no",qid:"Q20"},
+  "Panama":{slug:"panama",iso2:"pa",flagcdn:"pa",qid:"Q804"},
+  "Paraguay":{slug:"paraguay",iso2:"py",flagcdn:"py",qid:"Q733"},
+  "Portugal":{slug:"portugal",iso2:"pt",flagcdn:"pt",qid:"Q45"},
+  "Qatar":{slug:"qatar",iso2:"qa",flagcdn:"qa",qid:"Q846"},
+  "Saudi Arabia":{slug:"saudi-arabia",iso2:"sa",flagcdn:"sa",qid:"Q851"},
+  "Scotland":{slug:"scotland",iso2:"gb",flagcdn:"gb-sct",qid:"Q22"},
+  "Senegal":{slug:"senegal",iso2:"sn",flagcdn:"sn",qid:"Q1041"},
+  "South Africa":{slug:"south-africa",iso2:"za",flagcdn:"za",qid:"Q258"},
+  "Spain":{slug:"spain",iso2:"es",flagcdn:"es",qid:"Q29"},
+  "Sweden":{slug:"sweden",iso2:"se",flagcdn:"se",qid:"Q34"},
+  "Switzerland":{slug:"switzerland",iso2:"ch",flagcdn:"ch",qid:"Q39"},
+  "Tunisia":{slug:"tunisia",iso2:"tn",flagcdn:"tn",qid:"Q948"},
+  "Türkiye":{slug:"turkiye",iso2:"tr",flagcdn:"tr",qid:"Q43"},
+  "Uruguay":{slug:"uruguay",iso2:"uy",flagcdn:"uy",qid:"Q77"},
+  "USA":{slug:"usa",iso2:"us",flagcdn:"us",qid:"Q30"},
+  "Uzbekistan":{slug:"uzbekistan",iso2:"uz",flagcdn:"uz",qid:"Q265"}
+};
+const FIFA_SLUGS={
+  "Algeria":"algeria","Argentina":"argentina","Australia":"australia","Austria":"austria",
+  "Belgium":"belgium","Bosnia & Herzegovina":"bosnia-and-herzegovina","Brazil":"brazil",
+  "Cabo Verde":"cabo-verde","Canada":"canada","Colombia":"colombia","Congo DR":"congo-dr",
+  "Côte d'Ivoire":"cote-d-ivoire","Croatia":"croatia","Curaçao":"curacao","Czechia":"czechia",
+  "Ecuador":"ecuador","Egypt":"egypt","England":"england","France":"france","Germany":"germany",
+  "Ghana":"ghana","Haiti":"haiti","IR Iran":"ir-iran","Iraq":"iraq","Japan":"japan",
+  "Jordan":"jordan","Korea Republic":"korea-republic","Mexico":"mexico","Morocco":"morocco",
+  "Netherlands":"netherlands","New Zealand":"new-zealand","Norway":"norway","Panama":"panama",
+  "Paraguay":"paraguay","Portugal":"portugal","Qatar":"qatar","Saudi Arabia":"saudi-arabia",
+  "Scotland":"scotland","Senegal":"senegal","South Africa":"south-africa","Spain":"spain",
+  "Sweden":"sweden","Switzerland":"switzerland","Tunisia":"tunisia","Türkiye":"turkiye",
+  "Uruguay":"uruguay","USA":"usa","Uzbekistan":"uzbekistan"
+};
+const FIPS_CODES={
+  dz:"ag",ar:"ar",au:"as",at:"au",be:"be",ba:"bk",br:"br",cv:"cv",ca:"ca",co:"co",
+  cd:"cg",ci:"iv",hr:"hr",cw:"uc",cz:"ez",ec:"ec",eg:"eg",gb:"uk",fr:"fr",de:"gm",
+  gh:"gh",ht:"ha",ir:"ir",iq:"iz",jp:"ja",jo:"jo",kr:"ks",mx:"mx",ma:"mo",nl:"nl",
+  nz:"nz",no:"no",pa:"pm",py:"pa",pt:"po",qa:"qa",sa:"sa",sn:"sg",za:"sf",es:"sp",
+  se:"sw",ch:"sz",tn:"ts",tr:"tu",uy:"uy",us:"us",uz:"uz"
 };
 const D=[
 [1,"G","A","2026-06-11","20:00","Mexico","South Africa"],[2,"G","A","2026-06-12","3:00","Korea Republic","Czechia"],
@@ -652,6 +954,7 @@ async function fetchScores(){
   }
 }
 
+function isRealTeam(name){return!/^(Winner|Runner-up|Loser|3rd place)/.test(name)}
 function render(){
   let rows=D.filter(r=>{
     if(state.stage&&r[1]!==state.stage)return false;
@@ -708,8 +1011,10 @@ function render(){
       const hLoser=sc?.finished&&hNum<aNum,aLoser=sc?.finished&&aNum<hNum;
       const hScorers=sc?.homeScorers?.length?'<span class="scorers">'+sc.homeScorers.join(' · ')+'</span>':'';
       const aScorers=sc?.awayScorers?.length?'<span class="scorers">'+sc.awayScorers.join(' · ')+'</span>':'';
-      const homeHtml='<div class="m-home"><b class="'+(hLoser?"loser":"")+'">'+homeName+'</b>'+hScorers+'</div>';
-      const awayHtml='<div class="m-away"><b class="'+(aLoser?"loser":"")+'">'+awayName+'</b>'+aScorers+'</div>';
+      const homeLink=isRealTeam(homeName)?'<a href="#" class="team-link" data-team="'+homeName+'">'+homeName+'</a>':homeName;
+      const awayLink=isRealTeam(awayName)?'<a href="#" class="team-link" data-team="'+awayName+'">'+awayName+'</a>':awayName;
+      const homeHtml='<div class="m-home"><b class="'+(hLoser?"loser":"")+'">'+homeLink+'</b>'+hScorers+'</div>';
+      const awayHtml='<div class="m-away"><b class="'+(aLoser?"loser":"")+'">'+awayLink+'</b>'+aScorers+'</div>';
 
       const venueHtml=VENUES[r[0]]?'<div class="m-venue">'+VENUES[r[0]]+'</div>':'';
       m.innerHTML=timeHtml+homeHtml+scoreHtml+awayHtml+'<div class="meta">'+tagFor(r)+'<span class="num">#'+String(r[0]).padStart(3,"0")+'</span></div>'+venueHtml;
@@ -789,7 +1094,7 @@ function standingsTableRows(teams,qualify){
     return'<tr'+q+'>'
       +'<td class="pos">'+(i+1)+'</td>'
       +'<td class="flag">'+flagImg+'</td>'
-      +'<td class="tn">'+t.name+'</td>'
+      +'<td class="tn"><a href="#" class="team-link" data-team="'+t.name+'">'+t.name+'</a></td>'
       +'<td class="num">'+t.mp+'</td>'
       +'<td class="num">'+t.w+'</td>'
       +'<td class="num">'+t.d+'</td>'
@@ -816,7 +1121,7 @@ function renderGroups(){
         +'<th title="Lost">L</th><th title="Goal difference">GD</th><th title="Points">Pts</th>'
         +'</tr></thead><tbody>'+standingsTableRows(standing,2)+'</tbody></table>';
     }else{
-      const names=[...localTeams[g]].map(t=>'<li>'+t+'</li>').join("");
+      const names=[...localTeams[g]].map(t=>'<li><a href="#" class="team-link" data-team="'+t+'">'+t+'</a></li>').join("");
       body='<ul>'+names+'</ul>';
     }
     card.innerHTML='<div class="gc-head" style="background:'+GROUP_COLORS[g]+'"><span class="g">Group '+g+'</span><span class="m">6 matches</span></div>'+body;
@@ -847,7 +1152,7 @@ function renderStrip(){
       const q=i<2?' class="q"':"";
       const flagImg=t.flag?'<img src="'+t.flag+'" alt="">':"";
       return'<tr'+q+'>'
-        +'<td class="left"><span style="color:var(--chalk-faint);font-family:var(--font-mono);font-size:11px">'+(i+1)+'</span>'+flagImg+t.name+'</td>'
+        +'<td class="left"><span style="color:var(--chalk-faint);font-family:var(--font-mono);font-size:11px">'+(i+1)+'</span>'+flagImg+'<a href="#" class="team-link" data-team="'+t.name+'">'+t.name+'</a></td>'
         +'<td>'+t.mp+'</td><td>'+t.w+'</td><td>'+t.d+'</td><td>'+t.l+'</td>'
         +'<td>'+(t.gd>0?"+":"")+t.gd+'</td>'
         +'<td class="pts">'+t.pts+'</td>'
@@ -862,5 +1167,535 @@ fetchScores();
 fetchStandings();
 setInterval(()=>{fetchScores();fetchStandings();},2*60*1000);
 </script>
+
+<dialog id="teamDialog" aria-labelledby="td-title">
+  <div class="td-header">
+    <h2 id="td-title" class="td-team-name" tabindex="-1">Team</h2>
+    <img id="td-flag" class="td-flag" src="" alt="" width="48" height="32">
+    <button class="td-close" aria-label="Close team profile">&#x2715;</button>
+  </div>
+  <div class="td-body" id="td-body">
+    <div class="td-loading">Loading team profile…</div>
+  </div>
+  <div class="td-footer">
+    <a id="td-fifa-link" class="td-fifa-btn" href="#" target="_blank" rel="noopener">View on FIFA.com ↗</a>
+  </div>
+</dialog>
+
+<script>
+/* ---- team profile dialog ---- */
+const teamDialog=document.getElementById('teamDialog');
+const teamDataCache=new Map();
+
+function showTeamDialog(teamName){
+  const dlg=teamDialog;
+  document.getElementById('td-title').textContent=teamName;
+  document.getElementById('td-flag').src='';
+  document.getElementById('td-flag').alt='';
+  document.getElementById('td-body').innerHTML='<div class="td-loading">Loading team profile…</div>';
+  document.getElementById('td-fifa-link').href='#';
+  document.body.style.overflow='hidden';
+  dlg.showModal();
+  if(typeof TEAM_META!=='undefined'&&TEAM_META[teamName]){
+    const meta=TEAM_META[teamName];
+    document.getElementById('td-fifa-link').href=
+      'https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/teams/'+meta.slug;
+    document.getElementById('td-flag').src='https://flagcdn.com/'+meta.flagcdn+'.svg';
+    document.getElementById('td-flag').alt=teamName+' flag';
+  }
+  if(typeof loadTeamData==='function'){
+    loadTeamData(teamName).then(data=>{
+      renderTeamProfile(data,teamName);
+    }).catch(e=>{
+      console.warn('Team data load failed:',e);
+      document.getElementById('td-body').innerHTML=
+        '<div class="td-loading">Team profile unavailable — check your connection.</div>';
+    });
+  }
+}
+
+teamDialog.querySelector('.td-close').addEventListener('click',()=>teamDialog.close());
+teamDialog.addEventListener('click',e=>{
+  const r=teamDialog.getBoundingClientRect();
+  if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)
+    teamDialog.close();
+});
+teamDialog.addEventListener('close',()=>{document.body.style.overflow='';});
+
+function getPlayerPhotoSrc(slug, player) {
+  const photo = player.photo;
+  if (!photo) {
+    const pos = (player.position || 'MF').toLowerCase();
+    return 'assets/silhouettes/' + pos + '.svg';
+  }
+  if (photo.startsWith('assets/') || photo.startsWith('http')) return photo;
+  return 'assets/teams/' + slug + '/' + photo;
+}
+
+function renderPitch(teamData, container) {
+  const result = inferFormation(teamData?.roster?.players || teamData?.roster || []);
+  if (!result) {
+    container.innerHTML = '<p class="td-loading">No roster data available.</p>';
+    return;
+  }
+  const {formation, positions, subs} = result;
+  const slug = teamData.slug;
+
+  let html = '<div class="pitch">' +
+    '<div class="pitch-top-box"></div>' +
+    '<div class="pitch-bot-box"></div>' +
+    '<div class="pitch-top-six"></div>' +
+    '<div class="pitch-bot-six"></div>' +
+    '<div class="pitch-spot"></div>' +
+    '<div class="pitch-formation">' + formation + '</div>';
+
+  positions.forEach(function(item) {
+    var player = item.player, x = item.x, y = item.y;
+    var pos = (player.position || 'mf').toLowerCase();
+    var isCaptain = player.captain;
+    var photoSrc = getPlayerPhotoSrc(slug, player);
+    var lastName = (player.name || '').split(' ').pop();
+    var age = player.age || (player.dob ? (2026 - parseInt(player.dob)) : '?');
+
+    var statsHtml = '<div class="pc-stats">' +
+      '<div class="ps-row"><span class="ps-label">#</span>' + player.number + ' ' + player.position + '</div>' +
+      '<div class="ps-row"><span class="ps-label">Caps</span>' + player.caps + '</div>' +
+      '<div class="ps-row"><span class="ps-label">Goals</span>' + player.goals + '</div>' +
+      '<div class="ps-row"><span class="ps-label">Club</span>' + (player.club || '\u2014') + '</div>' +
+      '<div class="ps-row"><span class="ps-label">Age</span>' + age + '</div>' +
+      '</div>';
+
+    html += '<div class="player-card' + (isCaptain ? ' captain' : '') +
+      (photoSrc.includes('silhouettes') ? ' no-photo ' + pos : '') + '"' +
+      ' style="left:' + x + '%;top:' + y + '%"' +
+      ' tabindex="0" aria-label="' + player.name + ', #' + player.number + '">' +
+      '<div class="pc-avatar">' +
+      '<img src="' + photoSrc + '" alt="' + player.name + '"' +
+      " onerror=\"this.onerror=null;this.src='assets/silhouettes/" + pos + ".svg';this.closest('.player-card').classList.add('no-photo','" + pos + "')\">" +
+      '<span class="pc-num">' + player.number + '</span>' +
+      '</div>' +
+      '<span class="pc-name">' + lastName + '</span>' +
+      statsHtml +
+      '</div>';
+  });
+
+  html += '</div>';
+
+  if (subs && subs.length) {
+    html += '<div class="subs-strip"><div class="subs-label">Substitutes</div>';
+    subs.slice(0, 15).forEach(function(player) {
+      var pos = (player.position || 'mf').toLowerCase();
+      var photoSrc = getPlayerPhotoSrc(slug, player);
+      var lastName = (player.name || '').split(' ').pop();
+      html += '<div class="sub-card" title="' + player.name + ' (#' + player.number + ') \u2014 ' + player.club + '">' +
+        '<div class="pc-avatar">' +
+        '<img src="' + photoSrc + '" alt="' + player.name + '"' +
+        " onerror=\"this.onerror=null;this.src='assets/silhouettes/" + pos + ".svg'\">" +
+        '</div>' +
+        '<span class="pc-name">' + lastName + '</span>' +
+        '</div>';
+    });
+    html += '</div>';
+  }
+
+  container.innerHTML = html;
+}
+
+async function toggleLyrics(btn) {
+  const lyricsDiv = document.getElementById('td-lyrics');
+  if (!lyricsDiv) return;
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  if (expanded) {
+    lyricsDiv.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+    btn.textContent = 'Show lyrics / subtitles';
+    return;
+  }
+  if (!lyricsDiv.dataset.loaded) {
+    const track = document.querySelector('#td-anthem-audio track');
+    if (track?.src) {
+      try {
+        const r = await fetch(track.src);
+        const vtt = await r.text();
+        const lines = vtt.split('\n')
+          .filter(l => l && !l.startsWith('WEBVTT') && !l.startsWith('NOTE')
+            && !/^\d+$/.test(l.trim())
+            && !l.includes('-->'))
+          .map(l => l.trim())
+          .filter(Boolean);
+        lyricsDiv.innerHTML = '<p style="font-family:var(--font-body);font-size:14px;line-height:1.8;white-space:pre-wrap;color:var(--chalk-dim)">'
+          + lines.join('\n').replace(/</g,'&lt;') + '</p>';
+        lyricsDiv.dataset.loaded = '1';
+      } catch(e) {
+        lyricsDiv.textContent = 'Lyrics unavailable.';
+      }
+    } else {
+      lyricsDiv.textContent = 'No subtitle track found.';
+    }
+  }
+  lyricsDiv.hidden = false;
+  btn.setAttribute('aria-expanded', 'true');
+  btn.textContent = 'Hide lyrics / subtitles';
+}
+
+function renderCountryProfile(data, container) {
+  const country = data?.country;
+  const anthem = data?.anthem;
+  const slug = data?.slug || '';
+  const meta = data?.meta || {};
+  const flagUrl = data?.flagUrl;
+  const flagCdnUrl = data?.flagCdnUrl || `https://flagcdn.com/${meta.flagcdn || 'un'}.svg`;
+  const fifaUrl = data?.fifaUrl || '#';
+
+  if (!country && !anthem) {
+    container.innerHTML = '<p class="td-loading" style="margin-top:10px">Country info unavailable.</p>';
+    return;
+  }
+
+  // Format number with comma separators
+  const fmt = n => n ? Number(n).toLocaleString('en') : '\u2014';
+  const fmtArea = n => n ? Number(n).toLocaleString('en') + ' km\u00B2' : '\u2014';
+
+  // Demographics cells
+  const cells = [
+    {label: 'Capital', val: country?.capital || '\u2014'},
+    {label: 'Population', val: fmt(country?.population)},
+    {label: 'Area', val: fmtArea(country?.area)},
+    {label: 'Region', val: country?.region || '\u2014'},
+    {label: 'Language(s)', val: Array.isArray(country?.languages) ? country.languages.slice(0,3).join(', ') : (country?.languages || '\u2014')},
+    {label: 'Currency', val: country?.currency || '\u2014'},
+    {label: 'Government', val: country?.governmentType || '\u2014'},
+    {label: 'Religion', val: country?.religion || '\u2014'},
+  ].filter(c => c.val && c.val !== '\u2014');
+
+  const gridHtml = cells.map(c =>
+    `<div class="cp-cell"><div class="cc-label">${c.label}</div><div class="cc-val">${c.val}</div></div>`
+  ).join('');
+
+  // Factoids
+  const facts = [];
+  if (country?.nationalDish) facts.push(`\uD83C\uDF7D National dish: <strong>${country.nationalDish}</strong>`);
+  if (country?.drivingSide) facts.push(`\uD83D\uDE97 Drives on the <strong>${country.drivingSide}</strong>`);
+  if (country?.lifeExpectancy) facts.push(`Life expectancy: <strong>${country.lifeExpectancy} yrs</strong>`);
+  const factoidsHtml = facts.length ?
+    `<div class="cp-factoids">${facts.map(f=>`<span>${f}</span>`).join('')}</div>` : '';
+
+  let anthemHtml = '';
+  if (anthem?.name) {
+    let audioHtml = '';
+    if (anthem.has_audio && anthem.audio_file) {
+      const audioSrc = `assets/teams/${slug}/${anthem.audio_file}`;
+      const tracks = (anthem.captions || []).map(c =>
+        `<track kind="subtitles" src="assets/teams/${slug}/${c.file}" srclang="${c.lang}" label="${c.label}">`
+      ).join('');
+      const hasLyrics = (anthem.captions || []).length > 0;
+      audioHtml = `
+        <audio controls src="${audioSrc}" preload="none" style="width:100%" id="td-anthem-audio">
+          ${tracks}
+        </audio>
+        ${hasLyrics ? `<button class="td-lyrics-btn" onclick="toggleLyrics(this)" aria-expanded="false">
+          Show lyrics / subtitles
+        </button>
+        <div class="td-lyrics" id="td-lyrics" hidden></div>` : ''}
+      `;
+    }
+    anthemHtml = `
+      <div class="cp-anthem">
+        <span class="cp-anthem-sub">National Anthem</span>
+        <span class="cp-anthem-name">${anthem.name}</span>
+        ${audioHtml}
+      </div>
+    `;
+  }
+
+  // Flag + country name row
+  const countryName = country?.name || data?.meta?.slug?.replace(/-/g,' ') || '';
+
+  container.innerHTML = `
+    <div class="cp-flag-row">
+      <img src="${flagUrl}" alt="${countryName} flag"
+           onerror="this.onerror=null;this.src='${flagCdnUrl}'">
+      <span class="cp-country-name">${countryName}</span>
+    </div>
+    <div class="cp-grid">${gridHtml}</div>
+    ${factoidsHtml}
+    ${anthemHtml}
+    <div class="td-footer" style="padding:0;border:none;margin-top:8px">
+      <a href="${fifaUrl}" class="td-fifa-btn" target="_blank" rel="noopener">
+        View on FIFA.com \u2197
+      </a>
+      <a href="https://en.wikipedia.org/wiki/${encodeURIComponent(countryName)}"
+         class="td-fifa-btn" style="background:var(--pitch-3);color:var(--chalk)"
+         target="_blank" rel="noopener">Wikipedia \u2197</a>
+    </div>
+  `;
+}
+
+function renderTeamProfile(data, teamName) {
+  const body = document.getElementById('td-body');
+  if (!data) {
+    body.innerHTML = '<p class="td-loading">Team profile unavailable \u2014 check your connection.</p>';
+    return;
+  }
+  const pitchContainer = document.createElement('div');
+  renderPitch(data, pitchContainer);
+  body.innerHTML = '';
+  body.appendChild(pitchContainer);
+
+  const cpDiv = document.createElement('div');
+  cpDiv.id = 'td-country-profile';
+  cpDiv.className = 'country-profile';
+  cpDiv.innerHTML = '<div class="td-loading">Loading country profile\u2026</div>';
+  body.appendChild(cpDiv);
+
+  if (typeof renderCountryProfile === 'function') {
+    renderCountryProfile(data, cpDiv);
+  }
+}
+
+/* ---- data loading layer ---- */
+
+function fetchWithTimeout(url, options, timeoutMs) {
+  const controller = new AbortController();
+  const tid = setTimeout(() => controller.abort(), timeoutMs || 8000);
+  return fetch(url, {...(options||{}), signal: controller.signal})
+    .finally(() => clearTimeout(tid));
+}
+
+async function parseWikitextRoster(teamName) {
+  const url = 'https://en.wikipedia.org/w/api.php?action=parse&page=2026_FIFA_World_Cup_squads&prop=wikitext&format=json&origin=*';
+  try {
+    const r = await fetchWithTimeout(url, {}, 15000);
+    if (!r.ok) return null;
+    const data = await r.json();
+    const wikitext = data?.parse?.wikitext?.['*'] || '';
+
+    const sectionRe = new RegExp(`===\\s*${teamName.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}\\s*===([\\s\\S]*?)(?====|$)`);
+    const sectionMatch = wikitext.match(sectionRe);
+    if (!sectionMatch) return null;
+
+    const section = sectionMatch[1];
+    const playerRe = /\{\{nat fs g player\|no=(\d+)\|pos=(\w+)\|name=\[\[(?:[^\]|]*\|)?([^\]]+)\]\]\|sortname=[^|]+(?:\|other=([^|]*))?\|age=\{\{birth date and age2\|\d+\|\d+\|\d+\|(\d{4})\|(\d+)\|(\d+)\}\}\|caps=(\d+)\|goals=(\d+)\|club=\[\[(?:[^\]|]*\|)?([^\]]+)\]\]\|clubnat=(\w+)\}\}/g;
+
+    const players = [];
+    let m;
+    while ((m = playerRe.exec(section)) !== null) {
+      const dob = `${m[5]}-${m[6].padStart(2,'0')}-${m[7].padStart(2,'0')}`;
+      const age = 2026 - parseInt(m[5]) - (parseInt(m[6]) > 6 || (parseInt(m[6]) === 6 && parseInt(m[7]) > 11) ? 1 : 0);
+      players.push({
+        number: parseInt(m[1]), position: m[2],
+        name: m[3].trim(), dob, age,
+        caps: parseInt(m[8]), goals: parseInt(m[9]),
+        club: m[10].trim(), club_nation: m[11],
+        captain: !!(m[4] && m[4].toLowerCase().includes('captain')),
+        photo: null
+      });
+    }
+    return players.length ? {team: teamName, players} : null;
+  } catch(e) { console.warn('Wikipedia roster fetch failed:', e); return null; }
+}
+
+async function loadTeamData(teamName) {
+  if (teamDataCache.has(teamName)) return teamDataCache.get(teamName);
+
+  const meta = TEAM_META?.[teamName];
+  if (!meta) { console.warn('No TEAM_META for:', teamName); return null; }
+  const {slug, iso2, flagcdn, qid} = meta;
+  const offline = !navigator.onLine;
+
+  let roster = null;
+  try {
+    const r = await fetchWithTimeout(`assets/teams/${slug}/roster.json`, {}, 5000);
+    if (r.ok) roster = await r.json();
+  } catch(e) {}
+
+  if (!roster && !offline) {
+    roster = await parseWikitextRoster(teamName);
+  }
+
+  let country = null;
+  try {
+    const r = await fetchWithTimeout(`assets/teams/${slug}/country.json`, {}, 5000);
+    if (r.ok) country = await r.json();
+  } catch(e) {}
+
+  if (!country && !offline) {
+    try {
+      const r = await fetchWithTimeout(`https://geoapi.info/api/country?code=${iso2.toUpperCase()}`, {}, 8000);
+      if (r.ok) {
+        const d = await r.json();
+        country = {
+          name: d.name, capital: d.capitalCity,
+          population: d.population, area: d.surfaceArea,
+          region: d.continent, languages: d.languages,
+          currency: `${d.currencyName} (${d.currencyCode})`,
+          governmentType: d.governmentType, religion: d.religion,
+          nationalDish: d.nationalDish, drivingSide: d.drivingSide,
+          lifeExpectancy: d.lifeExpectancy
+        };
+      }
+    } catch(e) {}
+  }
+
+  let anthem = null;
+  try {
+    const r = await fetchWithTimeout(`assets/teams/${slug}/anthem.json`, {}, 5000);
+    if (r.ok) anthem = await r.json();
+  } catch(e) {}
+
+
+
+  const flagUrl = `assets/teams/${slug}/flag.svg`;
+  const flagCdnUrl = `https://flagcdn.com/${flagcdn}.svg`;
+  const fifaUrl = `https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/teams/${slug}`;
+
+  const result = {slug, meta, roster, country, anthem, flagUrl, flagCdnUrl, fifaUrl};
+  teamDataCache.set(teamName, result);
+  return result;
+}
+
+/* ---- formation inference ---- */
+
+const FORMATION_POSITIONS = {
+  "4-3-3": [
+    {x:50,y:90},
+    {x:15,y:72},{x:37,y:75},{x:63,y:75},{x:85,y:72},
+    {x:28,y:50},{x:50,y:52},{x:72,y:50},
+    {x:18,y:22},{x:50,y:18},{x:82,y:22},
+  ],
+  "4-4-2": [
+    {x:50,y:90},
+    {x:12,y:72},{x:35,y:75},{x:65,y:75},{x:88,y:72},
+    {x:12,y:50},{x:37,y:52},{x:63,y:52},{x:88,y:50},
+    {x:32,y:20},{x:68,y:20},
+  ],
+  "4-4-2d": [
+    {x:50,y:90},
+    {x:12,y:72},{x:35,y:75},{x:65,y:75},{x:88,y:72},
+    {x:50,y:60},{x:28,y:48},{x:72,y:48},{x:50,y:36},
+    {x:32,y:20},{x:68,y:20},
+  ],
+  "3-5-2": [
+    {x:50,y:90},
+    {x:25,y:75},{x:50,y:78},{x:75,y:75},
+    {x:10,y:55},{x:30,y:50},{x:50,y:52},{x:70,y:50},{x:90,y:55},
+    {x:33,y:20},{x:67,y:20},
+  ],
+  "3-4-3": [
+    {x:50,y:90},
+    {x:25,y:75},{x:50,y:78},{x:75,y:75},
+    {x:15,y:55},{x:38,y:52},{x:62,y:52},{x:85,y:55},
+    {x:18,y:22},{x:50,y:18},{x:82,y:22},
+  ],
+  "4-2-3-1": [
+    {x:50,y:90},
+    {x:12,y:72},{x:35,y:75},{x:65,y:75},{x:88,y:72},
+    {x:35,y:57},{x:65,y:57},
+    {x:18,y:40},{x:50,y:40},{x:82,y:40},
+    {x:50,y:18},
+  ],
+  "5-3-2": [
+    {x:50,y:90},
+    {x:8,y:65},{x:25,y:75},{x:50,y:78},{x:75,y:75},{x:92,y:65},
+    {x:25,y:48},{x:50,y:50},{x:75,y:48},
+    {x:33,y:20},{x:67,y:20},
+  ],
+};
+
+function inferFormation(roster) {
+  const players = roster?.players || roster || [];
+  if (!players.length) return null;
+
+  // Sort: captain first, then by caps descending
+  const sorted = [...players].sort((a, b) => {
+    if (a.captain && !b.captain) return -1;
+    if (!a.captain && b.captain) return 1;
+    return (b.caps || 0) - (a.caps || 0);
+  });
+
+  // Count positions in full squad
+  const counts = {GK:0, DF:0, MF:0, FW:0};
+  players.forEach(p => { if (counts[p.position] !== undefined) counts[p.position]++; });
+
+  // Determine starting lineup (pick best 11)
+  const starters = [], subs = [];
+  const posStarters = {GK:0, DF:0, MF:0, FW:0};
+
+  // Target formation based on squad composition
+  let formation, dfCount, mfCount, fwCount;
+
+  // Use ratio of outfield positions to guess formation
+  const totalOutfield = counts.DF + counts.MF + counts.FW;
+  const dfRatio = counts.DF / totalOutfield;
+  const mfRatio = counts.MF / totalOutfield;
+  const fwRatio = counts.FW / totalOutfield;
+
+  if (dfRatio >= 0.38 && fwRatio <= 0.22) {
+    if (counts.DF >= 7) { formation="5-3-2"; dfCount=5; mfCount=3; fwCount=2; }
+    else { formation="4-4-2"; dfCount=4; mfCount=4; fwCount=2; }
+  } else if (mfRatio >= 0.40 && fwRatio <= 0.25) {
+    if (counts.DF <= 7) { formation="3-5-2"; dfCount=3; mfCount=5; fwCount=2; }
+    else { formation="4-2-3-1"; dfCount=4; mfCount=5; fwCount=1; }
+  } else if (fwRatio >= 0.28) {
+    if (counts.DF <= 7) { formation="3-4-3"; dfCount=3; mfCount=4; fwCount=3; }
+    else { formation="4-3-3"; dfCount=4; mfCount=3; fwCount=3; }
+  } else {
+    formation="4-3-3"; dfCount=4; mfCount=3; fwCount=3;
+  }
+
+  const targets = {GK:1, DF:dfCount, MF:mfCount, FW:fwCount};
+
+  // Fill starters by position priority
+  for (const player of sorted) {
+    const pos = player.position;
+    if (posStarters[pos] < (targets[pos] || 0)) {
+      starters.push(player);
+      posStarters[pos]++;
+    } else {
+      subs.push(player);
+    }
+  }
+
+  // If starters < 11, fill remaining with any available
+  for (const player of sorted) {
+    if (starters.length >= 11) break;
+    if (!starters.includes(player)) {
+      starters.push(player);
+      const idx = subs.indexOf(player);
+      if (idx > -1) subs.splice(idx, 1);
+    }
+  }
+
+  // Assign positions from FORMATION_POSITIONS
+  const coords = FORMATION_POSITIONS[formation] || FORMATION_POSITIONS["4-3-3"];
+
+  // Sort starters: GK first, then DF, MF, FW (for coordinate assignment)
+  const posOrder = {GK:0, DF:1, MF:2, FW:3};
+  const orderedStarters = [...starters].sort((a,b) => (posOrder[a.position]||2) - (posOrder[b.position]||2));
+
+  const positions = orderedStarters.map((player, i) => ({
+    player,
+    x: coords[i]?.x ?? 50,
+    y: coords[i]?.y ?? 50,
+  }));
+
+  return {formation, starters: orderedStarters, subs, positions};
+}
+
+/* delegated team-link click handlers */
+document.getElementById("list").addEventListener("click",e=>{
+  const link=e.target.closest(".team-link");
+  if(link){e.preventDefault();e.stopPropagation();showTeamDialog(link.dataset.team);}
+});
+document.getElementById("groupsGrid").addEventListener("click",e=>{
+  const link=e.target.closest(".team-link");
+  if(link){e.preventDefault();e.stopPropagation();showTeamDialog(link.dataset.team);}
+});
+document.getElementById("standingsStrip").addEventListener("click",e=>{
+  const link=e.target.closest(".team-link");
+  if(link){e.preventDefault();e.stopPropagation();showTeamDialog(link.dataset.team);}
+});
+</script>
+
 </body>
 </html>
