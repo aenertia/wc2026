@@ -80,6 +80,7 @@ button{font-family:inherit;cursor:pointer}
 .kickoff .k-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--chalk-faint)}
 .kickoff .k-time{font-family:var(--font-mono);font-size:22px;font-weight:700;color:var(--chalk);font-variant-numeric:tabular-nums}
 .kickoff .k-match{font-size:13px;color:var(--chalk-dim)}
+.kickoff .k-facts{display:block;font-family:var(--font-body);font-size:12px;color:var(--chalk-faint);font-style:italic;margin-top:8px;line-height:1.5;max-width:52ch}
 
 /* ---------- controls ---------- */
 .controls{padding:28px 0 8px;position:sticky;top:0;z-index:20;background:linear-gradient(var(--pitch) 88%,transparent)}
@@ -589,6 +590,7 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
       <span class="k-label">Kick-off in</span>
       <span class="k-time" id="countdown">—</span>
       <span class="k-match" id="koLine">Match 1 · Mexico v South Africa · Thu 11 June, 20:00</span>
+      <span class="k-facts" id="koFacts"></span>
     </div>
   </div>
 </header>
@@ -1418,6 +1420,8 @@ function render(){
 }
 
 /* dynamic banner — next match countdown / live indicator */
+let _bannerMatchId=null;
+function pickFact(team){const a=TEAM_ANECDOTES?.[team];return a?.length?a[Math.floor(Math.random()*a.length)]:"";}
 function updateBanner(){
   const now=Date.now();
   // prefer a live match from scores map
@@ -1433,6 +1437,7 @@ function updateBanner(){
     $("kickoff").querySelector(".k-label").textContent="Live now";
     $("countdown").textContent=sc.elapsed+"'";
     $("koLine").innerHTML="Match "+r[0]+" · "+teamLink(h)+" v "+teamLink(a);
+    if(_bannerMatchId!==r[0]){_bannerMatchId=r[0];$("koFacts").innerHTML="<b>"+h+":</b> "+pickFact(h)+"<br><b>"+a+":</b> "+pickFact(a);}
     return;
   }
   // find next upcoming match
@@ -1441,11 +1446,13 @@ function updateBanner(){
     $("kickoff").querySelector(".k-label").textContent="Tournament";
     $("countdown").textContent="Complete";
     $("koLine").textContent="Final · 19 July 2026 · MetLife Stadium";
+    $("koFacts").textContent="";
     return;
   }
   const nh=teamOverrides.get(next[0])?.home??next[5], na=teamOverrides.get(next[0])?.away??next[6];
   $("kickoff").querySelector(".k-label").textContent="Next kick-off in";
   $("koLine").innerHTML="Match "+next[0]+" · "+teamLink(nh)+" v "+teamLink(na)+" · "+fmtDateShort(next.epoch)+", "+fmtTime(next.epoch);
+  if(_bannerMatchId!==next[0]){_bannerMatchId=next[0];$("koFacts").innerHTML="<b>"+nh+":</b> "+pickFact(nh)+"<br><b>"+na+":</b> "+pickFact(na);}
   const ms=next.epoch-now;
   const d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4),s=Math.floor(ms%6e4/1e3);
   $("countdown").textContent=(d>0?d+"d ":"")+String(h).padStart(2,"0")+"h "+String(m).padStart(2,"0")+"m "+String(s).padStart(2,"0")+"s";
