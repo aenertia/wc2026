@@ -13,7 +13,21 @@
       "club": "Borussia Dortmund",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34173096",
+      "full_name": "Gregor Kobel",
+      "last_name": "Kobel",
+      "first_name": "Gregor",
+      "bio": "Gregor Kobel (born 6 December 1997) is a Swiss professional footballer who plays as a goalkeeper for Bundesliga club Borussia Dortmund.",
+      "birth_location": "Zürich, Switzerland",
+      "height": "195cm / 6'5\"",
+      "weight": "192 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/gregorkobel/"
+      }
     },
     {
       "number": 2,
@@ -26,7 +40,19 @@
       "club": "Hamburger SV",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34196024",
+      "full_name": "Miro Max Maria Muheim",
+      "last_name": "Muheim",
+      "first_name": "Miro",
+      "bio": "Miro Max Maria Muheim (born 24 March 1998) is a Swiss professional footballer who plays as a midfielder for Bundesliga club Hamburger SV and the Switzerland national team",
+      "birth_location": "Zürich, Switzerland",
+      "height": "182 cm",
+      "weight": "170 lbs",
+      "position_detail": "Defender",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 3,
@@ -39,7 +65,22 @@
       "club": "Mainz 05",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34164407",
+      "full_name": "Silvan Dominic Widmer",
+      "last_name": "Widmer",
+      "first_name": "Silvan",
+      "bio": "Silvan Dominic Widmer (born 5 March 1993) is a Swiss professional footballer who plays as a right-back for Bundesliga club Mainz 05 and the Switzerland national team.",
+      "birth_location": "Aarau, Switzerland",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "170 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/silvanwidmer/"
+      },
+      "wikidata_id": "Q114386"
     },
     {
       "number": 4,
@@ -52,7 +93,22 @@
       "club": "Borussia Mönchengladbach",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34169241",
+      "full_name": "Nico Elvedi",
+      "last_name": "Elvedi",
+      "first_name": "Nico",
+      "bio": "Nico Elvedi (born 30 September 1996) is a Swiss professional footballer who plays as a centre back for Borussia Mönchengladbach.",
+      "birth_location": "Zürich, Switzerland",
+      "height": "1.89 m (6 ft 2 in)",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/nicoelvedi30"
+      },
+      "wikidata_id": "Q18637339"
     },
     {
       "number": 5,
@@ -65,7 +121,23 @@
       "club": "Inter Milan",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34162132",
+      "full_name": "Manuel Akanji",
+      "last_name": "Akanji",
+      "first_name": "Manuel",
+      "bio": "Manuel Obafemi Akanji (born 19 July 1995) is a Swiss professional footballer who plays as a defender for Premier League club Manchester City and the Switzerland national team.",
+      "birth_location": "Wiesendangen, Switzerland",
+      "height": "1.86 m (6 ft 1 in)",
+      "weight": "201 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "Nike Phantom VSN",
+      "social": {
+        "instagram": "http://www.instagram.com/obafemi_36",
+        "facebook": "http://www.facebook.com/manuelobafemiakanji/"
+      },
+      "wikidata_id": "Q19938984"
     },
     {
       "number": 6,
@@ -78,7 +150,22 @@
       "club": "Monaco",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34169230",
+      "full_name": "Denis Lemi Zakaria Lako Lado",
+      "last_name": "Zakaria",
+      "first_name": "Denis",
+      "bio": "Denis Lemi Zakaria Lako Lado (born 20 November 1996) is a Swiss professional footballer who plays as a defensive midfielder for Ligue 1 club Monaco and the Switzerland national team.",
+      "birth_location": "Genf, Switzerland",
+      "height": "1.89 m (6 ft 2 in)",
+      "weight": "168 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/deniszakaria/"
+      },
+      "wikidata_id": "Q21066260"
     },
     {
       "number": 7,
@@ -91,7 +178,23 @@
       "club": "Rennes",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34163490",
+      "full_name": "Breel Donald Embolo",
+      "last_name": "Embolo",
+      "first_name": "Breel",
+      "bio": "Breel Donald Embolo (born 14 February 1997) is a professional footballer who plays as a forward for Ligue 1 club Rennes and the Switzerland national team. \r\n\r\nBorn in Cameroon, Embolo moved with his family to France before finally settling in Switzerland. After working his way through their junior teams, Embolo made his professional debut for Basel in March 2014, and won the Swiss Super League in all three of his first seasons before moving to Schalke 04 for an initial €20 million. Shortly after",
+      "birth_location": "Yaoundé, Cameroon",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/breelembolo97/",
+        "facebook": "http://www.facebook.com/BreelEmbolo97/?fref=ts"
+      },
+      "wikidata_id": "Q15956282"
     },
     {
       "number": 8,
@@ -104,7 +207,22 @@
       "club": "Bologna",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34164229",
+      "full_name": "Remo Marco Freuler",
+      "last_name": "Freuler",
+      "first_name": "Remo",
+      "bio": "Remo Marco Freuler (Swiss Standard German pronunciation: ; born 15 April 1992) is a Swiss professional footballer who plays as a midfielder for Serie A club Bologna and the Switzerland national team.",
+      "birth_location": "Ennenda, Switzerland",
+      "height": "1.81 m (5 ft 11 in)",
+      "weight": "170 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/remo_freuler/"
+      },
+      "wikidata_id": "Q16595441"
     },
     {
       "number": 9,
@@ -117,7 +235,19 @@
       "club": "SC Freiburg",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34279576",
+      "full_name": "Johan Manzambi",
+      "last_name": "Manzambi",
+      "first_name": "Johan",
+      "bio": "Johan Manzambi (born 14 October 2005) is a Swiss professional footballer who plays as a midfielder for Bundesliga club SC Freiburg and the Switzerland national team.",
+      "birth_location": "Genève, Switzerland",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "163 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 10,
@@ -130,7 +260,24 @@
       "club": "Sunderland",
       "club_nation": "ENG",
       "captain": true,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34160884",
+      "full_name": "Granit Xhaka",
+      "last_name": "Xhaka",
+      "first_name": "Granit",
+      "bio": "Granit Xhaka is a Swiss professional footballer who plays as a midfielder for Premier League club Sunderland and captains the Switzerland national team.\r\n\r\nXhaka began his career at hometown club Basel, winning the Swiss Super League in each of his first two seasons. He then moved to Bundesliga team Borussia Mönchengladbach in 2012, developing a reputation as a technically gifted player and natural leader alongside criticism for his temperament. He was made captain of Borussia Mönchengladbach in",
+      "birth_location": "Basel, Switzerland",
+      "height": "186 cm",
+      "weight": "174 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Left",
+      "kit": "Under Armour Magnetico Pro",
+      "social": {
+        "instagram": "www.instagram.com/granitxhaka",
+        "facebook": "www.facebook.com/GranitXhaka/",
+        "twitter": "twitter.com/xhakagranit34"
+      },
+      "wikidata_id": "Q514427"
     },
     {
       "number": 11,
@@ -143,7 +290,21 @@
       "club": "Nottingham Forest",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34175837",
+      "full_name": "Dan Assane Ndoye",
+      "last_name": "Ndoye",
+      "first_name": "Dan",
+      "bio": "Dan Ndoye (born 25 October 2000) is a Swiss professional footballer who plays as centre-forward for Premier League club Nottingham Forest.",
+      "birth_location": "Nyon, Switzerland",
+      "height": "1.81 m (5 ft 11 in)",
+      "weight": "172 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/danndoye10/"
+      }
     },
     {
       "number": 12,
@@ -156,7 +317,24 @@
       "club": "Lorient",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34164102",
+      "full_name": "Yvon Landry Mvogo Nganoma",
+      "last_name": "Mvogo",
+      "first_name": "Yvon",
+      "bio": "Yvon Landry Mvogo Nganoma (born 6 June 1994) is a professional footballer who plays as a goalkeeper for Ligue 1 club Lorient. Born in Cameroon, he plays for the Switzerland national team.",
+      "birth_location": "Yaounde, Cameroon",
+      "height": "190 cm",
+      "weight": "192 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/ymvogo/",
+        "facebook": "http://www.facebook.com/YMvogo",
+        "twitter": "http://twitter.com/YMvogo"
+      },
+      "wikidata_id": "Q16236380"
     },
     {
       "number": 13,
@@ -169,7 +347,22 @@
       "club": "Real Betis",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34155048",
+      "full_name": "Ricardo Iván Rodriguez Araya",
+      "last_name": "Rodriguez",
+      "first_name": "Ricardo",
+      "bio": "Ricardo Iván Rodriguez Araya (born 25 August 1992) is a Swiss professional footballer who plays as a left-back for La Liga club Betis and Switzerland national team.\r\n\r\nRodriguez began his professional career at local club FC Zürich in 2010, having spent eight years in the youth setup. After breaking through into the first team at Zürich, he was sold to VfL Wolfsburg in January 2012 for £7.5 million. Rodriguez played 184 games across all competitions for Wolfsburg, scoring 22 goals and winning th",
+      "birth_location": "Zürich, Switzerland",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "183 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "facebook": "www.facebook.com/ricardorodriguez34/"
+      },
+      "wikidata_id": "Q666506"
     },
     {
       "number": 14,
@@ -182,7 +375,21 @@
       "club": "Milan",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34202607",
+      "full_name": "Ardon Jashari",
+      "last_name": "Jashari",
+      "first_name": "Ardon",
+      "bio": "Ardon Jashari (born 30 July 2002) is a Swiss professional footballer who plays as a defensive midfielder for Serie A club AC Milan and the Switzerland national team.",
+      "birth_location": "Cham, Switzerland",
+      "height": "1.81 m (5 ft 11 in)",
+      "weight": "179 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/ardonjashari/"
+      }
     },
     {
       "number": 15,
@@ -195,7 +402,22 @@
       "club": "Sevilla",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34169134",
+      "full_name": "Mohameth Djibril Ibrahima Sow",
+      "last_name": "Sow",
+      "first_name": "Djibril",
+      "bio": "Mohameth Djibril Ibrahima Sow (born 6 February 1997) is a Swiss professional footballer who plays as a defensive midfielder for La Liga club Sevilla and the Switzerland national team.",
+      "birth_location": "Zürich, Switzerland",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "168 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/dsow8/"
+      },
+      "wikidata_id": "Q27995699"
     },
     {
       "number": 16,
@@ -208,7 +430,23 @@
       "club": "Young Boys",
       "club_nation": "SUI",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34172385",
+      "full_name": "Christian Andreas Fassnacht",
+      "last_name": "Fassnacht",
+      "first_name": "Christian",
+      "bio": "Christian Andreas Fassnacht (born 11 November 1993) is a Swiss professional footballer who plays as a right winger for Swiss Super League club Young Boys and the Switzerland national team.\r\n\r\nFassnacht made his debut with the Switzerland national team (he never represented Switzerland before at any level) in a 2–1 away loss against Belgium. In 2021 he was called up to the national team for the 2020 UEFA European Championship, where the team created one of the main sensations of the tournament re",
+      "birth_location": "Zürich, Switzerland",
+      "height": "185 cm",
+      "weight": "172 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/fassnacht16/",
+        "facebook": "www.facebook.com/Father.Christian"
+      },
+      "wikidata_id": "Q27306208"
     },
     {
       "number": 17,
@@ -221,7 +459,20 @@
       "club": "Sevilla",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34169122",
+      "full_name": "Rubén Estephan Vargas Martínez",
+      "last_name": "Vargas",
+      "first_name": "Rubén",
+      "bio": "Rubén Estephan Vargas Martínez (born 5 August 1998) is a Swiss professional footballer who plays as a winger or attacking midfielder for Spanish La Liga club Sevilla and the Switzerland national team.",
+      "birth_location": "Adligenswil, Switzerland",
+      "height": "1.74 m (5 ft 9 in)",
+      "weight": "170 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q38053896"
     },
     {
       "number": 18,
@@ -234,7 +485,22 @@
       "club": "Valencia",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34181131",
+      "full_name": "Eray Ervin Cömert",
+      "last_name": "Cömert",
+      "first_name": "Eray",
+      "bio": "Eray Ervin Cömert (born 4 February 1998) is a Swiss professional footballer who plays as a centre-back for Spanish club Valencia and the Switzerland national team.",
+      "birth_location": "Rheinfelden, Switzerland",
+      "height": "1.83 m (6 ft 0 in)",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/eray_coemert/"
+      },
+      "wikidata_id": "Q24052364"
     },
     {
       "number": 19,
@@ -247,7 +513,23 @@
       "club": "Leeds United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34169690",
+      "full_name": "Noah Arinzechukwu Okafor",
+      "last_name": "Okafor",
+      "first_name": "Noah",
+      "bio": "Noah Arinzechukwu Okafor (born 24 May 2000) is a Swiss professional footballer who plays as a forward for Premier League club Leeds United and the Switzerland national team.",
+      "birth_location": "Binningen, Switzerland",
+      "height": "185cm / 6'1\"",
+      "weight": "185 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/noah.arinze/",
+        "twitter": "twitter.com/noah_okafor"
+      },
+      "wikidata_id": "Q55286732"
     },
     {
       "number": 20,
@@ -260,7 +542,21 @@
       "club": "Pisa",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34172382",
+      "full_name": "Michel Aebischer",
+      "last_name": "Aebischer",
+      "first_name": "Michel",
+      "bio": "Michel Aebischer (born 6 January 1997) is a Swiss professional footballer who plays as a defensive midfielder for Serie A club Pisa, on loan from Bologna, and the Switzerland national team",
+      "birth_location": "Fribourg, Switzerland",
+      "height": "1.83 m (6 ft 0 in)",
+      "weight": "172 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/michel.aebischer/"
+      }
     },
     {
       "number": 21,
@@ -273,7 +569,19 @@
       "club": "Young Boys",
       "club_nation": "SUI",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34218992",
+      "full_name": "Marvin Keller",
+      "last_name": "Keller",
+      "first_name": "Marvin",
+      "bio": "Marvin Keller (born 3 July 2002) is a Swiss professional footballer who plays as a goalkeeper for Swiss club Young Boys. Born in England, he is a youth international for Switzerland.",
+      "birth_location": "London, England",
+      "height": "1.90 m (6 ft 3 in)",
+      "weight": "192 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 22,
@@ -286,7 +594,20 @@
       "club": "FC Augsburg",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34177837",
+      "full_name": "Fabian Rieder",
+      "last_name": "Rieder",
+      "first_name": "Fabian",
+      "bio": "Fabian Rieder (born 16 February 2002) is a Swiss professional footballer who plays as an attacking midfielder for German Bundesliga club FC Augsburg and the Switzerland national team.",
+      "birth_location": "Bern, Switzerland",
+      "height": "1.79 m (5 ft 9 in)",
+      "weight": "161 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q101033685"
     },
     {
       "number": 23,
@@ -299,7 +620,20 @@
       "club": "Burnley",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34192972",
+      "full_name": "Mohamed Zeki Amdouni",
+      "last_name": "Amdouni",
+      "first_name": "Zeki",
+      "bio": "Mohamed Zeki Amdouni is a Swiss professional footballer who plays as an attacking midfielder or forward for Premier League club Burnley and the Switzerland national team.",
+      "birth_location": "Genève, Switzerland",
+      "height": "185 cm",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Both",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q106882153"
     },
     {
       "number": 24,
@@ -312,7 +646,19 @@
       "club": "Eintracht Frankfurt",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34218989",
+      "full_name": "Aurèle Florian Amenda",
+      "last_name": "Amenda",
+      "first_name": "Aurèle",
+      "bio": "Aurèle Florian Amenda (born 31 July 2003) is a Swiss professional footballer who plays as a centre-back for Bundesliga club Eintracht Frankfurt and the Switzerland national team.",
+      "birth_location": "Biel/Bienne, Switzerland",
+      "height": "1.94 m (6 ft 4 in)",
+      "weight": "196 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -325,7 +671,19 @@
       "club": "VfB Stuttgart",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34224626",
+      "full_name": "Luca Antony Jaquez",
+      "last_name": "Jaquez",
+      "first_name": "Luca",
+      "bio": "Luca Antony Jaquez (born 2 June 2003) is a Swiss professional footballer who plays as a centre-back for German Bundesliga club VfB Stuttgart and the Switzerland national team.",
+      "birth_location": "Luzern, Switzerland",
+      "height": "187 cm",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -338,7 +696,21 @@
       "club": "Fortuna Düsseldorf",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34162128",
+      "full_name": "Cedric Jan Itten",
+      "last_name": "Itten",
+      "first_name": "Cedric",
+      "bio": "Cedric Jan Itten (born 27 December 1996) is a Swiss professional footballer who plays as a centre forward for German 2. Bundesliga club Fortuna Düsseldorf and the Switzerland national team.",
+      "birth_location": "Basel, Switzerland",
+      "height": "190 cm",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/cedricitten_13/"
+      }
     }
   ]
 }
