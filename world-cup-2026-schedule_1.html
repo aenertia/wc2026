@@ -317,6 +317,7 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
 .td-header{
   display:flex;align-items:center;gap:14px;padding:18px 20px 14px;
   border-bottom:2px solid var(--line);flex-shrink:0;
+  position:sticky;top:0;z-index:10;background:var(--pitch);
 }
 .td-team-name{font-family:var(--font-display);font-size:clamp(22px,4vw,36px);flex:1;line-height:1}
 .td-flag{border-radius:3px;flex-shrink:0;object-fit:cover}
@@ -326,6 +327,7 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
 }
 .td-close:hover{background:var(--pitch-2);color:var(--chalk)}
 .td-close:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.pd-close{background:none;border:none;color:var(--chalk-dim);font-size:18px;cursor:pointer;padding:4px;line-height:1}
 .td-body{overflow-y:auto;flex:1;padding:20px}
 .td-footer{
   border-top:2px solid var(--line);padding:14px 20px;flex-shrink:0;
@@ -774,6 +776,56 @@ const TEAM_NICKNAMES = {
   "Uruguay": "La Celeste",
   "USA": "USMNT / Stars and Stripes",
   "Uzbekistan": "White Wolves",
+};
+const ANTHEM_TRANSLATIONS={
+  "Algeria":["قسماً / Kassaman","We Pledge"],
+  "Argentina":["Himno Nacional Argentino","Argentine National Anthem"],
+  "Australia":["Advance Australia Fair","Advance Australia Fair"],
+  "Austria":["Bundeshymne der Republik Österreich","National Anthem of Austria"],
+  "Belgium":["La Brabançonne","The Song of Brabant"],
+  "Bosnia & Herzegovina":["Intermeco","Intermezzo"],
+  "Brazil":["Hino Nacional Brasileiro","Brazilian National Anthem"],
+  "Cabo Verde":["Cântico da Liberdade","Song of Freedom"],
+  "Canada":["O Canada","O Canada"],
+  "Colombia":["Himno Nacional de la República de Colombia","National Anthem of Colombia"],
+  "Congo DR":["Debout Congolais","Arise, Congolese"],
+  "Côte d'Ivoire":["L'Abidjanaise","Song of Abidjan"],
+  "Croatia":["Lijepa naša domovino","Our Beautiful Homeland"],
+  "Curaçao":["Himno di Kòrsou","Anthem of Curaçao"],
+  "Czechia":["Kde domov můj","Where Is My Home"],
+  "Ecuador":["Salve, Oh Patria","Hail, Oh Fatherland"],
+  "Egypt":["بلادي، بلادي، بلادي / Bilady, Bilady, Bilady","My Country, My Country, My Country"],
+  "England":["God Save the King","God Save the King"],
+  "France":["La Marseillaise","The Song of Marseille"],
+  "Germany":["Das Lied der Deutschen","The Song of the Germans"],
+  "Ghana":["God Bless Our Homeland Ghana","God Bless Our Homeland Ghana"],
+  "Haiti":["La Dessalinienne","The Song of Dessalines"],
+  "IR Iran":["سرود ملی ایران / Soroud-e Melli-e Iran","National Anthem of Iran"],
+  "Iraq":["موطني / Mawtini","My Homeland"],
+  "Japan":["君が代 / Kimigayo","His Imperial Majesty's Reign"],
+  "Jordan":["السلام الملكي الأردني / As-salam al-malaki","The Royal Anthem of Jordan"],
+  "Korea Republic":["애국가 / Aegukga","The Patriotic Song"],
+  "Mexico":["Himno Nacional Mexicano","Mexican National Anthem"],
+  "Morocco":["النشيد الشريفي / Hymne Chérifien","Cherifian Anthem"],
+  "Netherlands":["Het Wilhelmus","The William"],
+  "New Zealand":["Aotearoa / God Defend New Zealand","God Defend New Zealand (Māori and English)"],
+  "Norway":["Ja, vi elsker dette landet","Yes, We Love This Country"],
+  "Panama":["Himno Istmeño","Hymn of the Isthmus"],
+  "Paraguay":["Himno Nacional del Paraguay","Paraguayan National Anthem"],
+  "Portugal":["A Portuguesa","The Portuguese"],
+  "Qatar":["السلام الأميري / As-Salam al-Amiri","The Royal Peace"],
+  "Saudi Arabia":["النشيد الوطني / Aash Al Maleek","Long Live the King"],
+  "Scotland":["Flower of Scotland","Flower of Scotland"],
+  "Senegal":["Pincez Tous vos Koras, Frappez les Balafons","Everyone Strum Your Koras, Strike the Balafons"],
+  "South Africa":["Nkosi Sikelel' iAfrika / Die Stem","God Bless Africa / The Call of South Africa"],
+  "Spain":["Marcha Real","The Royal March"],
+  "Sweden":["Du gamla, du fria","Thou Ancient, Thou Free"],
+  "Switzerland":["Schweizer Psalm / Cantique suisse","Swiss Psalm"],
+  "Tunisia":["حماة الحمى / Humat al-Hima","Defenders of the Homeland"],
+  "Türkiye":["İstiklal Marşı","Independence March"],
+  "Uruguay":["Himno Nacional de Uruguay","National Anthem of Uruguay"],
+  "USA":["The Star-Spangled Banner","The Star-Spangled Banner"],
+  "Uzbekistan":["O'zbekiston Respublikasining Davlat Madhiyasi","State Anthem of Uzbekistan"],
 };
 const TEAM_ANECDOTES = {
   "Algeria": [
@@ -1514,7 +1566,7 @@ setInterval(()=>{fetchScores();fetchStandings();},2*60*1000);
   <div class="td-header">
     <h2 id="td-title" class="td-team-name" tabindex="-1">Team</h2>
     <img id="td-flag" class="td-flag" src="" alt="" width="48" height="32">
-    <button class="td-close" aria-label="Close team profile">&#x2715;</button>
+    <button class="td-close" id="td-dialog-close" aria-label="Close team profile">&#x2715;</button>
   </div>
   <div class="td-body" id="td-body">
     <div class="td-loading">Loading team profile…</div>
@@ -1556,7 +1608,7 @@ function showTeamDialog(teamName){
   }
 }
 
-teamDialog.querySelector('.td-close').addEventListener('click',()=>teamDialog.close());
+document.getElementById('td-dialog-close').addEventListener('click',()=>teamDialog.close());
 teamDialog.addEventListener('click',e=>{
   const r=teamDialog.getBoundingClientRect();
   if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)
@@ -1708,7 +1760,7 @@ function showPlayerDetail(player, slug) {
         '</div>' +
         (socialLinks ? '<div class="pd-social">' + socialLinks + '</div>' : '') +
       '</div>' +
-      '<button class="td-close" onclick="document.getElementById(\'td-player-detail\').hidden=true" aria-label="Close player detail">\u2715</button>' +
+      '<button class="pd-close" onclick="document.getElementById(\'td-player-detail\').hidden=true" aria-label="Close player detail">\u2715</button>' +
     '</div>' +
     (player.bio ? '<p class="pd-bio">' + player.bio + '</p>' : '');
   det.hidden = false;
@@ -1794,6 +1846,10 @@ function renderCountryProfile(data, container) {
   const factoidsHtml = facts.length ?
     `<div class="cp-factoids">${facts.map(f=>`<span>${f}</span>`).join('')}</div>` : '';
 
+  // Flag + country name row (moved before anthem to enable translation lookup)
+  const countryName = country?.name || data?.meta?.slug?.replace(/-/g,' ') || '';
+  const displayTeam = data?.roster?.team || countryName;
+
   let anthemHtml = '';
   if (anthem?.name) {
     let audioHtml = '';
@@ -1830,18 +1886,19 @@ function renderCountryProfile(data, container) {
            class="td-lyrics-btn" title="Download MIDI">⬇ MIDI</a>
       `;
     }
+    const trans = ANTHEM_TRANSLATIONS?.[displayTeam];
+    const anthemDisplay = trans
+      ? `<span class="cp-anthem-name">${trans[0]}</span>
+         ${trans[1] !== trans[0] ? '<span class="cp-anthem-eng" style="font-family:var(--font-body);font-size:12px;color:var(--chalk-dim);font-style:italic;display:block;margin-top:2px">"' + trans[1] + '"</span>' : ''}`
+      : `<span class="cp-anthem-name">${anthem.name}</span>`;
     anthemHtml = `
       <div class="cp-anthem">
         <span class="cp-anthem-sub">National Anthem</span>
-        <span class="cp-anthem-name">${anthem.name}</span>
+        ${anthemDisplay}
         ${audioHtml}
       </div>
     `;
   }
-
-  // Flag + country name row
-  const countryName = country?.name || data?.meta?.slug?.replace(/-/g,' ') || '';
-  const displayTeam = data?.roster?.team || countryName;
   const nickname = TEAM_NICKNAMES?.[displayTeam] || '';
 
   // Anecdotes
