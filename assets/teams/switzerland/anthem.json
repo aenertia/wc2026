@@ -1,6 +1,8 @@
 {
-  "name": null,
-  "audio_file": null,
-  "has_audio": false,
+  "name": "Schweizer Psalm",
+  "video_id": "ZfDpRzN2SBI",
+  "video_title": "Swiss National Anthem - \"Schweizerpsalm\" (DE/EN)",
+  "audio_file": "anthem.m4a",
+  "has_audio": true,
   "midi_file": "anthem.mid"
 }
