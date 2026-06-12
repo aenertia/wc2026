@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match Simulator — World Cup 26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pitch:#0c1713; --pitch-2:#10201a; --pitch-3:#16291f;
+  --chalk:#f2f4ec; --chalk-dim:#a9b3a4; --chalk-faint:#6c7a6c;
+  --line:rgba(242,244,236,.12); --gold:#f0c44c; --radius:14px;
+  --font-display:'Anton',sans-serif; --font-body:'Archivo',sans-serif;
+  --font-mono:'Space Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--pitch);color:var(--chalk);font-family:var(--font-body);overflow-x:hidden;min-height:100vh}
+
+/* ---- Team Selection ---- */
+#teamSelect{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 20px;gap:30px}
+#teamSelect.hidden{display:none}
+.sel-title{font-family:var(--font-display);font-size:clamp(36px,7vw,72px);text-transform:uppercase;line-height:.95;text-align:center}
+.sel-title .yr{color:var(--gold)}
+.sel-sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.sel-row{display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:center}
+.sel-col{display:flex;flex-direction:column;align-items:center;gap:8px}
+.sel-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--chalk-faint)}
+.sel-flag{width:60px;height:40px;border-radius:6px;object-fit:cover;background:var(--pitch-3);border:2px solid var(--line)}
+.sel-nick{font-size:13px;color:var(--chalk-dim);font-style:italic;min-height:20px;text-align:center}
+.team-select{
+  font-family:var(--font-body);font-size:15px;color:var(--chalk);
+  background:var(--pitch-2);border:2px solid var(--line);border-radius:var(--radius);
+  padding:10px 16px;min-width:220px;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23a9b3a4' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;cursor:pointer;
+}
+.team-select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.sel-vs{font-family:var(--font-display);font-size:36px;color:var(--chalk-faint)}
+#kickoffBtn{
+  font-family:var(--font-display);font-size:22px;letter-spacing:.04em;text-transform:uppercase;
+  background:var(--gold);color:var(--pitch);border:none;border-radius:var(--radius);
+  padding:14px 48px;cursor:pointer;transition:transform .12s,box-shadow .15s;
+}
+#kickoffBtn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(240,196,76,.3)}
+#kickoffBtn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* ---- Match View ---- */
+#matchView{display:none;flex-direction:column;align-items:center;padding:16px 20px;gap:0}
+#matchView.active{display:flex}
+
+/* Scoreboard */
+.scoreboard{
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  background:var(--pitch-2);border:2px solid var(--line);border-radius:var(--radius);
+  padding:12px 24px;margin-bottom:8px;flex-wrap:wrap;min-width:320px;
+}
+.sb-team{display:flex;align-items:center;gap:10px}
+.sb-flag{width:36px;height:24px;border-radius:4px;object-fit:cover;background:var(--pitch-3)}
+.sb-name{font-family:var(--font-display);font-size:20px;text-transform:uppercase;letter-spacing:.02em}
+.sb-score{font-family:var(--font-display);font-size:42px;color:var(--gold);min-width:100px;text-align:center;letter-spacing:.06em}
+.sb-clock{font-family:var(--font-mono);font-size:14px;color:var(--chalk-faint);text-align:center;margin-bottom:4px}
+
+/* Canvas */
+#pitchCanvas{border-radius:var(--radius);border:2px solid var(--line);display:block;max-width:100%;cursor:default;image-rendering:auto}
+
+/* Commentary */
+.commentary{
+  background:var(--pitch-2);border:2px solid var(--line);border-radius:var(--radius);
+  padding:10px 16px;margin-top:8px;width:100%;max-width:804px;
+  min-height:60px;max-height:120px;overflow-y:auto;
+  font-family:var(--font-mono);font-size:12px;color:var(--chalk-dim);line-height:1.6;
+}
+.commentary .event{margin-bottom:4px}
+.commentary .event .min{color:var(--gold);font-weight:700;margin-right:6px}
+.commentary .event.goal{color:var(--chalk);font-weight:700}
+.commentary .event.card{color:#f25c5c}
+.commentary .event.comedy{color:#4dc3f2}
+.commentary .event.var{color:#b06cf2}
+
+/* Result screen */
+#resultScreen{display:none;flex-direction:column;align-items:center;gap:20px;padding:60px 20px}
+#resultScreen.active{display:flex}
+.res-ft{font-family:var(--font-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.res-score{font-family:var(--font-display);font-size:clamp(48px,10vw,96px);line-height:1;text-align:center}
+.res-teams{font-family:var(--font-body);font-size:18px;color:var(--chalk-dim);text-align:center}
+.res-scorers{font-family:var(--font-mono);font-size:13px;color:var(--chalk-dim);text-align:center;line-height:1.8}
+.res-motm{background:var(--pitch-2);border:2px solid var(--gold);border-radius:var(--radius);padding:14px 24px;text-align:center}
+.res-motm .label{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.res-motm .name{font-family:var(--font-display);font-size:24px}
+.res-motm .reason{font-size:13px;color:var(--chalk-dim);font-style:italic;margin-top:4px}
+.res-stats{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.res-stat{text-align:center}
+.res-stat .n{font-family:var(--font-display);font-size:28px;color:var(--chalk)}
+.res-stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--chalk-faint)}
+.res-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.res-btn{
+  font-family:var(--font-display);font-size:16px;text-transform:uppercase;letter-spacing:.04em;
+  border-radius:var(--radius);padding:10px 28px;cursor:pointer;transition:transform .12s;border:none;
+}
+.res-btn:hover{transform:translateY(-2px)}
+.res-btn.gold{background:var(--gold);color:var(--pitch)}
+.res-btn.outline{background:transparent;color:var(--chalk-dim);border:2px solid var(--line)}
+.res-btn.outline:hover{color:var(--chalk)}
+a.back-link{font-family:var(--font-mono);font-size:12px;color:var(--chalk-faint);text-decoration:underline;text-underline-offset:3px;margin-top:8px}
+a.back-link:hover{color:var(--chalk)}
+</style>
+</head>
+<body>
+
+<!-- ===== TEAM SELECTION ===== -->
+<div id="teamSelect">
+  <div class="sel-sub">FIFA World Cup 2026</div>
+  <div class="sel-title">Match<br>Simulator <span class="yr">'26</span></div>
+  <div class="sel-row">
+    <div class="sel-col">
+      <span class="sel-label">Home</span>
+      <img id="homeFlag" class="sel-flag" src="" alt="">
+      <select id="homeSelect" class="team-select"><option value="">Select team…</option></select>
+      <span id="homeNick" class="sel-nick"></span>
+    </div>
+    <span class="sel-vs">VS</span>
+    <div class="sel-col">
+      <span class="sel-label">Away</span>
+      <img id="awayFlag" class="sel-flag" src="" alt="">
+      <select id="awaySelect" class="team-select"><option value="">Select team…</option></select>
+      <span id="awayNick" class="sel-nick"></span>
+    </div>
+  </div>
+  <button id="kickoffBtn" disabled>Kick Off</button>
+  <a href="world-cup-2026-schedule_1.html" class="back-link">← Back to Wallchart</a>
+</div>
+
+<!-- ===== MATCH VIEW ===== -->
+<div id="matchView">
+  <div class="sb-clock" id="clockDisplay">0'</div>
+  <div class="scoreboard">
+    <div class="sb-team"><img id="sbHomeFlag" class="sb-flag" src="" alt=""><span id="sbHomeName" class="sb-name"></span></div>
+    <div class="sb-score" id="sbScore">0 – 0</div>
+    <div class="sb-team"><span id="sbAwayName" class="sb-name"></span><img id="sbAwayFlag" class="sb-flag" src="" alt=""></div>
+  </div>
+  <canvas id="pitchCanvas" width="800" height="520"></canvas>
+  <div class="commentary" id="commentary"></div>
+</div>
+
+<!-- ===== RESULT SCREEN ===== -->
+<div id="resultScreen">
+  <div class="res-ft">Full Time</div>
+  <div class="res-score" id="resScore"></div>
+  <div class="res-teams" id="resTeams"></div>
+  <div class="res-scorers" id="resScorers"></div>
+  <div class="res-motm" id="resMotm"></div>
+  <div class="res-stats" id="resStats"></div>
+  <div class="res-btns">
+    <button class="res-btn gold" id="rematchBtn">Rematch</button>
+    <a href="world-cup-2026-schedule_1.html" class="res-btn outline">Back to Wallchart</a>
+  </div>
+</div>
+
+<script>
+/* ================================================================
+   SENSIBLE SOCCER-STYLE MATCH SIMULATOR
+   World Cup 2026 — Zero-dependency canvas game
+   ================================================================ */
+
+// ---- TEAM DATA ----
+const TEAM_META={
+  "Algeria":{slug:"algeria",iso2:"dz",flagcdn:"dz"},"Argentina":{slug:"argentina",iso2:"ar",flagcdn:"ar"},
+  "Australia":{slug:"australia",iso2:"au",flagcdn:"au"},"Austria":{slug:"austria",iso2:"at",flagcdn:"at"},
+  "Belgium":{slug:"belgium",iso2:"be",flagcdn:"be"},"Bosnia & Herzegovina":{slug:"bosnia-and-herzegovina",iso2:"ba",flagcdn:"ba"},
+  "Brazil":{slug:"brazil",iso2:"br",flagcdn:"br"},"Cabo Verde":{slug:"cabo-verde",iso2:"cv",flagcdn:"cv"},
+  "Canada":{slug:"canada",iso2:"ca",flagcdn:"ca"},"Colombia":{slug:"colombia",iso2:"co",flagcdn:"co"},
+  "Congo DR":{slug:"congo-dr",iso2:"cd",flagcdn:"cd"},"Côte d'Ivoire":{slug:"cote-d-ivoire",iso2:"ci",flagcdn:"ci"},
+  "Croatia":{slug:"croatia",iso2:"hr",flagcdn:"hr"},"Curaçao":{slug:"curacao",iso2:"cw",flagcdn:"cw"},
+  "Czechia":{slug:"czechia",iso2:"cz",flagcdn:"cz"},"Ecuador":{slug:"ecuador",iso2:"ec",flagcdn:"ec"},
+  "Egypt":{slug:"egypt",iso2:"eg",flagcdn:"eg"},"England":{slug:"england",iso2:"gb",flagcdn:"gb-eng"},
+  "France":{slug:"france",iso2:"fr",flagcdn:"fr"},"Germany":{slug:"germany",iso2:"de",flagcdn:"de"},
+  "Ghana":{slug:"ghana",iso2:"gh",flagcdn:"gh"},"Haiti":{slug:"haiti",iso2:"ht",flagcdn:"ht"},
+  "IR Iran":{slug:"ir-iran",iso2:"ir",flagcdn:"ir"},"Iraq":{slug:"iraq",iso2:"iq",flagcdn:"iq"},
+  "Japan":{slug:"japan",iso2:"jp",flagcdn:"jp"},"Jordan":{slug:"jordan",iso2:"jo",flagcdn:"jo"},
+  "Korea Republic":{slug:"korea-republic",iso2:"kr",flagcdn:"kr"},"Mexico":{slug:"mexico",iso2:"mx",flagcdn:"mx"},
+  "Morocco":{slug:"morocco",iso2:"ma",flagcdn:"ma"},"Netherlands":{slug:"netherlands",iso2:"nl",flagcdn:"nl"},
+  "New Zealand":{slug:"new-zealand",iso2:"nz",flagcdn:"nz"},"Norway":{slug:"norway",iso2:"no",flagcdn:"no"},
+  "Panama":{slug:"panama",iso2:"pa",flagcdn:"pa"},"Paraguay":{slug:"paraguay",iso2:"py",flagcdn:"py"},
+  "Portugal":{slug:"portugal",iso2:"pt",flagcdn:"pt"},"Qatar":{slug:"qatar",iso2:"qa",flagcdn:"qa"},
+  "Saudi Arabia":{slug:"saudi-arabia",iso2:"sa",flagcdn:"sa"},"Scotland":{slug:"scotland",iso2:"gb",flagcdn:"gb-sct"},
+  "Senegal":{slug:"senegal",iso2:"sn",flagcdn:"sn"},"South Africa":{slug:"south-africa",iso2:"za",flagcdn:"za"},
+  "Spain":{slug:"spain",iso2:"es",flagcdn:"es"},"Sweden":{slug:"sweden",iso2:"se",flagcdn:"se"},
+  "Switzerland":{slug:"switzerland",iso2:"ch",flagcdn:"ch"},"Tunisia":{slug:"tunisia",iso2:"tn",flagcdn:"tn"},
+  "Türkiye":{slug:"turkiye",iso2:"tr",flagcdn:"tr"},"Uruguay":{slug:"uruguay",iso2:"uy",flagcdn:"uy"},
+  "USA":{slug:"usa",iso2:"us",flagcdn:"us"},"Uzbekistan":{slug:"uzbekistan",iso2:"uz",flagcdn:"uz"}
+};
+
+const TEAM_NICKNAMES={
+  "Algeria":"Les Fennecs","Argentina":"La Albiceleste","Australia":"Socceroos","Austria":"Das Team",
+  "Belgium":"Red Devils","Bosnia & Herzegovina":"Zmajevi","Brazil":"Seleção","Cabo Verde":"Blue Sharks",
+  "Canada":"Les Rouges","Colombia":"Los Cafeteros","Congo DR":"Les Léopards","Côte d'Ivoire":"Les Éléphants",
+  "Croatia":"Vatreni","Curaçao":"Nos Seleccion","Czechia":"Národní Tým","Ecuador":"La Tri",
+  "Egypt":"The Pharaohs","England":"Three Lions","France":"Les Bleus","Germany":"Die Mannschaft",
+  "Ghana":"Black Stars","Haiti":"Les Grenadiers","IR Iran":"Team Melli","Iraq":"Lions of Mesopotamia",
+  "Japan":"Samurai Blue","Jordan":"Al-Nashama","Korea Republic":"Taegeuk Warriors","Mexico":"El Tri",
+  "Morocco":"Atlas Lions","Netherlands":"Oranje","New Zealand":"All Whites","Norway":"Løvene",
+  "Panama":"Los Canaleros","Paraguay":"La Albirroja","Portugal":"Seleção das Quinas","Qatar":"Al-Annabi",
+  "Saudi Arabia":"Green Falcons","Scotland":"Tartan Army","Senegal":"Lions of Teranga","South Africa":"Bafana Bafana",
+  "Spain":"La Roja","Sweden":"Blågult","Switzerland":"Nati","Tunisia":"Eagles of Carthage",
+  "Türkiye":"Crescent Stars","Uruguay":"La Celeste","USA":"Stars & Stripes","Uzbekistan":"White Wolves"
+};
+
+const TEAM_COLORS={
+  "Algeria":["#007c30","#fff"],"Argentina":["#74acdf","#fff"],"Australia":["#f0c44c","#003c1a"],
+  "Austria":["#ed2939","#fff"],"Belgium":["#ed2939","#000"],"Bosnia & Herzegovina":["#001f8e","#f0c44c"],
+  "Brazil":["#f0c44c","#009c3b"],"Cabo Verde":["#003893","#fff"],"Canada":["#ff0000","#fff"],
+  "Colombia":["#fcd116","#003087"],"Congo DR":["#007fff","#ce1126"],"Côte d'Ivoire":["#ff8200","#009e49"],
+  "Croatia":["#ff0000","#fff"],"Curaçao":["#002b7f","#f0c44c"],"Czechia":["#11457e","#d7141a"],
+  "Ecuador":["#f0c44c","#003087"],"Egypt":["#ce1126","#fff"],"England":["#fff","#002366"],
+  "France":["#002395","#fff"],"Germany":["#fff","#000"],"Ghana":["#fff","#006b3f"],
+  "Haiti":["#00209f","#d21034"],"IR Iran":["#fff","#239f40"],"Iraq":["#fff","#007a3d"],
+  "Japan":["#002366","#fff"],"Jordan":["#fff","#007a3d"],"Korea Republic":["#c60c30","#fff"],
+  "Mexico":["#006847","#fff"],"Morocco":["#c1272d","#006233"],"Netherlands":["#ff6600","#fff"],
+  "New Zealand":["#fff","#000"],"Norway":["#ef2b2d","#002868"],"Panama":["#d21034","#fff"],
+  "Paraguay":["#d52b1e","#fff"],"Portugal":["#d21034","#006847"],"Qatar":["#8a1538","#fff"],
+  "Saudi Arabia":["#006c35","#fff"],"Scotland":["#003399","#fff"],"Senegal":["#fff","#009639"],
+  "South Africa":["#007749","#f0c44c"],"Spain":["#c60b1e","#f0c44c"],"Sweden":["#006aa7","#f0c44c"],
+  "Switzerland":["#d52b1e","#fff"],"Tunisia":["#e70013","#fff"],"Türkiye":["#e30a17","#fff"],
+  "Uruguay":["#5cbfeb","#fff"],"USA":["#002868","#bf0a30"],"Uzbekistan":["#fff","#1eb53a"]
+};
+
+const GROUP_COLORS={A:"#f25c5c",B:"#f2913d",C:"#f2c14e",D:"#a8d44d",E:"#4dc97b",F:"#3dd6c3",G:"#4dc3f2",H:"#5c8df2",I:"#8b7bf2",J:"#b06cf2",K:"#e05cd9",L:"#f25c9e"};
+
+const TEAM_NAMES = Object.keys(TEAM_META);
+
+// ---- FORMATION POSITIONS (percentage of pitch, 0,0 = top-left) ----
+const FORMATION_POSITIONS = {
+  "4-3-3":[[50,92],[15,72],[37,75],[63,75],[85,72],[28,50],[50,52],[72,50],[18,22],[50,18],[82,22]],
+  "4-4-2":[[50,92],[12,72],[35,75],[65,75],[88,72],[12,50],[37,52],[63,52],[88,50],[32,20],[68,20]],
+  "4-2-3-1":[[50,92],[12,72],[35,75],[65,75],[88,72],[35,57],[65,57],[18,40],[50,40],[82,40],[50,18]],
+  "3-5-2":[[50,92],[25,75],[50,78],[75,75],[10,55],[30,50],[50,52],[70,50],[90,55],[33,20],[67,20]],
+  "3-4-3":[[50,92],[25,75],[50,78],[75,75],[15,55],[38,52],[62,52],[85,55],[18,22],[50,18],[82,22]],
+  "5-3-2":[[50,92],[8,65],[25,75],[50,78],[75,75],[92,65],[25,48],[50,50],[75,48],[33,20],[67,20]],
+};
+
+// ---- CANVAS & GAME CONSTANTS ----
+const CW = 800, CH = 520;
+const PITCH_L = 40, PITCH_R = CW - 40, PITCH_T = 30, PITCH_B = CH - 30;
+const PW = PITCH_R - PITCH_L, PH = PITCH_B - PITCH_T;
+const GOAL_W = 60, GOAL_H = 16;
+const GOAL_L = (CW / 2) - (GOAL_W / 2), GOAL_R = (CW / 2) + (GOAL_W / 2);
+const GOAL_TOP_Y = PITCH_T - GOAL_H, GOAL_BOT_Y = PITCH_B;
+const BALL_R = 4, PLAYER_HEAD_R = 9, PLAYER_BODY_W = 6, PLAYER_BODY_H = 10;
+const FRICTION = 0.98, MAX_SPEED = 5, SPRINT_SPEED = 2.8, JOG_SPEED = 1.2, GK_SPEED = 3.5;
+const TACKLE_RANGE = 16, PASS_SPEED = 4.5, SHOOT_SPEED = 7, DRIBBLE_SPEED = 2.2;
+
+// ---- STATE ----
+let gameState = 'teamSelect'; // teamSelect | playing | halftime | goalScored | fulltime
+let matchClock = 0; // in "minutes" (0-90)
+let realTick = 0;
+const TICKS_PER_MINUTE = 120; // ~2 sec real per game minute → 90min ≈ 3min
+let homeScore = 0, awayScore = 0;
+let ball = { x: CW/2, y: CH/2, vx: 0, vy: 0, owner: null, free: true };
+let homePlayers = [], awayPlayers = [];
+let homeData = null, awayData = null;
+let homeTeamName = '', awayTeamName = '';
+let events = []; // commentary
+let goalScorers = []; // {player, team, minute}
+let comedyStats = { dives: 0, varReviews: 0, fights: 0, redCards: 0, pitchInvaders: 0, selfies: 0 };
+let pauseTimer = 0;
+let halfSwapped = false;
+let animId = null;
+let varActive = false, varTimer = 0, varResult = '';
+let pitchInvader = null;
+let celebrationTimer = 0;
+let canvas, ctx;
+
+// ---- DOM REFS ----
+const $ = id => document.getElementById(id);
+
+// ---- TEAM SELECTION ----
+function populateSelects() {
+  const opts = TEAM_NAMES.map(t => `<option value="${t}">${t}</option>`).join('');
+  $('homeSelect').innerHTML = '<option value="">Select team…</option>' + opts;
+  $('awaySelect').innerHTML = '<option value="">Select team…</option>' + opts;
+}
+
+function updateSelectUI(which) {
+  const sel = $(which + 'Select');
+  const team = sel.value;
+  const meta = TEAM_META[team];
+  const flagEl = $(which + 'Flag');
+  const nickEl = $(which + 'Nick');
+  if (meta) {
+    flagEl.src = `assets/teams/${meta.slug}/flag.svg`;
+    flagEl.onerror = () => { flagEl.src = `https://flagcdn.com/${meta.flagcdn}.svg`; };
+    nickEl.textContent = TEAM_NICKNAMES[team] || '';
+  } else {
+    flagEl.src = '';
+    nickEl.textContent = '';
+  }
+  $('kickoffBtn').disabled = !($('homeSelect').value && $('awaySelect').value && $('homeSelect').value !== $('awaySelect').value);
+}
+
+function parseURLParams() {
+  const p = new URLSearchParams(location.search);
+  const home = p.get('home'), away = p.get('away');
+  if (home) {
+    const match = TEAM_NAMES.find(t => t.toLowerCase() === home.toLowerCase() || TEAM_META[t]?.slug === home.toLowerCase().replace(/ /g, '-'));
+    if (match) $('homeSelect').value = match;
+  }
+  if (away) {
+    const match = TEAM_NAMES.find(t => t.toLowerCase() === away.toLowerCase() || TEAM_META[t]?.slug === away.toLowerCase().replace(/ /g, '-'));
+    if (match) $('awaySelect').value = match;
+  }
+  updateSelectUI('home');
+  updateSelectUI('away');
+}
+
+// ---- DATA LOADING ----
+async function loadTeamData(teamName) {
+  const meta = TEAM_META[teamName];
+  if (!meta) return { roster: null, country: null, slug: meta?.slug };
+  const slug = meta.slug;
+  let roster = null, country = null;
+  try {
+    const r = await fetch(`assets/teams/${slug}/roster.json`);
+    if (r.ok) roster = await r.json();
+  } catch(e) {}
+  try {
+    const r = await fetch(`assets/teams/${slug}/country.json`);
+    if (r.ok) country = await r.json();
+  } catch(e) {}
+  return { roster, country, slug, meta };
+}
+
+function inferFormation(roster) {
+  const players = roster?.players || roster || [];
+  if (!players.length) return { formation: '4-3-3', starters: [], subs: [] };
+  const sorted = [...players].sort((a, b) => {
+    if (a.captain && !b.captain) return -1;
+    if (!a.captain && b.captain) return 1;
+    return (b.caps || 0) - (a.caps || 0);
+  });
+  const counts = { GK: 0, DF: 0, MF: 0, FW: 0 };
+  players.forEach(p => { if (counts[p.position] !== undefined) counts[p.position]++; });
+  const totalOutfield = counts.DF + counts.MF + counts.FW;
+  const dfRatio = counts.DF / totalOutfield;
+  const fwRatio = counts.FW / totalOutfield;
+  const mfRatio = counts.MF / totalOutfield;
+  let formation, dfCount, mfCount, fwCount;
+  if (dfRatio >= 0.38 && fwRatio <= 0.22) {
+    if (counts.DF >= 7) { formation="5-3-2"; dfCount=5; mfCount=3; fwCount=2; }
+    else { formation="4-4-2"; dfCount=4; mfCount=4; fwCount=2; }
+  } else if (mfRatio >= 0.40 && fwRatio <= 0.25) {
+    if (counts.DF <= 7) { formation="3-5-2"; dfCount=3; mfCount=5; fwCount=2; }
+    else { formation="4-2-3-1"; dfCount=4; mfCount=5; fwCount=1; }
+  } else if (fwRatio >= 0.28) {
+    if (counts.DF <= 7) { formation="3-4-3"; dfCount=3; mfCount=4; fwCount=3; }
+    else { formation="4-3-3"; dfCount=4; mfCount=3; fwCount=3; }
+  } else {
+    formation="4-3-3"; dfCount=4; mfCount=3; fwCount=3;
+  }
+  const targets = { GK: 1, DF: dfCount, MF: mfCount, FW: fwCount };
+  const starters = [], subs = [];
+  const posStarters = { GK: 0, DF: 0, MF: 0, FW: 0 };
+  for (const player of sorted) {
+    const pos = player.position;
+    if (posStarters[pos] < (targets[pos] || 0)) { starters.push(player); posStarters[pos]++; }
+    else subs.push(player);
+  }
+  for (const player of sorted) {
+    if (starters.length >= 11) break;
+    if (!starters.includes(player)) { starters.push(player); const idx = subs.indexOf(player); if (idx > -1) subs.splice(idx, 1); }
+  }
+  const posOrder = { GK: 0, DF: 1, MF: 2, FW: 3 };
+  starters.sort((a, b) => (posOrder[a.position] || 2) - (posOrder[b.position] || 2));
+  return { formation, starters: starters.slice(0, 11), subs };
+}
+
+function lastName(name) {
+  if (!name) return '???';
+  const parts = name.split(' ');
+  return parts[parts.length - 1];
+}
+
+// ---- PLAYER SPRITE CREATION ----
+function createPlayers(teamData, teamName, side) {
+  // side: 0=home (attacks up/top), 1=away (attacks down/bottom)
+  const form = inferFormation(teamData?.roster);
+  const coords = FORMATION_POSITIONS[form.formation] || FORMATION_POSITIONS["4-3-3"];
+  const colors = TEAM_COLORS[teamName] || ['#fff', '#888'];
+  const slug = TEAM_META[teamName]?.slug || '';
+  const players = [];
+
+  for (let i = 0; i < 11; i++) {
+    const pd = form.starters[i] || { number: i + 1, position: i === 0 ? 'GK' : 'FW', name: `Player ${i+1}`, captain: false };
+    // Formation coords: x=0-100 (left-right), y=0-100 (top=attacking end, bottom=own goal)
+    let fx = coords[i] ? coords[i][0] : 50;
+    let fy = coords[i] ? coords[i][1] : 50;
+
+    // Convert percentage to pitch pixels
+    // side 0 (home): attacks toward PITCH_T (top), own goal at PITCH_B (bottom)
+    //   so y=92 (GK near own goal) maps to near PITCH_B, y=18 (striker) maps to near PITCH_T
+    // side 1 (away): mirror — attacks toward PITCH_B, own goal at PITCH_T
+    let px, py;
+    if (side === 0) {
+      px = PITCH_L + (fx / 100) * PW;
+      py = PITCH_T + (fy / 100) * PH;
+    } else {
+      px = PITCH_L + ((100 - fx) / 100) * PW;
+      py = PITCH_T + ((100 - fy) / 100) * PH;
+    }
+
+    const img = new Image();
+    img.src = `assets/teams/${slug}/players/${pd.number}.png`;
+    let imgLoaded = false;
+    img.onload = () => { imgLoaded = true; };
+    img.onerror = () => { imgLoaded = false; };
+
+    players.push({
+      x: px, y: py,
+      homeX: px, homeY: py,
+      vx: 0, vy: 0,
+      number: pd.number,
+      name: pd.name,
+      lastName: lastName(pd.name),
+      position: pd.position,
+      captain: pd.captain || false,
+      team: side,
+      teamName: teamName,
+      shirtColor: side === 0 ? colors[0] : colors[1],
+      shortsColor: side === 0 ? colors[1] : colors[0],
+      img, imgLoaded: () => imgLoaded,
+      state: 'idle', // idle | chasing | hasBall | celebrating | fighting | diving | sentOff
+      speed: pd.position === 'GK' ? GK_SPEED : pd.position === 'FW' ? SPRINT_SPEED : pd.position === 'MF' ? 2.0 : JOG_SPEED,
+      stateTimer: 0,
+      goals: 0,
+      sentOff: false,
+      diveAngle: 0,
+      slideX: 0, slideY: 0,
+    });
+  }
+  return players;
+}
+
+// ---- PITCH DRAWING ----
+function drawPitch(ctx) {
+  // Grass
+  ctx.fillStyle = '#1a472a';
+  ctx.fillRect(0, 0, CW, CH);
+
+  // Grass stripes
+  const stripeW = PW / 10;
+  for (let i = 0; i < 10; i++) {
+    ctx.fillStyle = i % 2 === 0 ? '#1d5030' : '#1a472a';
+    ctx.fillRect(PITCH_L + i * stripeW, PITCH_T, stripeW, PH);
+  }
+
+  // Pitch border
+  ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(PITCH_L, PITCH_T, PW, PH);
+
+  // Halfway line
+  const midY = PITCH_T + PH / 2;
+  ctx.beginPath();
+  ctx.moveTo(PITCH_L, midY);
+  ctx.lineTo(PITCH_R, midY);
+  ctx.stroke();
+
+  // Center circle
+  ctx.beginPath();
+  ctx.arc(CW / 2, midY, 50, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Center spot
+  ctx.fillStyle = 'rgba(255,255,255,0.8)';
+  ctx.beginPath();
+  ctx.arc(CW / 2, midY, 3, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Penalty areas
+  const paW = 180, paH = 70;
+  // Top
+  ctx.strokeRect(CW / 2 - paW / 2, PITCH_T, paW, paH);
+  // Bottom
+  ctx.strokeRect(CW / 2 - paW / 2, PITCH_B - paH, paW, paH);
+
+  // Goal areas
+  const gaW = 90, gaH = 30;
+  ctx.strokeRect(CW / 2 - gaW / 2, PITCH_T, gaW, gaH);
+  ctx.strokeRect(CW / 2 - gaW / 2, PITCH_B - gaH, gaW, gaH);
+
+  // Penalty spots
+  ctx.fillStyle = 'rgba(255,255,255,0.8)';
+  ctx.beginPath(); ctx.arc(CW / 2, PITCH_T + 55, 3, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(CW / 2, PITCH_B - 55, 3, 0, Math.PI * 2); ctx.fill();
+
+  // Corner arcs
+  ctx.beginPath(); ctx.arc(PITCH_L, PITCH_T, 10, 0, Math.PI / 2); ctx.stroke();
+  ctx.beginPath(); ctx.arc(PITCH_R, PITCH_T, 10, Math.PI / 2, Math.PI); ctx.stroke();
+  ctx.beginPath(); ctx.arc(PITCH_L, PITCH_B, 10, -Math.PI / 2, 0); ctx.stroke();
+  ctx.beginPath(); ctx.arc(PITCH_R, PITCH_B, 10, Math.PI, Math.PI * 1.5); ctx.stroke();
+
+  // Goals
+  // Top goal (home attacks here → away's goal)
+  ctx.fillStyle = 'rgba(255,255,255,0.08)';
+  ctx.fillRect(GOAL_L, GOAL_TOP_Y, GOAL_W, GOAL_H);
+  ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(GOAL_L, GOAL_TOP_Y, GOAL_W, GOAL_H);
+  // Netting
+  for (let nx = GOAL_L; nx < GOAL_R; nx += 6) {
+    ctx.beginPath(); ctx.moveTo(nx, GOAL_TOP_Y); ctx.lineTo(nx, PITCH_T); ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.stroke();
+  }
+
+  // Bottom goal (away attacks here → home's goal)
+  ctx.fillStyle = 'rgba(255,255,255,0.08)';
+  ctx.fillRect(GOAL_L, GOAL_BOT_Y, GOAL_W, GOAL_H);
+  ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(GOAL_L, GOAL_BOT_Y, GOAL_W, GOAL_H);
+  for (let nx = GOAL_L; nx < GOAL_R; nx += 6) {
+    ctx.beginPath(); ctx.moveTo(nx, GOAL_BOT_Y); ctx.lineTo(nx, GOAL_BOT_Y + GOAL_H); ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.stroke();
+  }
+
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+}
+
+// ---- DRAW PLAYER ----
+function drawPlayer(ctx, p) {
+  if (p.sentOff) return;
+
+  const x = p.x + (p.slideX || 0);
+  const y = p.y + (p.slideY || 0);
+
+  // Shadow
+  ctx.fillStyle = 'rgba(0,0,0,0.3)';
+  ctx.beginPath();
+  ctx.ellipse(x, y + PLAYER_BODY_H + 2, 8, 3, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Body
+  ctx.fillStyle = p.shirtColor;
+  ctx.fillRect(x - PLAYER_BODY_W / 2, y, PLAYER_BODY_W, PLAYER_BODY_H);
+
+  // Shorts
+  ctx.fillStyle = p.shortsColor;
+  ctx.fillRect(x - PLAYER_BODY_W / 2, y + PLAYER_BODY_H - 3, PLAYER_BODY_W, 3);
+
+  // Head (circular mugshot or fallback)
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(x, y - PLAYER_HEAD_R + 2, PLAYER_HEAD_R, 0, Math.PI * 2);
+  ctx.clip();
+
+  if (p.imgLoaded()) {
+    ctx.drawImage(p.img, x - PLAYER_HEAD_R, y - PLAYER_HEAD_R * 2 + 2, PLAYER_HEAD_R * 2, PLAYER_HEAD_R * 2);
+  } else {
+    // Colored circle fallback
+    ctx.fillStyle = p.shirtColor;
+    ctx.fill();
+    // Number
+    ctx.fillStyle = p.shortsColor;
+    ctx.font = 'bold 10px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(p.number, x, y - PLAYER_HEAD_R + 2);
+  }
+  ctx.restore();
+
+  // Head border
+  ctx.strokeStyle = 'rgba(0,0,0,0.4)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.arc(x, y - PLAYER_HEAD_R + 2, PLAYER_HEAD_R, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Captain armband
+  if (p.captain) {
+    ctx.fillStyle = '#f0c44c';
+    ctx.fillRect(x + PLAYER_BODY_W / 2, y + 2, 3, 3);
+  }
+
+  // Diving effect
+  if (p.state === 'diving') {
+    // Stars
+    const t = p.stateTimer;
+    for (let s = 0; s < 3; s++) {
+      const angle = (t * 0.1 + s * 2.1);
+      const sx = x + Math.cos(angle) * 16;
+      const sy = y - PLAYER_HEAD_R + Math.sin(angle) * 12 - 8;
+      ctx.fillStyle = '#f0c44c';
+      ctx.font = '10px serif';
+      ctx.fillText('★', sx, sy);
+    }
+  }
+
+  // Fighting effect
+  if (p.state === 'fighting') {
+    const t = p.stateTimer;
+    ctx.font = '12px serif';
+    ctx.fillText(['💥', '👊', '🤬'][Math.floor(t / 10) % 3], x + 10, y - 14);
+  }
+}
+
+// ---- DRAW BALL ----
+function drawBall(ctx) {
+  ctx.fillStyle = 'rgba(0,0,0,0.25)';
+  ctx.beginPath();
+  ctx.ellipse(ball.x + 2, ball.y + 2, BALL_R + 1, BALL_R - 1, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = '#fff';
+  ctx.beginPath();
+  ctx.arc(ball.x, ball.y, BALL_R, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.strokeStyle = '#ccc';
+  ctx.lineWidth = 0.5;
+  ctx.stroke();
+}
+
+// ---- DRAW VAR OVERLAY ----
+function drawVAR(ctx) {
+  if (!varActive) return;
+  // Dotted rectangle
+  ctx.setLineDash([6, 4]);
+  ctx.strokeStyle = '#b06cf2';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(CW / 2 - 100, CH / 2 - 60, 200, 120);
+  ctx.setLineDash([]);
+
+  // Text
+  ctx.fillStyle = 'rgba(0,0,0,0.6)';
+  ctx.fillRect(CW / 2 - 100, CH / 2 - 60, 200, 120);
+
+  ctx.fillStyle = '#b06cf2';
+  ctx.font = "bold 18px 'Anton', sans-serif";
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  if (varTimer > 90) {
+    ctx.fillText('VAR REVIEWING...', CW / 2, CH / 2 - 10);
+    ctx.font = "14px 'Space Mono', monospace";
+    ctx.fillStyle = '#fff';
+    ctx.fillText('🖥️ checking the monitor', CW / 2, CH / 2 + 16);
+  } else {
+    ctx.fillStyle = varResult === 'PENALTY!' ? '#f25c5c' : '#4dc97b';
+    ctx.fillText(varResult, CW / 2, CH / 2);
+  }
+}
+
+// ---- DRAW PITCH INVADER ----
+function drawPitchInvader(ctx) {
+  if (!pitchInvader) return;
+  ctx.fillStyle = 'rgba(0,0,0,0.7)';
+  ctx.beginPath();
+  ctx.arc(pitchInvader.x, pitchInvader.y - 6, 7, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillRect(pitchInvader.x - 3, pitchInvader.y, 6, 10);
+  // Steward chasing
+  if (pitchInvader.steward) {
+    ctx.fillStyle = '#f0c44c';
+    ctx.beginPath();
+    ctx.arc(pitchInvader.steward.x, pitchInvader.steward.y - 6, 7, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillRect(pitchInvader.steward.x - 3, pitchInvader.steward.y, 6, 10);
+  }
+}
+
+// ---- BALL PHYSICS ----
+function updateBall() {
+  if (ball.owner) {
+    // Ball follows owner
+    const p = ball.owner;
+    const dir = p.team === 0 ? -1 : 1; // attacking direction
+    ball.x = p.x;
+    ball.y = p.y + dir * 12;
+    ball.vx = 0;
+    ball.vy = 0;
+    return;
+  }
+
+  ball.x += ball.vx;
+  ball.y += ball.vy;
+  ball.vx *= FRICTION;
+  ball.vy *= FRICTION;
+
+  // Clamp tiny velocities
+  if (Math.abs(ball.vx) < 0.1) ball.vx = 0;
+  if (Math.abs(ball.vy) < 0.1) ball.vy = 0;
+
+  // Side boundaries (throw-in)
+  if (ball.x < PITCH_L || ball.x > PITCH_R) {
+    ball.x = Math.max(PITCH_L + 5, Math.min(PITCH_R - 5, ball.x));
+    ball.vx = 0; ball.vy = 0;
+    ball.free = true;
+    ball.owner = null;
+  }
+
+  // End boundaries — check for goal
+  if (ball.y < PITCH_T) {
+    if (ball.x > GOAL_L && ball.x < GOAL_R) {
+      // GOAL for home (attacking top)
+      scoreGoal(0);
+      return;
+    }
+    ball.y = PITCH_T + 5;
+    ball.vy = 0; ball.vx = 0;
+    ball.free = true;
+    ball.owner = null;
+  }
+
+  if (ball.y > PITCH_B) {
+    if (ball.x > GOAL_L && ball.x < GOAL_R) {
+      // GOAL for away (attacking bottom)
+      scoreGoal(1);
+      return;
+    }
+    ball.y = PITCH_B - 5;
+    ball.vy = 0; ball.vx = 0;
+    ball.free = true;
+    ball.owner = null;
+  }
+}
+
+// ---- GOAL ----
+function scoreGoal(scoringTeam) {
+  const scoringPlayers = scoringTeam === 0 ? homePlayers : awayPlayers;
+  const teamName = scoringTeam === 0 ? homeTeamName : awayTeamName;
+
+  // Find who was last to touch/shoot
+  let scorer = null;
+  // Simple heuristic: nearest player to the goal on scoring side
+  const goalY = scoringTeam === 0 ? PITCH_T : PITCH_B;
+  let minDist = Infinity;
+  for (const p of scoringPlayers) {
+    if (p.sentOff || p.position === 'GK') continue;
+    const d = dist(p.x, p.y, ball.x, goalY);
+    if (d < minDist) { minDist = d; scorer = p; }
+  }
+  if (!scorer) scorer = scoringPlayers.find(p => !p.sentOff && p.position !== 'GK') || scoringPlayers[0];
+
+  if (scoringTeam === 0) homeScore++; else awayScore++;
+  scorer.goals++;
+  const minute = Math.floor(matchClock);
+  goalScorers.push({ player: scorer, team: teamName, minute });
+
+  addCommentary('goal', `GOOOAL! ${scorer.lastName} makes it ${homeScore}–${awayScore}! The ${TEAM_NICKNAMES[teamName] || teamName} go wild!`);
+
+  // Celebration
+  for (const p of scoringPlayers) {
+    if (p.sentOff) continue;
+    p.state = 'celebrating';
+    p.stateTimer = 90;
+  }
+
+  // Comedy celebration events
+  if (Math.random() < 0.5) {
+    addCommentary('comedy', `${scorer.lastName} does an elaborate knee slide... and rips a divot out of the turf. Groundskeeper in shambles.`);
+    comedyStats.selfies++;
+  } else if (Math.random() < 0.3) {
+    addCommentary('comedy', `${scorer.lastName} pulls out an invisible phone for a selfie with teammates. VAR reviews whether the phone is offside.`);
+    comedyStats.selfies++;
+  }
+
+  // Reset ball
+  ball.x = CW / 2; ball.y = CH / 2;
+  ball.vx = 0; ball.vy = 0;
+  ball.owner = null; ball.free = true;
+
+  gameState = 'goalScored';
+  pauseTimer = 120;
+
+  updateScoreboard();
+}
+
+// ---- PLAYER AI ----
+function dist(x1, y1, x2, y2) {
+  return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+}
+
+function moveToward(p, tx, ty, speed) {
+  const d = dist(p.x, p.y, tx, ty);
+  if (d < 2) return;
+  p.vx = ((tx - p.x) / d) * speed;
+  p.vy = ((ty - p.y) / d) * speed;
+}
+
+function findNearestBallChaser(players) {
+  let nearest = null, minD = Infinity;
+  for (const p of players) {
+    if (p.sentOff || p.state === 'diving' || p.state === 'fighting' || p.state === 'celebrating') continue;
+    const d = dist(p.x, p.y, ball.x, ball.y);
+    if (d < minD) { minD = d; nearest = p; }
+  }
+  return nearest;
+}
+
+function findTeammate(p, players) {
+  let best = null, bestScore = -Infinity;
+  const attackDir = p.team === 0 ? -1 : 1; // -1 = up, 1 = down
+  for (const t of players) {
+    if (t === p || t.sentOff || t.position === 'GK') continue;
+    const ahead = (t.y - p.y) * attackDir;
+    const lateral = Math.abs(t.x - p.x);
+    const space = nearestOpponentDist(t);
+    const score = ahead * 0.5 + space * 0.3 - lateral * 0.1;
+    if (score > bestScore) { bestScore = score; best = t; }
+  }
+  return best;
+}
+
+function nearestOpponentDist(p) {
+  const opponents = p.team === 0 ? awayPlayers : homePlayers;
+  let minD = Infinity;
+  for (const o of opponents) {
+    if (o.sentOff) continue;
+    const d = dist(p.x, p.y, o.x, o.y);
+    if (d < minD) minD = d;
+  }
+  return minD;
+}
+
+function shootBall(p) {
+  const goalX = CW / 2 + (Math.random() - 0.5) * GOAL_W * 0.7;
+  const goalY = p.team === 0 ? PITCH_T - 5 : PITCH_B + 5;
+  const d = dist(p.x, p.y, goalX, goalY);
+  const accuracy = 0.85 + Math.random() * 0.3; // some randomness
+  ball.vx = ((goalX - p.x) / d) * SHOOT_SPEED * accuracy;
+  ball.vy = ((goalY - p.y) / d) * SHOOT_SPEED * accuracy;
+  ball.owner = null;
+  ball.free = true;
+  p.state = 'idle';
+
+  if (Math.random() < 0.4) {
+    addCommentary('default', `${p.lastName} lets fly! ${Math.random() < 0.5 ? 'Powerful effort!' : 'What a strike!'}`);
+  }
+}
+
+function passBall(p, target) {
+  const d = dist(p.x, p.y, target.x, target.y);
+  const inaccuracy = (Math.random() - 0.5) * 1.5;
+  ball.vx = ((target.x - p.x) / d) * PASS_SPEED + inaccuracy;
+  ball.vy = ((target.y - p.y) / d) * PASS_SPEED + inaccuracy;
+  ball.owner = null;
+  ball.free = true;
+  p.state = 'idle';
+
+  if (Math.random() < 0.15) {
+    addCommentary('default', `${p.lastName} finds ${target.lastName} with a lovely ball.`);
+  }
+}
+
+function updatePlayerAI(p, teammates, opponents) {
+  if (p.sentOff) return;
+
+  // Decrement state timers
+  if (p.stateTimer > 0) {
+    p.stateTimer--;
+    if (p.state === 'diving') {
+      p.slideX = Math.sin(p.stateTimer * 0.3) * 3;
+      p.slideY = Math.cos(p.stateTimer * 0.3) * 2;
+      if (p.stateTimer <= 0) { p.state = 'idle'; p.slideX = 0; p.slideY = 0; }
+      return;
+    }
+    if (p.state === 'fighting') {
+      if (p.stateTimer <= 0) p.state = 'idle';
+      return;
+    }
+    if (p.state === 'celebrating') {
+      if (p.stateTimer <= 0) p.state = 'idle';
+      return;
+    }
+  }
+
+  // Goalkeeper AI
+  if (p.position === 'GK') {
+    updateGK(p, opponents);
+    return;
+  }
+
+  // Check if this player has the ball
+  if (ball.owner === p) {
+    p.state = 'hasBall';
+    const attackGoalY = p.team === 0 ? PITCH_T : PITCH_B;
+    const distToGoal = dist(p.x, p.y, CW / 2, attackGoalY);
+
+    // Shooting range
+    if (distToGoal < 180 && Math.abs(p.x - CW / 2) < 140) {
+      if (Math.random() < 0.03 + (180 - distToGoal) / 3000) {
+        shootBall(p);
+        return;
+      }
+    }
+
+    // Pass to teammate ahead
+    const tm = findTeammate(p, teammates);
+    if (tm && Math.random() < 0.025) {
+      passBall(p, tm);
+      return;
+    }
+
+    // Dribble toward goal
+    const dribDir = p.team === 0 ? -1 : 1;
+    p.vx = (CW / 2 - p.x) * 0.02 + (Math.random() - 0.5) * 0.8;
+    p.vy = DRIBBLE_SPEED * dribDir + (Math.random() - 0.5) * 0.3;
+    return;
+  }
+
+  // Check if nearest to ball — chase it
+  const nearest = findNearestBallChaser(teammates);
+  if (nearest === p && !ball.owner) {
+    p.state = 'chasing';
+    moveToward(p, ball.x, ball.y, p.speed);
+
+    // Pick up ball if close
+    if (dist(p.x, p.y, ball.x, ball.y) < 12) {
+      ball.owner = p;
+      ball.free = false;
+      p.state = 'hasBall';
+    }
+    return;
+  }
+
+  // If ball owned by opponent nearby — try to tackle
+  if (ball.owner && ball.owner.team !== p.team) {
+    const dToBallCarrier = dist(p.x, p.y, ball.owner.x, ball.owner.y);
+    if (dToBallCarrier < 60 && p.position !== 'GK') {
+      moveToward(p, ball.owner.x, ball.owner.y, p.speed * 0.9);
+      if (dToBallCarrier < TACKLE_RANGE) {
+        attemptTackle(p, ball.owner);
+      }
+      return;
+    }
+  }
+
+  // Drift toward formation position
+  p.state = 'idle';
+  const homeX = p.homeX + (Math.random() - 0.5) * 20;
+  const homeY = p.homeY + (ball.y - CH / 2) * 0.15 + (Math.random() - 0.5) * 15;
+  moveToward(p, homeX, homeY, JOG_SPEED * 0.5);
+}
+
+function updateGK(gk, opponents) {
+  const goalY = gk.team === 0 ? PITCH_B - 6 : PITCH_T + 6;
+  const goalCenterX = CW / 2;
+
+  // Track ball laterally
+  const targetX = Math.max(GOAL_L + 5, Math.min(GOAL_R - 5, ball.x));
+
+  // Rush out for close balls
+  let targetY = goalY;
+  const ballDistToGoal = dist(ball.x, ball.y, goalCenterX, goalY);
+  if (ballDistToGoal < 120 && !ball.owner) {
+    targetY = goalY + (ball.y - goalY) * 0.3;
+  }
+
+  moveToward(gk, targetX, targetY, GK_SPEED);
+
+  // Save attempt — if ball heading toward goal fast
+  if (!ball.owner && Math.abs(ball.vy) > 3) {
+    const goalDir = gk.team === 0 ? 1 : -1; // ball going toward our goal?
+    if (ball.vy * goalDir > 0) {
+      const timeToGoal = Math.abs((goalY - ball.y) / ball.vy);
+      const ballArriveX = ball.x + ball.vx * timeToGoal;
+      if (timeToGoal < 30 && ballArriveX > GOAL_L - 10 && ballArriveX < GOAL_R + 10) {
+        // Dive!
+        moveToward(gk, ballArriveX, ball.y, GK_SPEED * 1.5);
+        if (dist(gk.x, gk.y, ball.x, ball.y) < 20) {
+          // Save!
+          ball.vx = (Math.random() - 0.5) * 3;
+          ball.vy = -ball.vy * 0.3;
+          ball.owner = null;
+          if (Math.random() < 0.3) {
+            const shooterName = findNearestPlayerName(opponents, ball.x, ball.y);
+            addCommentary('default', `Great save by ${gk.lastName}! ${shooterName} denied!`);
+          }
+        }
+      }
+    }
+  }
+
+  // Pick up ball if close
+  if (!ball.owner && dist(gk.x, gk.y, ball.x, ball.y) < 15) {
+    ball.owner = gk;
+    ball.free = false;
+    // Kick it out
+    setTimeout(() => {
+      if (ball.owner === gk) {
+        const tm = findTeammate(gk, gk.team === 0 ? homePlayers : awayPlayers);
+        if (tm) passBall(gk, tm);
+        else {
+          ball.vx = (Math.random() - 0.5) * 4;
+          ball.vy = (gk.team === 0 ? -1 : 1) * 5;
+          ball.owner = null;
+          ball.free = true;
+        }
+      }
+    }, 500);
+  }
+}
+
+function findNearestPlayerName(players, x, y) {
+  let nearest = null, minD = Infinity;
+  for (const p of players) {
+    if (p.sentOff) continue;
+    const d = dist(p.x, p.y, x, y);
+    if (d < minD) { minD = d; nearest = p; }
+  }
+  return nearest ? nearest.lastName : 'someone';
+}
+
+// ---- TACKLING ----
+function attemptTackle(tackler, ballCarrier) {
+  const roll = Math.random();
+  if (roll < 0.4) {
+    // Clean tackle
+    ball.owner = null;
+    ball.free = true;
+    ball.vx = (Math.random() - 0.5) * 3;
+    ball.vy = (Math.random() - 0.5) * 3;
+    ballCarrier.state = 'idle';
+  } else if (roll < 0.75) {
+    // Foul
+    ball.owner = null;
+    ball.free = true;
+    ball.vx = 0;
+    ball.vy = 0;
+    ball.x = ballCarrier.x;
+    ball.y = ballCarrier.y;
+    const minute = Math.floor(matchClock);
+    addCommentary('card', `Foul by ${tackler.lastName} on ${ballCarrier.lastName}. Free kick.`);
+
+    // Card chance
+    if (Math.random() < 0.15) {
+      addCommentary('card', `Yellow card shown to ${tackler.lastName}!`);
+      if (Math.random() < 0.05) {
+        addCommentary('card', `That's a SECOND yellow! ${tackler.lastName} is OFF!`);
+        tackler.sentOff = true;
+        tackler.state = 'sentOff';
+        comedyStats.redCards++;
+        // Red card flash will be drawn
+      }
+    }
+  } else {
+    // Comedy foul — theatrical dive by the victim
+    theatricalDive(ballCarrier, tackler);
+  }
+}
+
+// ---- COMEDY EVENTS ----
+function theatricalDive(victim, fouler) {
+  victim.state = 'diving';
+  victim.stateTimer = 60;
+  victim.slideX = (Math.random() > 0.5 ? 1 : -1) * 20;
+  victim.slideY = -10;
+  comedyStats.dives++;
+  const descriptions = [
+    `${victim.lastName} goes down clutching his face despite being touched on the ankle. Oscar-worthy.`,
+    `${victim.lastName} collapses as if shot by a sniper. ${fouler.lastName} barely touched him.`,
+    `${victim.lastName} performs a triple somersault and lands clutching both shins simultaneously. Medically impossible.`,
+    `${victim.lastName} falls dramatically, rolls four times, peeks to see if the ref is watching, then rolls twice more.`,
+  ];
+  addCommentary('comedy', descriptions[Math.floor(Math.random() * descriptions.length)]);
+  ball.owner = null;
+  ball.free = true;
+}
+
+function triggerVAR() {
+  if (varActive) return;
+  varActive = true;
+  varTimer = 180;
+  comedyStats.varReviews++;
+  addCommentary('var', 'VAR is checking... the referee is drawing a rectangle in the air...');
+
+  const results = [
+    'NO GOAL — ball was 0.3mm offside',
+    'PENALTY!',
+    'NO FOUL — play on',
+    'GOAL STANDS — after 4 minutes of squinting',
+    'YELLOW CARD UPGRADED TO RED... no wait, downgraded to a stern look',
+    'DECISION: referee had something in his eye',
+  ];
+  varResult = results[Math.floor(Math.random() * results.length)];
+}
+
+function triggerMassConfrontation() {
+  comedyStats.fights++;
+  // 6+ players cluster around center
+  const allPlayers = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff);
+  const fighters = allPlayers.sort(() => Math.random() - 0.5).slice(0, Math.min(8, allPlayers.length));
+  const cx = ball.x, cy = ball.y;
+  for (const p of fighters) {
+    p.state = 'fighting';
+    p.stateTimer = 80;
+    moveToward(p, cx + (Math.random() - 0.5) * 30, cy + (Math.random() - 0.5) * 30, p.speed);
+  }
+  const comments = [
+    "Mass confrontation! Players from both sides are having a polite disagreement at close range!",
+    "Handbags! Six players surrounding the referee who looks like he wants to be literally anywhere else.",
+    "It's kicked off! Not the ball — the players! The referee is trying to separate them with all the authority of a supply teacher.",
+  ];
+  addCommentary('comedy', comments[Math.floor(Math.random() * comments.length)]);
+}
+
+function triggerKeeperRush(team) {
+  const gk = (team === 0 ? homePlayers : awayPlayers).find(p => p.position === 'GK' && !p.sentOff);
+  if (!gk) return;
+  gk.homeX = CW / 2;
+  gk.homeY = CH / 2;
+  moveToward(gk, CW / 2 + (Math.random() - 0.5) * 100, CH / 2, GK_SPEED);
+  addCommentary('comedy', `${gk.lastName} has LOST THE PLOT! The goalkeeper is sprinting to the halfway line! The goal is completely empty!`);
+  // Reset after a bit
+  setTimeout(() => {
+    gk.homeX = CW / 2;
+    gk.homeY = team === 0 ? PITCH_B - 6 : PITCH_T + 6;
+  }, 4000);
+}
+
+function triggerPitchInvader() {
+  comedyStats.pitchInvaders++;
+  pitchInvader = {
+    x: PITCH_L, y: PITCH_T + Math.random() * PH,
+    vx: 2.5 + Math.random(), vy: (Math.random() - 0.5) * 2,
+    timer: 200,
+    steward: { x: PITCH_L - 20, y: PITCH_T + PH / 2 }
+  };
+  addCommentary('comedy', "A pitch invader has breached security! Stewards in pursuit! Players scattering like startled pigeons!");
+}
+
+function triggerOwnGoal(team) {
+  const defenders = (team === 0 ? homePlayers : awayPlayers).filter(p => p.position === 'DF' && !p.sentOff);
+  if (!defenders.length) return;
+  const unlucky = defenders[Math.floor(Math.random() * defenders.length)];
+  const ownGoalY = team === 0 ? PITCH_B + 5 : PITCH_T - 5;
+  ball.x = unlucky.x;
+  ball.y = unlucky.y;
+  ball.vx = (CW / 2 - unlucky.x) * 0.05;
+  ball.vy = (ownGoalY - unlucky.y) * 0.04;
+  ball.owner = null;
+  ball.free = true;
+  addCommentary('comedy', `Oh no! ${unlucky.lastName} has played a catastrophic backpass! The keeper is scrambling!`);
+}
+
+function triggerDoubleRedCard(team) {
+  const players = (team === 0 ? homePlayers : awayPlayers).filter(p => !p.sentOff && p.position !== 'GK');
+  if (players.length < 2) return;
+  const [p1, p2] = players.sort(() => Math.random() - 0.5).slice(0, 2);
+  p1.sentOff = true; p1.state = 'sentOff';
+  p2.sentOff = true; p2.state = 'sentOff';
+  comedyStats.redCards += 2;
+  addCommentary('card', `DOUBLE RED CARD! ${p1.lastName} and ${p2.lastName} sent off for fighting EACH OTHER! Same team! Absolute chaos!`);
+}
+
+function checkComedyEvents() {
+  if (varActive || gameState !== 'playing') return;
+  const t = matchClock / 90; // progress factor
+
+  if (Math.random() < 0.001 * (1 + t)) theatricalDive(
+    randomPlayer(Math.random() < 0.5 ? homePlayers : awayPlayers),
+    randomPlayer(Math.random() < 0.5 ? awayPlayers : homePlayers)
+  );
+  if (Math.random() < 0.0003 * (1 + t * 2)) triggerMassConfrontation();
+  if (Math.random() < 0.0004) triggerKeeperRush(Math.random() < 0.5 ? 0 : 1);
+  if (Math.random() < 0.0003 * (1 + t)) triggerVAR();
+  if (Math.random() < 0.0001) triggerPitchInvader();
+  if (Math.random() < 0.001) triggerOwnGoal(Math.random() < 0.5 ? 0 : 1);
+  if (Math.random() < 0.00005) triggerDoubleRedCard(Math.random() < 0.5 ? 0 : 1);
+}
+
+function randomPlayer(players) {
+  const valid = players.filter(p => !p.sentOff && p.state === 'idle');
+  return valid.length ? valid[Math.floor(Math.random() * valid.length)] : players[0];
+}
+
+// ---- COMMENTARY ----
+function addCommentary(type, text) {
+  const minute = Math.floor(matchClock);
+  const el = $('commentary');
+  const cls = type === 'goal' ? 'goal' : type === 'card' ? 'card' : type === 'comedy' ? 'comedy' : type === 'var' ? 'var' : '';
+  const div = document.createElement('div');
+  div.className = 'event ' + cls;
+  div.innerHTML = `<span class="min">${minute}'</span>${text}`;
+  el.insertBefore(div, el.firstChild);
+  // Trim old
+  while (el.children.length > 50) el.removeChild(el.lastChild);
+}
+
+// ---- SCOREBOARD ----
+function updateScoreboard() {
+  $('sbScore').textContent = `${homeScore} – ${awayScore}`;
+  $('clockDisplay').textContent = `${Math.floor(matchClock)}'`;
+}
+
+// ---- MAIN GAME LOOP ----
+function gameLoop() {
+  animId = requestAnimationFrame(gameLoop);
+
+  if (gameState === 'teamSelect' || gameState === 'fulltime') return;
+
+  // VAR pause
+  if (varActive) {
+    varTimer--;
+    if (varTimer <= 0) {
+      varActive = false;
+      addCommentary('var', `VAR decision: ${varResult}`);
+      if (varResult === 'PENALTY!') {
+        // Give ball to random attacker near penalty spot
+        const team = Math.random() < 0.5 ? 0 : 1;
+        const players = team === 0 ? homePlayers : awayPlayers;
+        const taker = players.find(p => !p.sentOff && p.position === 'FW') || players.find(p => !p.sentOff && p.position !== 'GK');
+        if (taker) {
+          const penY = team === 0 ? PITCH_T + 55 : PITCH_B - 55;
+          taker.x = CW / 2;
+          taker.y = penY;
+          ball.x = CW / 2;
+          ball.y = penY;
+          ball.owner = taker;
+          ball.free = false;
+        }
+      }
+    }
+    drawFrame();
+    return;
+  }
+
+  // Pause (goal celebration, halftime)
+  if (pauseTimer > 0) {
+    pauseTimer--;
+    if (pauseTimer <= 0) {
+      if (gameState === 'goalScored') {
+        gameState = 'playing';
+        resetPositions();
+      } else if (gameState === 'halftime') {
+        gameState = 'playing';
+        // Swap sides
+        swapSides();
+        addCommentary('default', `Second half underway! ${awayTeamName} kick off.`);
+      }
+    }
+    drawFrame();
+    return;
+  }
+
+  // Match clock
+  if (gameState === 'playing') {
+    realTick++;
+    matchClock = realTick / TICKS_PER_MINUTE;
+
+    // Halftime
+    if (!halfSwapped && matchClock >= 45) {
+      gameState = 'halftime';
+      halfSwapped = true;
+      pauseTimer = 180;
+      addCommentary('default', `Half time! ${homeTeamName} ${homeScore}–${awayScore} ${awayTeamName}. ${Math.random() < 0.5 ? 'Time for some questionable tactical analysis.' : 'Players head to the tunnel. Someone\'s nicked the half-time oranges.'}`);
+      updateScoreboard();
+      drawFrame();
+      return;
+    }
+
+    // Full time
+    if (matchClock >= 90) {
+      gameState = 'fulltime';
+      addCommentary('default', `Full time! ${homeTeamName} ${homeScore}–${awayScore} ${awayTeamName}.`);
+      updateScoreboard();
+      showResult();
+      return;
+    }
+
+    updateScoreboard();
+
+    // Update ball
+    updateBall();
+
+    // Update players
+    for (const p of homePlayers) { updatePlayerAI(p, homePlayers, awayPlayers); applyVelocity(p); }
+    for (const p of awayPlayers) { updatePlayerAI(p, awayPlayers, homePlayers); applyVelocity(p); }
+
+    // Ball pickup (free ball)
+    if (!ball.owner) {
+      const all = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff && p.state !== 'diving' && p.state !== 'celebrating');
+      for (const p of all) {
+        if (dist(p.x, p.y, ball.x, ball.y) < 10) {
+          ball.owner = p;
+          ball.free = false;
+          p.state = 'hasBall';
+          break;
+        }
+      }
+    }
+
+    // Comedy events
+    checkComedyEvents();
+
+    // Pitch invader update
+    if (pitchInvader) {
+      pitchInvader.x += pitchInvader.vx;
+      pitchInvader.y += pitchInvader.vy;
+      pitchInvader.timer--;
+      if (pitchInvader.steward) {
+        moveToward(pitchInvader.steward, pitchInvader.x, pitchInvader.y, 2);
+        pitchInvader.steward.x += (pitchInvader.x - pitchInvader.steward.x) * 0.02;
+        pitchInvader.steward.y += (pitchInvader.y - pitchInvader.steward.y) * 0.02;
+      }
+      if (pitchInvader.timer <= 0 || pitchInvader.x > PITCH_R + 30) {
+        pitchInvader = null;
+        addCommentary('comedy', 'The pitch invader has been escorted off. Normal service resumes.');
+      }
+    }
+  }
+
+  drawFrame();
+}
+
+function applyVelocity(p) {
+  if (p.sentOff) return;
+  p.x += p.vx;
+  p.y += p.vy;
+  p.vx *= 0.9;
+  p.vy *= 0.9;
+
+  // Keep on pitch (with slight margin for GKs)
+  const margin = p.position === 'GK' ? -10 : 5;
+  p.x = Math.max(PITCH_L + margin, Math.min(PITCH_R - margin, p.x));
+  p.y = Math.max(PITCH_T + margin, Math.min(PITCH_B - margin, p.y));
+}
+
+function resetPositions() {
+  for (const p of homePlayers) { p.x = p.homeX; p.y = p.homeY; p.vx = 0; p.vy = 0; if (p.state !== 'sentOff') p.state = 'idle'; }
+  for (const p of awayPlayers) { p.x = p.homeX; p.y = p.homeY; p.vx = 0; p.vy = 0; if (p.state !== 'sentOff') p.state = 'idle'; }
+  ball.x = CW / 2; ball.y = CH / 2; ball.vx = 0; ball.vy = 0; ball.owner = null; ball.free = true;
+}
+
+function swapSides() {
+  // Mirror all home positions
+  for (const p of homePlayers) {
+    p.homeX = CW - p.homeX;
+    p.homeY = CH - p.homeY;
+  }
+  for (const p of awayPlayers) {
+    p.homeX = CW - p.homeX;
+    p.homeY = CH - p.homeY;
+  }
+  resetPositions();
+}
+
+function drawFrame() {
+  ctx.clearRect(0, 0, CW, CH);
+  drawPitch(ctx);
+
+  // Draw players (sorted by y for depth)
+  const allPlayers = [...homePlayers, ...awayPlayers].sort((a, b) => a.y - b.y);
+  for (const p of allPlayers) drawPlayer(ctx, p);
+
+  drawBall(ctx);
+  drawPitchInvader(ctx);
+  drawVAR(ctx);
+
+  // Halftime overlay
+  if (gameState === 'halftime') {
+    ctx.fillStyle = 'rgba(0,0,0,0.5)';
+    ctx.fillRect(0, 0, CW, CH);
+    ctx.fillStyle = '#f0c44c';
+    ctx.font = "bold 36px 'Anton', sans-serif";
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('HALF TIME', CW / 2, CH / 2 - 10);
+    ctx.font = "16px 'Space Mono', monospace";
+    ctx.fillStyle = '#fff';
+    ctx.fillText(`${homeTeamName} ${homeScore} – ${awayScore} ${awayTeamName}`, CW / 2, CH / 2 + 20);
+  }
+
+  // Goal scored overlay
+  if (gameState === 'goalScored' && pauseTimer > 60) {
+    ctx.fillStyle = 'rgba(240,196,76,0.15)';
+    ctx.fillRect(0, 0, CW, CH);
+    ctx.fillStyle = '#f0c44c';
+    ctx.font = "bold 48px 'Anton', sans-serif";
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('GOAL!', CW / 2, CH / 2);
+  }
+}
+
+// ---- RESULT SCREEN ----
+function showResult() {
+  $('matchView').classList.remove('active');
+  $('resultScreen').classList.add('active');
+
+  $('resScore').textContent = `${homeScore} – ${awayScore}`;
+  $('resTeams').textContent = `${homeTeamName} vs ${awayTeamName}`;
+
+  // Scorers
+  const scorerLines = goalScorers.map(g => `⚽ ${g.player.lastName} ${g.minute}' (${g.team})`).join('<br>');
+  $('resScorers').innerHTML = scorerLines || 'No goals. A defensive masterclass. Or terrible finishing.';
+
+  // Man of the match
+  const allPlayers = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff);
+  let motm = allPlayers.sort((a, b) => b.goals - a.goals)[0];
+  const funnyReasons = [
+    'Most hair-ruffling celebrations',
+    'Least offside decisions against them',
+    'Best at pretending to be injured',
+    'Survived the entire match without getting into a fight',
+    'Only player who remembered which goal to attack',
+    'Completed more passes than arguments with the referee',
+  ];
+  let motmReason = motm && motm.goals > 0 ? `${motm.goals} goal${motm.goals > 1 ? 's' : ''}` : funnyReasons[Math.floor(Math.random() * funnyReasons.length)];
+  if (!motm) { motm = allPlayers[0]; }
+
+  $('resMotm').innerHTML = `
+    <div class="label">Man of the Match</div>
+    <div class="name">${motm ? motm.name : '???'}</div>
+    <div class="reason">${motmReason}</div>
+  `;
+
+  // Comedy stats
+  $('resStats').innerHTML = `
+    <div class="res-stat"><div class="n">${comedyStats.dives}</div><div class="l">Theatrical Dives</div></div>
+    <div class="res-stat"><div class="n">${comedyStats.varReviews}</div><div class="l">VAR Reviews</div></div>
+    <div class="res-stat"><div class="n">${comedyStats.fights}</div><div class="l">Mass Brawls</div></div>
+    <div class="res-stat"><div class="n">${comedyStats.redCards}</div><div class="l">Red Cards</div></div>
+    <div class="res-stat"><div class="n">${comedyStats.pitchInvaders}</div><div class="l">Pitch Invaders</div></div>
+    <div class="res-stat"><div class="n">${comedyStats.selfies}</div><div class="l">Goal Selfies</div></div>
+  `;
+}
+
+// ---- KICK OFF ----
+async function startMatch() {
+  homeTeamName = $('homeSelect').value;
+  awayTeamName = $('awaySelect').value;
+
+  $('teamSelect').classList.add('hidden');
+  $('matchView').classList.add('active');
+
+  canvas = $('pitchCanvas');
+  ctx = canvas.getContext('2d');
+
+  // Set scoreboard
+  const homeMeta = TEAM_META[homeTeamName];
+  const awayMeta = TEAM_META[awayTeamName];
+  $('sbHomeName').textContent = homeTeamName;
+  $('sbAwayName').textContent = awayTeamName;
+  $('sbHomeFlag').src = `assets/teams/${homeMeta.slug}/flag.svg`;
+  $('sbHomeFlag').onerror = function() { this.src = `https://flagcdn.com/${homeMeta.flagcdn}.svg`; };
+  $('sbAwayFlag').src = `assets/teams/${awayMeta.slug}/flag.svg`;
+  $('sbAwayFlag').onerror = function() { this.src = `https://flagcdn.com/${awayMeta.flagcdn}.svg`; };
+
+  // Load data
+  homeData = await loadTeamData(homeTeamName);
+  awayData = await loadTeamData(awayTeamName);
+
+  // Create players
+  homePlayers = createPlayers(homeData, homeTeamName, 0);
+  awayPlayers = createPlayers(awayData, awayTeamName, 1);
+
+  // Reset state
+  homeScore = 0; awayScore = 0;
+  matchClock = 0; realTick = 0;
+  halfSwapped = false;
+  goalScorers = [];
+  comedyStats = { dives: 0, varReviews: 0, fights: 0, redCards: 0, pitchInvaders: 0, selfies: 0 };
+  events = [];
+  ball = { x: CW / 2, y: CH / 2, vx: 0, vy: 0, owner: null, free: true };
+  varActive = false;
+  pitchInvader = null;
+  $('commentary').innerHTML = '';
+
+  updateScoreboard();
+
+  // Kickoff commentary
+  const homeNick = TEAM_NICKNAMES[homeTeamName] || homeTeamName;
+  const awayNick = TEAM_NICKNAMES[awayTeamName] || awayTeamName;
+  addCommentary('default', `We're underway! ${homeTeamName} kick off against ${awayTeamName}. The ${homeNick} looking to make a statement today.`);
+
+  // Give ball to home team striker
+  const striker = homePlayers.find(p => p.position === 'FW' && !p.sentOff);
+  if (striker) {
+    striker.x = CW / 2 + 5;
+    striker.y = CH / 2 + 5;
+    ball.owner = striker;
+    ball.free = false;
+  }
+
+  gameState = 'playing';
+
+  if (animId) cancelAnimationFrame(animId);
+  gameLoop();
+}
+
+// ---- REMATCH ----
+function rematch() {
+  $('resultScreen').classList.remove('active');
+  if (animId) cancelAnimationFrame(animId);
+  gameState = 'teamSelect';
+  startMatch();
+}
+
+// ---- INIT ----
+populateSelects();
+parseURLParams();
+
+$('homeSelect').addEventListener('change', () => updateSelectUI('home'));
+$('awaySelect').addEventListener('change', () => updateSelectUI('away'));
+$('kickoffBtn').addEventListener('click', startMatch);
+$('rematchBtn').addEventListener('click', rematch);
+
+// Auto-kick-off if both URL params present
+if ($('homeSelect').value && $('awaySelect').value && $('homeSelect').value !== $('awaySelect').value) {
+  // Short delay so page renders first
+  setTimeout(startMatch, 300);
+}
+</script>
+</body>
+</html>
