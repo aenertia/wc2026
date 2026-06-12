@@ -534,6 +534,7 @@ const $=id=>document.getElementById(id);
 let scores=new Map();
 const teamOverrides=new Map();
 let groupStandings=new Map();
+let flagByName=new Map(); // team display name → flag URL, populated by fetchStandings
 
 /* build stage pills */
 const stageRow=$("stageRow");
@@ -716,6 +717,7 @@ async function fetchScores(){
       if(dRow)teamOverrides.set(dRow[0],{home,away});
     });
     scores=map;
+    computeStandings();
     updateBanner();
     scheduleNotifications();
     render();
@@ -868,30 +870,45 @@ updateBanner();setInterval(updateBanner,1000);
 /* ---------- standings ---------- */
 async function fetchStandings(){
   try{
-    const [tRes,gRes]=await Promise.all([
-      fetch("/api/teams",{cache:"no-store"}),
-      fetch("/api/groups",{cache:"no-store"}),
-    ]);
-    if(!tRes.ok||!gRes.ok)return;
-    const [td,gd]=await Promise.all([tRes.json(),gRes.json()]);
-    const teamMeta=new Map();
-    td.teams.forEach(t=>teamMeta.set(t.id,{name:normName(t.name_en),flag:t.flag}));
-    const map=new Map();
-    gd.groups.forEach(grp=>{
-      const letter=grp.name;
-      const teams=grp.teams
-        .map(t=>{
-          const meta=teamMeta.get(t.team_id)||{name:"?",flag:""};
-          return{name:meta.name,flag:meta.flag,
-            mp:+t.mp,w:+t.w,d:+t.d,l:+t.l,gf:+t.gf,ga:+t.ga,gd:+t.gd,pts:+t.pts};
-        })
-        .sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf||a.name.localeCompare(b.name));
-      map.set(letter,teams);
-    });
-    groupStandings=map;
-    renderGroups();
-    renderStrip();
+    const tRes=await fetch("/api/teams",{cache:"no-store"});
+    if(!tRes.ok)return;
+    const td=await tRes.json();
+    flagByName=new Map();
+    td.teams.forEach(t=>flagByName.set(normName(t.name_en),t.flag));
+    computeStandings();
   }catch(e){console.warn("Standings fetch failed:",e);}
+}
+
+function computeStandings(){
+  // Build standings from finished ESPN scores — no external standings API needed
+  const gMap=new Map(); // letter → Map<teamName, row>
+  D.forEach(r=>{
+    if(r[1]!=="G")return;
+    const g=r[2];
+    if(!gMap.has(g))gMap.set(g,new Map());
+    const grp=gMap.get(g);
+    const ov=teamOverrides.get(r[0]);
+    const h=ov?.home??r[5], a=ov?.away??r[6];
+    [h,a].forEach(n=>{if(!grp.has(n))grp.set(n,{name:n,flag:flagByName.get(n)||"",mp:0,w:0,d:0,l:0,gf:0,ga:0,gd:0,pts:0});});
+    const sc=scores.get(h+"|"+a)??scores.get(a+"|"+h);
+    if(!sc?.finished)return;
+    const hg=parseInt(sc.home,10)||0, ag=parseInt(sc.away,10)||0;
+    const hr=grp.get(h), ar=grp.get(a);
+    hr.mp++;ar.mp++;
+    hr.gf+=hg;hr.ga+=ag;hr.gd+=hg-ag;
+    ar.gf+=ag;ar.ga+=hg;ar.gd+=ag-hg;
+    if(hg>ag){hr.w++;hr.pts+=3;ar.l++;}
+    else if(hg<ag){ar.w++;ar.pts+=3;hr.l++;}
+    else{hr.d++;hr.pts++;ar.d++;ar.pts++;}
+  });
+  const result=new Map();
+  gMap.forEach((grp,letter)=>{
+    const teams=[...grp.values()].sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf||a.name.localeCompare(b.name));
+    result.set(letter,teams);
+  });
+  groupStandings=result;
+  renderGroups();
+  renderStrip();
 }
 
 function standingsTableRows(teams,qualify){
@@ -1035,9 +1052,10 @@ updateNotifBtn();
 
 updateTzLabels();
 render();
-fetchScores();
-fetchStandings();
-setInterval(()=>{fetchScores();fetchStandings();},2*60*1000);
+// fetch flags first so computeStandings has them when scores arrive
+fetchStandings().then(()=>fetchScores());
+setInterval(fetchScores,2*60*1000);
+setInterval(fetchStandings,30*60*1000); // flags rarely change
 </script>
 </body>
 </html>
