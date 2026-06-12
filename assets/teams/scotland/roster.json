@@ -143,7 +143,22 @@
       "club": "Bournemouth",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34156705",
+      "full_name": "Ryan Christie",
+      "last_name": "Christie",
+      "first_name": "Ryan",
+      "bio": "Ryan Christie (born 22 February 1995) is a Scottish footballer who plays for AFC Bournemouth and the Scotland national team. He began his career with Inverness Caledonian Thistle before joining Celtic in 2015, and had two spells on loan at Aberdeen. He has also represented the Scotland under-21 and full national teams.",
+      "birth_location": "Inverness, Scotland",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "79 kg (174 lb)",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/ryanchristie2/"
+      },
+      "wikidata_id": "Q16236700"
     },
     {
       "number": 12,
@@ -156,7 +171,20 @@
       "club": "Rangers",
       "club_nation": "SCO",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34146284",
+      "full_name": "Liam Kelly",
+      "last_name": "Kelly",
+      "first_name": "Liam",
+      "bio": "Liam Mark Kelly (born 10 February 1990) is a professional footballer who plays as a defensive midfielder for League One club Rotherham United.",
+      "birth_location": "Basingstoke, England",
+      "height": "187 cm",
+      "weight": "161 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q772315"
     },
     {
       "number": 13,
@@ -169,7 +197,23 @@
       "club": "Al-Ettifaq",
       "club_nation": "KSA",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34175755",
+      "full_name": "Jack Hendry",
+      "last_name": "Hendry",
+      "first_name": "Jack",
+      "bio": "Jack William Hendry (born 7 May 1995) is a Scottish professional footballer who plays as a centre-back for Saudi Professional League club Al-Ettifaq, and the Scotland national team. He has previously played for Partick Thistle, Wigan Athletic, Dundee, Celtic and KV Oostende. He has also had loan spells at Shrewsbury Town, Milton Keynes Dons and A-League club Melbourne City.",
+      "birth_location": "Glasgow, Scotland",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "168 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/jackhendry22/",
+        "twitter": "http://twitter.com/Jack_Hendry2"
+      },
+      "wikidata_id": "Q20027858"
     },
     {
       "number": 14,
@@ -182,7 +226,20 @@
       "club": "Southampton",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34158269",
+      "full_name": "Ross Stewart",
+      "last_name": "Stewart",
+      "first_name": "Ross",
+      "bio": "Ross Cameron Stewart (born 11 July 1996) is a Scottish professional footballer who plays as a forward for EFL Championship club Southampton. \r\n\r\nStewart is a graduate from the Motherwell youth system, and was in direct competition with regular number 2 Lee Hollis for a place on the bench during the 2012–13 season.\r\nOn 12 May 2013, Stewart made his first-team debut from the bench, replacing departing goalkeeper Darren Randolph in a 2–0 win over Ross County. In June 2015, Stewart signed for newly ",
+      "birth_location": "Glasgow, Scotland",
+      "height": "188 cm",
+      "weight": "",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q16237030"
     },
     {
       "number": 15,
@@ -195,7 +252,20 @@
       "club": "Rangers",
       "club_nation": "SCO",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34165511",
+      "full_name": "John Souttar",
+      "last_name": "Souttar",
+      "first_name": "John",
+      "bio": "John Francis Souttar (born 25 September 1996) is a Scottish professional footballer who plays for Scottish Premiership club Rangers and the Scotland national team. He previously played for Dundee United and Heart of Midlothian before joining Rangers in 2022.\r\n\r\nKnown as a central defender, Souttar was converted to play as a midfielder towards the end of his stay at Dundee United, however he reverted to once again playing as a centre-back for Hearts. He is the youngest player to have appeared for",
+      "birth_location": "Aberdeen, Scotland",
+      "height": "186 cm",
+      "weight": "163 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q3238952"
     },
     {
       "number": 16,
@@ -208,7 +278,24 @@
       "club": "Wrexham",
       "club_nation": "WAL",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34162262",
+      "full_name": "Dominic Hyam",
+      "last_name": "Hyam",
+      "first_name": "Dominic",
+      "bio": "Dominic John Hyam is a professional footballer who plays for EFL Championship club Wrexham and the Scotland national team.",
+      "birth_location": "Dundee, Scotland",
+      "height": "188 cm",
+      "weight": "152 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/domhyam_95/",
+        "facebook": "www.facebook.com/dom.hyam.16",
+        "twitter": "mobile.twitter.com/domhyam_95"
+      },
+      "wikidata_id": "Q23007824"
     },
     {
       "number": 17,
@@ -221,7 +308,22 @@
       "club": "Bournemouth",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34203074",
+      "full_name": "Ben Doak",
+      "last_name": "Gannon-Doak",
+      "first_name": "Ben",
+      "bio": "Ben Gannon Doak (born 11 November 2005) is a Scottish professional footballer who plays as a right winger or attacking midfielder for Premier League club Bournemouth and the Scotland national team.",
+      "birth_location": "Dalry, Scotland",
+      "height": "5' 9\"",
+      "weight": "141 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "facebook": "www.facebook.com/ben.doak.9/"
+      },
+      "wikidata_id": "Q110739094"
     },
     {
       "number": 18,
@@ -234,7 +336,20 @@
       "club": "Ipswich Town",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34174092",
+      "full_name": "George Hirst",
+      "last_name": "Hirst",
+      "first_name": "George",
+      "bio": "George David Eric Hirst (born 15 February 1999) is an English professional footballer who plays as a forward for Ipswich Town. He is the son of former footballer David Hirst. \r\n\r\nClub career\r\nSheffield Wednesday\r\nAfter coming through the academy, Hirst signed his first professional contract for Sheffield Wednesday in March 2016.\r\n\r\nHe made his first team debut against Cambridge United on 9 August 2016, in the EFL Cup in a 2–1 defeat. His league debut came on 10 December 2016 against Reading in a",
+      "birth_location": "Sheffield, England",
+      "height": "1.91 m (6 ft 3 in)",
+      "weight": "183 lbs",
+      "position_detail": "Forward",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q27914873"
     },
     {
       "number": 19,
@@ -247,7 +362,22 @@
       "club": "Bologna",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34165331",
+      "full_name": "Lewis Ferguson",
+      "last_name": "Ferguson",
+      "first_name": "Lewis",
+      "bio": "Lewis Ferguson (born 24 August 1999) is a Scottish professional footballer who plays for Serie A club Bologna and the Scotland national football team as a midfielder. \r\nA graduate of the Hamilton Academical youth system after earlier being part of the setup at Rangers, Ferguson made his senior debut for Accies on 20 January 2018. Ferguson was called up by the Scotland under-19 team in August 2017, making a number of appearances for them.",
+      "birth_location": "Scotland",
+      "height": "",
+      "weight": "",
+      "position_detail": "Midfielder",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/lewisferguson6/"
+      },
+      "wikidata_id": "Q47467341"
     },
     {
       "number": 20,
@@ -260,7 +390,20 @@
       "club": "Heart of Midlothian",
       "club_nation": "SCO",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34156659",
+      "full_name": "Lawrence Shankland",
+      "last_name": "Shankland",
+      "first_name": "Lawrence",
+      "bio": "Lawrence Shankland (born 10 August 1995) is a Scottish professional footballer who plays as a striker for Scottish Premiership club Heart of Midlothian and the Scotland national team. He is set to join fellow Scottish Premiership side Rangers on 15 June 2026.\r\n\r\nShankland began his career at Queen's Park before moving to Aberdeen in 2013. He played on loan with Dunfermline Athletic, St Mirren and Greenock Morton before joining Ayr United in 2017. He signed for Dundee United in 2019 and made his ",
+      "birth_location": "Glasgow, Scotland",
+      "height": "185 cm",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q18331623"
     },
     {
       "number": 21,

@@ -13,7 +13,19 @@
       "club": "Al-Rayyan",
       "club_nation": "QAT",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34347247",
+      "full_name": "Mahmoud Ibrahim Mahmoud Abunada; محمود إبراهيم أبو ندى",
+      "last_name": "Abunada",
+      "first_name": "Mahmud",
+      "bio": "Mahmud Ibrahim Abunada (Arabic: محمود إبراهيم أبو ندى; born 5 February 2000) is a Qatari professional footballer who plays as a goalkeeper for Qatari Stars League club Al-Rayyan and the Qatar national team.",
+      "birth_location": "Doha, Qatar",
+      "height": "191 cm",
+      "weight": "",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 2,
@@ -26,7 +38,21 @@
       "club": "Al-Sadd",
       "club_nation": "QAT",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34179270",
+      "full_name": "Pedro Miguel Carvalho Deus Correia; بيدرو ميجيل",
+      "last_name": "Miguel",
+      "first_name": "Pedro",
+      "bio": "Pedro Miguel Carvalho Deus Correia (Arabic: بيدرو ميغيل كارفاليو ديوس كورييا; born 6 August 1990), known as Pedro Miguel and also Ró-Ró (Arabic: رُو رُو), is a professional footballer who plays for Al Sadd and the Qatar national team as a right-back or a central defender.\r\n\r\nHaving played lower-league football in Portugal, he appeared for Al Ahli and Al Sadd in the Qatar Stars League after arriving in the country in January 2011. He won several honours with the latter, including three league tit",
+      "birth_location": "Algueirão–Mem Martins, Portugal",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/pedrororocorreia22/"
+      }
     },
     {
       "number": 3,
@@ -39,7 +65,20 @@
       "club": "Al-Wakrah",
       "club_nation": "QAT",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34228882",
+      "full_name": "Lucas Michel Mendes; لوكاس منديز",
+      "last_name": "Mendes",
+      "first_name": "Lucas",
+      "bio": "Lucas Michel Mendes (born 3 July 1990) is a professional footballer who plays as a centre-back or left-back for Qatari club Al-Wakrah. Born in Brazil, he plays for the Qatar national team.",
+      "birth_location": "Curitiba, Brazil",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "181 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q602311"
     },
     {
       "number": 4,

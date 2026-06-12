@@ -13,7 +13,23 @@
       "club": "Sevilla",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34167705",
+      "full_name": "Ørjan Håskjold Nyland",
+      "last_name": "Nyland",
+      "first_name": "Ørjan",
+      "bio": "Ørjan Håskjold Nyland (born 10 September 1990) is a Norwegian professional footballer who plays as a goalkeeper for Sevilla and the Norway national team.\r\n\r\nNyland previously played for Hødd and was the man of the match in the 2012 Norwegian Football Cup Final. He joined the defending Tippeligaen champions Molde ahead of the 2013 season. He signed for Aston Villa in August 2018, and stayed with the club until his contract was terminated in 2020. He then had short stints with Norwich City and Bou",
+      "birth_location": "Volda, Norway",
+      "height": "1.92 m (6 ft 4 in)",
+      "weight": "196 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/orjanhnyland1/",
+        "twitter": "twitter.com/OrjanHNyland1"
+      },
+      "wikidata_id": "Q869214"
     },
     {
       "number": 2,
@@ -26,7 +42,23 @@
       "club": "Cremonese",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34155631",
+      "full_name": "Morten Thorsby",
+      "last_name": "Thorsby",
+      "first_name": "Morten",
+      "bio": "Morten Thorsby (born 5 May 1996) is a Norwegian professional footballer who plays as a defensive midfielder for Italian Serie A club Cremonese and the Norway national team.\r\n\r\nThorsby is known for his commitment to environmentalism and is an advocate for stronger actions on climate change. He established the We Play Green foundation to encourage the football community to adopt environmentally friendly initiatives, and has met with municipal and national leaders in Italy while at Sampdoria in sup",
+      "birth_location": "Oslo, Norway",
+      "height": "189 cm",
+      "weight": "159 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/mortenthorsby/",
+        "twitter": "twitter.com/mortenthorsby"
+      },
+      "wikidata_id": "Q16852194"
     },
     {
       "number": 3,
@@ -39,7 +71,20 @@
       "club": "Brentford",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34161891",
+      "full_name": "Kristoffer Vassbakk Ajer",
+      "last_name": "Ajer",
+      "first_name": "Kristoffer",
+      "bio": "Kristoffer Vassbakk Ajer (born 17 April 1998) is a Norwegian professional footballer who plays for Premier League club Brentford. Ajer has previously played for Start in the Tippeligaen & Celtic in the Scottish Premiership",
+      "birth_location": "Rælingen, Norway",
+      "height": "1.98 m (6 ft 6 in)",
+      "weight": "203 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q18157457"
     },
     {
       "number": 4,
@@ -52,7 +97,21 @@
       "club": "Genoa",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34173924",
+      "full_name": "Leo Skiri Østigård",
+      "last_name": "Østigård",
+      "first_name": "Leo",
+      "bio": "Leo Skiri Østigård (born 28 November 1999) is a Norwegian professional footballer who plays as a centre-back for Serie A club Genoa and the Norway national team.",
+      "birth_location": "Åndalsnes, Norway",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "179 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "instagram.com/leoskirio?utm_medium=copy_link"
+      }
     },
     {
       "number": 5,
@@ -65,7 +124,19 @@
       "club": "Wolverhampton Wanderers",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34218144",
+      "full_name": "David Møller Wolfe",
+      "last_name": "Wolfe",
+      "first_name": "David Møller",
+      "bio": "David Møller Wolfe is a Norwegian professional footballer who plays as a left-back or left wing-back for Premier League club Wolverhampton Wanderers and the Norway national team.",
+      "birth_location": "Bergen, Norway",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 6,
@@ -78,7 +149,22 @@
       "club": "Bodø/Glimt",
       "club_nation": "NOR",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34172285",
+      "full_name": "Patrick Berg",
+      "last_name": "Berg",
+      "first_name": "Patrick",
+      "bio": "Patrick Berg (born 24 November 1997) is a Norwegian professional footballer who plays as a defensive midfielder for Eliteserien club Bodø/Glimt and the Norway national team.",
+      "birth_location": "Bodø, Norway",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/patrickberg/?hl=en",
+        "twitter": "twitter.com/patrickberg27"
+      }
     },
     {
       "number": 7,
@@ -91,7 +177,23 @@
       "club": "Atlético Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34172286",
+      "full_name": "Alexander Sørloth",
+      "last_name": "Sørloth",
+      "first_name": "Alexander",
+      "bio": "Alexander Sørloth (born 5 December 1995) is a Norwegian professional footballer who plays as a striker for La Liga club Atlético Madrid and the Norway national team.",
+      "birth_location": "Trondheim, Norway",
+      "height": "1.94 m (6 ft 4 in)",
+      "weight": "196 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/asorloth/",
+        "twitter": "twitter.com/asorloth"
+      },
+      "wikidata_id": "Q13784739"
     },
     {
       "number": 8,
@@ -104,7 +206,22 @@
       "club": "Fulham",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34169678",
+      "full_name": "Sander Gard Bolin Berge",
+      "last_name": "Berge",
+      "first_name": "Sander",
+      "bio": "Sander Gard Bolin Berge (born 14 February 1998) is a Norwegian professional footballer who plays as a defensive midfielder for Premier League club Fulham and the Norway national team.",
+      "birth_location": "Bærum, Norway",
+      "height": "1.95 m (6 ft 5 in)",
+      "weight": "212 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/sanderberge25/"
+      },
+      "wikidata_id": "Q20675980"
     },
     {
       "number": 9,
@@ -117,7 +234,22 @@
       "club": "Manchester City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34169116",
+      "full_name": "Erling Braut Haaland",
+      "last_name": "Haaland",
+      "first_name": "Erling",
+      "bio": "Erling Braut Haaland (born 21 July 2000) is a Norwegian professional footballer who plays as a striker for Premier League club Manchester City and the Norway national team. \r\n\r\nHaaland started his career at his hometown club Bryne FK in 2016, and moved to Molde FK the next year where he spent two years. In January 2019, Austrian side Red Bull Salzburg signed him on a five-year contract. In the 2019–20 UEFA Champions League, he became the first teenager to score in five consecutive UEFA Champions",
+      "birth_location": "Leeds, England",
+      "height": "195cm / 6'5\"",
+      "weight": "192 lbs",
+      "position_detail": "Forward",
+      "preferred_foot": "Left",
+      "kit": "Nike Mercurial Vapor XIII Elite FG",
+      "social": {
+        "instagram": "www.instagram.com/erling.haaland/"
+      },
+      "wikidata_id": "Q28967995"
     },
     {
       "number": 10,
@@ -195,7 +327,19 @@
       "club": "Bodø/Glimt",
       "club_nation": "NOR",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34175972",
+      "full_name": "Fredrik André Bjørkan",
+      "last_name": "Bjørkan",
+      "first_name": "Fredrik",
+      "bio": "Fredrik André Bjørkan (born 21 August 1998) is a Norwegian professional footballer who plays as a left-back for Eliteserien club Bodø/Glimt and the Norway national team.\r\n\r\nBjørkan was born in Bodø, Nordland. He started playing for hometown club Bodø/Glimt as a youth, and made his first professional appearance at age 17, on 13 April 2016, in the Norwegian Football Cup, against IF Fløya, which Bodø/Glimt won 6–0. He made his league debut for Bodø/Glimt on 17 April 2016 against Molde where Bodø/Gl",
+      "birth_location": "Bodø, Norway",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 16,
@@ -208,7 +352,22 @@
       "club": "Torino",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34175996",
+      "full_name": "Marcus Holmgren Pedersen",
+      "last_name": "Pedersen",
+      "first_name": "Marcus",
+      "bio": "Marcus Holmgren Pedersen (born 16 July 2000) is a Norwegian professional footballer who plays as a right-back for Italian Serie A club Torino and the Norway national team.",
+      "birth_location": "Hammerfest, Norway",
+      "height": "1.83 m (6 ft 0 in)",
+      "weight": "168 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/marcushpederseen/"
+      },
+      "wikidata_id": "Q1894303"
     },
     {
       "number": 17,
