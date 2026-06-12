@@ -13,7 +13,7 @@
       "club": "Le Havre",
       "club_nation": "FRA",
       "captain": false,
-      "photo": null
+      "photo": "players/1.png"
     },
     {
       "number": 2,
@@ -26,7 +26,7 @@
       "club": "West Ham United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": null
+      "photo": "players/2.png"
     },
     {
       "number": 3,
@@ -39,7 +39,7 @@
       "club": "Widzew Łódź",
       "club_nation": "POL",
       "captain": false,
-      "photo": null
+      "photo": "players/3.png"
     },
     {
       "number": 4,
@@ -52,7 +52,7 @@
       "club": "Burnley",
       "club_nation": "ENG",
       "captain": false,
-      "photo": null
+      "photo": "players/4.png"
     },
     {
       "number": 5,
@@ -65,7 +65,7 @@
       "club": "AEL",
       "club_nation": "GRE",
       "captain": false,
-      "photo": null
+      "photo": "players/5.png"
     },
     {
       "number": 6,
@@ -78,7 +78,7 @@
       "club": "Lille",
       "club_nation": "FRA",
       "captain": false,
-      "photo": null
+      "photo": "players/6.png"
     },
     {
       "number": 7,
@@ -91,7 +91,7 @@
       "club": "Montpellier",
       "club_nation": "FRA",
       "captain": false,
-      "photo": null
+      "photo": "players/7.png"
     },
     {
       "number": 8,
@@ -104,7 +104,7 @@
       "club": "Atromitos",
       "club_nation": "GRE",
       "captain": false,
-      "photo": null
+      "photo": "players/8.png"
     },
     {
       "number": 9,
@@ -117,7 +117,7 @@
       "club": "Castellón",
       "club_nation": "ESP",
       "captain": false,
-      "photo": null
+      "photo": "players/9.png"
     },
     {
       "number": 10,
@@ -130,7 +130,7 @@
       "club": "Spartak Moscow",
       "club_nation": "RUS",
       "captain": false,
-      "photo": null
+      "photo": "players/10.png"
     },
     {
       "number": 11,
@@ -143,7 +143,7 @@
       "club": "AEL",
       "club_nation": "GRE",
       "captain": false,
-      "photo": null
+      "photo": "players/11.png"
     },
     {
       "number": 12,
@@ -156,7 +156,7 @@
       "club": "Genk",
       "club_nation": "BEL",
       "captain": false,
-      "photo": null
+      "photo": "players/12.png"
     },
     {
       "number": 13,
@@ -169,7 +169,7 @@
       "club": "Alanyaspor",
       "club_nation": "TUR",
       "captain": false,
-      "photo": null
+      "photo": "players/13.png"
     },
     {
       "number": 14,
@@ -182,7 +182,7 @@
       "club": "Sunderland",
       "club_nation": "ENG",
       "captain": false,
-      "photo": null
+      "photo": "players/14.png"
     },
     {
       "number": 15,
@@ -195,7 +195,7 @@
       "club": "Kilmarnock",
       "club_nation": "SCO",
       "captain": false,
-      "photo": null
+      "photo": "players/15.png"
     },
     {
       "number": 16,
@@ -208,7 +208,7 @@
       "club": "Noah",
       "club_nation": "ARM",
       "captain": false,
-      "photo": null
+      "photo": "players/16.png"
     },
     {
       "number": 17,
@@ -221,7 +221,7 @@
       "club": "Real Betis",
       "club_nation": "ESP",
       "captain": false,
-      "photo": null
+      "photo": "players/17.png"
     },
     {
       "number": 18,
@@ -234,7 +234,7 @@
       "club": "Espanyol",
       "club_nation": "ESP",
       "captain": false,
-      "photo": null
+      "photo": "players/18.png"
     },
     {
       "number": 19,
@@ -247,7 +247,7 @@
       "club": "Pyramids",
       "club_nation": "EGY",
       "captain": false,
-      "photo": null
+      "photo": "players/19.png"
     },
     {
       "number": 20,
@@ -260,7 +260,7 @@
       "club": "Newcastle United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": null
+      "photo": "players/20.png"
     },
     {
       "number": 21,
@@ -273,7 +273,7 @@
       "club": "Standard Liège",
       "club_nation": "BEL",
       "captain": false,
-      "photo": null
+      "photo": "players/21.png"
     },
     {
       "number": 22,
@@ -286,7 +286,7 @@
       "club": "Lille",
       "club_nation": "FRA",
       "captain": true,
-      "photo": null
+      "photo": "players/22.png"
     },
     {
       "number": 23,
@@ -299,7 +299,7 @@
       "club": "Al Jazira",
       "club_nation": "UAE",
       "captain": false,
-      "photo": null
+      "photo": "players/23.png"
     },
     {
       "number": 24,
@@ -312,7 +312,7 @@
       "club": "Aris Limassol",
       "club_nation": "CYP",
       "captain": false,
-      "photo": null
+      "photo": "players/24.png"
     },
     {
       "number": 25,
@@ -325,7 +325,7 @@
       "club": "Watford",
       "club_nation": "ENG",
       "captain": false,
-      "photo": null
+      "photo": "players/25.png"
     },
     {
       "number": 26,
@@ -338,7 +338,7 @@
       "club": "Lens",
       "club_nation": "FRA",
       "captain": false,
-      "photo": null
+      "photo": "players/26.png"
     }
   ]
 }
