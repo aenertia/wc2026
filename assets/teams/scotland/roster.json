@@ -13,7 +13,9 @@
       "club": "Nottingham Forest",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "bio": "Son of former Scotland keeper Bryan Gunn, Angus carries the family trade with quiet authority at Nottingham Forest. A commanding presence with sharp reflexes, he's earned his place as Scotland's first-choice stopper for this historic tournament.",
+      "facts": "Goalkeeping is literally in his DNA — his dad Bryan kept goal for Scotland 6 times in the late 80s."
     },
     {
       "number": 2,
@@ -26,7 +28,9 @@
       "club": "Brentford",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "bio": "A marauding full-back who made his name in Serie A before landing at Brentford, Hickey combines tenacity with technical quality. Still only 24, he's one of Scotland's most exciting defenders and a constant threat going forward.",
+      "facts": "Was playing for Bologna in Italy at just 19 — not bad for a lad from Edinburgh."
     },
     {
       "number": 3,
@@ -39,7 +43,9 @@
       "club": "Liverpool",
       "club_nation": "ENG",
       "captain": true,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "bio": "Scotland's captain and heartbeat, Robertson has been one of world football's finest left-backs for a decade at Liverpool. Approaching 100 caps, his engine, delivery, and leadership make him the Tartan Army's talisman at this World Cup.",
+      "facts": "Was rejected by Celtic as a teenager and worked in a ticket office. Now he's played Champions League finals."
     },
     {
       "number": 4,
@@ -52,7 +58,9 @@
       "club": "Napoli",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "bio": "The midfield colossus who swapped Manchester for Naples — and thrived. McTominay's goals, grit, and box-to-box brilliance make him Scotland's most influential player. With 15 international goals, he's the engine room and the danger man rolled into one.",
+      "facts": "His father Frank is English, making Scott eligible for England — thankfully for Scotland, he chose the kilt."
     },
     {
       "number": 5,
@@ -65,7 +73,9 @@
       "club": "Hibernian",
       "club_nation": "SCO",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "bio": "A veteran centre-back with 68 caps, Hanley has been Scotland's defensive anchor for years. Now at Hibernian, the Dumfries-born stopper brings experience and aerial dominance, marshalling the backline with calm authority at his first World Cup.",
+      "facts": "Skippered Norwich City in the Premier League — not once, but across two separate top-flight spells."
     },
     {
       "number": 6,
@@ -78,7 +88,9 @@
       "club": "Celtic",
       "club_nation": "SCO",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "bio": "One of Scotland's most beloved players, Tierney attacks and defends with equal ferocity. His return to Celtic reignited his career after injury frustrations in England. A warrior in a left-back's shirt, and pure box office for the Tartan Army.",
+      "facts": "KT once played an entire match with a broken nose and two cracked ribs. He didn't mention it until after."
     },
     {
       "number": 7,
@@ -91,7 +103,9 @@
       "club": "Aston Villa",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "bio": "McGinn is Scotland's beating heart — a box-to-box dynamo with a ferocious shot and an infectious will to win. With 20 international goals and 86 caps, the Aston Villa stalwart arrives at his first World Cup as one of the squad's key leaders.",
+      "facts": "Began his career at St Mirren in the Scottish Championship. A true lower-league-to-World-Cup story."
     },
     {
       "number": 8,
@@ -104,7 +118,9 @@
       "club": "Manchester United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "bio": "A teenage prodigy at Manchester United, Fletcher is Scotland's most exciting new face at this World Cup. Just 19 with only 2 caps, his technical ability and composure beyond his years have fast-tracked him onto the grandest stage of all.",
+      "facts": "At 19, he's one of the youngest players at the entire 2026 World Cup — born the year Scotland last qualified."
     },
     {
       "number": 9,
@@ -117,7 +133,9 @@
       "club": "Charlton Athletic",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "bio": "Born in Australia, raised to be Scottish, Dykes is pure physical force up front. The Charlton striker battles defenders into submission and holds the ball like a man who enjoys the combat. Ten goals in 51 caps tells its own story.",
+      "facts": "Born in Queensland, Australia — he qualifies for Scotland through his Scottish father. G'day, Tartan Army."
     },
     {
       "number": 10,
@@ -130,7 +148,9 @@
       "club": "Torino",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "bio": "Born in Leicester, Ché chose Scotland and never looked back, delivering 13 goals in 47 caps. The Torino forward's pace, link-up play and eye for goal make him a handful for any defence. A smart, versatile forward built for the big stage.",
+      "facts": "Ché was born in Leicester but eligible for Scotland through his Scottish mother. Buonasera from Torino."
     },
     {
       "number": 11,
@@ -148,7 +168,7 @@
       "full_name": "Ryan Christie",
       "last_name": "Christie",
       "first_name": "Ryan",
-      "bio": "Ryan Christie (born 22 February 1995) is a Scottish footballer who plays for AFC Bournemouth and the Scotland national team. He began his career with Inverness Caledonian Thistle before joining Celtic in 2015, and had two spells on loan at Aberdeen. He has also represented the Scotland under-21 and full national teams.",
+      "bio": "An Inverness lad who made it all the way to the Premier League with Bournemouth, Christie is a creative spark in midfield with a cultured left foot. Ten goals in 68 caps underline his quality, and he thrives when games open up.",
       "birth_location": "Inverness, Scotland",
       "height": "1.78 m (5 ft 10 in)",
       "weight": "79 kg (174 lb)",
@@ -158,7 +178,8 @@
       "social": {
         "instagram": "www.instagram.com/ryanchristie2/"
       },
-      "wikidata_id": "Q16236700"
+      "wikidata_id": "Q16236700",
+      "facts": "Christie once scored a stunning long-range free kick against Israel in a World Cup qualifier. The Tartan Army still talk about it."
     },
     {
       "number": 12,
@@ -176,7 +197,7 @@
       "full_name": "Liam Kelly",
       "last_name": "Kelly",
       "first_name": "Liam",
-      "bio": "Liam Mark Kelly (born 10 February 1990) is a professional footballer who plays as a defensive midfielder for League One club Rotherham United.",
+      "bio": "Born in Basingstoke but proudly Scottish, Kelly is a combative central midfielder who brings steel and structure to Rangers' midfield. With only 3 caps, this World Cup is a huge opportunity to announce himself on the international stage.",
       "birth_location": "Basingstoke, England",
       "height": "187 cm",
       "weight": "161 lbs",
@@ -184,7 +205,8 @@
       "preferred_foot": "",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q772315"
+      "wikidata_id": "Q772315",
+      "facts": "Born in England, plays in Scotland, representing Scotland at a World Cup in North America. Truly a citizen of everywhere."
     },
     {
       "number": 13,
@@ -202,7 +224,7 @@
       "full_name": "Jack Hendry",
       "last_name": "Hendry",
       "first_name": "Jack",
-      "bio": "Jack William Hendry (born 7 May 1995) is a Scottish professional footballer who plays as a centre-back for Saudi Professional League club Al-Ettifaq, and the Scotland national team. He has previously played for Partick Thistle, Wigan Athletic, Dundee, Celtic and KV Oostende. He has also had loan spells at Shrewsbury Town, Milton Keynes Dons and A-League club Melbourne City.",
+      "bio": "The Glasgow-born centre-back has taken an unusual path via Belgium and Saudi Arabia to reach his first World Cup. Hendry is a commanding defender who reads the game well and offers a threat at set-pieces with 3 international goals.",
       "birth_location": "Glasgow, Scotland",
       "height": "1.88 m (6 ft 2 in)",
       "weight": "168 lbs",
@@ -213,7 +235,8 @@
         "instagram": "http://www.instagram.com/jackhendry22/",
         "twitter": "http://twitter.com/Jack_Hendry2"
       },
-      "wikidata_id": "Q20027858"
+      "wikidata_id": "Q20027858",
+      "facts": "Hendry played for Club Brugge in Belgium before heading to the Saudi Pro League — quite the passport collection."
     },
     {
       "number": 14,
@@ -231,7 +254,7 @@
       "full_name": "Ross Stewart",
       "last_name": "Stewart",
       "first_name": "Ross",
-      "bio": "Ross Cameron Stewart (born 11 July 1996) is a Scottish professional footballer who plays as a forward for EFL Championship club Southampton. \r\n\r\nStewart is a graduate from the Motherwell youth system, and was in direct competition with regular number 2 Lee Hollis for a place on the bench during the 2012–13 season.\r\nOn 12 May 2013, Stewart made his first-team debut from the bench, replacing departing goalkeeper Darren Randolph in a 2–0 win over Ross County. In June 2015, Stewart signed for newly ",
+      "bio": "A powerful, old-fashioned centre-forward from Glasgow, Stewart has battled injury to reach this World Cup with Southampton. His aerial ability and hold-up play give Scotland a different dimension, and he's hungry to make his mark with just 3 caps.",
       "birth_location": "Glasgow, Scotland",
       "height": "188 cm",
       "weight": "",
@@ -239,7 +262,8 @@
       "preferred_foot": "",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q16237030"
+      "wikidata_id": "Q16237030",
+      "facts": "Ross Stewart once scored 24 goals in a single Championship season for Sunderland. The fans still sing his name."
     },
     {
       "number": 15,
@@ -257,7 +281,7 @@
       "full_name": "John Souttar",
       "last_name": "Souttar",
       "first_name": "John",
-      "bio": "John Francis Souttar (born 25 September 1996) is a Scottish professional footballer who plays for Scottish Premiership club Rangers and the Scotland national team. He previously played for Dundee United and Heart of Midlothian before joining Rangers in 2022.\r\n\r\nKnown as a central defender, Souttar was converted to play as a midfielder towards the end of his stay at Dundee United, however he reverted to once again playing as a centre-back for Hearts. He is the youngest player to have appeared for",
+      "bio": "Aberdeen-born Souttar is a composed, ball-playing centre-back who has been a reliable presence for Rangers and Scotland alike. Two international goals from defence highlight his threat at set-pieces. A steady hand in a squad full of flair.",
       "birth_location": "Aberdeen, Scotland",
       "height": "186 cm",
       "weight": "163 lbs",
@@ -265,7 +289,8 @@
       "preferred_foot": "",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q3238952"
+      "wikidata_id": "Q3238952",
+      "facts": "His brother Harry Souttar plays for Australia — making them one of football's great international sibling rivalries."
     },
     {
       "number": 16,
@@ -283,7 +308,7 @@
       "full_name": "Dominic Hyam",
       "last_name": "Hyam",
       "first_name": "Dominic",
-      "bio": "Dominic John Hyam is a professional footballer who plays for EFL Championship club Wrexham and the Scotland national team.",
+      "bio": "Dundee-born Hyam has carved out a remarkable story, rising through lower league football to earn his Scotland caps and reach a World Cup with Wrexham. A solid, no-nonsense centre-back who represents the spirit of football's underdog tale.",
       "birth_location": "Dundee, Scotland",
       "height": "188 cm",
       "weight": "152 lbs",
@@ -295,7 +320,8 @@
         "facebook": "www.facebook.com/dom.hyam.16",
         "twitter": "mobile.twitter.com/domhyam_95"
       },
-      "wikidata_id": "Q23007824"
+      "wikidata_id": "Q23007824",
+      "facts": "He plays for Wrexham — the club made globally famous by Ryan Reynolds. Yes, the Deadpool guy owns his club."
     },
     {
       "number": 17,
@@ -313,7 +339,7 @@
       "full_name": "Ben Doak",
       "last_name": "Gannon-Doak",
       "first_name": "Ben",
-      "bio": "Ben Gannon Doak (born 11 November 2005) is a Scottish professional footballer who plays as a right winger or attacking midfielder for Premier League club Bournemouth and the Scotland national team.",
+      "bio": "Dalry's finest export, Ben Doak is a dazzling right winger whose direct running and fearless attitude make him Scotland's most electric wide threat. Just 20 years old at this World Cup, the Bournemouth flyer is one of the tournament's must-watch talents.",
       "birth_location": "Dalry, Scotland",
       "height": "5' 9\"",
       "weight": "141 lbs",
@@ -323,7 +349,8 @@
       "social": {
         "facebook": "www.facebook.com/ben.doak.9/"
       },
-      "wikidata_id": "Q110739094"
+      "wikidata_id": "Q110739094",
+      "facts": "Doak was still a teenager when he started turning heads at Celtic Park and then Liverpool's academy. The sky's the limit."
     },
     {
       "number": 18,
@@ -341,7 +368,7 @@
       "full_name": "George Hirst",
       "last_name": "Hirst",
       "first_name": "George",
-      "bio": "George David Eric Hirst (born 15 February 1999) is an English professional footballer who plays as a forward for Ipswich Town. He is the son of former footballer David Hirst. \r\n\r\nClub career\r\nSheffield Wednesday\r\nAfter coming through the academy, Hirst signed his first professional contract for Sheffield Wednesday in March 2016.\r\n\r\nHe made his first team debut against Cambridge United on 9 August 2016, in the EFL Cup in a 2–1 defeat. His league debut came on 10 December 2016 against Reading in a",
+      "bio": "Sheffield-born with Scottish eligibility, Hirst carries serious footballing pedigree as the son of Leeds legend David Hirst. A physical, energetic forward at Ipswich Town, he's determined to use his 10 caps to build a World Cup legacy of his own.",
       "birth_location": "Sheffield, England",
       "height": "1.91 m (6 ft 3 in)",
       "weight": "183 lbs",
@@ -349,7 +376,8 @@
       "preferred_foot": "",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q27914873"
+      "wikidata_id": "Q27914873",
+      "facts": "His father David Hirst was a Sheffield Wednesday legend famous for one of the hardest shots ever recorded in English football."
     },
     {
       "number": 19,
@@ -367,7 +395,7 @@
       "full_name": "Lewis Ferguson",
       "last_name": "Ferguson",
       "first_name": "Lewis",
-      "bio": "Lewis Ferguson (born 24 August 1999) is a Scottish professional footballer who plays for Serie A club Bologna and the Scotland national football team as a midfielder. \r\nA graduate of the Hamilton Academical youth system after earlier being part of the setup at Rangers, Ferguson made his senior debut for Accies on 20 January 2018. Ferguson was called up by the Scotland under-19 team in August 2017, making a number of appearances for them.",
+      "bio": "A dynamic midfielder who has impressed massively in Serie A with Bologna, Ferguson brings energy, vision and a nose for goal to Scotland's engine room. The nephew of former Rangers midfielder Barry Ferguson, football runs deep in his family.",
       "birth_location": "Scotland",
       "height": "",
       "weight": "",
@@ -377,7 +405,8 @@
       "social": {
         "instagram": "www.instagram.com/lewisferguson6/"
       },
-      "wikidata_id": "Q47467341"
+      "wikidata_id": "Q47467341",
+      "facts": "Lewis is the nephew of Barry Ferguson, one of Rangers' greatest ever captains. Midfield talent is hereditary in this family."
     },
     {
       "number": 20,
@@ -395,7 +424,7 @@
       "full_name": "Lawrence Shankland",
       "last_name": "Shankland",
       "first_name": "Lawrence",
-      "bio": "Lawrence Shankland (born 10 August 1995) is a Scottish professional footballer who plays as a striker for Scottish Premiership club Heart of Midlothian and the Scotland national team. He is set to join fellow Scottish Premiership side Rangers on 15 June 2026.\r\n\r\nShankland began his career at Queen's Park before moving to Aberdeen in 2013. He played on loan with Dunfermline Athletic, St Mirren and Greenock Morton before joining Ayr United in 2017. He signed for Dundee United in 2019 and made his ",
+      "bio": "Lawrence Shankland is a natural-born goalscorer who has terrorised Scottish Premiership defences for years at Hearts. Seven goals in 20 caps show he can translate that form internationally, and at 30 this World Cup could be the pinnacle of his career.",
       "birth_location": "Glasgow, Scotland",
       "height": "185 cm",
       "weight": "172 lbs",
@@ -403,7 +432,8 @@
       "preferred_foot": "",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q18331623"
+      "wikidata_id": "Q18331623",
+      "facts": "Shankland has been the Scottish Premiership's top scorer multiple times. Hearts fans call him their 'Scottish Messi' — they're biased but not entirely wrong."
     },
     {
       "number": 21,
@@ -416,7 +446,9 @@
       "club": "Heart of Midlothian",
       "club_nation": "SCO",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "bio": "At 43, Craig Gordon is football's answer to fine wine — still sharp, still agile, and still Scotland's most experienced keeper. With 84 caps and a career that survived a near-catastrophic leg break, his presence at this World Cup is the stuff of legend.",
+      "facts": "Gordon suffered a devastating leg fracture in 2018 that nearly ended his career. He came back to play more than 100 games. Remarkable."
     },
     {
       "number": 22,
@@ -429,7 +461,9 @@
       "club": "Everton",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "bio": "A pacy, industrious right-back who came through the Rangers academy, Patterson has developed into a reliable international defender for Everton. Still only 24 with 26 caps, this World Cup is the perfect stage for him to prove his top-level credentials.",
+      "facts": "Nathan Patterson once scored a World Cup qualifier goal — which for a right-back is practically a national celebration."
     },
     {
       "number": 23,
@@ -442,7 +476,9 @@
       "club": "Norwich City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "bio": "A dependable and experienced central midfielder, McLean has given Scotland sterling service across 58 caps and has been a regular figure in the squad for years. The Norwich man's positional intelligence and passing range make him a trusted midfield option.",
+      "facts": "Kenny McLean played for Aberdeen, St Mirren and Norwich across his career — a true Scottish football journeyman done good."
     },
     {
       "number": 24,
@@ -455,7 +491,9 @@
       "club": "Celtic",
       "club_nation": "SCO",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "bio": "A Celtic academy product who became a first-team regular through sheer determination, Ralston is a dynamic right-back with a love of getting forward. His 27 caps represent a journey from fringe player to established international, and he's not done yet.",
+      "facts": "Ralston was almost released by Celtic before breaking into the first team. He's now a Champions League regular. Never give up."
     },
     {
       "number": 25,
@@ -468,7 +506,9 @@
       "club": "Kilmarnock",
       "club_nation": "SCO",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "bio": "Kilmarnock's teenage sensation, Curtis is one of the most exciting young forwards in Scottish football. Already with a Scotland goal to his name from just 3 caps, the 20-year-old is a wildcard pick with genuine World Cup ambitions and electric pace.",
+      "facts": "Curtis scored on his first Scotland appearance — an exclusive club that some players never get to join in 50+ caps."
     },
     {
       "number": 26,
@@ -481,7 +521,9 @@
       "club": "Dinamo Zagreb",
       "club_nation": "CRO",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "bio": "A no-nonsense centre-back who has plied his trade across England, Scotland and Croatia with Dinamo Zagreb, McKenna brings versatility and experience to Scotland's defensive options. Half a century of caps proves he's been a consistent servant to the cause.",
+      "facts": "McKenna swapped Nottingham Forest for Croatian giants Dinamo Zagreb — not the most common career move in football history."
     }
   ]
 }

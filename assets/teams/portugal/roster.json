@@ -13,7 +13,9 @@
       "club": "Porto",
       "club_nation": "POR",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "bio": "Porto's shot-stopper is one of Europe's most composed young keepers. Known for his penalty heroics — he saved three in a single shootout at Euro 2024 — Diogo Costa is Portugal's wall between the sticks.",
+      "facts": "Saved 3 penalties in one shootout vs Slovenia at Euro 2024. Yes, three. In a row. Calm as you like."
     },
     {
       "number": 2,
@@ -26,7 +28,9 @@
       "club": "Fenerbahçe",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "bio": "A tireless right-back who has served Portugal with distinction across major tournaments. Now plying his trade in Istanbul with Fenerbahçe, Semedo brings experience, pace, and defensive reliability to the backline.",
+      "facts": "Born in Lisbon to Cape Verdean parents, Semedo once played futsal before switching to the beautiful game full-time."
     },
     {
       "number": 3,
@@ -39,7 +43,9 @@
       "club": "Manchester City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "bio": "Manchester City's colossus at the back, Rúben Dias is a commanding centre-back who won the Premier League Player of the Season in 2020-21. Cool under pressure and ferocious in the tackle, he anchors Portugal's defence.",
+      "facts": "Won the PFA Players' Player of the Year in 2021 — the first Portuguese player ever to claim that honour."
     },
     {
       "number": 4,
@@ -52,7 +58,9 @@
       "club": "Benfica",
       "club_nation": "POR",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "bio": "A composed and technically gifted centre-back coming through Benfica's famed academy. Tomás Araújo is one of Portugal's most exciting defensive prospects, earning his senior caps with maturity beyond his 24 years.",
+      "facts": "Born in 2002, Araújo is among the youngest defenders in this Portugal squad — but reads the game like a veteran."
     },
     {
       "number": 5,
@@ -65,7 +73,9 @@
       "club": "Manchester United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "bio": "Born in Braga, Dalot is a modern full-back equally at home going forward or defending. A product of Porto's academy who matured at Manchester United, he's become a key figure for Portugal's right flank.",
+      "facts": "Diogo Dalot was signed by José Mourinho for Man United in 2018 — a fellow Portuguese keeping it in the family."
     },
     {
       "number": 6,
@@ -78,7 +88,9 @@
       "club": "Manchester City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "bio": "Born in Brazil, raised in Portugal, Matheus Nunes is a dynamic box-to-box midfielder who joined Manchester City for €60m. His energy and technical quality make him a vital cog in Portugal's midfield engine room.",
+      "facts": "Nunes was born in Rio de Janeiro but chose Portugal over Brazil — a decision Tite probably still thinks about."
     },
     {
       "number": 7,
@@ -96,7 +108,7 @@
       "full_name": "Cristiano Ronaldo dos Santos Aveiro",
       "last_name": "Ronaldo",
       "first_name": "Cristiano",
-      "bio": "Cristiano Ronaldo dos Santos Aveiro GOIH ComM (Portuguese pronunciation: ; born 5 February 1985) is a Portuguese professional footballer who plays as a forward for and captains both Saudi Pro League club Al Nassr and the Portugal national team. Widely regarded as one of the greatest players of all time, Ronaldo has won five Ballon d'Or awards, a record three UEFA Best Player in Europe, and four European Golden Shoes, the most by a European player. He has won 33 trophies in his career, including ",
+      "bio": "The GOAT debate will rage forever, but CR7's numbers are simply alien. The all-time top international scorer with 143 goals in 228 caps, Ronaldo arrives at his sixth World Cup at 41, still hungry, still iconic.",
       "birth_location": "Funchal, Portugal",
       "height": "188 cm",
       "weight": "183 lbs",
@@ -108,7 +120,8 @@
         "facebook": "www.facebook.com/Cristiano",
         "twitter": "twitter.com/cristiano"
       },
-      "wikidata_id": "Q11571"
+      "wikidata_id": "Q11571",
+      "facts": "Ronaldo has scored at 5 consecutive World Cups — no European player has ever matched that feat. Six is the mission."
     },
     {
       "number": 8,
@@ -126,7 +139,7 @@
       "full_name": "Bruno Miguel Borges Fernandes",
       "last_name": "Fernandes",
       "first_name": "Bruno",
-      "bio": "Bruno Miguel Borges Fernandes (European Portuguese: ; born 8 September 1994) is a Portuguese professional footballer who plays as a midfielder for Premier League club Manchester United and the Portugal national team.\r\n\r\nBorn in Maia, Porto, Fernandes started his career at Italian Serie B side Novara but soon made a move to Serie A side Udinese in 2013, followed by Sampdoria three years later. After five years in Italy, he signed with Sporting CP in 2017, where he was named club captain. He won b",
+      "bio": "Captain, talisman, and Portugal's creative heartbeat. Bruno Fernandes orchestrates play with vision and intensity, and his knack for big-game goals makes him indispensable. Love him or loathe him — you can't ignore him.",
       "birth_location": "Maia, Portugal",
       "height": "179cm / 5'10\"",
       "weight": "146 lbs",
@@ -138,7 +151,8 @@
         "facebook": "www.facebook.com/BrunoFernandesOfficial/",
         "twitter": "twitter.com/B_Fernandes8"
       },
-      "wikidata_id": "Q4979316"
+      "wikidata_id": "Q4979316",
+      "facts": "Bruno scores or assists roughly every 73 minutes for Portugal. He also perfected the art of the dramatic free-kick celebration."
     },
     {
       "number": 9,
@@ -156,7 +170,7 @@
       "full_name": "Gonçalo Matias Ramos",
       "last_name": "Ramos",
       "first_name": "Gonçalo",
-      "bio": "Gonçalo Matias Ramos (Portuguese pronunciation: ; born 20 June 2001) is a Portuguese professional footballer who plays as a striker for Ligue 1 club Paris Saint-Germain and the Portugal national team.\r\n\r\nBorn in Olhão, Ramos came through Benfica's youth academy. He began playing for Benfica B in 2019 and was promoted to the first team a year later. Following three seasons with the first team, Ramos established himself as an integral player for the club, helping them win the league title in 2022–",
+      "bio": "From Olhão to the world stage — Gonçalo Ramos announced himself with a hat-trick against Switzerland at the 2022 World Cup aged just 21. PSG's clinical striker is dangerous, direct, and deadly in the box.",
       "birth_location": "Olhão, Portugal",
       "height": "1.85 m (6 ft 1 in)",
       "weight": "78 kg (172 lb)",
@@ -166,7 +180,8 @@
       "social": {
         "instagram": "www.instagram.com/goncaloramos88/"
       },
-      "wikidata_id": "Q60621615"
+      "wikidata_id": "Q60621615",
+      "facts": "Ramos became only the 4th player ever to score a WC hat-trick as a substitute — on his World Cup debut, no less."
     },
     {
       "number": 10,
@@ -184,7 +199,7 @@
       "full_name": "Bernardo Mota Veiga de Carvalho e Silva",
       "last_name": "Silva",
       "first_name": "Bernardo",
-      "bio": "Bernardo Mota Veiga de Carvalho e Silva (born 10 August 1994), known as Bernardo Silva or simply Bernardo, is a Portuguese professional footballer who plays as a midfielder for English Premier League club Manchester City and the Portugal national team.\r\n\r\nBorn in Lisbon, Silva came through Benfica's youth academy. He began playing for Benfica B in 2013 and was promoted to the first-team in 2014, playing a few minutes with the latter. He was on loan at the Ligue 1 side Monaco during the 2014–15 s",
+      "bio": "Arguably Portugal's most technically gifted player, Bernardo Silva is a serial winner with Man City and a relentless workhorse in attack. Small in stature, enormous in impact — the complete modern footballer.",
       "birth_location": "Lisboa, Portugal",
       "height": "1.73 m (5 ft 8 in)",
       "weight": "141 lbs",
@@ -196,7 +211,8 @@
         "facebook": "www.facebook.com/BernardoSilvaOficial/",
         "twitter": "twitter.com/BernardoCSilva"
       },
-      "wikidata_id": "Q15521306"
+      "wikidata_id": "Q15521306",
+      "facts": "Bernardo has won 6 Premier League titles with Man City. He also once dribbled past 7 players in training and apologised afterwards."
     },
     {
       "number": 11,
@@ -214,7 +230,7 @@
       "full_name": "João Félix Sequeira",
       "last_name": "Félix",
       "first_name": "João",
-      "bio": "João Félix Sequeira (born 10 November 1999) is a Portuguese professional footballer who plays as an attacking midfielder or forward for Saudi Pro League club Al-Nassr and the Portugal national team. \r\n\r\nFélix initially trained at Porto's youth academy, before moving to rivals Benfica in 2015. He began playing for the latter's reserve team a year later and was promoted to the first team in 2018, making his debut at age 17. He helped Benfica win the league title in his first and only season with t",
+      "bio": "João Félix burst onto the scene as a €126m teenager at Atlético Madrid and has spent his career living up — and occasionally down — to that billing. Gifted, creative, and now reunited with Ronaldo at Al-Nassr.",
       "birth_location": "Viseu, Portugal",
       "height": "1.80 m (5 ft 11 in)",
       "weight": "69 kg (152 lb)",
@@ -222,7 +238,8 @@
       "preferred_foot": "Right",
       "kit": "adidas Copa 19+",
       "social": {},
-      "wikidata_id": "Q27049064"
+      "wikidata_id": "Q27049064",
+      "facts": "Félix became the third most expensive transfer in history at age 19. The pressure? He's used to it by now."
     },
     {
       "number": 12,
@@ -240,14 +257,15 @@
       "full_name": "Joseph Dodoo",
       "last_name": "Dodoo",
       "first_name": "Joseph",
-      "bio": "Joseph Dodoo (born 29 June 1995) is a Ghanaian professional footballer who plays as a forward and most recently played for Doncaster Rovers.\r\n\r\nHe came through the youth academy at Leicester City, and made his debut for them in August 2015, scoring a hat-trick and providing an assist in a 4–1 win at Bury. Later that year, he had a one-month loan at Bury. In July 2016, he signed a four-year deal at Rangers. Dodoo made a limited amount of appearances for the Rangers first team, and was loaned to C",
+      "bio": "Born in Kumasi, Ghana, José Sá is a goalkeeper — not a forward as his squad position suggests. A capable backup stopper who served Wolves with distinction, he provides experienced cover for Diogo Costa at this tournament.",
       "birth_location": "Kumasi, Ghana",
       "height": "1.83 m",
       "weight": "",
       "position_detail": "Forward",
       "preferred_foot": "",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "José Sá was born in Ghana but qualifies for Portugal — making him one of the more globe-spanning stories in the squad."
     },
     {
       "number": 13,
@@ -265,14 +283,15 @@
       "full_name": "Renato Palma Veiga",
       "last_name": "Veiga",
       "first_name": "Renato",
-      "bio": "Renato Palma Veiga is a Portuguese professional footballer who plays for La Liga club Villarreal and the Portugal national team. \r\n\r\nHe came through Sporting CP's youth academy, and was loaned to Bundesliga side Augsburg in January 2023, before joining Swiss Super League side Basel in August. After a season in Switzerland, he moved to Premier League side Chelsea in July 2024.\r\n\r\nVeiga is a former Portugal youth international, representing his country at various levels. He made his full debut in ",
+      "bio": "A versatile and athletic defender who can play centre-back or as a defensive midfielder. Renato Veiga made his mark at Chelsea before moving to Villarreal and is one of Portugal's brightest young defensive talents.",
       "birth_location": "Lisboa, Portugal",
       "height": "1.90 m (6 ft 3 in)",
       "weight": "192 lbs",
       "position_detail": "Centre-Back",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Veiga is so versatile he's been deployed in midfield for club and country — defenders who can do that are rare gold."
     },
     {
       "number": 14,
@@ -290,7 +309,7 @@
       "full_name": "Gonçalo Bernardo Inácio",
       "last_name": "Inácio",
       "first_name": "Gonçalo",
-      "bio": "Gonçalo Bernardo Inácio (Portuguese pronunciation: ; born 25 August 2001) is a Portuguese professional footballer who plays as a centre-back for Primeira Liga club Sporting CP and the Portugal national team.",
+      "bio": "A left-footed centre-back with composure and quality in possession, Gonçalo Inácio has been a cornerstone of Sporting CP's defence. One of the most promising young defenders in Iberian football right now.",
       "birth_location": "Almada, Portugal",
       "height": "1.86 m (6 ft 1 in)",
       "weight": "172 lbs",
@@ -298,7 +317,8 @@
       "preferred_foot": "Left",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q99955331"
+      "wikidata_id": "Q99955331",
+      "facts": "Inácio scored a memorable goal for Sporting in the Champions League — not bad for someone whose job is stopping them."
     },
     {
       "number": 15,
@@ -316,7 +336,7 @@
       "full_name": "João Pedro Gonçalves Neves",
       "last_name": "Neves",
       "first_name": "João",
-      "bio": "João Pedro Gonçalves Neves (born 27 September 2004) is a Portuguese professional footballer who plays as a defensive midfielder for Ligue 1 club Paris Saint-Germain and the Portugal national team. \r\n\r\nComing through Benfica's youth system, Neves impressed during his time with the reserve side, winning the UEFA Youth League in 2021–22, being instrumental part of Benfica's first European trophy in 60 years. He was subsequently promoted to the first-team, making his professional debut at age 18, wh",
+      "bio": "Son of former Portugal international Luís Neves, João Neves is a prodigious defensive midfielder who joined PSG from Benfica. At just 21, he controls games with a calmness that belies his age entirely.",
       "birth_location": "Tavira, Portugal",
       "height": "1.74 m (5 ft 9 in)",
       "weight": "146 lbs",
@@ -324,7 +344,8 @@
       "preferred_foot": "Right",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q113551733"
+      "wikidata_id": "Q113551733",
+      "facts": "João Neves' father Luís also played for Portugal — making them one of international football's most quietly impressive dynasties."
     },
     {
       "number": 16,
@@ -342,7 +363,7 @@
       "full_name": "Francisco António Machado Mota de Castro Trincão",
       "last_name": "Trincão",
       "first_name": "Francisco",
-      "bio": "Francisco António Machado Mota de Castro Trincão (European Portuguese: ; born 29 December 1999) is a Portuguese professional footballer who plays as a winger for Primeira Liga club Sporting CP and the Portugal national team.\r\n\r\nHe started his career with Braga B, making his debut with the first team in 2018 and winning the 2019–20 Taça da Liga in his second season with the club. In January 2020, he signed with Barcelona for a reported €31 million fee, with the deal made effective in July. He the",
+      "bio": "A winger with flair, vision and an eye for goal, Francisco Trincão has flourished at Sporting CP after loan spells shaped his development. His creativity and direct running give Portugal a sharp attacking option.",
       "birth_location": "Viana do Castelo, Portugal",
       "height": "1.83 m (6 ft 0 in)",
       "weight": "168 lbs",
@@ -353,7 +374,8 @@
         "instagram": "www.instagram.com/trincao/",
         "facebook": "www.facebook.com/trincao77/"
       },
-      "wikidata_id": "Q24084271"
+      "wikidata_id": "Q24084271",
+      "facts": "Trincão joined Barcelona for €31m aged 20 but found true form only after leaving — a tale as old as time at Camp Nou."
     },
     {
       "number": 17,
@@ -366,7 +388,9 @@
       "club": "Milan",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "bio": "Rafael Leão is electrifying — a pacy, skillful left winger who can turn a game on its head in seconds. A key figure at AC Milan and one of Europe's most sought-after attackers, he lights up every stage he plays on.",
+      "facts": "Leão has been clocked at over 36km/h during a Serie A match — making him one of football's fastest players on the ball."
     },
     {
       "number": 18,
@@ -379,7 +403,9 @@
       "club": "Chelsea",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "bio": "A tricky, rapid winger who loves to run at defenders, Pedro Neto has been a fan favourite at Chelsea. His career has been interrupted by serious injuries, making every appearance feel like a small triumph of resilience.",
+      "facts": "Neto suffered two major knee injuries in his early career — each time he came back quicker and more direct than before."
     },
     {
       "number": 19,
@@ -392,7 +418,9 @@
       "club": "Real Sociedad",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "bio": "A skilful and versatile attacker who scored the goal that won Portugal the 2022 UEFA Nations League. Gonçalo Guedes offers pace, creativity and big-game experience — a proven performer at the highest level.",
+      "facts": "Guedes scored the only goal in the 2019 Nations League final vs Netherlands — Portugal's first ever Nations League title."
     },
     {
       "number": 20,
@@ -410,7 +438,7 @@
       "full_name": "João Pedro Cavaco Cancelo",
       "last_name": "Cancelo",
       "first_name": "João",
-      "bio": "João Pedro Cavaco Cancelo (born 27 May 1994) is a Portuguese professional footballer who plays primarily as a full-back for La Liga club Barcelona on loan from Saudi Pro League club Al-Hilal, and the Portugal national team.\r\n\r\nAfter coming through Benfica's youth academy, Cancelo began playing for the club's reserve team in 2012 and was promoted to the first team two years later. He was subsequently loaned to La Liga club Valencia during the 2014–15 season, before the move was made permanent in ",
+      "bio": "One of the world's most attack-minded full-backs, João Cancelo is a marauding, elegant presence on either flank. After a turbulent exit from Man City, he's revived his career brilliantly at Barcelona.",
       "birth_location": "Barreiro, Portugal",
       "height": "1.82 m (6 ft 0 in)",
       "weight": "73 kg (161 lb)",
@@ -421,7 +449,8 @@
         "instagram": "www.instagram.com/jpcancelo/",
         "facebook": "www.facebook.com/cancelooficial"
       },
-      "wikidata_id": "Q6298063"
+      "wikidata_id": "Q6298063",
+      "facts": "Cancelo has played for Juventus, Inter, Man City, Bayern (on loan) and Barcelona — a CV that reads like a wishlist."
     },
     {
       "number": 21,
@@ -439,7 +468,7 @@
       "full_name": "Rúben Diogo da Silva Neves",
       "last_name": "Neves",
       "first_name": "Rúben",
-      "bio": "Rúben Diogo da Silva Neves (born 13 March 1997) is a Portuguese professional footballer who plays as a midfielder for Saudi Professional League club Al-Hilal and the Portugal national team. \r\n\r\nBorn in Mozelos (Santa Maria da Feira), Aveiro District, Neves joined FC Porto's youth system at the age of 8. He was also loaned for one year to Padroense FC, which acted as Porto's under-16 squad.",
+      "bio": "A technically superb defensive midfielder who captained Porto in the Champions League at just 20. Rúben Neves is now in the Saudi Pro League with Al-Hilal but remains a composed, authoritative presence for Portugal.",
       "birth_location": "Santa Maria da Feira, Portugal",
       "height": "1.80 m (5 ft 11 in)",
       "weight": "78 kg (172 lb)",
@@ -451,7 +480,8 @@
         "facebook": "www.facebook.com/rubendsneves/",
         "twitter": "twitter.com/rubendsneves_"
       },
-      "wikidata_id": "Q17486599"
+      "wikidata_id": "Q17486599",
+      "facts": "Rúben Neves became Porto's youngest ever captain in the Champions League at age 20 — a record that still stands."
     },
     {
       "number": 22,
@@ -469,14 +499,15 @@
       "full_name": "Rui Tiago Dantas da Silva",
       "last_name": "Silva",
       "first_name": "Rui",
-      "bio": "Rui Tiago Dantas da Silva (born 7 February 1994) is a Portuguese professional footballer who plays as a goalkeeper for Primeira Liga club Sporting CP, on loan from La Liga club Real Betis.",
+      "bio": "A reliable and experienced goalkeeper, Rui Silva has been a consistent performer in La Liga before joining Sporting CP. With just 3 caps, this World Cup could be his biggest stage — if called upon.",
       "birth_location": "Maia, Portugal",
       "height": "1.89 m (6 ft 2 1⁄2 in)",
       "weight": "201 lbs",
       "position_detail": "Goalkeeper",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Rui Silva was born in Maia, the same town as Bruno Fernandes. Great place for producing Portugal internationals, apparently."
     },
     {
       "number": 23,
@@ -493,7 +524,7 @@
       "tsdb_id": "34173911",
       "full_name": "Vítor Machado Ferreira",
       "last_name": "Vitinha",
-      "bio": "Vítor Machado Ferreira (born 13 February 2000), known as Vitinha (Portuguese pronunciation: ), is a Portuguese professional footballer who plays as a midfielder for Ligue 1 club Paris Saint-Germain and the Portugal national team.\r\n\r\nComing through Porto's youth system, Vitinha impressed during his time with the reserve team before being promoted to the first-team in 2020, winning a domestic double of the Primeira Liga and the Taça de Portugal in his first season. He was loaned to Premier League ",
+      "bio": "Vitinha is Porto's academy jewel turned PSG metronome. A technically immaculate central midfielder who controls tempo with quiet authority, he's the engine Portugal's midfield barely knew it needed.",
       "birth_location": "Vila das Aves, Portugal",
       "height": "1.72 m (5 ft 8 in)",
       "weight": "139 lbs",
@@ -503,7 +534,8 @@
       "social": {
         "instagram": "www.instagram.com/vitinha/"
       },
-      "wikidata_id": "Q66818509"
+      "wikidata_id": "Q66818509",
+      "facts": "Vitinha was released by Man City's academy as a teenager. PSG paid €40m for him shortly after. City fans, look away."
     },
     {
       "number": 24,
@@ -521,14 +553,15 @@
       "full_name": "Samuel de Almeida Costa",
       "last_name": "Costa",
       "first_name": "Samú",
-      "bio": "Samuel \"Samú\" de Almeida Costa (born 27 November 2000) is a Portuguese professional footballer who plays as a defensive midfielder for La Liga club Mallorca and the Portugal national team.",
+      "bio": "A hardworking and intelligent defensive midfielder, Samú Costa has impressed at Mallorca with his tenacity and positioning. With just 6 caps, he's one of the less-heralded names in this squad — but no less important.",
       "birth_location": "Aveiro, Portugal",
       "height": "1.83 m (6 ft 0 in)",
       "weight": "163 lbs",
       "position_detail": "Defensive Midfield",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Samú Costa plays for Mallorca — making him one of very few Portugal internationals based outside Europe's top five leagues."
     },
     {
       "number": 25,
@@ -546,7 +579,7 @@
       "full_name": "Nuno Alexandre Tavares Mendes",
       "last_name": "Mendes",
       "first_name": "Nuno",
-      "bio": "Nuno Alexandre Tavares Mendes (Portuguese pronunciation: ; born 19 June 2002) is a Portuguese professional footballer who plays as a left-back for Ligue 1 club Paris Saint-Germain and the Portugal national team.\r\n\r\nComing through Sporting CP's youth academy, he made his first-team debut in 2020, and in the following year, he won a double of the Primeira Liga and Taça da Liga, while being named in the Primeira Liga Team of the Year. In August 2021, he moved to Paris Saint-Germain on a one-year lo",
+      "bio": "A flying left-back with tremendous athleticism and an eye for a cross, Nuno Mendes has established himself as one of Europe's finest in his position at PSG. At just 23, he has the world at his feet — literally.",
       "birth_location": "Lisboa, Portugal",
       "height": "1.76 m (5 ft 9 in)",
       "weight": "152 lbs",
@@ -554,7 +587,8 @@
       "preferred_foot": "Left",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q3346419"
+      "wikidata_id": "Q3346419",
+      "facts": "Nuno Mendes made his PSG debut aged 19 and was immediately compared to Marcelo. High praise — and not entirely wrong."
     },
     {
       "number": 26,
@@ -572,7 +606,7 @@
       "full_name": "Francisco Fernandes da Conceição",
       "last_name": "Conceição",
       "first_name": "Francisco",
-      "bio": "Francisco Fernandes da Conceição (Portuguese pronunciation: ; born 14 December 2002) is a Portuguese professional footballer who plays as a winger for Serie A club Juventus and the Portugal national team.\r\n\r\nComing through Porto's youth system, Conceição was promoted to the first-team in 2021, winning a domestic double of the Primeira Liga and Taça de Portugal in 2022. In July 2022, he moved to Eredivise side Ajax, before returning to Porto in September 2023, on an initial one-year loan deal whi",
+      "bio": "Son of Porto legend Sérgio Conceição, Francisco is carving his own path with flair and fearlessness. A skilful right midfielder now at Juventus, he scored a famous late winner for Portugal — fathers, take note.",
       "birth_location": "Coimbra, Portugal",
       "height": "1.68 m (5 ft 6 in)",
       "weight": "61 kg (135 lb)",
@@ -583,7 +617,8 @@
         "instagram": "www.instagram.com/francisco.conceicao7/",
         "twitter": "twitter.com/fconceicao7"
       },
-      "wikidata_id": "Q99617367"
+      "wikidata_id": "Q99617367",
+      "facts": "Francisco's father Sérgio managed Porto while Francisco played there — family meetings must have been complicated affairs."
     }
   ]
 }

@@ -13,7 +13,9 @@
       "club": "New England Revolution",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "bio": "The Revolution's reliable last line of defence, Turner earned his stripes as Arsenal's backup before returning stateside. A shot-stopper with 54 caps, he's the veteran presence between the posts for the Stars and Stripes on home soil.",
+      "facts": "Turner worked as a youth soccer coach before breaking into professional football — a proper late bloomer who peaked at just the right time."
     },
     {
       "number": 2,
@@ -26,7 +28,9 @@
       "club": "PSV Eindhoven",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "bio": "Born in the Netherlands to an American father, Dest chose the Stars and Stripes over the Oranje — a decision that's paid dividends. The dynamic right-back dazzles with pace and trickery, equally at home bombing forward or tracking back.",
+      "facts": "Dest was courted by both the USA and Netherlands national teams — he picked the Americans, and the Dutch have been crying into their tulips ever since."
     },
     {
       "number": 3,
@@ -39,7 +43,9 @@
       "club": "Crystal Palace",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "bio": "The Birmingham-born centre-back has made Crystal Palace's backline his home, bringing composure and quality in the air. A product of FC Dallas's academy, Richards has quietly become one of the USMNT's most dependable defenders.",
+      "facts": "Richards was born in Birmingham, Alabama — making him a true son of the American South defending the red, white, and blue."
     },
     {
       "number": 4,
@@ -52,7 +58,9 @@
       "club": "Bournemouth",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "bio": "The Bournemouth dynamo is the engine room of the USMNT midfield — press-resistant, tenacious, and born on Valentine's Day. Adams captains with authority beyond his years and sets the tempo wherever he plays.",
+      "facts": "Adams was born on 14 February — so every time the USMNT wins, it's a Valentine's gift to the nation. Romantic stuff."
     },
     {
       "number": 5,
@@ -65,7 +73,9 @@
       "club": "Fulham",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "bio": "Nicknamed 'Jedi', Robinson is one of the most marauding left-backs in world football. The Fulham stalwart brings blistering pace and a surprising eye for goal to the USMNT, lighting up the left flank game after game.",
+      "facts": "Robinson was born in Milton Keynes, England — making him one of several USMNT players who could theoretically have played for the Three Lions."
     },
     {
       "number": 6,
@@ -78,7 +88,9 @@
       "club": "Celtic",
       "club_nation": "SCO",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "bio": "The Philadelphia-born defender found his calling in the Scottish Premiership with Celtic, winning titles and earning plaudits. A no-nonsense centre-back with good feet, Trusty is living proof that trust is earned, not given.",
+      "facts": "Trusty won the Scottish Premiership title with Celtic — not many USMNT players can say they've lifted silverware in Glasgow."
     },
     {
       "number": 7,
@@ -91,7 +103,9 @@
       "club": "Borussia Mönchengladbach",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "bio": "Son of USMNT legend Claudio Reyna, Gio is the crown jewel of the golden generation. A technically gifted attacking midfielder, his World Cup 2026 arrival on home soil feels like destiny after injury frustrations in Qatar 2022.",
+      "facts": "Reyna's father Claudio and mother Danielle Egan both played for the USMNT and USWNT respectively — football royalty, plain and simple."
     },
     {
       "number": 8,
@@ -109,7 +123,7 @@
       "full_name": "Weston James Earl McKennie",
       "last_name": "McKennie",
       "first_name": "Weston",
-      "bio": "Weston James Earl McKennie (born August 28, 1998) is an American professional soccer player who plays as a midfielder for Serie A club Juventus, and the United States national team. A versatile player, McKennie is capable of playing in a multitude of positions in midfield—mainly as a box-to-box or as a deep-lying defensive midfielder.\r\n\r\nComing through the youth system, McKennie began his senior club career at Bundesliga side Schalke 04. In 2017–18, he established himself as a first team player,",
+      "bio": "The little Texan with the big personality, McKennie has become a Champions League-era regular at Juventus. An all-action box-to-box midfielder who chips in with crucial goals, Weston is the heartbeat of the USMNT engine room.",
       "birth_location": "Little Elm, Texas, United States",
       "height": "1.85 m (6 ft 1 in)",
       "weight": "183 lbs",
@@ -121,7 +135,8 @@
         "facebook": "www.facebook.com/WestonMcKennieOfficial/",
         "twitter": "twitter.com/wmckennie"
       },
-      "wikidata_id": "Q29998966"
+      "wikidata_id": "Q29998966",
+      "facts": "McKennie once attended a Juventus team meeting via Zoom while on holiday — his coach wasn't amused. He was reportedly fined for it."
     },
     {
       "number": 9,
@@ -139,7 +154,7 @@
       "full_name": "Ricardo Daniel Pepi",
       "last_name": "Pepi",
       "first_name": "Ricardo",
-      "bio": "Ricardo Daniel Pepi (born January 9, 2003) is an American professional soccer player who plays as a striker for Eredivisie club PSV Eindhoven and the United States national team.\r\n\r\nPepi had his breakthrough with Major League Soccer club FC Dallas and was named the MLS Young Player of the Year in 2021. In 2022 he joined Bundesliga club FC Augsburg and was later loaned to Eredivisie club FC Groningen, where he scored 12 goals in 29 league appearances. In 2023 he signed with PSV Eindhoven for €9 m",
+      "bio": "El Paso's finest striker, Pepi burst onto the scene with FC Dallas before making his mark in the Eredivisie with PSV. A physical and clinical centre-forward with 13 international goals, he's the fox in the box the USMNT have long craved.",
       "birth_location": "El Paso, Texas, United States",
       "height": "185 cm",
       "weight": "161 lbs",
@@ -147,7 +162,8 @@
       "preferred_foot": "Right",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q62597239"
+      "wikidata_id": "Q62597239",
+      "facts": "Pepi's family is of Mexican descent — making his goals against Mexico in World Cup qualifying particularly spicy viewing for all involved."
     },
     {
       "number": 10,
@@ -165,7 +181,7 @@
       "full_name": "Christian Mate Pulisic",
       "last_name": "Pulisic",
       "first_name": "Christian",
-      "bio": "Christian Mate Pulisic (/ˈmɑːteɪ pəˈlɪsɪk, ˈpʊlɪʃɪtʃ/; Croatian: Pulišić, pronounced ; born September 18, 1998) is an American professional soccer player who plays as a winger or an attacking midfielder for Italian Serie A club Milan and the United States national team. Due to his high level of play along with his nationality, he has been given the nickname \"Captain America\" by fans and other players.\r\n\r\nPulisic began his professional career at German club Borussia Dortmund, where, after fast pr",
+      "bio": "The Captain America. Born in Hershey, Pennsylvania — the chocolate capital of the US — Pulisic is anything but sweet on defenders. The Milan star is the USMNT's all-time great of his generation, with 33 goals and the world at his feet.",
       "birth_location": "Hershey, Pennsylvania, United States",
       "height": "178cm / 5'10\"",
       "weight": "161 lbs",
@@ -177,7 +193,8 @@
         "facebook": "http://www.facebook.com/cmpulisic/",
         "twitter": "http://twitter.com/cpulisic_10"
       },
-      "wikidata_id": "Q22279773"
+      "wikidata_id": "Q22279773",
+      "facts": "Pulisic was born in Hershey, PA — home of Hershey's chocolate. His goals for the USMNT are, admittedly, even sweeter."
     },
     {
       "number": 11,
@@ -195,7 +212,7 @@
       "full_name": "Brenden Russell Aaronson",
       "last_name": "Aaronson",
       "first_name": "Brenden",
-      "bio": "Brenden Russell Aaronson (born October 22, 2000) is an American professional soccer player who plays as an attacking midfielder or winger for Premier League club Leeds United and the United States national team.",
+      "bio": "The high-energy New Jersey kid who never stops running, Aaronson made his name at Red Bull Salzburg before returning to Leeds United. His infectious pressing game and knack for big moments make him a fan favourite wherever he plays.",
       "birth_location": "Medford, New Jersey, United States",
       "height": "1.78 m (5 ft 10 in)",
       "weight": "150 lbs",
@@ -206,7 +223,8 @@
         "instagram": "www.instagram.com/baaronson7/",
         "twitter": "twitter.com/aaronsonbrenden?lang=ca"
       },
-      "wikidata_id": "Q33129609"
+      "wikidata_id": "Q33129609",
+      "facts": "Aaronson scored a crucial World Cup qualifying goal against Mexico in Columbus — a night that's already become USMNT folklore."
     },
     {
       "number": 12,
@@ -224,7 +242,7 @@
       "full_name": "Miles Gordon Robinson",
       "last_name": "Robinson",
       "first_name": "Miles",
-      "bio": "Miles Gordon Robinson (born March 14, 1997) is an American professional soccer player who plays as a center-back for Major League Soccer club FC Cincinnati and the United States national team. \r\n\r\nCollege career\r\nRobinson attended Syracuse University, where he played for their soccer team for two years. He was named the ACC Defensive Player of the Year in 2016.\r\n\r\nClub career\r\nRobinson was chosen as the 2nd pick of the 2017 MLS SuperDraft by Atlanta United. He had been selected for the Generatio",
+      "bio": "A commanding presence at the heart of FC Cincinnati's defence, Miles Robinson has been one of MLS's finest centre-backs. After recovering from a serious Achilles injury, his World Cup 2026 place represents a remarkable comeback story.",
       "birth_location": "Arlington, Massachusetts, USA",
       "height": "1.88 m (6 ft 2 in)",
       "weight": "183 lbs",
@@ -232,7 +250,8 @@
       "preferred_foot": "Right",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q30122953"
+      "wikidata_id": "Q30122953",
+      "facts": "Robinson ruptured his Achilles tendon in 2022, missing the Qatar World Cup — making his 2026 selection a genuine against-the-odds redemption arc."
     },
     {
       "number": 13,
@@ -250,7 +269,7 @@
       "full_name": "Timothy Michael Ream",
       "last_name": "Ream",
       "first_name": "Tim",
-      "bio": "Timothy Michael Ream (born October 5, 1987) is an American professional soccer player who plays as a center-back for Major League Soccer club Charlotte FC and the United States national team.",
+      "bio": "The elder statesman of the USMNT backline, Ream is the coolest head in the room at 38 years old. A St. Louis native who built his career in England, the Charlotte FC captain brings leadership and calmness that money simply cannot buy.",
       "birth_location": "St. Louis, Missouri, United States",
       "height": "1.85 m (6 ft 1 in)",
       "weight": "174 lbs",
@@ -258,7 +277,8 @@
       "preferred_foot": "",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q716113"
+      "wikidata_id": "Q716113",
+      "facts": "Ream is the oldest player in the USMNT squad — at 38, he was already 11 years old when some of his teammates were born."
     },
     {
       "number": 14,
@@ -276,7 +296,7 @@
       "full_name": "Sebastian Matthew Berhalter",
       "last_name": "Berhalter",
       "first_name": "Sebastian",
-      "bio": "Sebastian Matthew Berhalter (born May 10, 2001) is an American professional soccer player who plays as a midfielder for Major League Soccer club Vancouver Whitecaps FC and the United States national team.",
+      "bio": "Son of former USMNT coach Gregg Berhalter, Sebastian has carved his own path at Vancouver Whitecaps. The London-born central midfielder brings intelligence and technical quality, proving the football gene runs deep in the Berhalter family.",
       "birth_location": "London, England",
       "height": "1.75 m (5 ft 9 in)",
       "weight": "152 lbs",
@@ -284,7 +304,8 @@
       "preferred_foot": "Right",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q86301356"
+      "wikidata_id": "Q86301356",
+      "facts": "Sebastian was coached at international level by his own father, Gregg Berhalter — a dynamic that requires some serious dinner-table diplomacy."
     },
     {
       "number": 15,
@@ -302,7 +323,7 @@
       "full_name": "Cristian Roldan",
       "last_name": "Roldan",
       "first_name": "Cristian",
-      "bio": "Cristian Roldan (born June 3, 1995) is an American professional soccer player, who currently plays as a midfielder for Seattle Sounders FC in Major League Soccer.\r\n\r\nCareer\r\nCollege and Amateur\r\nRoldan was named the 2013 Gatorade National Player of the Year in soccer while attending El Rancho High School in Pico Rivera, California.\r\n\r\nRoldan spent his college career at the University of Washington. In his two seasons with the Huskies, Roldan made a total of 41 appearances and tallied 10 goals an",
+      "bio": "A Seattle Sounders institution, Roldan has been one of MLS's most consistent midfielders for nearly a decade. His tireless work rate and ability to win the ball back make him an invaluable squad option for the USMNT on home turf.",
       "birth_location": "Artesia, California, United States",
       "height": "1.73 m (5 ft 8 in)",
       "weight": "163 lbs",
@@ -310,7 +331,8 @@
       "preferred_foot": "Right",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q19519224"
+      "wikidata_id": "Q19519224",
+      "facts": "Roldan has spent his entire professional career at Seattle Sounders — a rare one-club man in the modern era of football's revolving door."
     },
     {
       "number": 16,
@@ -328,14 +350,15 @@
       "full_name": "Alexander Michael Freeman",
       "last_name": "Freeman",
       "first_name": "Alex",
-      "bio": "Alexander Michael Freeman (born August 9, 2004) is an American professional soccer player who plays as a right-back or right winger for La Liga club Villarreal and the United States national team.\r\n\r\nIn 2022, Freeman signed with Major League Soccer franchise Orlando City, but spent the first three seasons of his professional career primarily playing for the reserve team, Orlando City B, in MLS Next Pro. In 2024, during his last season with Orlando City B, Freeman contributed the most assists and",
+      "bio": "Fort Lauderdale's brightest export, Freeman is the exciting young right-back who caught Villarreal's eye with electric performances. At just 21, he arrives at his first World Cup as one of the USMNT's most thrilling prospects going forward.",
       "birth_location": "Fort Lauderdale, Florida, United States",
       "height": "188 cm",
       "weight": "",
       "position_detail": "Right-Back",
       "preferred_foot": "",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Freeman is one of the youngest players in the USMNT squad — at 21, the World Cup on home soil could be his coming-of-age moment."
     },
     {
       "number": 17,
@@ -353,14 +376,15 @@
       "full_name": "Malik Leon Tillman",
       "last_name": "Tillman",
       "first_name": "Malik",
-      "bio": "Malik Leon Tillman (born May 28, 2002) is a professional soccer player who plays as an attacking midfielder for Bundesliga club Bayer Leverkusen. Born in Germany, he represents the United States national team.\r\n\r\nTillman is a graduate of Bayern Munich's youth system, which he joined in 2015 from Greuther Fürth. He made his debut for Bayern's first-team in August 2021, having previously featured for Bayern Munich II. In July 2022, he signed for Scottish Premiership club Rangers on loan, where he ",
+      "bio": "Born in Nuremberg, Tillman was raised in Germany before choosing the Stars and Stripes — and Bayer Leverkusen's title-winning culture has sharpened his game considerably. A clever, technical attacking midfielder with an eye for goal.",
       "birth_location": "Nürnberg, Germany",
       "height": "1.87 m (6 ft 2 in)",
       "weight": "157 lbs",
       "position_detail": "Attacking Midfield",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Tillman was part of Bayer Leverkusen's historic unbeaten Bundesliga title-winning squad in 2023-24 — the first time Leverkusen ever won the German top flight."
     },
     {
       "number": 18,
@@ -373,7 +397,9 @@
       "club": "Columbus Crew",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "bio": "The Columbus Crew's composed full-back, Arfsten brings solidity and athleticism to the USMNT defensive options. Still building his international reputation, the 25-year-old is a reliable squad member trusted by the coaching staff.",
+      "facts": "Arfsten plays for Columbus Crew — one of MLS's founding clubs, meaning he represents genuine American football heritage."
     },
     {
       "number": 19,
@@ -386,7 +412,9 @@
       "club": "Coventry City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "bio": "The journeyman striker who saved the USMNT in Qatar with a stunning backheel flick against Iran. Wright's unconventional career path — from LA Galaxy to Coventry — makes him one of football's most entertaining characters.",
+      "facts": "Wright's backheel goal against Iran at World Cup 2022 is one of the most audacious finishes in USMNT history. Accidental genius or pure class? Debate rages on."
     },
     {
       "number": 20,
@@ -399,7 +427,9 @@
       "club": "Monaco",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "bio": "London-born and New York-raised, Balogun chose the USMNT over England and Nigeria — and has never looked back. The Monaco striker's clinical finishing and intelligent movement make him a constant threat in the final third.",
+      "facts": "Balogun was eligible for England, Nigeria, and the USA — choosing the Stars and Stripes after a careful international tug-of-war few players ever experience."
     },
     {
       "number": 21,
@@ -412,7 +442,9 @@
       "club": "Marseille",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "bio": "Son of Liberian legend and former FIFA World Player of the Year George Weah, Timothy carries serious footballing DNA. The Marseille winger has pace to burn and a nose for big moments, representing the USMNT with pride and pedigree.",
+      "facts": "Timothy's father, George Weah, won the 1995 Ballon d'Or and later became President of Liberia — making Timothy's family dinner conversations rather extraordinary."
     },
     {
       "number": 22,
@@ -425,7 +457,9 @@
       "club": "Toulouse",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "bio": "The Toulouse centre-back has steadily built a solid international career across 29 caps. McKenzie's reading of the game and composure on the ball make him a trustworthy defensive option as the USMNT navigate their home World Cup.",
+      "facts": "McKenzie plays his club football in France's Ligue 1 with Toulouse — one of several USMNT defenders scattered impressively across Europe's top leagues."
     },
     {
       "number": 23,
@@ -438,7 +472,9 @@
       "club": "Borussia Mönchengladbach",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "bio": "The Long Island kid who made Germany his footballing home, Scally has established himself as one of Borussia Mönchengladbach's first-choice full-backs. Technically assured and tactically savvy, he's a modern right-back in every sense.",
+      "facts": "Scally was born on 31 December 2002 — meaning he's spent every New Year's Eve of his life also celebrating his birthday. The ultimate party trick."
     },
     {
       "number": 24,
@@ -451,7 +487,9 @@
       "club": "New York City FC",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "bio": "New York City FC's dependable shot-stopper, Freese has quietly accumulated 15 caps as the USMNT's experienced backup goalkeeper. Composed under pressure and a commanding presence in his box, he's a trusted understudy to Turner.",
+      "facts": "Freese studied at Penn State University before turning professional — one of the USMNT goalkeepers who took the college soccer route to the big stage."
     },
     {
       "number": 25,
@@ -464,7 +502,9 @@
       "club": "Chicago Fire FC",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "bio": "The youngest goalkeeper in the squad, Brady is already making waves at Chicago Fire despite being just 22. With a single senior cap to his name, World Cup 2026 represents the beginning of what could be a very long USMNT story.",
+      "facts": "Brady was born on 3 March 2004 — meaning he was still in primary school when some of his USMNT teammates were already turning professional."
     },
     {
       "number": 26,
@@ -477,7 +517,9 @@
       "club": "América",
       "club_nation": "MEX",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "bio": "Born in the USA but raised in Mexico's football culture, Zendejas plays his club football at Club América and chose the Stars and Stripes. A tricky, direct winger who adds genuine depth to the USMNT's attacking options from the flanks.",
+      "facts": "Zendejas plays for Club América in Mexico — making him the only USMNT squad member whose club fans might have very mixed feelings about cheering him on."
     }
   ]
 }

@@ -13,7 +13,9 @@
       "club": "Cerro Porteño",
       "club_nation": "PAR",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "bio": "At 38, 'Gatito' (Little Cat) is the veteran guardian of La Albirroja's goal. The Cerro Porteño shotstopper brings bags of big-game experience to his first World Cup, proving age is just a number.",
+      "facts": "His nickname 'Gatito' means 'little kitten' — yet opposing strikers find him anything but cuddly."
     },
     {
       "number": 2,
@@ -26,7 +28,9 @@
       "club": "Cerro Porteño",
       "club_nation": "PAR",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "bio": "Gustavo Velázquez is a reliable defensive presence for Cerro Porteño and Paraguay, chipping in with a rare international goal across 13 caps. A solid, no-nonsense full-back who keeps things simple and effective.",
+      "facts": "Scored an international goal as a defender — more than some forwards ever manage for their country."
     },
     {
       "number": 3,
@@ -39,7 +43,9 @@
       "club": "Sunderland",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "bio": "Omar Alderete is a commanding centre-back who has built his career across European football before landing at Sunderland. Composed on the ball with 36 caps and 3 international goals, he's a set-piece threat from the back.",
+      "facts": "Alderete plays for Sunderland — a club that once went 10 years without top-flight football. Redemption arcs suit him fine."
     },
     {
       "number": 4,
@@ -57,14 +63,15 @@
       "full_name": "Juan José Cáceres",
       "last_name": "Cáceres",
       "first_name": "Juan José",
-      "bio": "Juan José Cáceres (born 1 June 2000) is a professional footballer who plays as a right-back for Russian Premier League club Dynamo Moscow. Born in Argentina, he plays for the Paraguay national team.\r\n\r\nCáceres spent eight years in the youth system of Boca Juniors, prior to departing to join Racing Club's academy at the start of 2017. In his second year, Cáceres was involved in a training ground fight with Ricardo Centurión. His breakthrough into the Racing first-team occurred in 2020, with the r",
+      "bio": "Born in Isla Maciel, Argentina, Cáceres chose Paraguay and hasn't looked back. The young right-back joined Dynamo Moscow and brings youthful energy and attacking intent to this his first World Cup at just 26.",
       "birth_location": "Isla Maciel, Argentina",
       "height": "177 cm",
       "weight": "137 lbs",
       "position_detail": "Right-Back",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Plays club football in Russia for Dynamo Moscow — one of the more geographically adventurous careers in this squad."
     },
     {
       "number": 5,
@@ -82,7 +89,7 @@
       "full_name": "Fabián Cornelio Balbuena González",
       "last_name": "Balbuena",
       "first_name": "Fabián",
-      "bio": "Fabián Cornelio Balbuena González (born 23 August 1991) is a Paraguayan professional footballer who plays as a centre-back for Campeonato Brasileiro Série A club Grêmio and the Paraguay national team.\r\n\r\nHe played for Cerro Porteño PF, Rubio Ñu, Nacional and Libertad in the Paraguayan Primera División, before joining Corinthians of Brazil in 2016. He played 120 games for Corinthians, winning the Campeonato Paulista twice and the Campeonato Brasileiro Série A once, and was named in the latter's 2",
+      "bio": "A rock from Ciudad del Este, Fabián Balbuena has been a Premier League and South American stalwart. The Grêmio centre-back brings nearly 50 caps of nous and physicality to anchor Paraguay's defence at 34.",
       "birth_location": "Ciudad del Este, Paraguay",
       "height": "6 ft 2 in (1.88 m)",
       "weight": "192 lbs",
@@ -92,7 +99,8 @@
       "social": {
         "twitter": "twitter.com/fbalbuenito"
       },
-      "wikidata_id": "Q16297591"
+      "wikidata_id": "Q16297591",
+      "facts": "Balbuena played in the Premier League for West Ham and Nottingham Forest — not bad for a lad from Ciudad del Este."
     },
     {
       "number": 6,
@@ -110,7 +118,7 @@
       "full_name": "Júnior Osmar Ignacio Alonso Mujica",
       "last_name": "Alonso",
       "first_name": "Júnior",
-      "bio": "Júnior Osmar Ignacio Alonso Mujica (born 9 February 1993) is a Paraguayan footballer who plays either as a centre back or a left back for Campeonato Brasileiro Série A club Atlético Mineiro and the Paraguay national team.",
+      "bio": "Júnior Alonso is Paraguay's most experienced defender on show, with 71 caps earned at clubs across South America and Brazil. The Atlético Mineiro stopper is a fierce competitor who leads by example at the back.",
       "birth_location": "Asunción, Paraguay",
       "height": "1.84 m (6 ft 0 in)",
       "weight": "183 lbs",
@@ -119,7 +127,8 @@
       "kit": "",
       "social": {
         "twitter": "twitter.com/junior_alonso4"
-      }
+      },
+      "facts": "With 71 caps, Alonso has faced more international opponents than most Paraguayans ever will — and stopped most of them."
     },
     {
       "number": 7,
@@ -137,14 +146,15 @@
       "full_name": "Ramón Sosa Acosta",
       "last_name": "Sosa",
       "first_name": "Ramón",
-      "bio": "Ramón Sosa Acosta (born 31 August 1999) is a Paraguayan professional footballer who plays as a winger for Campeonato Brasileiro Série A club Palmeiras, and the Paraguay national team.\r\nHe has also played for Paraguayan sides Olimpia, River Plate Asunción and Argentinian sides Gimasia La Plata and Talleres.",
+      "bio": "Ramón Sosa is a tricky, direct winger who earned a big move to Palmeiras after dazzling in South America. Born in Maracaná, Paraguay — not the famous stadium — the 26-year-old brings flair and unpredictability.",
       "birth_location": "Maracaná, Paraguay",
       "height": "178 cm",
       "weight": "163 lbs",
       "position_detail": "Second Striker",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "He's from a town called Maracaná in Paraguay — no pressure living up to that name on the world stage."
     },
     {
       "number": 8,
@@ -162,7 +172,7 @@
       "full_name": "Diego Alexander Gómez Amarilla",
       "last_name": "Gómez",
       "first_name": "Diego",
-      "bio": "Diego Alexander Gómez Amarilla (born 27 March 2003) is a Paraguayan professional footballer who plays as a midfielder for Premier League club Brighton & Hove Albion and the Paraguay national team. A versatile player, he can be deployed as a defensive midfielder, central midfielder, attacking midfielder or winger.",
+      "bio": "Diego Gómez is one of the most exciting young midfielders in South America, earning a move to Brighton at just 20. Technically gifted with an eye for goal, the 23-year-old is Paraguay's brightest prospect.",
       "birth_location": "San Juan Bautista, Paraguay",
       "height": "1.85 m (6 ft 1 in)",
       "weight": "170 lbs",
@@ -170,7 +180,8 @@
       "preferred_foot": "Right",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q115978703"
+      "wikidata_id": "Q115978703",
+      "facts": "Gómez joined Brighton & Hove Albion — a club known for developing talent with data. He fits the profile perfectly."
     },
     {
       "number": 9,
@@ -188,7 +199,7 @@
       "full_name": "Arnaldo Antonio Sanabria Ayala",
       "last_name": "Sanabria",
       "first_name": "Antonio",
-      "bio": "Arnaldo Antonio Sanabria Ayala (born 4 March 1996), also known as Tony Sanabria, is a Paraguayan professional footballer who plays as a forward for Serie A club Cremonese and the Paraguay national team.",
+      "bio": "Antonio Sanabria has been Paraguay's go-to striker for years, earning 48 caps and 7 goals. Born in San Lorenzo, he's played across Europe and now leads the line at Cremonese with hold-up play and poacher's instinct.",
       "birth_location": "San Lorenzo, Paraguay",
       "height": "1.81 m (5 ft 11 in)",
       "weight": "152 lbs",
@@ -198,7 +209,8 @@
       "social": {
         "twitter": "twitter.com/tsanabria9"
       },
-      "wikidata_id": "Q10856523"
+      "wikidata_id": "Q10856523",
+      "facts": "Sanabria once went viral for spitting toward a referee — a moment he'd probably like to leave off the highlights reel."
     },
     {
       "number": 10,
@@ -216,7 +228,7 @@
       "full_name": "Miguel Ángel Almirón Rejala",
       "last_name": "Almirón",
       "first_name": "Miguel",
-      "bio": "Miguel Ángel Almirón Rejala (born 10 February 1994) is a Paraguayan professional footballer who plays as an attacking midfielder or right winger for Major League Soccer club Atlanta United and the Paraguay national team. \r\n\r\nAlmirón began his career at Cerro Porteño and transferred to Lanús in 2015. After winning the 2016 Argentine Primera División, he signed for Atlanta United for $8 million. He was named in the MLS Best XI for both of his seasons in Major League Soccer, as well as MLS Newcomer",
+      "bio": "Miguel Almirón is Paraguay's most recognisable star — the creative engine whose energy and work-rate made him a Premier League fan favourite at Newcastle. Now back in MLS, the No.10 leads by example at 32.",
       "birth_location": "Asunción, Paraguay",
       "height": "174 cm",
       "weight": "152 lbs",
@@ -226,7 +238,8 @@
       "social": {
         "instagram": "www.instagram.com/miguel_almiron/"
       },
-      "wikidata_id": "Q16145667"
+      "wikidata_id": "Q16145667",
+      "facts": "Newcastle fans loved him so much they invented 'Almiron's better than Messi' — peak terrace delusion, peak affection."
     },
     {
       "number": 11,
@@ -243,14 +256,15 @@
       "tsdb_id": "34146610",
       "full_name": "Mauricio",
       "last_name": "Mauricio",
-      "bio": "Maurício dos Santos Nascimento, commonly called as Maurício (born 20 September 1988 in São Paulo) is a Brazilian football player at the position of defender, who currently plays for Sporting Clube de Portugal.\r\n\r\nCareer\r\nRevealed in the basic categories of Palmeiras, Maurício played in the CRB at the end of 2007.\r\n\r\nThe defender was renowned for his fight he had with teammate Obina during the game against Gremio for the Brazilian Championship in 2009. Both fought in the output for the range, the",
+      "bio": "Born in São Paulo, Maurício elected to represent Paraguay and is still finding his feet internationally with just 3 caps. The Palmeiras defender brings Brazilian club-football pedigree to La Albirroja's backline.",
       "birth_location": "São Paulo, Brazil",
       "height": "0",
       "weight": "0",
       "position_detail": "Defender",
       "social": {
         "facebook": "pt-br.facebook.com/mauricio3sporting"
-      }
+      },
+      "facts": "Born in Brazil, plays for Paraguay — one of football's great border-crossing career moves with only 3 caps to his name so far."
     },
     {
       "number": 12,
@@ -268,14 +282,15 @@
       "full_name": "Orlando Daniel Gill Noldin",
       "last_name": "Gill",
       "first_name": "Orlando",
-      "bio": "Orlando Daniel Gill Noldin (born 11 June 2000) is a Paraguayan professional footballer who plays as a goalkeeper for the Argentine Primera División club San Lorenzo and the Paraguay national team.\r\n\r\nClub career\r\nGill is a youth product of the Paraguayan clubs Club 13 de Junio and CS San Lorenzo, and began his senior career with CS San Lorenzo. On 30 December 2023, Gill joined the Argentine club San Lorenzo de Almagro on loan with an option to buy, and was originally assigned to their reserves. ",
+      "bio": "Orlando Gill is the backup goalkeeper from San Lorenzo, Paraguay, who plays for his hometown club. With just 6 caps, this World Cup represents a huge opportunity for the 26-year-old shot-stopper to shine.",
       "birth_location": "San Lorenzo, Paraguay",
       "height": "1.98 m (6 ft 6 in)",
       "weight": "",
       "position_detail": "Goalkeeper",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Gill plays for San Lorenzo — the club sharing a name with his birthplace. Clearly never strayed too far from home."
     },
     {
       "number": 13,
@@ -293,14 +308,15 @@
       "full_name": "José María Canale Domínguez",
       "last_name": "Canale",
       "first_name": "José",
-      "bio": "José María Canale Domínguez (born 20 July 1996) is a Paraguayan professional footballer who plays as a centre-back for Argentine Primera División side Lanús and the Paraguay national team.\r\n\r\nCanale debuted for Libertad on 28 May 2015 in a 3–0 win against San Lorenzo in the Paraguayan Primera División.\r\n\r\nOn 29 July 2021, he moved to Argentina to join Newell's Old Boys on loan.\r\n\r\nOn 7 December 2022, he left Libertad permanently to join Lanús. In August 2024, he joined Liga MX side Querétaro on ",
+      "bio": "José Canale is a dependable centre-back who has quietly built his career at Lanús in Argentina. With just 2 caps to his name, the 29-year-old from Itauguá arrives at his first World Cup as an unfashionable but reliable option.",
       "birth_location": "Itauguá, Paraguay",
       "height": "183 cm",
       "weight": "82 kg",
       "position_detail": "Centre-Back",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Two caps before a World Cup — Canale is proof that opportunity can arrive fashionably late but still knock loudly."
     },
     {
       "number": 14,
@@ -318,7 +334,7 @@
       "full_name": "Adrián Andrés Cubas",
       "last_name": "Cubas",
       "first_name": "Andrés",
-      "bio": "Adrián Andrés Cubas (born 22 May 1996) is a professional footballer who plays as midfielder for Major League Soccer club Vancouver Whitecaps. Born in Argentina, he plays for the Paraguay national team.",
+      "bio": "Andrés Cubas is a tenacious defensive midfielder born in Argentina who chose Paraguay and never looked back. Now anchoring midfield for Vancouver Whitecaps, the 30-year-old's 33 caps speak to consistent international trust.",
       "birth_location": "Aristobulo del Valle, Argentina",
       "height": "163 cm",
       "weight": "130 lbs",
@@ -326,7 +342,8 @@
       "preferred_foot": "Right",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q16298600"
+      "wikidata_id": "Q16298600",
+      "facts": "Born in Argentina, plays in MLS for Vancouver — Cubas's career has taken him further north than most Paraguayans dare."
     },
     {
       "number": 15,
@@ -339,7 +356,9 @@
       "club": "Palmeiras",
       "club_nation": "BRA",
       "captain": true,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "bio": "Gustavo Gómez is Paraguay's defensive cornerstone with 89 caps — one of the most decorated defenders in Albirroja history. The Palmeiras captain brings South American silverware experience and leadership to the World Cup.",
+      "facts": "With 89 caps, Gómez is closing in on Paraguay's all-time appearance record — a one-man wall in green and white."
     },
     {
       "number": 16,
@@ -352,7 +371,9 @@
       "club": "São Paulo",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "bio": "Damián Bobadilla is a energetic midfielder who has earned his place at São Paulo with disciplined, industrious performances. Still only 24, his 19 caps suggest a player rapidly establishing himself as a key midfield cog.",
+      "facts": "At 24 with 19 caps already, Bobadilla is on a trajectory that suggests his best football is still very much to come."
     },
     {
       "number": 17,
@@ -365,7 +386,9 @@
       "club": "Al Ain",
       "club_nation": "UAE",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "bio": "Kaku — real name Héctor Villalba — is a nippy, skilful forward with a knack for the spectacular. The Al Ain attacker has 6 international goals from 33 caps and brings creative unpredictability to Paraguay's attack.",
+      "facts": "His nickname 'Kaku' stuck so completely that most fans don't even know his real name is Héctor Villalba."
     },
     {
       "number": 18,
@@ -378,7 +401,9 @@
       "club": "Independiente Rivadavia",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "bio": "Álex Arce is a tenacious forward who has grinded his way to 15 caps and a World Cup spot. Playing in Argentina's lower reaches of the top flight, his hunger and work-rate make him a useful option off the bench.",
+      "facts": "Arce plays for Independiente Rivadavia — a club that finally reached Argentina's top flight after decades of waiting."
     },
     {
       "number": 19,
@@ -391,7 +416,9 @@
       "club": "Strasbourg",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "bio": "Julio Enciso is Paraguay's wonderkid — a fearless, technically brilliant forward who once scored a stunning long-range screamer against Manchester City. Now 22 and at Strasbourg, the future belongs to him.",
+      "facts": "Enciso once scored an absolute thunderbolt against Man City from outside the box. Even Pep Guardiola applauded."
     },
     {
       "number": 20,
@@ -404,7 +431,9 @@
       "club": "Orlando City SC",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "bio": "Braian Ojeda is a combative, box-to-box midfielder who swapped Paraguayan football for MLS with Orlando City. His 17 caps reflect a player building quietly but steadily toward becoming a midfield mainstay.",
+      "facts": "Ojeda plays in Orlando — home of theme parks and sunshine. His midfield work-rate suggests he doesn't take many days off."
     },
     {
       "number": 21,
@@ -417,7 +446,9 @@
       "club": "Independiente",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "bio": "Gabriel Ávalos is a experienced forward who has spent much of his career in Argentina, earning 23 caps for Paraguay. At 34, this World Cup may be his last hurrah — and he'll be determined to make it count.",
+      "facts": "At 34, Ávalos is one of the oldest outfield players in the squad — seasoned, savvy, and still scoring at the top level."
     },
     {
       "number": 22,
@@ -430,7 +461,9 @@
       "club": "Olimpia",
       "club_nation": "PAR",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "bio": "Gastón Olveira is the third-choice goalkeeper at this World Cup, a veteran at 33 with just one cap to his name. The Olimpia stopper is a trusted figure domestically, even if international appearances have been rare.",
+      "facts": "One cap in 33 years of life — Olveira has waited patiently longer than most for his international moment."
     },
     {
       "number": 23,
@@ -443,7 +476,9 @@
       "club": "Atlanta United FC",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "bio": "Matías Galarza is a dynamic young midfielder with an impressive eye for goal — 3 strikes in 15 caps is a fine return. The Atlanta United man brings energy and ambition to Paraguay's midfield at just 24.",
+      "facts": "Galarza and Almirón are Atlanta United teammates — Paraguay's World Cup pipeline apparently runs through Georgia."
     },
     {
       "number": 24,
@@ -456,7 +491,9 @@
       "club": "Portsmouth",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "bio": "Gustavo Caballero is a young midfielder with a stunning return of 1 goal in just 2 caps. The Portsmouth man is one of Paraguay's most intriguing prospects, bringing English football's grit to La Albirroja's engine room.",
+      "facts": "One goal in two caps as a midfielder — Caballero's scoring rate puts most strikers to shame. Statistically, at least."
     },
     {
       "number": 25,
@@ -469,7 +506,9 @@
       "club": "Red Bull Bragantino",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "bio": "Isidro Pitta is a powerful, physically imposing forward who offers Paraguay a different dimension up front. The Red Bull Bragantino man has 5 caps and brings pace and directness as an impact option from the bench.",
+      "facts": "His surname 'Pitta' means a type of flatbread in some cultures — though defenders find him anything but soft."
     },
     {
       "number": 26,
@@ -482,7 +521,9 @@
       "club": "Talleres",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "bio": "At just 20, Alexandro Maidana is the youngest player in Paraguay's squad — a defender at Talleres who has already scored in international football across 2 caps. One for the future, arriving early at his first World Cup.",
+      "facts": "Aged 20 with a World Cup cap and an international goal — Maidana's career is off to a pace most veterans can only envy."
     }
   ]
 }

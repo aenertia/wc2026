@@ -13,7 +13,9 @@
       "club": "Arsenal",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "bio": "Barcelona-born shot-stopper who earned his Arsenal No.1 spot after an audacious loan swap with Aaron Ramsdale. Cool under pressure and lethal with his feet, Raya brings modern GK play to La Roja.",
+      "facts": "Born in Badalona, he played in England's Championship before most knew his name — now he saves for Arsenal and Spain."
     },
     {
       "number": 2,
@@ -31,14 +33,15 @@
       "full_name": "Marc Pubill Pagès",
       "last_name": "Pubill",
       "first_name": "Marc",
-      "bio": "Marc Pubill Pagès (born 20 June 2003) is a Spanish professional footballer who plays as a right-back or centre-back for La Liga club Atlético Madrid.",
+      "bio": "A dynamic young right-back from Terrassa, Pubill burst onto the scene with electric performances and earned his first senior Spain caps at just 21. A rare gem with bags of pace and ambition.",
       "birth_location": "Terrassa, Spain",
       "height": "1.91 m (6 ft 3 in)",
       "weight": "190 lbs",
       "position_detail": "Right-Back",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "With only 2 caps, the 2026 World Cup could be his global coming-out party — Terrassa's proudest export since the tram."
     },
     {
       "number": 3,
@@ -56,7 +59,7 @@
       "full_name": "Alejandro Grimaldo García",
       "last_name": "Grimaldo",
       "first_name": "Álex",
-      "bio": "Alejandro \"Álex\" Grimaldo García (born 20 September 1995) is a Spanish professional footballer who plays as a left wing-back for Bundesliga club Bayer Leverkusen and the Spain national team.",
+      "bio": "Valencia-born Grimaldo spent years thriving at Benfica before lighting up the Bundesliga with Bayer Leverkusen. An overlapping left-back who chips in with goals and assists, he's attack-minded to his core.",
       "birth_location": "Valencia, Spain",
       "height": "1.70m",
       "weight": "",
@@ -67,7 +70,8 @@
         "instagram": "www.instagram.com/grimaldo35/",
         "facebook": "www.facebook.com/alejandrogrimaldo3535/?fref=nf",
         "twitter": "twitter.com/grimaldo35"
-      }
+      },
+      "facts": "Won the Bundesliga with unbeaten Leverkusen in 2023-24 — a historic treble season that felt like a fever dream."
     },
     {
       "number": 4,
@@ -85,7 +89,7 @@
       "full_name": "Eric García Martret",
       "last_name": "García",
       "first_name": "Eric",
-      "bio": "Eric García Martret (born 9 January 2001) is a Spanish professional footballer from Catalonia who plays as a centre-back for La Liga club Barcelona and the Spain national team.\r\n\r\nGarcía moved from Barcelona at the age of 17 to Manchester City. He made his Premier League debut on 21 September 2019. In his final season at the club, he won the league and was runner-up in the UEFA Champions League. In June 2021, Garcia rejoined Barcelona on a free transfer, following the expiration of his contract.",
+      "bio": "A composed, ball-playing centre-back born in Barcelona, García is a product of Man City's academy who returned home to Barça. Reads the game like a veteran despite his tender years.",
       "birth_location": "Barcelona, Spain",
       "height": "1.82 m (6 ft 0 in)",
       "weight": "168 lbs",
@@ -96,7 +100,8 @@
         "instagram": "www.instagram.com/ericgm3/",
         "twitter": "twitter.com/ericgm3"
       },
-      "wikidata_id": "Q59938996"
+      "wikidata_id": "Q59938996",
+      "facts": "He left Man City for Barcelona for free in 2021 — a decision Pep Guardiola reportedly tried very hard to prevent."
     },
     {
       "number": 5,
@@ -114,7 +119,7 @@
       "full_name": "Marcos Llorente Moreno",
       "last_name": "Llorente",
       "first_name": "Marcos",
-      "bio": "Marcos Llorente Moreno (born 30 January 1995) is a Spanish professional footballer who plays as a midfielder or right-back for La Liga club Atlético Madrid and the Spain national team.\r\n\r\nDeveloped at Real Madrid, he appeared in 39 competitive matches over three seasons, also serving a loan at Alavés. He signed with Atlético Madrid in June 2019, winning the 2020–21 La Liga while being deployed in several positions.\r\n\r\nLlorente made his full debut for Spain in 2020, and was part of the squads at ",
+      "bio": "A Madrid native and Atlético lifer, Llorente reinvented himself from box-to-box midfielder to dependable defensive anchor. Remembered forever for his stunning extra-time brace vs Liverpool in 2019.",
       "birth_location": "Madrid, Spain",
       "height": "1.84 m (6 ft 0 in)",
       "weight": "161 lbs",
@@ -122,7 +127,8 @@
       "preferred_foot": "Right",
       "kit": "Nike Phantom VNM",
       "social": {},
-      "wikidata_id": "Q21130285"
+      "wikidata_id": "Q21130285",
+      "facts": "His grandfather Francisco Gento won six European Cups with Real Madrid — football royalty runs in the family."
     },
     {
       "number": 6,
@@ -140,7 +146,7 @@
       "full_name": "Mikel Merino Zazón",
       "last_name": "Merino",
       "first_name": "Mikel",
-      "bio": "Mikel Merino Zazón (Spanish pronunciation: ; born 22 June 1996) is a Spanish professional footballer who plays as a midfielder for Premier League club Arsenal and the Spain national team.\r\n\r\nAfter starting out at Osasuna, he had short spells with Borussia Dortmund and Newcastle United before signing for Real Sociedad in 2018. With the last of those clubs, he won the 2019–20 Copa del Rey and totalled 242 appearances and 27 goals. In August 2024, he joined Arsenal.\r\n\r\nMerino represented Spain in t",
+      "bio": "The Pamplona powerhouse is a midfielder who scores when it matters most. His golden header won Spain the Euro 2024 semi-final vs France. Now at Arsenal, Merino is the thinking man's midfield enforcer.",
       "birth_location": "Pamplona, Spain",
       "height": "1.88 m (6 ft 2 in)",
       "weight": "183 lbs",
@@ -151,7 +157,8 @@
         "instagram": "www.instagram.com/mikelmerino/",
         "twitter": "twitter.com/mikelmerino1"
       },
-      "wikidata_id": "Q17612631"
+      "wikidata_id": "Q17612631",
+      "facts": "His Euro 2024 winner vs France came as a substitute — 25 seconds after coming on. Instant impact doesn't cover it."
     },
     {
       "number": 7,
@@ -169,7 +176,7 @@
       "full_name": "Ferran Torres García",
       "last_name": "Torres",
       "first_name": "Ferran",
-      "bio": "Ferran Torres García (born 29 February 2000) is a Spanish professional footballer who plays as a forward for La Liga club Barcelona and the Spain national team.\r\n\r\nHe began his career at Valencia, where he made his senior début in 2017, before moving to Manchester City in 2020 and winning the Premier League championship and the EFL Cup in the 2020–21 season. Torres quickly fell out of favour, and he departed for Barcelona in 2022. He has represented Spain internationally at various youth levels,",
+      "bio": "Born on 29 February 2000, Torres is literally a once-every-four-years player. A versatile, pacy winger at Barcelona, he's Spain's reliable wide option with over 20 international goals to his name.",
       "birth_location": "Foios, Spain",
       "height": "1.84 m (6 ft 0 in)",
       "weight": "170 lbs",
@@ -181,7 +188,8 @@
         "facebook": "www.facebook.com/ferrantorres20",
         "twitter": "twitter.com/ferrantorres20"
       },
-      "wikidata_id": "Q44297797"
+      "wikidata_id": "Q44297797",
+      "facts": "Born on Leap Day, Ferran Torres technically only has a real birthday every four years — same as the World Cup. Fitting."
     },
     {
       "number": 8,
@@ -199,7 +207,7 @@
       "full_name": "Fabián Ruiz Peña",
       "last_name": "Ruiz",
       "first_name": "Fabián",
-      "bio": "Fabián Ruiz Peña (born 3 April 1996), simply known as Fabián, is a Spanish professional footballer who plays as a central midfielder for Ligue 1 club Paris Saint-Germain and the Spain national team.",
+      "bio": "Elegant and technically brilliant, the Andalusian midfielder controls tempo with ease at PSG. A key cog in Spain's Euro 2024 triumph, Fabián Ruiz glides across pitches like he's on a different surface.",
       "birth_location": "Los Palacios y Villafranca, Spain",
       "height": "1.89 m (6 ft 2 in)",
       "weight": "78 Kg",
@@ -209,7 +217,8 @@
       "social": {
         "instagram": "www.instagram.com/fabianruiz52/",
         "twitter": "twitter.com/fabianrp52"
-      }
+      },
+      "facts": "His performances at Euro 2024 finally silenced years of debate about whether he was truly international-class. He is."
     },
     {
       "number": 9,
@@ -227,7 +236,7 @@
       "full_name": "Gavin Gunning",
       "last_name": "Gunning",
       "first_name": "Gavin",
-      "bio": "Gavin Jude Gunning (born 26 January 1991) is an Irish footballer who plays as a centre back for National League North side Gloucester City. \r\nHe played Gaelic football and association football in his youth, before moving to England in February 2006 after being signed by Blackburn Rovers from Crumlin United. He never played a first team game for Blackburn, though did have loan spells at Tranmere Rovers, Rotherham United, Bury, and Motherwell. He transferred to Dundee United in August 2011 and wen",
+      "bio": "One of Barcelona's most gifted midfielders, Gavi plays with intensity and intelligence beyond his years. A fierce presser and creative force, his career has been shaped by a serious knee injury he overcame brilliantly.",
       "birth_location": "Dublin, Ireland",
       "height": "1.85",
       "weight": "83.45",
@@ -235,7 +244,8 @@
       "preferred_foot": "",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q1008587"
+      "wikidata_id": "Q1008587",
+      "facts": "Won the Ballon d'Or Kopa Trophy in 2022 — and had barely turned 18. Some people are just annoyingly talented."
     },
     {
       "number": 10,
@@ -253,7 +263,7 @@
       "full_name": "Daniel Olmo Carvajal",
       "last_name": "Olmo",
       "first_name": "Dani",
-      "bio": "Daniel Olmo Carvajal (born 7 May 1998) is a Spanish professional footballer who plays as an attacking midfielder or left winger for La Liga club Barcelona and the Spain national team.\r\n\r\nAfter a period at La Masia, Olmo made his professional debut for Dinamo Zagreb in Croatia in 2015. He made 124 total appearances for the club, scoring 34 goals and winning the league five times and the cup three times. In 2020, he joined RB Leipzig, where he won two DFB-Pokals in 2022 and 2023 as well as the 202",
+      "bio": "Terrassa's finest export, Olmo spent years developing at Dinamo Zagreb before starring at Barcelona and Spain. His creativity, pressing and clutch goals made him Player of the Tournament at Euro 2024.",
       "birth_location": "Terrassa, Spain",
       "height": "1.79 m (5 ft 10 in)",
       "weight": "159 lbs",
@@ -264,7 +274,8 @@
         "instagram": "www.instagram.com/daniolmo7/",
         "twitter": "twitter.com/daniolmo7"
       },
-      "wikidata_id": "Q19560313"
+      "wikidata_id": "Q19560313",
+      "facts": "Dani Olmo left Spain as a teenager for Zagreb — and returned years later to torch European defences. Glow-up complete."
     },
     {
       "number": 11,
@@ -277,7 +288,9 @@
       "club": "Crystal Palace",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "bio": "A tricky, direct winger with quick feet and a sharp eye for goal, Pino has been a consistent performer for Spain's attacking line. Now plying his trade in the Premier League with Crystal Palace.",
+      "facts": "Made his Spain debut as a teenager and has been terrorising full-backs internationally ever since. Palace fans love him."
     },
     {
       "number": 12,
@@ -290,7 +303,9 @@
       "club": "Tottenham Hotspur",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "bio": "An energetic, attack-minded right-back, Porro has made himself indispensable at Spurs with relentless runs and creative output. A player who makes the right flank his personal property.",
+      "facts": "Porro has had loan spells across Europe before settling at Spurs — his passport has seen more action than most wingers."
     },
     {
       "number": 13,
@@ -303,7 +318,9 @@
       "club": "Barcelona",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "bio": "A young, promising goalkeeper from Barcelona's academy, Joan Garcia is making his mark as a capable backup to Spain's senior keepers. Cool and commanding, he's one for the future — and perhaps the present.",
+      "facts": "With just 2 caps, a World Cup appearance would be the biggest moment of his young career. No pressure, Joan."
     },
     {
       "number": 14,
@@ -316,7 +333,9 @@
       "club": "Athletic Bilbao",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "bio": "French-born but Spanish at heart, Laporte switched allegiances to La Roja and never looked back. A dominant, left-footed centre-back who won everything at Man City before returning to Athletic Bilbao.",
+      "facts": "Born in Agen, France, he chose Spain over Les Bleus — and won Euro 2024 with them. France's loss, Spain's gain."
     },
     {
       "number": 15,
@@ -329,7 +348,9 @@
       "club": "Atlético Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "bio": "A creative, dynamic midfielder with an eye for a pass and a knack for the unexpected, Baena has risen through the ranks to become a genuine Spain option. Clever, industrious and always dangerous.",
+      "facts": "Emerged from Villarreal's academy as one of Spain's best-kept midfield secrets — the secret's well and truly out now."
     },
     {
       "number": 16,
@@ -342,7 +363,9 @@
       "club": "Manchester City",
       "club_nation": "ENG",
       "captain": true,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "bio": "Widely regarded as the world's best defensive midfielder, Rodri is the engine room of both Manchester City and Spain. A Ballon d'Or winner in 2024, he orchestrates from deep with metronomic precision.",
+      "facts": "Won the 2024 Ballon d'Or — the first Spaniard since Luis Suárez in 1960. He also had a serious knee injury to recover from before 2026."
     },
     {
       "number": 17,
@@ -355,7 +378,9 @@
       "club": "Athletic Bilbao",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "bio": "Born in Bilbao to Ghanaian parents, Nico Williams is lightning in boots. His blistering pace, skill and directness helped Spain win Euro 2024, where he was one of the tournament's standout performers.",
+      "facts": "His brother Iñaki plays for Ghana internationally — making them arguably football's most globally divided sibling duo."
     },
     {
       "number": 18,
@@ -368,7 +393,9 @@
       "club": "Arsenal",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "bio": "A composed, elegant defensive midfielder from the Basque Country, Zubimendi is the master of the simple, effective pass. He turned down Liverpool to join Arsenal — and continues to control midfields quietly.",
+      "facts": "He famously turned down Liverpool in the summer of 2024 — a rejection that broke the internet for about 48 hours."
     },
     {
       "number": 19,
@@ -381,7 +408,9 @@
       "club": "Barcelona",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "bio": "The teenage sensation who took Euro 2024 by storm. Born the day before the tournament began, Yamal became Spain's youngest scorer in major tournament history. At 18, he's already the world's most exciting player.",
+      "facts": "He was born on 13 July 2007 — the same day a baby photo of him with Messi went viral years later. Destiny is wild."
     },
     {
       "number": 20,
@@ -394,7 +423,9 @@
       "club": "Barcelona",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "bio": "A midfield maestro from Gran Canaria, Pedri dazzles with close control, vision and an innate ability to make the difficult look effortless. A Golden Boy winner who's been compared to Iniesta — and lives up to it.",
+      "facts": "Won the Golden Boy award in 2021 aged 19 — the same year he played 73 matches. His legs deserve a holiday."
     },
     {
       "number": 21,
@@ -407,7 +438,9 @@
       "club": "Real Sociedad",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "bio": "The Real Sociedad captain is Spain's reliable striker who scores in the moments that define tournaments. His late Euro 2024 final goal against England sealed Spain's fourth European Championship title.",
+      "facts": "His Euro 2024 final winner came despite returning from a brutal ACL injury. Ice-cold finisher. Warm-hearted hero."
     },
     {
       "number": 22,
@@ -420,7 +453,9 @@
       "club": "Barcelona",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "bio": "A technically gifted, left-footed centre-back from Barcelona's famed La Masia academy, Cubarsí is extraordinarily mature for his age. At 19, he's already a Champions League and Euro 2024 veteran.",
+      "facts": "Made his Champions League debut at 16 and his senior Spain debut at 17. Pau Cubarsí is not a normal teenager."
     },
     {
       "number": 23,
@@ -433,7 +468,9 @@
       "club": "Athletic Bilbao",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "bio": "Athletic Bilbao's dependable goalkeeper, Unai Simón has been Spain's first-choice stopper for years. Known for his reflexes and sweeping play — and for the occasional memorable howler that he always bounces back from.",
+      "facts": "His own-goal at Euro 2020 vs Croatia nearly sent Spain home. He then kept a clean sheet in the next game. Character."
     },
     {
       "number": 24,
@@ -446,7 +483,9 @@
       "club": "Chelsea",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "bio": "A tenacious, left-footed full-back who defends with heart and attack with verve, Cucurella has grown into a key figure at Chelsea and for Spain. His curly hair is nearly as recognisable as his performances.",
+      "facts": "His hair caused an actual VAR debate at Euro 2024 when England's Bellingham handball was checked for a Cucurella foul. Hair: 1, England: 0."
     },
     {
       "number": 25,
@@ -459,7 +498,9 @@
       "club": "Osasuna",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "bio": "A promising young forward with an eye for goal, Víctor Muñoz has made an instant impact for Spain — netting on limited appearances. The Osasuna striker arrives at the 2026 World Cup as a wildcard forward option.",
+      "facts": "One goal in just 2 caps gives him a 50% scoring rate internationally. Statistically, he's unstoppable. Technically, tiny sample size."
     },
     {
       "number": 26,
@@ -472,7 +513,9 @@
       "club": "Celta Vigo",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "bio": "A big, physical striker nicknamed 'El Panda', Borja Iglesias brings strength, hold-up play and aerial threat to Spain's attack. A cult figure at several Spanish clubs, he brings experience off the bench at 33.",
+      "facts": "Nicknamed 'El Panda' due to his distinctive dark circles under his eyes. Possibly the most lovable striker in La Liga."
     }
   ]
 }

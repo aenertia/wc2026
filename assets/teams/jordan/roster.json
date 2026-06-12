@@ -13,7 +13,9 @@
       "club": "Al-Hussein",
       "club_nation": "JOR",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "bio": "Jordan's first-choice stopper with 76 caps, Abulaila is the calm hands behind Al-Nashama's defensive resilience. A loyal Al-Hussein servant, he's the veteran presence Jordan need for their historic World Cup debut.",
+      "facts": "Has kept goal for Jordan for over a decade — and finally gets to do it on the biggest stage of all in 2026."
     },
     {
       "number": 2,
@@ -26,7 +28,9 @@
       "club": "Al-Karma",
       "club_nation": "IRQ",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "bio": "A dependable right-back with 56 caps and even a goal to his name, Abu Hashish brings experience and energy to Jordan's backline. His crossing and defensive discipline make him a reliable weapon down the flank.",
+      "facts": "Defenders who score are rare — Abu Hashish has one international goal. He'll want more at a World Cup, naturally."
     },
     {
       "number": 3,
@@ -39,7 +43,9 @@
       "club": "Al-Zawraa",
       "club_nation": "IRQ",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "bio": "A commanding centre-back with 65 caps and 3 international goals, Nasib is no stranger to danger — in either box. Plying his trade at Al-Zawraa in Iraq, he's battle-hardened and ready for the world stage.",
+      "facts": "3 goals in 65 caps as a defender — Nasib scores roughly as often as buses run on time. Remarkably reliable."
     },
     {
       "number": 4,
@@ -52,7 +58,9 @@
       "club": "Al-Faisaly",
       "club_nation": "JOR",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "bio": "Young and ambitious, Abu Dahab is one of Jordan's rising defensive talents at just 26. With 18 caps under his belt, the Al-Faisaly man is earning his stripes and arrives at 2026 hungry to prove himself globally.",
+      "facts": "Born on 13 May 2000 — a Taurus, which astrologers say makes him stubborn. Useful quality for a defender."
     },
     {
       "number": 5,
@@ -65,7 +73,9 @@
       "club": "FC Seoul",
       "club_nation": "KOR",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "bio": "One of Jordan's most experienced outfield players with 80 caps, Al-Arab plies his trade in South Korea with FC Seoul. A cultured defender who has embraced life abroad, he's a true modern footballer.",
+      "facts": "Al-Arab plays club football in Seoul, South Korea — making him one of Jordan's most well-travelled internationals."
     },
     {
       "number": 6,
@@ -83,14 +93,15 @@
       "full_name": "Amer Rasem Adel Jamous; عَامِر رَاسِم عَادِل جَامُوس",
       "last_name": "Jamous",
       "first_name": "Amer",
-      "bio": "Amer Rasem Adel Jamous (Arabic: عَامِر رَاسِم عَادِل جَامُوس; born 3 July 2002) is a Jordanian professional footballer who plays as a midfielder for Iraq Stars League club Al-Zawraa, on loan from Al-Wehdat, as well as the Jordan national team.",
+      "bio": "At just 23, Jamous is one of Jordan's most exciting young midfielders. Already with 19 caps and a goal to his name, the Al-Zawraa engine brings dynamism and ambition to the centre of the park.",
       "birth_location": ", Jordan",
       "height": "177 cm",
       "weight": "76 kg",
       "position_detail": "Central Midfield",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Born in 2002, Jamous was just 12 when Jordan last qualified for an Asian Cup final. Now he's at a World Cup."
     },
     {
       "number": 7,
@@ -108,14 +119,15 @@
       "full_name": "Mohammad Faisal Yousef Abu Zrayq; محمد فيصل يوسف أبو زريق; Shararh",
       "last_name": "Zrayq",
       "first_name": "Mohammad Abu",
-      "bio": "Mohammad Faisal Yousef Abu Zrayq (Arabic: محمد فيصل يوسف أبو زريق, born 30 December 1997), popularly known as Sharara (Arabic: شرارة), is a Jordanian professional footballer who plays as a winger for Botola Pro club Raja CA and the Jordan national team.",
+      "bio": "Hailing from Ar-Ramtha, Abu Zrayq is Jordan's flying right winger who found his stage at Raja Casablanca. With 5 goals in 41 caps, the tricky wideman has the flair to trouble any full-back in the tournament.",
       "birth_location": "Ar-Ramtha, Jordan",
       "height": "170 cm",
       "weight": "",
       "position_detail": "Right Winger",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Abu Zrayq plays for Raja Casablanca — one of Africa's most storied clubs. Not bad for a lad from Ar-Ramtha."
     },
     {
       "number": 8,
@@ -133,14 +145,15 @@
       "full_name": "Noor Al-Deen Mahmoud Ali Al-Rawabdeh; نُور الدِّيْن مَحمُود عَلِيّ الرَّوَّابدَة",
       "last_name": "Al-Rawabdeh",
       "first_name": "Noor",
-      "bio": "Noor Al-Deen Mahmoud Ali Al-Rawabdeh (Arabic: نُور الدِّيْن مَحمُود عَلِيّ الرَّوَّابدَة; born 24 February 1997) is a Jordanian professional footballer who plays as a midfielder for Malaysia Super League club Selangor and the Jordan national team.",
+      "bio": "A energetic central midfielder with 68 caps, Al-Rawabdeh has built a career abroad with Selangor in Malaysia. He brings a blend of tenacity and technical ability to Jordan's engine room at his first World Cup.",
       "birth_location": "Amman, Jordan",
       "height": "182 cm",
       "weight": "75 kg",
       "position_detail": "Central Midfield",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Al-Rawabdeh plays in Malaysia's Super League — giving Jordan a truly global squad spanning three continents."
     },
     {
       "number": 9,
@@ -158,14 +171,15 @@
       "full_name": "Ali Iyad Ali Olwan; علي إياد علي علوان",
       "last_name": "Olwan",
       "first_name": "Ali",
-      "bio": "Ali Iyad Ali Olwan (Arabic: علي إياد علي علوان; born 26 March 2000) is a Jordanian professional footballer who plays as a forward for Qatar Stars League club Al-Sailiya and the Jordan national team.",
+      "bio": "At just 26, Olwan is Jordan's main striker and one of their deadliest weapons — 29 goals in 66 caps is a remarkable return. Born in Amman, the Al-Sailiya forward will be the name opposition defences fear most.",
       "birth_location": "Amman, Jordan",
       "height": "181 cm",
       "weight": "80 kg",
       "position_detail": "Centre-Forward",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "29 goals in 66 caps gives Olwan a goals-per-game ratio that most strikers would envy. Jordan's golden boot hope."
     },
     {
       "number": 10,
@@ -183,7 +197,7 @@
       "full_name": "Musa Mohammad Sulaiman Al-Taamari; مُوسى مُحَمَّد مُوسى سُلَيْمَان التَعمري",
       "last_name": "Al-Taamari",
       "first_name": "Musa",
-      "bio": "Musa Mohammad Sulaiman Al-Taamari (Arabic: مُوسى مُحَمَّد مُوسى سُلَيْمَان التَعمري; born 10 June 1997), also spelled as Mousa Al-Tamari, is a Jordanian professional footballer who plays as a right winger for Ligue 1 club Rennes and the Jordan national team.\r\n\r\nIn the 2023 AFC Asian Cup, Al-Tamari led his country to their first ever final. After joining French club Montpellier in 2023, he became the first Jordanian footballer to play and score in a top five European League. Known for his skills,",
+      "bio": "Jordan's star man and captain, Al-Taamari is the creative heartbeat of Al-Nashama. With 24 goals in 92 caps and a move to Rennes in Ligue 1, the Amman-born winger is Jordan's most recognisable football export.",
       "birth_location": "Amman, Jordan",
       "height": "1.78 m (5 ft 8 in)",
       "weight": "75 kg",
@@ -191,7 +205,8 @@
       "preferred_foot": "Left",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q27909473"
+      "wikidata_id": "Q27909473",
+      "facts": "Al-Taamari wears the No.10 and plays in France's Ligue 1 — Jordan's answer to the classic trequartista superstar."
     },
     {
       "number": 11,
@@ -209,14 +224,15 @@
       "full_name": "Odeh Fakhoury, Odeh Burhan Shehadeh Fakhoury, عودة برهان شحادة الفاخوري",
       "last_name": "Al-Fakhouri",
       "first_name": "Odeh",
-      "bio": "Odeh Burhan Shehadeh Fakhoury (Arabic: عودة برهان شحادة الفاخوري; born 22 November 2005) is a Jordanian footballer who plays as a forward for Egyptian Premier League club Pyramids and the Jordan national team.",
+      "bio": "Born in 2005, Al-Fakhouri is a teenager stepping onto the grandest stage imaginable. Just 20 with 10 caps and already a goal scorer, the Pyramids winger is Jordan's most thrilling young talent.",
       "birth_location": "Amman, Jordan",
       "height": "1.80 m (5 ft 11 in)",
       "weight": "",
       "position_detail": "Left Wing",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Al-Fakhouri was born the same year YouTube launched. He's that young — and already at a World Cup."
     },
     {
       "number": 12,
@@ -234,14 +250,15 @@
       "full_name": "Noureddin Zaid Khaleel Bani Ateyah; نُور الدِّين زِيَاد بَنِي عَطِيَّة",
       "last_name": "Attiah",
       "first_name": "Nour Bani",
-      "bio": "Noureddin Ziad Bani Attiah (Arabic: نُور الدِّين زِيَاد بَنِي عَطِيَّة; born 25 January 1993) is a Jordanian footballer who plays as a goalkeeper for Al-Faisaly and the Jordan national team.",
+      "bio": "Veteran backup goalkeeper Bani Attiah has waited patiently for his international chance, earning just 5 caps despite being 33. The Al-Faisaly stopper provides experienced cover and will relish the World Cup atmosphere.",
       "birth_location": "Amman, Jordan",
       "height": "179 cm",
       "weight": "",
       "position_detail": "Goalkeeper",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "With only 5 caps at age 33, Bani Attiah is proof that patience is a virtue — especially for goalkeepers."
     },
     {
       "number": 13,
@@ -259,14 +276,15 @@
       "full_name": "Mahmoud Nayef Mardi Al-Hwaitat; مَحْمُود نَايِف مَرْضِيّ الحويطات",
       "last_name": "Al-Mardi",
       "first_name": "Mahmoud",
-      "bio": "Mahmoud Nayef Mardi Al-Hwaitat (Arabic: مَحْمُود نَايِف مَرْضِيّ الحويطات; born 6 October 1993) is a Jordanian footballer who plays as a winger for the Jordanian club Al-Hussein and the Jordan national team.",
+      "bio": "A veteran winger from Aqaba with 89 caps and 9 international goals, Al-Mardi is one of Jordan's most experienced performers. Quick, direct and dangerous, he's been a fixture on the left for over a decade.",
       "birth_location": "Aqaba, Jordan",
       "height": "179 cm",
       "weight": "73 kg",
       "position_detail": "Left Wing",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Al-Mardi is from Aqaba — Jordan's only sea port. He's been making waves for the national team ever since."
     },
     {
       "number": 14,
@@ -284,14 +302,15 @@
       "full_name": "Rajaei Ayed Fadel Hasan; رجائي عايد فاضل حسن‎",
       "last_name": "Ayed",
       "first_name": "Rajaei",
-      "bio": "Rajaei Ayed Fadel Hasan (Arabic: رَجَائِيّ عَايِد فَاضِل حَسَن) is a Jordanian professional footballer who plays as a midfielder for Jordanian Pro League club Al-Hussein and the Jordan national team.",
+      "bio": "A tireless central midfielder and model of consistency, Ayed has 72 caps without a single international goal — clean sheets for the scorers, chaos for opponents. A dependable midfield anchor for Jordan's big moment.",
       "birth_location": "Amman, Jordan",
       "height": "179 cm",
       "weight": "75 kg",
       "position_detail": "Central Midfield",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "72 caps, 0 goals. Rajaei Ayed is the ultimate selfless midfielder — all graft, no glory. And Jordan love him for it."
     },
     {
       "number": 15,
@@ -309,14 +328,15 @@
       "full_name": "Ibrahim Mohammad Sami Sadeh; إبراهيم سعادة",
       "last_name": "Sadeh",
       "first_name": "Ibrahim",
-      "bio": "Ibrahim Mohammad Sami Sadeh (Arabic: إبراهيم سعادة; born 27 April 2000) is a Jordanian professional footballer who plays as a midfielder for Iraqi Stars League side Al-Karma and the Jordan national team.",
+      "bio": "Born in Zarqa and developed at Al-Karma, Sadeh is a combative and creative central midfielder with 57 caps at 26. His three international goals suggest he's no stranger to arriving late in the box either.",
       "birth_location": "Zarqa, Jordan",
       "height": "182 cm",
       "weight": "75 kg",
       "position_detail": "Central Midfield",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Sadeh was born in Zarqa — the same city as the legendary Abu Musab Al-Zarqawi. He's chosen a different path."
     },
     {
       "number": 16,
@@ -334,14 +354,15 @@
       "full_name": "Mohammad Abu Al-Nadi; محمد ابو النادي",
       "last_name": "Abualnadi",
       "first_name": "Mohammad",
-      "bio": "Mohammad Abu Al-Nadi (Arabic: محمد ابو النادي; born 8 February 2001) is a professional footballer who plays as a centre-back for Malaysia Super League side Selangor. Born in the United States, he plays for the Jordan national team.",
+      "bio": "Born in Overland Park, Kansas, Abualnadi is Jordan's slice of the American Midwest. The Selangor centre-back chose the Hashemites over the Stars and Stripes, adding international intrigue to his resume.",
       "birth_location": "Overland Park, Kansas, United States",
       "height": "185 cm",
       "weight": "179 lbs",
       "position_detail": "Centre-Back",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Born in Kansas, plays in Malaysia, represents Jordan. Mo Abualnadi's football journey has more stamps than most passports."
     },
     {
       "number": 17,
@@ -354,7 +375,9 @@
       "club": "Al-Hussein",
       "club_nation": "JOR",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "bio": "A defensive utility player with 11 caps, Obaid is one of the squad's older members at 34. His experience and professionalism make him a valued presence in a squad heading to their first-ever World Cup.",
+      "facts": "At 34, Obaid is one of Jordan's oldest squad members — and has earned every grey hair waiting for this World Cup."
     },
     {
       "number": 18,
@@ -372,14 +395,15 @@
       "full_name": "Mohammad Ahmed Mohammad Taha; محمد أحمد محمد طه; Mohammad Abu Ghoush",
       "last_name": "Taha",
       "first_name": "Mohammad",
-      "bio": "Mohammad Ahmed Mohammad Taha (Arabic: محمد أحمد محمد طه; born 13 July 2005), also known as Mohammad Abu Ghoush (Arabic: محمد أبو غوش), is a Jordanian professional footballer who plays as a left back for Jordanian Pro League club Al-Hussein, on loan from Shabab Al-Ordon, and the Jordan national team.",
+      "bio": "At just 20 with only 2 caps, Taha is a World Cup rookie in the truest sense. The young Al-Hussein left-back is one of Jordan's most exciting defensive prospects, getting the experience of a lifetime in 2026.",
       "birth_location": ", Jordan",
       "height": "182 cm",
       "weight": "",
       "position_detail": "Left-Back",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Mohammad Taha has 2 caps. He's about to experience a World Cup. That's going from zero to hero very quickly."
     },
     {
       "number": 19,
@@ -392,7 +416,9 @@
       "club": "Al-Hussein",
       "club_nation": "JOR",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "bio": "A versatile defender with 21 caps and 2 goals, Al-Rosan provides energy and attacking intent from the backline. A dependable option for Jordan's coach, he's earned his place at the World Cup through consistent performances.",
+      "facts": "Two goals in 21 caps as a defender — Al-Rosan clearly missed the memo that defenders aren't supposed to score."
     },
     {
       "number": 20,
@@ -405,7 +431,9 @@
       "club": "Al-Quwa Al-Jawiya",
       "club_nation": "IRQ",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "bio": "Still only 23, Abu Taha is a promising midfielder who plies his trade with the Iraqi side Al-Quwa Al-Jawiya. With 29 caps already banked, this composed playmaker has a bright future — starting at World Cup 2026.",
+      "facts": "Abu Taha plays for Al-Quwa Al-Jawiya — the Iraqi Air Force club. His passing range is, fittingly, aerial."
     },
     {
       "number": 21,
@@ -418,7 +446,9 @@
       "club": "Qatar SC",
       "club_nation": "QAT",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "bio": "A creative midfielder with 47 caps and 4 goals, Al-Rashdan operates out of Qatar SC with composure and craft. An important creative outlet for Jordan, his vision in tight spaces could be key in 2026.",
+      "facts": "Al-Rashdan plays his club football in Qatar — he already knows what World Cup host-nation football looks like up close."
     },
     {
       "number": 22,
@@ -431,7 +461,9 @@
       "club": "Al-Wehdat",
       "club_nation": "JOR",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "bio": "Back-up goalkeeper Al-Fakhouri provides solid competition between the sticks for Jordan. With 11 caps for the Al-Wehdat shot-stopper, he's a trusted second option who keeps the No.1 on their toes.",
+      "facts": "Al-Fakhouri shares a surname with winger Odeh Al-Fakhouri (No.11). Jordan's squad — practically a family reunion."
     },
     {
       "number": 23,
@@ -444,7 +476,9 @@
       "club": "Al-Hussein",
       "club_nation": "JOR",
       "captain": true,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "bio": "One of Jordan's most capped players with 92 appearances, Haddad is a rock-solid defender who has given everything for Al-Nashama. At 32, this World Cup represents the crowning achievement of a distinguished career.",
+      "facts": "92 caps and still going — Ihsan Haddad has more Jordan appearances than almost anyone. A true Al-Nashama legend."
     },
     {
       "number": 24,
@@ -457,7 +491,9 @@
       "club": "Al-Shabab",
       "club_nation": "KSA",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "bio": "A 22-year-old forward with Al-Shabab, Azaizeh is one of the fresher faces in Jordan's 2026 squad. With just 4 caps, he's a wildcard option up front — young, hungry, and desperate to make his mark.",
+      "facts": "Four caps at 22 — Azaizeh is still writing chapter one of his international story. What better place than a World Cup?"
     },
     {
       "number": 25,
@@ -470,7 +506,9 @@
       "club": "Al-Wehdat",
       "club_nation": "JOR",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "bio": "An experienced Al-Wehdat midfielder at 34, Al-Dawoud brings wisdom and craft to Jordan's midfield options. With 13 caps and a World Cup spot secured, he proves it's never too late to reach the pinnacle of the game.",
+      "facts": "Al-Dawoud is 34 and heading to his first World Cup. Proof that dreams don't have an expiry date."
     },
     {
       "number": 26,
@@ -483,7 +521,9 @@
       "club": "Al-Faisaly",
       "club_nation": "JOR",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "bio": "With just 1 cap to his name, Badawi is perhaps Jordan's most uncapped squad member — but the Al-Faisaly defender has earned his spot through domestic excellence. The World Cup dream is real, even for late bloomers.",
+      "facts": "Anas Badawi has 1 international cap. He'll spend the World Cup hoping cap number 2 is just around the corner."
     }
   ]
 }

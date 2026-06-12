@@ -13,7 +13,9 @@
       "club": "Fenerbahçe",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "bio": "Veteran shot-stopper who has been Fenerbahçe's rock between the sticks. At 37, Günok brings vast experience to his first World Cup as Turkey's No.1, proving age is just a number when your reflexes remain sharp.",
+      "facts": "Born on 1 March 1989, Günok shares his birthday with Justin Bieber. Unlike Bieber, he specialises in stopping things going in."
     },
     {
       "number": 2,
@@ -26,7 +28,9 @@
       "club": "Roma",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "bio": "Combative right-back who swapped Istanbul for Rome and never looked back. Çelik is a tireless overlapper with a tenacious defensive bite, a veteran of 61 caps who knows how to handle the big occasion.",
+      "facts": "Zeki Çelik has played in Serie A, Ligue 1, and now the World Cup — a well-travelled full-back who collects leagues like postcards."
     },
     {
       "number": 3,
@@ -39,7 +43,9 @@
       "club": "Al-Ahli",
       "club_nation": "KSA",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "bio": "Powerful centre-back who once made Serie A strikers lose sleep. Demiral scored a brace against Austria at Euro 2020 with a memorable wolf-salute celebration. Now plying his trade in Saudi Arabia at his peak.",
+      "facts": "His double vs Austria at Euro 2020 was followed by a controversial wolf-salute celebration that earned him a two-match UEFA suspension."
     },
     {
       "number": 4,
@@ -52,7 +58,9 @@
       "club": "Fenerbahçe",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "bio": "Soyuncu is a commanding, ball-playing centre-back who rose to prominence at Leicester City, winning the 2021 Premier League title. Now back in Turkey with Fenerbahçe, he brings elite experience to the backline.",
+      "facts": "Soyuncu won the Premier League with Leicester in 2021 — part of one of football's greatest sporting upsets since the Foxes' 2016 title."
     },
     {
       "number": 5,
@@ -65,7 +73,9 @@
       "club": "Borussia Dortmund",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "bio": "A composed, energetic midfielder born in Cologne, Özcan chose Turkey over Germany and has never looked back. His engine and pressing game make him indispensable at Borussia Dortmund and for the Crescent Stars.",
+      "facts": "Özcan represented Germany at youth level before switching allegiance to Turkey — Dortmund's gain, and Türkiye's too."
     },
     {
       "number": 6,
@@ -78,7 +88,9 @@
       "club": "Beşiktaş",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "bio": "Born in Rotterdam but raised on Turkish pride, Kökcü is a technically gifted midfielder with vision beyond his 25 years. A former Feyenoord captain, he returned to Turkey with Beşiktaş and leads by example.",
+      "facts": "Kökcü was made Feyenoord captain at just 22 — one of the youngest ever to wear the armband at the Dutch giants."
     },
     {
       "number": 7,
@@ -91,7 +103,9 @@
       "club": "Fenerbahçe",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "bio": "A rapid, direct winger with an eye for goal, Aktürkoğlu is one of Turkish football's most exciting attackers. Sixteen goals for Fenerbahçe and 15 international strikes make him a constant danger on either flank.",
+      "facts": "Aktürkoğlu's pace has been clocked among the fastest in Turkish football — defenders reportedly check their insurance before facing him."
     },
     {
       "number": 8,
@@ -104,7 +118,9 @@
       "club": "Real Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "bio": "The jewel in Turkey's crown. Güler burst onto the scene at Fenerbahçe as a teenager before joining Real Madrid. A dribbler of rare elegance with a wand of a left foot, he's only 21 and already unmissable.",
+      "facts": "Güler scored a stunning long-range goal for Real Madrid vs Napoli in the Champions League — at just 19. The world took notes."
     },
     {
       "number": 9,
@@ -117,7 +133,9 @@
       "club": "Porto",
       "club_nation": "POR",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "bio": "A promising young striker making waves at Porto, Gül is one of Turkish football's brightest emerging talents. With 8 caps and 2 goals already banked at 21, this World Cup could be his coming-out party.",
+      "facts": "Born on 2 July 2004, Gül is one of the youngest players in Turkey's 2026 squad — a fresh face on the grandest stage."
     },
     {
       "number": 10,
@@ -130,7 +148,9 @@
       "club": "Inter Milan",
       "club_nation": "ITA",
       "captain": true,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "bio": "Turkey's captain and heartbeat, Çalhanoğlu has transformed into one of Europe's finest defensive midfielders at Inter Milan. Over 100 caps and 22 goals tell only half the story of his football intelligence.",
+      "facts": "Çalhanoğlu once scored directly from a corner kick in Serie A. Even his 'mistakes' end up in the net."
     },
     {
       "number": 11,
@@ -143,7 +163,9 @@
       "club": "Juventus",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "bio": "Born in Regensburg but destined for Turin, Yıldız chose Turkey and has dazzled at Juventus with his flair and maturity. At 21 with 28 caps, he's already a star — and this World Cup is his biggest stage yet.",
+      "facts": "Yıldız wears No.10 for Juventus — a shirt previously worn by legends like Del Piero and Platini. No pressure, Kenan."
     },
     {
       "number": 12,
@@ -156,7 +178,9 @@
       "club": "Manchester United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "bio": "Manchester United's Turkish backup goalkeeper, Bayındır is an agile, commanding shot-stopper with 12 caps. Waiting patiently behind Günok, he's ready to shine if called upon at his first World Cup.",
+      "facts": "Bayındır joined Man United in 2023 but barely played — making this World Cup potentially his most action-packed season in years."
     },
     {
       "number": 13,
@@ -169,7 +193,9 @@
       "club": "Galatasaray",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "bio": "A solid, dependable left-back or centre-back option for Galatasaray and Turkey, Elmalı has quietly accumulated 23 caps with disciplined, no-nonsense defending. A reliable squad option at just 25 years old.",
+      "facts": "Elmalı shares his birthday — 7 July 2000 — with teammate Yunus Akgün. Turkish football's most punctual birth date."
     },
     {
       "number": 14,
@@ -182,7 +208,9 @@
       "club": "Galatasaray",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "bio": "A dependable, physical centre-back who has been a stalwart at Galatasaray, Bardakcı brings strength and aerial dominance to Turkey's defence. With 27 caps and 2 goals, he punches above his weight at both ends.",
+      "facts": "Bardakcı has won multiple Turkish Süper Lig titles with Galatasaray — arriving at the World Cup as a genuine domestic champion."
     },
     {
       "number": 15,
@@ -200,7 +228,7 @@
       "full_name": "Ozan Muhammed Kabak",
       "last_name": "Kabak",
       "first_name": "Ozan",
-      "bio": "Ozan Muhammed Kabak (born 25 March 2000) is a Turkish professional footballer who plays as a centre-back for Bundesliga club 1899 Hoffenheim and the Turkey national team.",
+      "bio": "Ankara-born Kabak is a rugged centre-back who made his name at Schalke and Liverpool before landing at Hoffenheim. Still only 26, he brings Bundesliga steel and Premier League experience to Turkey's defence.",
       "birth_location": "Ankara, Türkiye",
       "height": "1.86 m (6 ft 1 in)",
       "weight": "190 lbs",
@@ -211,7 +239,8 @@
         "instagram": "www.instagram.com/ozankabak4/",
         "twitter": "twitter.com/ozankabak4"
       },
-      "wikidata_id": "Q53280628"
+      "wikidata_id": "Q53280628",
+      "facts": "Kabak joined Liverpool on loan in 2021 and helped them through an injury crisis — a true firefighter of centre-backs."
     },
     {
       "number": 16,
@@ -229,14 +258,15 @@
       "full_name": "İsmail Yüksek",
       "last_name": "Yüksek",
       "first_name": "İsmail",
-      "bio": "İsmail Yüksek (born 26 January 1999) is a Turkish professional footballer who plays as a midfielder for Süper Lig side Fenerbahçe and the Turkey national team.",
+      "bio": "A Bursa-born defensive midfielder with a relentless work rate, Yüksek is the unsung engine of Fenerbahçe's midfield. His 32 caps reflect a rapid rise, and at 27 he's entering his prime years.",
       "birth_location": "Bursa, Türkiye",
       "height": "183 cm",
       "weight": "163 lbs",
       "position_detail": "Defensive Midfield",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Yüksek's surname means 'high' in Turkish — and his stock in Turkish football has been rising steadily ever since."
     },
     {
       "number": 17,
@@ -254,7 +284,7 @@
       "full_name": "İrfan Can Kahveci",
       "last_name": "Kahveci",
       "first_name": "İrfan Can",
-      "bio": "İrfan Can Kahveci (born 15 July 1995) is a Turkish professional footballer who plays as an attacking midfielder or a winger for Süper Lig club Kasımpaşa, on loan from Fenerbahçe, and the Turkey national team.",
+      "bio": "A creative right winger from Çorum with pace and trickery to spare, Kahveci has been a consistent performer for Turkey with 47 caps and 6 goals. A livewire on the flank who can unlock any defence.",
       "birth_location": "Corum, Türkiye",
       "height": "180 cm",
       "weight": "157 lbs",
@@ -263,7 +293,8 @@
       "kit": "",
       "social": {
         "instagram": "www.instagram.com/kahveci10/"
-      }
+      },
+      "facts": "Kahveci's surname means 'coffee maker' in Turkish — he's been giving opposing defenders a rude awakening for years."
     },
     {
       "number": 18,
@@ -281,7 +312,7 @@
       "full_name": "Mert Müldür",
       "last_name": "Müldür",
       "first_name": "Mert",
-      "bio": "Mert Müldür (born 3 April 1999) is a professional footballer who plays as a right-back or a centre-back for Süper Lig club Fenerbahçe. Born in Austria, he represents the Turkey national team. A versatile player, he is capable of playing in multiple positions, especially as a defender.",
+      "bio": "Born in Vienna to Turkish parents, Müldür is an energetic right-back with technical quality and an eye for goal. His 45 caps and 3 international goals show a full-back who loves to join the attack.",
       "birth_location": "Wien, Austria",
       "height": "184 cm",
       "weight": "161 lbs",
@@ -290,7 +321,8 @@
       "kit": "",
       "social": {
         "instagram": "www.instagram.com/mert.m99/?hl=en"
-      }
+      },
+      "facts": "Müldür was born in Austria but pledged his international future to Turkey — a decision Fenerbahçe fans consider very wise."
     },
     {
       "number": 19,
@@ -308,14 +340,15 @@
       "full_name": "Yunus Akgün",
       "last_name": "Akgün",
       "first_name": "Yunus",
-      "bio": "Yunus Akgün (born 7 July 2000) is a Turkish professional footballer who plays as an attacking midfielder or right winger for Süper Lig club Galatasaray, and the Turkey national team.",
+      "bio": "A pacey, direct winger from Istanbul, Akgün came through Galatasaray's academy and has made an impact with 19 caps and 4 goals. Quick, direct, and fearless, he's a handful for any right-back.",
       "birth_location": "Istanbul, Türkiye",
       "height": "173 cm",
       "weight": "141 lbs",
       "position_detail": "Right Winger",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Akgün shares his birthday with teammate Eren Elmalı — both born on 7 July 2000. Twinning at the World Cup."
     },
     {
       "number": 20,
@@ -333,7 +366,7 @@
       "full_name": "Ferdi Erenay Kadıoğlu",
       "last_name": "Kadıoğlu",
       "first_name": "Ferdi",
-      "bio": "Ferdi Erenay Kadıoğlu (born 7 October 1999) is a professional footballer who plays as a full-back, midfielder or winger for Premier League club Brighton & Hove Albion. Born in the Netherlands, he plays for the Turkey national team.",
+      "bio": "Born in Arnhem, Kadıoğlu is one of the most versatile and technically gifted players in the squad. Equally adept at left-back or in midfield, his Brighton form earned him a move to the Premier League.",
       "birth_location": "Arnhem, Netherlands",
       "height": "1.74 m (5 ft 9 in)",
       "weight": "68 kg (150 lb)",
@@ -341,7 +374,8 @@
       "preferred_foot": "Right",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q26719541"
+      "wikidata_id": "Q26719541",
+      "facts": "Kadıoğlu can play left-back, right-back, and central midfield — basically a Swiss Army knife in football boots."
     },
     {
       "number": 21,
@@ -359,14 +393,15 @@
       "full_name": "Barış Alper Yılmaz",
       "last_name": "Yılmaz",
       "first_name": "Barış Alper",
-      "bio": "Barış Alper Yılmaz (born 23 May 2000) is a Turkish professional footballer who plays as a winger for Süper Lig club Galatasaray and the Turkey national team.",
+      "bio": "A Rize-born winger with explosive pace and directness, Barış Alper Yılmaz has become a key weapon for Galatasaray and Turkey. With 35 caps and 4 goals, his ability to stretch defences is invaluable.",
       "birth_location": "Rize, Türkiye",
       "height": "186 cm",
       "weight": "",
       "position_detail": "Right Winger",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Yılmaz hails from Rize — a city better known for Turkey's finest tea than its footballers. He's changing that reputation fast."
     },
     {
       "number": 22,
@@ -384,7 +419,7 @@
       "full_name": "Kaan Ayhan",
       "last_name": "Ayhan",
       "first_name": "Kaan",
-      "bio": "Kaan Ayhan (born 10 November 1994) is a professional footballer who plays as a centre back or a right back for Süper Lig club Galatasaray. Born in Germany, he plays for the Turkey national team.",
+      "bio": "Born in Gelsenkirchen, Ayhan is a commanding centre-back who chose Turkey and became one of their most capped defenders. His 73 international appearances speak volumes about his consistency and reliability.",
       "birth_location": "Gelsenkirchen, Germany",
       "height": "185 cm",
       "weight": "183 lbs",
@@ -393,7 +428,8 @@
       "kit": "",
       "social": {
         "instagram": "http://www.instagram.com/kaanayhan/"
-      }
+      },
+      "facts": "Ayhan was born in the home city of Schalke 04 but never played for them — though with 73 Turkey caps, he found his true home."
     },
     {
       "number": 23,
@@ -411,7 +447,7 @@
       "full_name": "Uğurcan Çakır",
       "last_name": "Çakır",
       "first_name": "Uğurcan",
-      "bio": "Uğurcan Çakır (born 5 April 1996) is a Turkish professional footballer who plays as a goalkeeper for Süper Lig club Galatasaray and the Turkey national team.",
+      "bio": "An Antalya-born goalkeeper who established himself at Trabzonspor before joining Galatasaray, Çakır is a commanding, agile keeper with 39 caps. Turkey's experienced third-choice brings real quality depth.",
       "birth_location": "Antalya, Turkey",
       "height": "1.91 m (6 ft 3 in)",
       "weight": "172 lbs",
@@ -420,7 +456,8 @@
       "kit": "",
       "social": {
         "instagram": "http://www.instagram.com/cakirugurcan61/"
-      }
+      },
+      "facts": "Çakır kept clean sheets in European competition for Trabzonspor — Turkey's most reliable understudy between the sticks."
     },
     {
       "number": 24,
@@ -438,14 +475,15 @@
       "full_name": "Oğuz Aydın",
       "last_name": "Aydın",
       "first_name": "Oğuz",
-      "bio": "Oğuz Aydın (born 27 October 2000) is a professional footballer who plays as a winger for Fenerbahçe. Born in the Netherlands, he represents the Turkey national team.",
+      "bio": "Born in The Hague to Turkish parents, Aydın is a creative left winger who came through Dutch football before committing to Turkey. With 11 caps, this World Cup could be the moment he announces himself globally.",
       "birth_location": "Den Haag, Netherlands",
       "height": "183 cm",
       "weight": "",
       "position_detail": "Left Wing",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Aydın grew up in the Netherlands but chose Turkey — making him one of several Dutch-born stars in this Crescent Stars squad."
     },
     {
       "number": 25,
@@ -463,14 +501,15 @@
       "full_name": "Samet Akaydin",
       "last_name": "Akaydin",
       "first_name": "Samet",
-      "bio": "Samet Akaydın (born 13 March 1994) is a Turkish professional footballer who plays as a centre-back for Süper Lig club Çaykur Rizespor and the Turkey national team.",
+      "bio": "A Trabzon-born centre-back who has reinvented himself at Çaykur Rizespor, Akaydın brings experience and physicality to Turkey's defensive options. At 32, his World Cup inclusion is a reward for consistency.",
       "birth_location": "Trabzon, Türkiye",
       "height": "190 cm",
       "weight": "183 lbs",
       "position_detail": "Centre-Back",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Akaydın has played in Turkey, Spain, and Germany — a well-travelled defender who arrived at the World Cup the long way round."
     },
     {
       "number": 26,
@@ -488,14 +527,15 @@
       "full_name": "Can Yılmaz Uzun",
       "last_name": "Uzun",
       "first_name": "Can",
-      "bio": "Can Yılmaz Uzun (born 11 November 2005) is a professional footballer who plays as an attacking midfielder for Bundesliga club Eintracht Frankfurt. Born in Germany, he plays for the Turkey national team.\r\n\r\nUzun, who hails from the Upper Palatinate, began his club career in his hometown of Regensburg in the youth department of SSV Jahn Regensburg before moving to Upper Bavarian side FC Ingolstadt.\r\n\r\nIn 2019, he joined Franconian club 1. FC Nürnberg, where he started playing for the U17 team from",
+      "bio": "Born in Regensburg on 11/11/2005, Uzun is Turkey's most exciting teenage prospect. An attack-minded midfielder at Eintracht Frankfurt, he has a gift for the spectacular and is only just getting started.",
       "birth_location": "Regensburg, Germany",
       "height": "186 cm",
       "weight": "148 lbs",
       "position_detail": "Attacking Midfield",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Born on 11/11 — Remembrance Day and Nigel Tufnel Day. Appropriately, Can Uzun tends to turn everything up to eleven."
     }
   ]
 }

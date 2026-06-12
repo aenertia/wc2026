@@ -18,7 +18,7 @@
       "full_name": "Alexander Schlager",
       "last_name": "Schlager",
       "first_name": "Alexander",
-      "bio": "Alexander Schlager (born 1 February 1996) is an Austrian professional footballer who plays as a goalkeeper for Austrian Bundesliga club Red Bull Salzburg and the Austria national team.\r\n\r\nHe was the captain for Austria U-21 in Euro U-21 2019.\r\n\r\nOn 16 November 2019, Schlager played his first match for Austria's national team in the deciding UEFA Euro 2020 qualifier against North Macedonia in Vienna.",
+      "bio": "Salzburg-born shot-stopper who guards the sticks for his hometown club. Schlager has been a dependable presence between the posts for Austria, earning 26 caps with calm authority. A hometown hero heading to his first World Cup.",
       "birth_location": "Salzburg, Austria",
       "height": "184 cm",
       "weight": "170 lbs",
@@ -27,7 +27,8 @@
       "kit": "",
       "social": {
         "instagram": "www.instagram.com/gassi_31/?hl=de"
-      }
+      },
+      "facts": "Born in Salzburg and plays for Salzburg — his commute to training may be the shortest of any World Cup keeper."
     },
     {
       "number": 2,
@@ -45,14 +46,15 @@
       "full_name": "David Leopold Affengruber",
       "last_name": "Affengruber",
       "first_name": "David",
-      "bio": "David Leopold Affengruber (born 19 March 2001) is an Austrian professional footballer who plays as a centre-back for La Liga club Elche and the Austria national team.",
+      "bio": "A rugged centre-back who made his international debut with just 1 cap to his name — talk about jumping in at the deep end. Affengruber plies his trade in Spain with Elche, bringing Bundesliga-forged steel to Austrian defending.",
       "birth_location": "Scheibbs, Austria",
       "height": "185 cm",
       "weight": "172 lbs",
       "position_detail": "Centre-Back",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "With just 1 cap before this tournament, Affengruber is Austria's least-capped outfield player at the 2026 World Cup."
     },
     {
       "number": 3,
@@ -70,7 +72,7 @@
       "full_name": "Kevin Danso",
       "last_name": "Danso",
       "first_name": "Kevin",
-      "bio": "Kevin Danso (born 19 September 1998) is an Austrian professional footballer who plays as a centre-back for Premier League club Tottenham Hotspur, on loan from Ligue 1 club Lens, and the Austria national team. \r\nFormerly a youth international at various levels from under-15 to under-21, he made his debut for the Austria national football team in 2017.",
+      "bio": "Born in Voitsberg but boasting a Ghanaian father, Danso is a powerhouse centre-back who joined Tottenham Hotspur in a major move. Commanding in the air and fierce in the tackle, he's become one of Austria's defensive cornerstones.",
       "birth_location": "Voitsberg, Austria",
       "height": "1.90 m (6 ft 3 in)",
       "weight": "185 lbs",
@@ -82,7 +84,8 @@
         "facebook": "www.facebook.com/kevin.danso.official/",
         "twitter": "twitter.com/kevindanso98"
       },
-      "wikidata_id": "Q28868192"
+      "wikidata_id": "Q28868192",
+      "facts": "Danso was the subject of a collapsed transfer to Liverpool — one of the most dramatic deadline-day sagas in recent memory."
     },
     {
       "number": 4,
@@ -100,7 +103,7 @@
       "full_name": "Xaver Schlager",
       "last_name": "Schlager",
       "first_name": "Xaver",
-      "bio": "Xaver Schlager (born 28 September 1997) is an Austrian footballer who plays as midfielder for Bundesliga club RB Leipzig and the Austria national team.",
+      "bio": "The engine room of the Austrian midfield, Schlager is a relentless box-to-box dynamo at RB Leipzig. Technically gifted and tactically intelligent, he's suffered serious injury setbacks but keeps bouncing back stronger.",
       "birth_location": "Linz, Austria",
       "height": "1.74 m (5 ft 9 in)",
       "weight": "168 lbs",
@@ -110,7 +113,8 @@
       "social": {
         "instagram": "www.instagram.com/xav_er_/",
         "facebook": "www.facebook.com/xaver.schlager"
-      }
+      },
+      "facts": "No relation to goalkeeper Alexander Schlager — Austria just really likes the surname. Two Schlagers, zero relation."
     },
     {
       "number": 5,
@@ -128,14 +132,15 @@
       "full_name": "Stefan Posch",
       "last_name": "Posch",
       "first_name": "Stefan",
-      "bio": "Stefan Posch (German pronunciation: ; born 14 May 1997) is an Austrian footballer who plays as a right-back or centre-back for German Bundesliga club Mainz 05 on loan from Italian club Como, and the Austria national team.",
+      "bio": "A centre-back who moonlights as a set-piece threat, Posch has 5 international goals — remarkable for a defender. Cool under pressure and experienced in German football, he's a versatile cornerstone of Austria's backline.",
       "birth_location": "Judenburg, Austria",
       "height": "1.88 m (6 ft 2 in)",
       "weight": "181 lbs",
       "position_detail": "Centre-Back",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "With 5 international goals from defence, Posch outscores several of Austria's forwards — defenders, who knew?"
     },
     {
       "number": 6,
@@ -153,14 +158,15 @@
       "full_name": "Nicolas Seiwald",
       "last_name": "Seiwald",
       "first_name": "Nicolas",
-      "bio": "Nicolas Seiwald (born 4 May 2001) is an Austrian professional footballer who plays as a defensive midfielder for Bundesliga club RB Leipzig and the Austria national team.\r\n\r\nSeiwald began his career in 2009 with the youth academy of FC Red Bull Salzburg. He made his professional debut playing for Red Bull Salzburg's feeder team, Liefering, against WSG Wattens on 24 May 2019.\r\n\r\nHe made his debut for FC Red Bull Salzburg on 21 November 2020 when he was in the starting XI versus SK Sturm Graz. On ",
+      "bio": "A product of Red Bull Salzburg's acclaimed academy, Seiwald has become Austria's midfield metronome. The RB Leipzig enforcer screens the defence with tireless pressing and intelligent positioning, all at just 25 years old.",
       "birth_location": "Kuchl, Austria",
       "height": "179 cm",
       "weight": "172 lbs",
       "position_detail": "Defensive Midfield",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Seiwald hails from Kuchl — a village so small, it might have fewer residents than his Instagram followers."
     },
     {
       "number": 7,
@@ -178,7 +184,7 @@
       "full_name": "Marko Arnautović",
       "last_name": "Arnautović",
       "first_name": "Marko",
-      "bio": "Marko Arnautović (Serbian Cyrillic: Марко Арнаутовић; born 19 April 1989) is an Austrian professional footballer who plays as a striker for Serbian SuperLiga club Red Star Belgrade and is the all time top goalscorer for the Austria national team.\r\n\r\nArnautović began his career in his native country Austria playing in the youth teams for a number of clubs in the Vienna area before he signed a contract with Dutch club Twente in 2006. He impressed at De Grolsch Veste and after a fine 2008–09 season",
+      "bio": "Austria's all-time top scorer with 47 goals in 133 caps — a living legend. The mercurial striker has graced clubs across Europe including Inter Milan and Manchester United. At 37, this World Cup may be his final bow.",
       "birth_location": "Wien, Austria",
       "height": "188 cm",
       "weight": "183 lbs",
@@ -186,7 +192,8 @@
       "preferred_foot": "Both",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q313575"
+      "wikidata_id": "Q313575",
+      "facts": "Arnautović once received a 3-match ban for abusive language at Euro 2020 — controversy follows him like a loyal Labrador."
     },
     {
       "number": 8,
@@ -204,7 +211,7 @@
       "full_name": "David Olatukunbo Alaba",
       "last_name": "Alaba",
       "first_name": "David",
-      "bio": "David Olatukunbo Alaba (German pronunciation: ; born 24 June 1992) is an Austrian professional footballer who plays as a centre-back or left-back for La Liga club Real Madrid and captains the Austria national team. Considered one of the best defenders in the world, he is renowned for his versatility, technical skills and ability to contribute effectively in both defensive and offensive roles on the field.\r\n\r\nAlaba started out in Bayern's youth system before being promoted to the reserve team for",
+      "bio": "Austria's greatest modern player, full stop. Alaba has won the Champions League with both Bayern Munich and Real Madrid, playing everywhere from left-back to centre-back. A true footballing polymath and national icon.",
       "birth_location": "Wien, Austria",
       "height": "180 cm",
       "weight": "172 lbs",
@@ -216,7 +223,8 @@
         "facebook": "www.facebook.com/david.alaba.10888/",
         "twitter": "twitter.com/david_alaba"
       },
-      "wikidata_id": "Q31981"
+      "wikidata_id": "Q31981",
+      "facts": "Alaba has won the Champions League in two different decades with two different clubs. Collecting those like Panini stickers."
     },
     {
       "number": 9,
@@ -234,7 +242,7 @@
       "full_name": "Marcel Sabitzer",
       "last_name": "Sabitzer",
       "first_name": "Marcel",
-      "bio": "Marcel Sabitzer (born 17 March 1994) is an Austrian professional footballer who plays as a midfielder for Bundesliga club Borussia Dortmund and the Austria national team.\r\n  Predominantly a central midfielder, he also plays in a multitude of roles, including attacking midfielder, second striker, winger and defensive midfielder.",
+      "bio": "Sabitzer is Austria's Swiss Army knife — dangerous from distance, tireless in midfield, and a serial big-club player. With spells at RB Leipzig, Bayern, Man United, and now Dortmund, he's seen it all and scores memorable goals.",
       "birth_location": "Wels, Austria",
       "height": "178cm / 5'10\"",
       "weight": "168 lbs",
@@ -242,7 +250,8 @@
       "preferred_foot": "Right",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q472300"
+      "wikidata_id": "Q472300",
+      "facts": "Sabitzer's rocket against Germany at Euro 2020 is still replayed with reverence in Austrian living rooms nationwide."
     },
     {
       "number": 10,
@@ -260,7 +269,7 @@
       "full_name": "Florian Grillitsch",
       "last_name": "Grillitsch",
       "first_name": "Florian",
-      "bio": "Florian Grillitsch (born 7 August 1995) is an Austrian professional footballer who plays as a defensive midfielder or centre back for Portuguese Primeira Liga club Braga and the Austria national team.",
+      "bio": "A deep-lying playmaker with a cultured left foot, Grillitsch reads the game like a veteran librarian. Now at Braga after stints in the Bundesliga, he brings composure and distribution to Austria's midfield base.",
       "birth_location": "Neunkirchen, Austria",
       "height": "1.87 m (6 ft 2 in)",
       "weight": "170 lbs",
@@ -270,7 +279,8 @@
       "social": {
         "instagram": "www.instagram.com/floriangrillitsch/",
         "twitter": "mobile.twitter.com/fgrillitsch"
-      }
+      },
+      "facts": "Grillitsch became a free agent after Hoffenheim — a rare bargain nobody quite rushed to snap up at first."
     },
     {
       "number": 11,
@@ -288,7 +298,7 @@
       "full_name": "Michael Gregoritsch",
       "last_name": "Gregoritsch",
       "first_name": "Michael",
-      "bio": "Michael Gregoritsch (born 18 April 1994) is an Austrian professional footballer who plays as a forward for Bundesliga club FC Augsburg, on loan from Danish Superliga club Brøndby, and the Austria national team.",
+      "bio": "A physically imposing striker who uses his frame brilliantly to hold up play, Gregoritsch has been a reliable scorer for Austria with 24 goals in 75 caps. Known for poaching important goals in big moments.",
       "birth_location": "Graz, Austria",
       "height": "1.93 m (6 ft 4 in)",
       "weight": "201 lbs",
@@ -299,7 +309,8 @@
         "instagram": "www.instagram.com/mgregerl/",
         "facebook": "www.facebook.com/MichaelGregoritsch/",
         "twitter": "twitter.com/mgregoritsch"
-      }
+      },
+      "facts": "Gregoritsch scored Austria's winner against Ukraine at Euro 2020 — a moment that ended a 31-year major tournament drought."
     },
     {
       "number": 12,
@@ -317,14 +328,15 @@
       "full_name": "Florian Wiegele",
       "last_name": "Wiegele",
       "first_name": "Florian",
-      "bio": "Florian Wiegele (born 21 March 2001) is an Austrian professional footballer who plays as a goalkeeper for FC Viktoria Plzeň and the Austria national team.",
+      "bio": "The third-choice keeper with just 1 cap, Wiegele is Austria's youngest goalkeeper in the squad. The Graz-born stopper has impressed at Viktoria Plzeň in the Czech top flight and is one for the future.",
       "birth_location": "Graz, Austria",
       "height": "205 cm",
       "weight": "",
       "position_detail": "Goalkeeper",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Wiegele was born in 2001 — meaning he was still in primary school when David Alaba won his first Champions League."
     },
     {
       "number": 13,
@@ -342,14 +354,15 @@
       "full_name": "Patrick Pentz",
       "last_name": "Pentz",
       "first_name": "Patrick",
-      "bio": "Patrick Pentz (born 2 January 1997) is an Austrian professional footballer who plays as a goalkeeper for Danish Superliga club Brøndby, and the Austria national team.\r\n\r\nPentz made his professional debut for Austria Wien in a 3–0 win over Sturm Graz on 15 May 2016.\r\n\r\nOn 9 July 2022, Pentz signed a three-year contract with Reims in France. He began the 2022–23 Ligue 1 season as the starting goalkeeper for Reims before losing the position to Yehvann Diouf.\r\n\r\nOn 27 January 2023, Pentz moved to Ge",
+      "bio": "Pentz is Austria's number two keeper, currently keeping clean sheets in Denmark with Brøndby. The Salzburg native is reliable with his feet and a commanding presence, waiting patiently in the wings behind Schlager.",
       "birth_location": "Salzburg, Austria",
       "height": "183 cm",
       "weight": "174 lbs",
       "position_detail": "Goalkeeper",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Pentz plays in Denmark — one of the few Austrian footballers whose club language barrier involves Danish pastry jokes."
     },
     {
       "number": 14,
@@ -367,7 +380,7 @@
       "full_name": "Saša Kalajdžić",
       "last_name": "Kalajdžić",
       "first_name": "Saša",
-      "bio": "Saša Kalajdžić (Serbian Cyrillic: Саша Калајџић; born 7 July 1997) is an Austrian professional footballer who plays as a striker for Austrian Bundesliga club LASK on loan from Premier League club Wolverhampton Wanderers and the Austria national team.\r\n\r\nKalajdžić began his senior career playing in the third and fourth tiers of Austrian football with SR Donaufeld Wien. In 2016, he signed for Austrian Bundesliga club Admira Wacker, where he scored twelve goals in 35 matches for the first team. He ",
+      "bio": "A physical, direct centre-forward at hometown club LASK, Kalajdžić offers power and aerial threat as an impact option. With 22 caps and 4 international goals, he's a useful weapon off the bench at this World Cup.",
       "birth_location": "Wien, Austria",
       "height": "2.00 m (6 ft 6 in)",
       "weight": "76 kg",
@@ -377,7 +390,8 @@
       "social": {
         "instagram": "www.instagram.com/sasakalajdzic/"
       },
-      "wikidata_id": "Q34058084"
+      "wikidata_id": "Q34058084",
+      "facts": "Kalajdžić's name features accented characters that have humbled many a foreign TV commentator — they respect him for it."
     },
     {
       "number": 15,
@@ -395,14 +409,15 @@
       "full_name": "Philipp Lienhart",
       "last_name": "Lienhart",
       "first_name": "Philipp",
-      "bio": "Philipp Lienhart (born 11 July 1996) is an Austrian professional footballer who plays as a centre-back for Bundesliga club SC Freiburg and the Austria national team.",
+      "bio": "A reliable and composed centre-back, Lienhart has been a consistent performer for SC Freiburg in the Bundesliga. With 41 caps and even 3 international goals to his name, he's a steady, underrated figure in Austria's defence.",
       "birth_location": "Lilienfeld, Austria",
       "height": "1.85 m (6 ft 1 in)",
       "weight": "183 lbs",
       "position_detail": "Centre-Back",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Lienhart was once on Real Madrid's books as a youth player — the Bernabéu path and the Freiburg path are very different rides."
     },
     {
       "number": 16,
@@ -420,14 +435,15 @@
       "full_name": "Phillipp Mwene",
       "last_name": "Mwene",
       "first_name": "Phillipp",
-      "bio": "Phillipp Mwene (born 29 January 1994) is an Austrian professional footballer who plays as a right back for Bundesliga club Mainz 05 and the Austria national team.",
+      "bio": "Born in Vienna to Zambian heritage, Mwene has been a dependable left-back option for Austria across 30 caps. His athleticism and defensive diligence have made him a trusted squad member at Mainz for years.",
       "birth_location": "Wien, Austria",
       "height": "1.70 m (5 ft 7 in)",
       "weight": "150 lbs",
       "position_detail": "Left-Back",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Mwene's name is pronounced in ways that have baffled German Bundesliga commentators since approximately 2016."
     },
     {
       "number": 17,
@@ -445,7 +461,7 @@
       "full_name": "Carney Chibueze Chukwuemeka",
       "last_name": "Chukwuemeka",
       "first_name": "Carney",
-      "bio": "Carney Chibueze Chukwuemeka (born 20 October 2003) is an Austrian professional footballer who plays as an attacking midfielder or left winger for Bundesliga club Borussia Dortmund and the Austria national team.\r\n\r\nBorn in Vienna, he represented England at youth level. In 2026, he committed to play for his birth country of Austria.\r\n\r\nA product of the Northampton Town and Aston Villa academies, Chukwuemeka made his debut for the latter club's first team in 2021, before signing for Chelsea in 2022",
+      "bio": "Born in Eisenstadt but raised in England, Chukwuemeka chose Austria over the Three Lions — a bold call that earned him 3 caps. The Dortmund midfielder is a box-to-box talent with big-game potential written all over him.",
       "birth_location": "Eisenstadt, Austria",
       "height": "6 ft 1 in (1.85 m)",
       "weight": "170 lbs",
@@ -456,7 +472,8 @@
         "instagram": "www.instagram.com/chukwuemeka10/",
         "twitter": "twitter.com/carney_chuk10"
       },
-      "wikidata_id": "Q106915801"
+      "wikidata_id": "Q106915801",
+      "facts": "Chukwuemeka played for England youth teams before switching to Austria — one of 2026's most intriguing national allegiance pivots."
     },
     {
       "number": 18,
@@ -474,14 +491,15 @@
       "full_name": "Romano Schmid",
       "last_name": "Schmid",
       "first_name": "Romano",
-      "bio": "Romano Christian Schmid (born 27 January 2000) is an Austrian professional footballer who plays as an attacking midfielder for Bundesliga club Werder Bremen and the Austria national team.\r\n\r\nWhile under contract with Red Bull Salzburg Schmid played for its feeder club FC Liefering.\r\n\r\nIn January 2019, Schmid joined Bundesliga side Werder Bremen. One month later, on 5 February 2019, he was loaned out to Wolfsberger AC for the rest of the season. In April 2022, he agreed a contract extension with ",
+      "bio": "An energetic, creative attacking midfielder at Werder Bremen, Schmid brings flair and intensity to Austria's midfield. The Graz-born 26-year-old has grown steadily into a reliable international starter with 34 caps to his name.",
       "birth_location": "Graz, Austria",
       "height": "168 cm",
       "weight": "150 lbs",
       "position_detail": "Attacking Midfield",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Schmid shares a club with Marco Friedl at Werder Bremen — the squad's unofficial Austrian colony in northern Germany."
     },
     {
       "number": 19,
@@ -499,14 +517,15 @@
       "full_name": "Dejan Ljubičić",
       "last_name": "Ljubičić",
       "first_name": "Dejan",
-      "bio": "Dejan Ljubičić (born 8 October 1997) is an Austrian professional footballer who plays as a midfielder.",
+      "bio": "A combative defensive midfielder who plays his club football at Schalke 04, Ljubičić brings physicality and energy to midfield battles. With 9 caps and a World Cup debut on the horizon, he's seizing his moment on the big stage.",
       "birth_location": "Wien, Austria",
       "height": "187 cm",
       "weight": "161 lbs",
       "position_detail": "Defensive Midfield",
       "preferred_foot": "",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Ljubičić plays for Schalke 04 — a club so turbulent lately, surviving there is arguably better preparation than most cup runs."
     },
     {
       "number": 20,
@@ -524,14 +543,15 @@
       "full_name": "Konrad Laimer",
       "last_name": "Laimer",
       "first_name": "Konrad",
-      "bio": "Konrad Laimer (born 27 May 1997) is an Austrian professional footballer who plays as a midfielder for Bundesliga club Bayern Munich  and the Austria national team.",
+      "bio": "One of Europe's finest right-backs, Laimer at Bayern Munich is all relentless energy and technical quality. His engine never seems to stop — he's the kind of player who probably tracks back in his sleep.",
       "birth_location": "Salzburg, Austria",
       "height": "180 cm",
       "weight": "159 lbs",
       "position_detail": "Right-Back",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Laimer joined Bayern Munich from RB Leipzig — essentially a Red Bull product graduating to... Red Bull's German rival. Cheers."
     },
     {
       "number": 21,
@@ -549,14 +569,15 @@
       "full_name": "Patrick Wimmer",
       "last_name": "Wimmer",
       "first_name": "Patrick",
-      "bio": "Patrick Wimmer (born 30 May 2001) is an Austrian professional footballer who plays as a right winger for Bundesliga club VfL Wolfsburg and the Austria national team.",
+      "bio": "A rapid and direct right winger at Wolfsburg, Wimmer loves to run at defenders and cause havoc in wide areas. Just 25 and already with 30 caps, he's one of Austria's most exciting attacking outlets at this tournament.",
       "birth_location": "Tulln, Austria",
       "height": "1.82 m (6 ft 0 in)",
       "weight": "170 lbs",
       "position_detail": "Right Winger",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Wimmer hails from Tulln — a town famous for painter Egon Schiele. Patrick's artistry is more in the final third than on canvas."
     },
     {
       "number": 22,
@@ -574,14 +595,15 @@
       "full_name": "Alexander Prass",
       "last_name": "Prass",
       "first_name": "Alexander",
-      "bio": "Alexander Prass (born 26 May 2001) is an Austrian professional footballer who plays as a central midfielder or left wing-back for German Bundesliga club TSG Hoffenheim and the Austria national team.",
+      "bio": "A creative left-sided midfielder at Hoffenheim, Prass is one of Austria's emerging talents. Born in Hellmonsödt — a village of about 2,000 people — he's proof that big careers come from very small places.",
       "birth_location": "Hellmonsödt, Austria",
       "height": "180 cm",
       "weight": "159 lbs",
       "position_detail": "Left Midfield",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Prass grew up in Hellmonsödt, a village so small that his World Cup squad number probably exceeds its annual events calendar."
     },
     {
       "number": 23,
@@ -599,7 +621,7 @@
       "full_name": "Marco Friedl",
       "last_name": "Friedl",
       "first_name": "Marco",
-      "bio": "Marco Friedl (born 16 March 1998) is an Austrian professional footballer who plays as a centre-back for Bundesliga club Werder Bremen, which he captains, and the Austria national team.",
+      "bio": "A composed and technically solid left-back at Werder Bremen, Friedl has steadily built his international career to 11 caps. Reliable going forward and disciplined defensively, he's a trustworthy option in Austria's backline.",
       "birth_location": "Kirchbichl, Austria",
       "height": "1.87 m (6 ft 2 in)",
       "weight": "181 lbs",
@@ -607,7 +629,8 @@
       "preferred_foot": "Left",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q28692516"
+      "wikidata_id": "Q28692516",
+      "facts": "Friedl and Romano Schmid are both Werder Bremen teammates — their car pool to Austria camp must be very efficient."
     },
     {
       "number": 24,
@@ -625,7 +648,7 @@
       "full_name": "Paul Wanner",
       "last_name": "Wanner",
       "first_name": "Paul",
-      "bio": "Paul Wanner (German pronunciation: ; born 23 December 2005) is an Austrian professional footballer who plays as an attacking midfielder for Eredivisie club PSV and the Austria national team.",
+      "bio": "Austria's teenage prodigy, Wanner made history as one of Bayern Munich's youngest ever first-team players before moving to PSV. Born in 2005, this is extraordinary — he's at a World Cup before most of us have had a proper job.",
       "birth_location": "Dornbirn, Austria",
       "height": "185 cm",
       "weight": "159 lbs",
@@ -633,7 +656,8 @@
       "preferred_foot": "Left",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q110463620"
+      "wikidata_id": "Q110463620",
+      "facts": "Wanner was born in December 2005 — meaning he'll still be eligible for Austria's Under-21s after this World Cup. Ridiculous."
     },
     {
       "number": 25,
@@ -651,7 +675,7 @@
       "full_name": "Michael Svoboda",
       "last_name": "Svoboda",
       "first_name": "Michael",
-      "bio": "Michael Svoboda (born 15 October 1998) is an Austrian professional footballer who plays as a centre-back for Serie A club Venezia and the Austria national team.",
+      "bio": "A tall, commanding centre-back who plies his trade with Venezia in Italy, Svoboda has shown international potential across 4 caps. Cool in possession with good aerial ability, he's Austria's emerging defensive option.",
       "birth_location": "Wien, Austria",
       "height": "1.95 m (6 ft 4 in)",
       "weight": "190 lbs",
@@ -660,7 +684,8 @@
       "kit": "",
       "social": {
         "instagram": "www.instagram.com/michisvoboda/"
-      }
+      },
+      "facts": "Svoboda plays club football in Venice — presumably the only World Cup defender whose commute sometimes involves a gondola."
     },
     {
       "number": 26,
@@ -678,7 +703,7 @@
       "full_name": "Alessandro André Schöpf",
       "last_name": "Schöpf",
       "first_name": "Alessandro",
-      "bio": "Alessandro André Schöpf (born 7 February 1994) is an Austrian professional footballer who plays as a midfielder for Wolfsberger AC and the Austria national team.",
+      "bio": "A versatile and experienced midfielder from the Tyrolean Alps, Schöpf has had stints at Schalke and Celta Vigo before returning to Austria with Wolfsberger AC. Six international goals show he's always had a goal threat in him.",
       "birth_location": "Umhausen, Austria",
       "height": "1.78 m (5 ft 10 in)",
       "weight": "161 lbs",
@@ -688,7 +713,8 @@
       "social": {
         "instagram": "www.instagram.com/alessandroschoepf/"
       },
-      "wikidata_id": "Q16528455"
+      "wikidata_id": "Q16528455",
+      "facts": "Schöpf is from Umhausen in the Ötz Valley — arguably the most dramatic mountain backdrop of any player at this World Cup."
     }
   ]
 }

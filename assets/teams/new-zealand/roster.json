@@ -18,14 +18,15 @@
       "full_name": "Maxime Teremoana Crocombe",
       "last_name": "Crocombe",
       "first_name": "Max",
-      "bio": "Maxime Teremoana Crocombe (born 12 August 1993) is a New Zealand professional footballer who plays as a goalkeeper for EFL Championship club Millwall. He also represents the New Zealand national team.",
+      "bio": "Auckland-born shot-stopper who kept goal in the Oceania qualifiers with steady hands and nerves of steel. The Millwall keeper brings Championship-level experience to New Zealand's last line of defence at 32.",
       "birth_location": "Auckland, New Zealand",
       "height": "1.94 m (6 ft 4 in)",
       "weight": "",
       "position_detail": "Goalkeeper",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Born on 12 August 1993 — same day as a very different kind of All White: the surrender of the last Japanese soldier, Hiroo Onoda."
     },
     {
       "number": 2,
@@ -38,7 +39,9 @@
       "club": "Wellington Phoenix",
       "club_nation": "NZL",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "bio": "A loyal servant of the All Whites with over 50 caps, Tim Payne brings dependable defensive quality and a winning mentality shaped by years at Wellington Phoenix. Not just a coffee order — this Tim delivers.",
+      "facts": "With 51 caps, Payne has played more international football than most NZ defenders dare dream of — and scored 3 goals from the back."
     },
     {
       "number": 3,
@@ -51,7 +54,9 @@
       "club": "Auckland FC",
       "club_nation": "NZL",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "bio": "A composed defender with 20 caps to his name, Francis de Vries brings local Auckland FC know-how to the international stage. Calm in possession and solid in the tackle, he's a reliable cog in the All Whites backline.",
+      "facts": "De Vries plays for Auckland FC — NZ's newest A-League club — making him a pioneer of Kiwi football's domestic revival."
     },
     {
       "number": 4,
@@ -64,7 +69,9 @@
       "club": "Sheffield United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "bio": "Born in 2005, Tyler Bindon is one of the youngest players at the 2026 World Cup. The Sheffield United youngster has already amassed 25 caps and 3 international goals — a remarkable feat before his 22nd birthday.",
+      "facts": "Bindon was born the same year YouTube launched. He's been scoring international goals almost as long as the internet has had cat videos."
     },
     {
       "number": 5,
@@ -77,7 +84,9 @@
       "club": "Minnesota United FC",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "bio": "A rock-solid veteran with 63 caps, Michael Boxall is the heartbeat of New Zealand's defence. The Minnesota United centre-back is 37 and still bossing backlines — proof that some things, like fine wine and Boxall, improve with age.",
+      "facts": "At 37, Boxall is the oldest outfield player in the squad — and arguably still its most commanding defender."
     },
     {
       "number": 6,
@@ -90,7 +99,9 @@
       "club": "Viking",
       "club_nation": "NOR",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "bio": "A composed, technically gifted midfielder who plies his trade in Norway's Eliteserien with Viking. Joe Bell reads the game well and acts as a crucial link between defence and attack for the All Whites at just 27.",
+      "facts": "Bell plays for a club called Viking — which is arguably the most metal team name in world football. Thor would approve."
     },
     {
       "number": 7,
@@ -108,7 +119,7 @@
       "full_name": "Matthew Jimmy David Garbett",
       "last_name": "Garbett",
       "first_name": "Matthew",
-      "bio": "Matthew Jimmy David Garbett (born 13 April 2002) is a professional footballer who plays as a Midfielder for EFL League One side Peterborough United. Born in England, he plays for the New Zealand national team.",
+      "bio": "London-born but proudly Kiwi, Matthew Garbett is a dynamic central midfielder with an eye for goal. At just 24, the Peterborough United man has already scored 5 times for NZ — a serious return from midfield.",
       "birth_location": "London, England",
       "height": "1.88 m (6 ft 2 in)",
       "weight": "150 lbs",
@@ -116,7 +127,8 @@
       "preferred_foot": "Right",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q96091702"
+      "wikidata_id": "Q96091702",
+      "facts": "Garbett was born in London but chose the All Whites — proving New Zealand's talent pipeline now runs through the English capital."
     },
     {
       "number": 8,
@@ -134,7 +146,7 @@
       "full_name": "Marko Seufatu Nikola Stamenić",
       "last_name": "Stamenic",
       "first_name": "Marko",
-      "bio": "Marko Seufatu Nikola Stamenić is a New Zealand professional footballer who plays as a midfielder for EFL Championship club Swansea City and the New Zealand national team.\r\n\r\nBorn in Wellington and raised in Stokes Valley, Stamenić graduated from the Olé Football Academy and signed for FC Copenhagen in September 2020 following extended trials. Following sporadic appearances for the club, including in the UEFA Champions League, Stamenić departed to join Red Star Belgrade in 2023.",
+      "bio": "Wellington-born with a surname that sounds like a Champions League anthem, Marko Stamenić is a composed box-to-box midfielder who has impressed at Swansea City. Already 39 caps at 24 — the future is very much now.",
       "birth_location": "Wellington, New Zealand",
       "height": "1.88 m (6 ft 2 in)",
       "weight": "",
@@ -142,7 +154,8 @@
       "preferred_foot": "Right",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q102257634"
+      "wikidata_id": "Q102257634",
+      "facts": "Stamenić has Croatian heritage — fitting for a player whose surname sounds like it belongs on a European tournament poster."
     },
     {
       "number": 9,
@@ -160,7 +173,7 @@
       "full_name": "Christopher Grant Wood",
       "last_name": "Wood",
       "first_name": "Chris",
-      "bio": "Christopher Grant Wood (born 7 December 1991) is a New Zealand professional footballer who plays as a striker for Premier League club Nottingham Forest.\r\nWood was born in Auckland and started his senior career with Cambridge FC, Waikato FC and Hamilton Wanderers before moving to England to play for Premier League side West Bromwich Albion.\r\nWood has been capped 52 times for the New Zealand national team, scoring 20 goals. He played for the side at the 2010 FIFA World Cup.",
+      "bio": "New Zealand's all-time great and talisman, Chris Wood is closing in on a century of caps with 45 international goals. The Nottingham Forest striker has scored at the top of the English game for over a decade. Simply irreplaceable.",
       "birth_location": "Auckland, New Zealand",
       "height": "1.88 m (6 ft 2 in)",
       "weight": "179 lbs",
@@ -170,7 +183,8 @@
       "social": {
         "twitter": "http://twitter.com/officialcwood"
       },
-      "wikidata_id": "Q74548"
+      "wikidata_id": "Q74548",
+      "facts": "Wood became NZ's all-time top scorer years ago and shows no signs of stopping. At 34, he's still the first name on the teamsheet."
     },
     {
       "number": 10,
@@ -188,7 +202,7 @@
       "full_name": "Sarpreet Singh",
       "last_name": "Singh",
       "first_name": "Sarpreet",
-      "bio": "Sarpreet Singh (born 20 February 1999) is a New Zealand professional footballer who plays as an attacking midfielder for A-League Men club Wellington Phoenix, on loan from Serbian SuperLiga club TSC and the New Zealand national team.\r\n\r\nBorn in New Zealand to Indian parents, Singh played for Onehunga Sports in his youth before joining the Wellington Phoenix Academy in 2015, then making his competitive senior debut for the Wellington Phoenix in 2015. He spent four seasons with the club, becoming ",
+      "bio": "The son of a former NZ international, Sarpreet Singh carries footballing royalty in his DNA. An inventive attacking midfielder who had a spell at Bayern Munich's reserve side, he's the creative heartbeat of the All Whites.",
       "birth_location": "Auckland, New Zealand",
       "height": "1.75 m (5 ft 7 in)",
       "weight": "157 lbs",
@@ -196,7 +210,8 @@
       "preferred_foot": "Left",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q28800473"
+      "wikidata_id": "Q28800473",
+      "facts": "Singh trained at Bayern Munich — making him the only All White who can say they've shared a dressing room with Bundesliga legends."
     },
     {
       "number": 11,
@@ -214,14 +229,15 @@
       "full_name": "Elijah Henry Just",
       "last_name": "Just",
       "first_name": "Elijah",
-      "bio": "Elijah Henry Just (born 1 May 2000) is a New Zealand professional footballer who plays as a winger for Scottish Premiership club Motherwell and the New Zealand national team.",
+      "bio": "Palmerston North's finest export, Elijah Just is a pacy right winger who has carved out a solid career in Scottish football with Motherwell. Nine international goals from the wing makes him a genuine attacking threat.",
       "birth_location": "Palmerston North, New Zealand",
       "height": "1.74 m (5 ft 9 in)",
       "weight": "150 lbs",
       "position_detail": "Right Winger",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Just's name causes constant confusion in press boxes — reporters unsure if 'Elijah Just scored' is a sentence or a philosophical statement."
     },
     {
       "number": 12,
@@ -234,7 +250,9 @@
       "club": "Lechia Gdańsk",
       "club_nation": "POL",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "bio": "Young goalkeeper Alex Paulsen is making waves in Polish football with Lechia Gdańsk. With just 8 caps so far, this 23-year-old is the All Whites' keeper of the future — learning his trade far from home.",
+      "facts": "Paulsen plays in Gdańsk, Poland — a city famous for shipbuilding, amber, and now apparently producing fine Kiwi goalkeepers."
     },
     {
       "number": 13,
@@ -247,7 +265,9 @@
       "club": "Wrexham",
       "club_nation": "WAL",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "bio": "With a name as bold as his overlapping runs, Liberato Cacace is a marauding left-back who has earned cult status at Wrexham. The 25-year-old brings energy, pace, and flair to everything he does for the All Whites.",
+      "facts": "Cacace plays for Wrexham — the Hollywood-owned Welsh club — making him possibly the only All White with a movie star as a co-owner."
     },
     {
       "number": 14,
@@ -260,7 +280,9 @@
       "club": "Wellington Phoenix",
       "club_nation": "NZL",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "bio": "The son of NZ football legend Wynton Rufer, Alex carries a famous footballing surname with admirable composure. A steady midfielder for Wellington Phoenix and the All Whites, he's keeping the family legacy alive.",
+      "facts": "Alex's father Wynton Rufer won the UEFA Cup with Werder Bremen in 1992 — NZ football royalty doesn't get more regal than that."
     },
     {
       "number": 15,
@@ -273,7 +295,9 @@
       "club": "Auckland FC",
       "club_nation": "NZL",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "bio": "Dutch-born centre-back Nando Pijnaker brings European defensive solidity to the All Whites cause. Now plying his trade for Auckland FC, the 27-year-old has been a consistent presence in New Zealand's backline with 25 caps.",
+      "facts": "Pijnaker was born in the Netherlands but chose the All Whites — following a well-worn path of Dutch-Kiwi dual nationals turning silver."
     },
     {
       "number": 16,
@@ -286,7 +310,9 @@
       "club": "Portland Timbers",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "bio": "A young, energetic defender who has made his mark in MLS with Portland Timbers, Finn Surman brings athleticism and ambition to the All Whites setup. Two international goals from defence at 22 shows his attacking instincts.",
+      "facts": "Surman plays in Portland — home of the world's most bookshops per capita. Whether he's read any is between him and his agent."
     },
     {
       "number": 17,
@@ -299,7 +325,9 @@
       "club": "Western Sydney Wanderers",
       "club_nation": "AUS",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "bio": "A veteran winger with 76 caps and a decade of loyal All Whites service, Kosta Barbarouses is pace, trickery, and experience wrapped in one. Now at Western Sydney Wanderers, he remains a dangerous weapon off the bench.",
+      "facts": "Barbarouses has been terrorising full-backs for NZ since 2010 — his career has spanned four different World Cup cycles."
     },
     {
       "number": 18,
@@ -317,7 +345,7 @@
       "full_name": "Benjamin Peter Waine",
       "last_name": "Waine",
       "first_name": "Ben",
-      "bio": "Benjamin Peter Waine is a New Zealand professional footballer who plays as a forward for EFL League One club Port Vale, and the New Zealand national team.",
+      "bio": "Wellington-born Ben Waine is a powerful centre-forward with an instinct for goal — nine international strikes in 31 caps is a fine record. The Port Vale man brings physicality and finishing to New Zealand's attack.",
       "birth_location": "Wellington, New Zealand",
       "height": "1.79 m (5 ft 10 in)",
       "weight": "172 lbs",
@@ -325,7 +353,8 @@
       "preferred_foot": "Right",
       "kit": "",
       "social": {},
-      "wikidata_id": "Q62629839"
+      "wikidata_id": "Q62629839",
+      "facts": "Waine was born on 11 June 2001 — the exact day the 2026 World Cup kicks off. Happy birthday, Ben. What a way to celebrate."
     },
     {
       "number": 19,
@@ -343,14 +372,15 @@
       "full_name": "Benjamin Craig Old",
       "last_name": "Old",
       "first_name": "Ben",
-      "bio": "Benjamin Craig Old (born 13 August 2002) is a New Zealand professional footballer who plays as a attacking midfielder for Ligue 1 club Saint-Étienne and the New Zealand national team.",
+      "bio": "A composed left-back who has made the leap to French football with Saint-Étienne, Ben Old is one of NZ's most exciting young defenders. Auckland-born with two international goals, he adds creativity from the back.",
       "birth_location": "Auckland, New Zealand",
       "height": "1.73 m (5 ft 8 in)",
       "weight": "66 kg",
       "position_detail": "Left-Back",
       "preferred_foot": "Left",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Old plays in France's Ligue 1 for Saint-Étienne — one of the few All Whites you might spot on a French football highlight reel."
     },
     {
       "number": 20,
@@ -368,7 +398,7 @@
       "full_name": "Callum William McCowatt",
       "last_name": "McCowatt",
       "first_name": "Callum",
-      "bio": "Callum William McCowatt (born 30 April 1999) is a New Zealand professional footballer who plays as a left winger for Danish Superliga club Silkeborg IF.",
+      "bio": "An intelligent attacking midfielder with a sharp eye for goal, Callum McCowatt has flourished in Danish football with Silkeborg. Four goals in 32 caps for the All Whites shows his quality in the final third.",
       "birth_location": "Auckland, New Zealand",
       "height": "1.79 m (5 ft 10 in)",
       "weight": "161 lbs",
@@ -378,7 +408,8 @@
       "social": {
         "instagram": "www.instagram.com/callum_mccowatt/",
         "facebook": "www.facebook.com/callum.mccowatt.9"
-      }
+      },
+      "facts": "McCowatt plays in Denmark — a country so passionate about football that even their pastries are called 'Danish.' Coincidence? Probably."
     },
     {
       "number": 21,
@@ -396,14 +427,15 @@
       "full_name": "Jesse Carmichael Randall",
       "last_name": "Randall",
       "first_name": "Jesse",
-      "bio": "Jesse Carmichael Randall (born 19 August 2002) is a New Zealand professional footballer who plays as a forward for A-League club Auckland FC. He left Charleston following the 2023 season.",
+      "bio": "A lively left winger with two goals from just 11 caps, Jesse Randall is one of the most exciting young talents in the All Whites squad. The Wellington-born Auckland FC man is here to make his World Cup mark.",
       "birth_location": "Wellington, New Zealand",
       "height": "176 cm",
       "weight": "",
       "position_detail": "Left Wing",
       "preferred_foot": "Right",
       "kit": "",
-      "social": {}
+      "social": {},
+      "facts": "Randall's 11 caps mark him as the least experienced winger in the squad — but at a World Cup, reputations count for nothing."
     },
     {
       "number": 22,
@@ -421,7 +453,7 @@
       "full_name": "Michael Cornelis Woud",
       "last_name": "Woud",
       "first_name": "Michael",
-      "bio": "Michael Cornelis Woud (born 16 January 1999) is a New Zealand professional footballer who plays as a goalkeeper for A-League club Auckland FC and the New Zealand national football team.",
+      "bio": "Auckland-born Michael Woud is a commanding goalkeeper developing his craft at Auckland FC. With just 6 caps, the 27-year-old is very much the understudy at this tournament — but one with serious potential.",
       "birth_location": "Auckland, New Zealand",
       "height": "196 cm",
       "weight": "194 lbs",
@@ -432,7 +464,8 @@
         "instagram": "www.instagram.com/michaelwoud/",
         "twitter": "twitter.com/woudmichael"
       },
-      "wikidata_id": "Q54862548"
+      "wikidata_id": "Q54862548",
+      "facts": "Woud has 6 caps and plays domestically in NZ's A-League — making him the only goalkeeper in the squad yet to play in Europe."
     },
     {
       "number": 23,
@@ -445,7 +478,9 @@
       "club": "PEC Zwolle",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "bio": "A combative and technically capable midfielder, Ryan Thomas has built a steady All Whites career with 25 caps and 3 goals. His experience in Dutch football with PEC Zwolle adds European nous to New Zealand's engine room.",
+      "facts": "Thomas plays in Zwolle — a Dutch city best known for its medieval fortifications. Ryan, however, is more of an attacking threat."
     },
     {
       "number": 24,
@@ -458,7 +493,9 @@
       "club": "Auckland FC",
       "club_nation": "NZL",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "bio": "A dependable defensive option with 11 caps, Callan Elliot provides cover and composure in the Auckland FC backline. The 26-year-old is a squad player who can be trusted when called upon at this World Cup.",
+      "facts": "Elliot's birthday is 7/7/1999 — triple sevens, which in some cultures means extraordinary luck. Handy at a World Cup."
     },
     {
       "number": 25,
@@ -471,7 +508,9 @@
       "club": "Newcastle Jets",
       "club_nation": "AUS",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "bio": "A fresh face in the All Whites setup with just 4 caps, Lachlan Bayliss is a midfield prospect gaining experience at the Newcastle Jets in Australia. Making a World Cup squad this young is already a remarkable achievement.",
+      "facts": "Bayliss has just 4 caps — meaning this World Cup could easily double his entire international career before the group stage ends."
     },
     {
       "number": 26,
@@ -489,7 +528,7 @@
       "full_name": "Thomas Jefferson Smith",
       "last_name": "Smith",
       "first_name": "Tommy",
-      "bio": "Thomas Jefferson Smith (born 31 March 1990) is a professional footballer who plays as a defender for A-League club Auckland FC. Born in England, he plays for the New Zealand national team.\r\n\r\nA graduate of the Ipswich Town academy, he plays primarily as a centre back, but can also play as a left back. Smith spent 11 years at Ipswich, making over 240 appearances before leaving in January 2018 to join MLS side Colorado Rapids. He later joined Sunderland in February 2020 after being released by Col",
+      "bio": "Macclesfield-born but All White through and through, Tommy Smith is a seasoned centre-back with 56 caps and bags of experience. Now at Braintree Town at 36, he's a veteran leader marshalling New Zealand's defence.",
       "birth_location": "Macclesfield, England",
       "height": "1.88 m (6 ft 2 in)",
       "weight": "181 lbs",
@@ -500,7 +539,8 @@
         "instagram": "www.instagram.com/tommysmith1990/",
         "twitter": "twitter.com/tommysmith1990"
       },
-      "wikidata_id": "Q462503"
+      "wikidata_id": "Q462503",
+      "facts": "Smith plays for Braintree Town — one of the lowest-ranked clubs at any World Cup. From Essex non-league to global stage. Remarkable."
     }
   ]
 }
