@@ -1574,13 +1574,19 @@ function drawPlayer(ctx, p) {
     ctx.restore();
   }
 
-  // --- Name label (surname, hovering above head) ---
+  // --- Name label (surname, hovering above head — bold with outline for readability) ---
   const surname = p.lastName || (p.name||'?').split(' ').pop();
-  ctx.fillStyle = 'rgba(255,255,255,0.85)';
-  ctx.font = '8px "Space Mono", monospace';
+  ctx.font = 'bold 9px "Space Mono", monospace';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
-  ctx.fillText(surname, x, headY - hr - 3);
+  const nameY = headY - hr - 4;
+  // Dark stroke outline for contrast
+  ctx.strokeStyle = 'rgba(0,0,0,0.7)';
+  ctx.lineWidth = 2.5;
+  ctx.strokeText(surname, x, nameY);
+  ctx.fillStyle = '#fff';
+  ctx.fillText(surname, x, nameY);
+  ctx.lineWidth = 1;
   // Shirt number on body
   ctx.fillStyle = 'rgba(0,0,0,0.6)';
   ctx.font = 'bold 6px monospace';
@@ -1656,6 +1662,101 @@ function drawReferee(ctx) {
     ctx.fillStyle = '#f0c44c';
     ctx.fillRect(rx+5, ry-12, 6, 8);
   }
+}
+
+// Draw special event icons as pixel art — no emoji dependency
+function drawSpecialIcon(ctx, iconKey, cx, cy, size) {
+  ctx.save();
+  ctx.translate(cx, cy);
+  const s = size / 80; // normalize to 80px base
+
+  // Draw a retro-style icon based on the first character of the icon key
+  // Since emojis may not render, draw geometric/symbolic pixel art
+  ctx.fillStyle = '#f0c44c';
+  ctx.strokeStyle = '#fff';
+  ctx.lineWidth = 2 * s;
+
+  // Large bold symbol — works on all browsers
+  const symbols = {
+    '✋':'✋ HAND', '7️':'7-1', '🏠':'HOME?', '⚙':'MACHINE', '🤕':'HEADBUTT',
+    '🤌':'DEFENCE', '🔄':'PASS×999', '🟠':'TOTAL', '😤':'SIUUU', '🌮':'NO PENAL',
+    '🦅':'FREEDOM', '🗾':'SAMURAI', '🇰':'2002?!', '🦘':'BOUNCE', '🖤':'HAKA',
+    '📯':'BZZZZ', '🏴':'SCOTLAND', '🦁':'LION', '⭐':'STARS', '☕':'COFFEE',
+    '🦷':'BITE!', '🔥':'FIRE', '🍟':'GOLDEN', '🧀':'PRECISE', '🌙':'CRESCENT',
+    '🏛':'ANCIENT', '🏟':'PROTEST', '🏗':'$$$', '🍁':'HOCKEY?', '📜':'5000YRS',
+    '🏜':'ROYAL', '🦈':'SHARK', '🏝':'ISLAND', '🥊':'BOOM', '🚢':'CANAL',
+    '🔴':'FURY', '🌋':'ERUPTION', '🧊':'VIKING', '👑':'ABBA', '🎵':'MUSIC',
+    '🍺':'CZECH', '🦊':'FENNEC', '🐺':'WOLF', '🐉':'DRAGON', '🐆':'LEOPARD',
+    '🐘':'ELEPHANT',
+  };
+  
+  // Find matching symbol text from icon key
+  let label = 'EVENT';
+  for (const [emoji, text] of Object.entries(symbols)) {
+    if (iconKey.includes(emoji.charAt(0)) || iconKey.includes(emoji)) { label = text; break; }
+  }
+
+  // Draw large retro block text instead of emoji
+  ctx.fillStyle = '#f0c44c';
+  ctx.font = `bold ${48 * s}px "Anton", sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  // Pixelated outline effect
+  ctx.strokeStyle = 'rgba(0,0,0,0.8)';
+  ctx.lineWidth = 4 * s;
+  ctx.strokeText(label, 0, 0);
+  ctx.fillText(label, 0, 0);
+
+  // Decorative corner brackets
+  const bsz = 30 * s;
+  ctx.strokeStyle = '#f0c44c';
+  ctx.lineWidth = 3 * s;
+  // Top-left
+  ctx.beginPath(); ctx.moveTo(-bsz*2, -bsz); ctx.lineTo(-bsz*2, -bsz*1.5); ctx.lineTo(-bsz*1.5, -bsz*1.5); ctx.stroke();
+  // Top-right
+  ctx.beginPath(); ctx.moveTo(bsz*2, -bsz); ctx.lineTo(bsz*2, -bsz*1.5); ctx.lineTo(bsz*1.5, -bsz*1.5); ctx.stroke();
+  // Bottom-left
+  ctx.beginPath(); ctx.moveTo(-bsz*2, bsz); ctx.lineTo(-bsz*2, bsz*1.5); ctx.lineTo(-bsz*1.5, bsz*1.5); ctx.stroke();
+  // Bottom-right
+  ctx.beginPath(); ctx.moveTo(bsz*2, bsz); ctx.lineTo(bsz*2, bsz*1.5); ctx.lineTo(bsz*1.5, bsz*1.5); ctx.stroke();
+  ctx.lineWidth = 1;
+
+  ctx.restore();
+}
+
+// Draw possession arrow showing ball carrier's direction + passing lanes
+function drawPossessionArrow(ctx) {
+  if (!ball.owner) return;
+  const p = ball.owner;
+  const spd = Math.sqrt(p.vx*p.vx + p.vy*p.vy);
+  if (spd < 0.5) return;
+
+  const dir = Math.atan2(p.vy, p.vx);
+  const arrowLen = 30 + spd * 8; // longer arrow at higher speed
+  const tipX = ball.x + Math.cos(dir) * arrowLen;
+  const tipY = ball.y + Math.sin(dir) * arrowLen;
+
+  // Arrow shaft with team colour
+  const col = p.team === 0 ? 'rgba(255,255,255,0.5)' : 'rgba(240,196,76,0.5)';
+  ctx.strokeStyle = col;
+  ctx.lineWidth = 2;
+  ctx.setLineDash([6, 4]);
+  ctx.beginPath();
+  ctx.moveTo(ball.x, ball.y);
+  ctx.lineTo(tipX, tipY);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Arrowhead
+  ctx.fillStyle = col;
+  ctx.beginPath();
+  const headSize = 6;
+  ctx.moveTo(tipX, tipY);
+  ctx.lineTo(tipX - Math.cos(dir - 0.4) * headSize, tipY - Math.sin(dir - 0.4) * headSize);
+  ctx.lineTo(tipX - Math.cos(dir + 0.4) * headSize, tipY - Math.sin(dir + 0.4) * headSize);
+  ctx.closePath();
+  ctx.fill();
+  ctx.lineWidth = 1;
 }
 
 function drawBall(ctx) {
@@ -2765,22 +2866,40 @@ function triggerSpecialEvent(teamName, teamSide) {
 
   specialEventActive = true;
   specialEventsFired[teamSide] = true;
-  specialSlowMo = 0.15; // extreme slow motion
-  specialEventTimer = 300; // 5 seconds at 60fps
+  specialSlowMo = 0.12; // extreme slow motion
+  specialEventTimer = 480; // 8 seconds at 60fps
 
-  // Zoom camera in dramatically
-  const zoomTarget = teamSide === 'home'
-    ? {x: ball.x, y: ball.y}
-    : {x: ball.x, y: ball.y};
-  snapCamera(zoomTarget.x, zoomTarget.y);
+  // Zoom camera to center pitch for full-screen overlay
+  snapCamera(WORLD_W / 2, WORLD_H / 2);
+
+  // KNOCK DOWN THE OPPOSING TEAM — all opponents fall over
+  const opponents = teamSide === 'home' ? awayPlayers : homePlayers;
+  const friendlies = teamSide === 'home' ? homePlayers : awayPlayers;
+  opponents.forEach(p => {
+    if (p.sentOff) return;
+    p.state = 'diving'; // knocked down — horizontal + writhing
+    p.stateTimer = 420; // stay down for 7 seconds
+    p.slideX = (Math.random() - 0.5) * 6;
+    p.slideY = (Math.random() - 0.5) * 4;
+    // Visual stars around their heads
+    addEffect('stars', p.x, p.y);
+  });
+
+  // Friendly team celebrates
+  friendlies.forEach(p => {
+    if (p.sentOff || p.position === 'GK') return;
+    p.state = 'celebrating';
+    p.stateTimer = 400;
+  });
 
   // Commentary
-  addCommentary('comedy', `⚡ ${evt.title} ⚡`);
-  setTimeout(() => addCommentary('comedy', evt.desc), 1500);
+  addCommentary('comedy', `=== ${evt.title} ===`);
+  setTimeout(() => addCommentary('comedy', evt.desc), 2000);
+  setTimeout(() => addCommentary('comedy', `The ${teamSide === 'home' ? awayTeamName : homeTeamName} players are on the floor! DEVASTATED!`), 4000);
 
-  // Draw overlay effect
+  // Draw overlay effect — 8 seconds
   addEffect('special_event', WORLD_W/2, WORLD_H/2, {
-    duration: 5,
+    duration: 8,
     icon: evt.icon,
     title: evt.title,
     desc: evt.desc,
@@ -2790,12 +2909,16 @@ function triggerSpecialEvent(teamName, teamSide) {
   });
 
   AudioManager.playGoal(); // dramatic sound
+  setTimeout(() => AudioManager.playWhistle(true), 2000); // dramatic whistle
 
   // Resume normal speed after event
   setTimeout(() => {
     specialEventActive = false;
     specialSlowMo = 1;
-  }, 5000);
+    // Get opponents back up
+    opponents.forEach(p => { if (p.state === 'diving') p.state = 'idle'; p.slideX = 0; p.slideY = 0; });
+    friendlies.forEach(p => { if (p.state === 'celebrating') p.state = 'idle'; });
+  }, 8000);
 }
 
 // Check if special events should fire (guaranteed 1 per team, around minutes 25-35 and 60-75)
@@ -3133,6 +3256,7 @@ function drawFrame() {
   for (const p of allPlayers) drawPlayer(ctx, p);
   drawReferee(ctx);
   drawBall(ctx);
+  drawPossessionArrow(ctx);
   drawPitchInvader(ctx);
   updateAndDrawEffects(); // Visual effects in world space
 
@@ -3181,36 +3305,49 @@ function drawFrame() {
   if (specialEvt) {
     const age = (Date.now() - specialEvt.startTime) / 1000;
     if (age < specialEvt.duration) {
-      // Dramatic vignette overlay
-      const alpha = age < 0.5 ? age * 1.2 : (age > specialEvt.duration - 0.8 ? (specialEvt.duration - age) * 1.2 : 0.6);
-      ctx.fillStyle = `rgba(0,0,0,${Math.min(0.6, alpha)})`;
+      // FULL SCREEN dramatic overlay — heavy blackout
+      const alpha = age < 0.8 ? age * 0.9 : (age > specialEvt.duration - 1 ? (specialEvt.duration - age) * 0.8 : 0.75);
+      ctx.fillStyle = `rgba(0,0,0,${Math.min(0.8, alpha)})`;
       ctx.fillRect(0, 0, CW, CH);
 
-      // Giant pixelated icon (absurdly large, centered)
-      const iconSize = 60 + Math.sin(age * 2) * 10;
-      ctx.font = `${iconSize}px serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText(specialEvt.data.icon, CW / 2, CH / 2 - 40);
 
-      // Title (huge, pixelated retro feel)
+      // Giant canvas-drawn icon (retro pixel art — no emoji dependency)
+      const pulse = Math.sin(age * 3) * 0.15 + 1;
+      drawSpecialIcon(ctx, specialEvt.data.icon, CW/2, CH/2 - 60, 80 * pulse);
+
+      // MASSIVE title — fills width
+      const titleSize = Math.min(CW * 0.08, 64) + Math.sin(age*2.5) * 4;
       ctx.fillStyle = '#f0c44c';
-      ctx.font = `bold ${36 + Math.sin(age*3)*4}px "Anton", sans-serif`;
-      ctx.fillText(specialEvt.data.title, CW / 2, CH / 2 + 40);
+      ctx.font = `bold ${titleSize}px "Anton", sans-serif`;
+      // Text stroke for readability
+      ctx.strokeStyle = 'rgba(0,0,0,0.6)';
+      ctx.lineWidth = 3;
+      ctx.strokeText(specialEvt.data.title, CW/2, CH/2 + 30);
+      ctx.fillText(specialEvt.data.title, CW/2, CH/2 + 30);
+      ctx.lineWidth = 1;
 
-      // Description
-      ctx.fillStyle = 'rgba(255,255,255,0.85)';
-      ctx.font = '14px "Space Mono", monospace';
-      ctx.fillText(specialEvt.data.desc, CW / 2, CH / 2 + 75);
+      // Description — larger
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      ctx.font = 'bold 16px "Space Mono", monospace';
+      ctx.fillText(specialEvt.data.desc, CW/2, CH/2 + 75);
 
-      // Team name
-      ctx.fillStyle = 'rgba(240,196,76,0.5)';
-      ctx.font = '11px "Space Mono", monospace';
-      ctx.fillText(`⚡ ${specialEvt.data.teamName} SPECIAL EVENT ⚡`, CW / 2, CH / 2 + 100);
+      // Team name + flash border
+      ctx.fillStyle = 'rgba(240,196,76,0.6)';
+      ctx.font = 'bold 13px "Space Mono", monospace';
+      ctx.fillText(`--- ${specialEvt.data.teamName} SPECIAL EVENT ---`, CW/2, CH/2 + 105);
+
+      // Animated border flash
+      const borderAlpha = 0.3 + Math.sin(age * 5) * 0.2;
+      ctx.strokeStyle = `rgba(240,196,76,${borderAlpha})`;
+      ctx.lineWidth = 4;
+      ctx.strokeRect(20, 20, CW - 40, CH - 40);
+      ctx.lineWidth = 1;
 
       // Slow-mo indicator
       if (specialSlowMo < 0.5) {
-        ctx.fillStyle = 'rgba(240,196,76,0.4)';
+        ctx.fillStyle = 'rgba(240,196,76,0.5)';
         ctx.font = '10px "Space Mono", monospace';
         ctx.textAlign = 'right';
         ctx.fillText('◀◀ SLOW MOTION', CW - 10, CH - 10);
