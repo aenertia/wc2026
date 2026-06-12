@@ -624,17 +624,30 @@ zones.forEach(z=>{
 });
 if(!zones.includes(tz))tz=deviceTZ;
 tzSel.value=tz;
+// Cache Intl formatters — recreated only when tz changes.
+// Creating 100+ Intl.DateTimeFormat instances per render throws on iOS Safari
+// before locale/timezone data is warmed up; caching fixes the initial load failure.
+let _fFmtTime,_fFmtDateLong,_fFmtDateShort,_fDateKey,_fHourIn;
+function buildFormatters(){
+  _fFmtTime=new Intl.DateTimeFormat("en-IE",{timeZone:tz,hour:"2-digit",minute:"2-digit",hourCycle:"h23"});
+  _fFmtDateLong=new Intl.DateTimeFormat("en-IE",{timeZone:tz,weekday:"long",day:"numeric",month:"long"});
+  _fFmtDateShort=new Intl.DateTimeFormat("en-IE",{timeZone:tz,weekday:"short",day:"numeric",month:"long"});
+  _fDateKey=new Intl.DateTimeFormat("en-CA",{timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit"});
+  _fHourIn=new Intl.DateTimeFormat("en-IE",{timeZone:tz,hour:"numeric",hourCycle:"h23"});
+}
+buildFormatters();
+const fmtTime=e=>_fFmtTime.format(e);
+const fmtDateLong=e=>_fFmtDateLong.format(e);
+const fmtDateShort=e=>_fFmtDateShort.format(e);
+const dateKey=e=>_fDateKey.format(e);
+const hourIn=e=>Number(_fHourIn.format(e));
+const isLate=e=>hourIn(e)<6;
 tzSel.addEventListener("change",()=>{
   tz=tzSel.value;
   localStorage.setItem("wc26tz",tz);
+  buildFormatters();
   updateTzLabels();render();
 });
-const fmtTime=e=>new Intl.DateTimeFormat("en-IE",{timeZone:tz,hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).format(e);
-const fmtDateLong=e=>new Intl.DateTimeFormat("en-IE",{timeZone:tz,weekday:"long",day:"numeric",month:"long"}).format(e);
-const fmtDateShort=e=>new Intl.DateTimeFormat("en-IE",{timeZone:tz,weekday:"short",day:"numeric",month:"long"}).format(e);
-const dateKey=e=>new Intl.DateTimeFormat("en-CA",{timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit"}).format(e);
-const hourIn=e=>Number(new Intl.DateTimeFormat("en-IE",{timeZone:tz,hour:"numeric",hourCycle:"h23"}).format(e));
-const isLate=e=>hourIn(e)<6;
 function fmtElapsed(e){
   if(!e||e==="notstarted"||e==="null")return "";
   if(e==="HT"||e==="ht")return "HT";
