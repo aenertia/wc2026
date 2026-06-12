@@ -602,7 +602,8 @@ const isLate=e=>hourIn(e)<6;
 function fmtElapsed(e){
   if(!e||e==="notstarted"||e==="null")return "";
   if(e==="HT"||e==="ht")return "HT";
-  return e+"'";
+  if(e.endsWith("'"))return e; // ESPN already formats as "79'" — don't double-append
+  return e+"'";                // raw number (legacy) — append '
 }
 function updateTzLabels(){
   $("tzNote").textContent="Times shown in "+tz.replace(/_/g," ")+". ";
@@ -639,37 +640,43 @@ function parseScorers(v){
 
 async function fetchScores(){
   try{
-    const res=await fetch("/api/games",{cache:"no-store"});
+    const res=await fetch("/api/espn",{cache:"no-store"});
     if(!res.ok)throw new Error(res.status);
     const data=await res.json();
     const map=new Map();
-    data.games.forEach(g=>{
-      const finished=g.finished==="TRUE";
-      const elapsed=g.time_elapsed;
-      const live=!finished&&elapsed!=null&&elapsed!=="notstarted"&&elapsed!=="null"&&!!elapsed;
-      if(finished||live){
-        const home=normName(g.home_team_name_en);
-        const away=normName(g.away_team_name_en);
-        map.set(home+"|"+away,{
-          home:g.home_score,
-          away:g.away_score,
-          finished,live,elapsed,
-          homeScorers:parseScorers(g.home_scorers),
-          awayScorers:parseScorers(g.away_scorers),
-        });
-      }
+    (data.events||[]).forEach(ev=>{
+      const comp=ev.competitions?.[0];
+      if(!comp)return;
+      const homeComp=comp.competitors?.find(c=>c.homeAway==="home");
+      const awayComp=comp.competitors?.find(c=>c.homeAway==="away");
+      if(!homeComp||!awayComp)return;
+      const home=normName(homeComp.team.displayName);
+      const away=normName(awayComp.team.displayName);
+      const st=comp.status?.type;
+      const finished=st?.state==="post";
+      const live=st?.state==="in";
+      if(!finished&&!live)return;
+      // elapsed: "HT" at halftime, displayClock ("79'") during play, "" otherwise
+      const elapsed=st?.name==="STATUS_HALFTIME"?"HT":live?comp.status.displayClock:"";
+      // goal scorers from details array
+      const homeId=homeComp.team.id;
+      const goals=(comp.details||[]).filter(d=>d.scoringPlay);
+      const homeScorers=goals.filter(d=>d.team?.id===homeId)
+        .map(d=>(d.athletesInvolved?.[0]?.displayName||"")+" "+d.clock?.displayValue).map(s=>s.trim()).filter(Boolean);
+      const awayScorers=goals.filter(d=>d.team?.id&&d.team.id!==homeId)
+        .map(d=>(d.athletesInvolved?.[0]?.displayName||"")+" "+d.clock?.displayValue).map(s=>s.trim()).filter(Boolean);
+      map.set(home+"|"+away,{
+        home:homeComp.score,away:awayComp.score,
+        finished,live,elapsed,homeScorers,awayScorers,
+      });
+      // patch knockout team names — match ESPN event to D array by epoch (±10 min)
+      const evEpoch=new Date(ev.date).getTime();
+      const dRow=D.find(r=>r[1]!=="G"&&Math.abs(r.epoch-evEpoch)<10*60*1000);
+      if(dRow)teamOverrides.set(dRow[0],{home,away});
     });
     scores=map;
     updateBanner();
     scheduleNotifications();
-    // patch knockout team names once the API knows the real teams
-    data.games.forEach(g=>{
-      if(g.type==="group"||g.home_team_id==="0"||!g.home_team_name_en)return;
-      teamOverrides.set(parseInt(g.id,10),{
-        home:normName(g.home_team_name_en),
-        away:normName(g.away_team_name_en),
-      });
-    });
     render();
   }catch(e){
     console.warn("Score fetch failed:",e);
