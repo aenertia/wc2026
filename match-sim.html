@@ -922,7 +922,7 @@ const PITCH_M = PW / 105; // pixels per metre (pitch width = 105m)
 const GOAL_W = Math.round(7.32 * PITCH_M), GOAL_H = Math.round(2.4 * PITCH_M);
 const GOAL_L = (WORLD_W / 2) - (GOAL_W / 2), GOAL_R = (WORLD_W / 2) + (GOAL_W / 2);
 const GOAL_TOP_Y = PITCH_T - GOAL_H, GOAL_BOT_Y = PITCH_B;
-const BALL_R = 4, PLAYER_HEAD_R = 9, PLAYER_BODY_W = 6, PLAYER_BODY_H = 10;
+const BALL_R = 4, PLAYER_HEAD_R = 20, PLAYER_BODY_W = 6, PLAYER_BODY_H = 10;
 const FRICTION = 0.98, MAX_SPEED = 10, SPRINT_SPEED = 5.6, JOG_SPEED = 2.4, GK_SPEED = 7;
 const TACKLE_RANGE = 32, PASS_SPEED = 9, SHOOT_SPEED = 14, DRIBBLE_SPEED = 4.4;
 
@@ -1147,7 +1147,7 @@ const playerSpriteCache = new Map(); // key: "slug/number", value: OffscreenCanv
 function buildSpriteCache(slug, players, images) {
   for (const player of players) {
     const key = `${slug}/${player.number}`;
-    const size = 18; // head diameter (matches hr=9 in drawPlayer)
+    const size = 40; // head diameter (matches hr=20 in drawPlayer)
     // Use OffscreenCanvas if available, fallback to createElement
     const oc = typeof OffscreenCanvas !== 'undefined'
       ? new OffscreenCanvas(size, size)
@@ -1321,17 +1321,33 @@ function drawPlayer(ctx, p) {
   ctx.fill();
 
   // --- Body (tiny rectangle) ---
-  const kitColor = p.position === 'GK' ? '#aadd44'
-    : p.team === 0 ? '#f2f4ec'
-    : (p.awayColor || '#e05cd9');
+  // Kit colours: GK gets team-specific bright colour, outfield uses TEAM_COLORS
+  let shirtCol, shortsCol;
+  if (p.position === 'GK') {
+    shirtCol = p.team === 0 ? '#ccdd22' : '#ff7700';
+    shortsCol = p.team === 0 ? '#889900' : '#bb4400';
+  } else if (p.team === 0) {
+    const cols = (typeof TEAM_COLORS !== 'undefined' && p.teamName && TEAM_COLORS[p.teamName]) ? TEAM_COLORS[p.teamName] : ['#f2f4ec','#1a3a6a'];
+    shirtCol = cols[0] || '#f2f4ec';
+    shortsCol = cols[1] || '#1a3a6a';
+  } else {
+    const cols = (typeof TEAM_COLORS !== 'undefined' && p.teamName && TEAM_COLORS[p.teamName]) ? TEAM_COLORS[p.teamName] : ['#e05cd9','#330033'];
+    shirtCol = cols[1] || '#e05cd9';
+    shortsCol = cols[0] || '#220022';
+  }
+  const kitColor = shirtCol; // keep kitColor for backwards compat
   const bw = 6, bh = 8;
   const legShift = isMoving ? (frame === 0 ? 1 : -1) : 0;
-  ctx.fillStyle = kitColor;
+  ctx.fillStyle = shirtCol;
   ctx.fillRect(x - bw / 2, y - bh / 2 + legShift, bw, bh);
 
   // --- Shorts: darker lower half of body ---
-  ctx.fillStyle = 'rgba(0,0,0,0.3)';
+  ctx.fillStyle = shortsCol;
   ctx.fillRect(x - bw / 2, y, bw, bh / 2 + legShift);
+
+  // --- Socks: 2px stripe at bottom ---
+  ctx.fillStyle = shirtCol;
+  ctx.fillRect(x - bw / 2, y + bh / 2 - 1, bw, 2);
 
   // --- Captain armband: gold stripe ---
   if (p.captain) {
@@ -1340,7 +1356,7 @@ function drawPlayer(ctx, p) {
   }
 
   // --- Head: circular mugshot (comically oversized) ---
-  const hr = 9; // head radius — ~60% of total sprite height
+  const hr = PLAYER_HEAD_R; // head radius — 40px diameter, comically oversized
   const headY = y - bh / 2 - hr + 1; // sits just above body
   const cacheKey = `${p.slug}/${p.number}`;
   const cachedHead = playerSpriteCache.get(cacheKey);
@@ -1360,12 +1376,17 @@ function drawPlayer(ctx, p) {
     ctx.fillText(String(p.number), x, headY);
   }
 
-  // Head outline ring (team colour tint)
-  ctx.strokeStyle = p.position === 'GK' ? '#aadd44'
-    : (p.team === 0 ? 'rgba(255,255,255,0.5)' : 'rgba(240,196,76,0.5)');
-  ctx.lineWidth = 1.5;
+  // Head outline ring (team primary colour, thicker for visibility at 40px)
+  ctx.strokeStyle = shirtCol;
+  ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.arc(x, headY, hr, 0, Math.PI * 2);
+  ctx.stroke();
+  // Dark definition ring
+  ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.arc(x, headY, hr + 1, 0, Math.PI * 2);
   ctx.stroke();
   ctx.lineWidth = 1;
 
