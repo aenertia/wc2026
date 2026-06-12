@@ -2260,7 +2260,7 @@ function scoreGoal(scoringTeam) {
 
   // Bio hook follow-up for goal scorer
   if (scorer) {
-    const rp = findPlayerInRoster(scorer.lastName, scoringTeam===0?homeTeamName:awayTeamName);
+    const rp = findPlayerInRoster(scorer.lastName, scoringTeam);
     if (rp?.bio) {
       const bioLine = matchBioHook(scorer.lastName, rp.bio, 'scores at the World Cup');
       if (bioLine) setTimeout(() => addCommentary('info', bioLine), 1800);
@@ -2353,13 +2353,20 @@ function dist(x1, y1, x2, y2) {
   return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 }
 
+// Centralized state filter — returns true if player can participate in normal gameplay
+function canAct(p) {
+  if (p.sentOff) return false;
+  const inactiveStates = ['diving','fighting','celebrating','dejected','slacking','walkingOff'];
+  return !inactiveStates.includes(p.state);
+}
+
 function playerSpeed(caps) {
   // caps 0-200+ → speed 2.0-4.5 (world units per frame)
   return 2.0 + Math.min(caps, 120) / 120 * 2.5;
 }
 
 function getChaseRoles(players) {
-  const outfield = players.filter(p => p.position !== 'GK' && !p.sentOff && p.state !== 'diving' && p.state !== 'fighting' && p.state !== 'celebrating' && p.state !== 'dejected');
+  const outfield = players.filter(p => p.position !== 'GK' && canAct(p));
   outfield.sort((a, b) => dist(a.x, a.y, ball.x, ball.y) - dist(b.x, b.y, ball.x, ball.y));
   return {
     chaser: outfield[0] || null,
@@ -2396,7 +2403,7 @@ function moveToward(p, tx, ty, speed) {
 function findNearestBallChaser(players) {
   let nearest = null, minD = Infinity;
   for (const p of players) {
-    if (p.sentOff || p.state === 'diving' || p.state === 'fighting' || p.state === 'celebrating' || p.state === 'dejected') continue;
+    if (!canAct(p)) continue;
     const d = dist(p.x, p.y, ball.x, ball.y);
     if (d < minD) { minD = d; nearest = p; }
   }
@@ -2506,10 +2513,7 @@ function handleMinimapClick(localX, localY, mmw, mmh) {
   // Find idle players in that area (not ball carrier, not chasing, not near ball)
   const allP = [...homePlayers, ...awayPlayers];
   const nearbyIdle = allP.filter(p =>
-    !p.sentOff &&
-    p.state !== 'fighting' &&
-    p.state !== 'celebrating' &&
-    p.state !== 'dejected' &&
+    canAct(p) &&
     p !== ball.owner &&
     dist(p.x, p.y, targetWX, targetWY) < 250 &&
     dist(p.x, p.y, ball.x, ball.y) > 300
@@ -3531,9 +3535,9 @@ function gameLoop() {
       varActive = false;
       addCommentary('var', `VAR decision: ${varResult}`);
       if (varResult === 'PENALTY!') {
-        // VAR awards a penalty to a random team
-        const team = Math.random() < 0.5 ? 0 : 1;
-        triggerPenaltyKick(team, null);
+        // Award penalty to the team that was attacking (had ball possession recently)
+        const penTeam = lastPossessionTeam !== undefined ? lastPossessionTeam : (Math.random() < 0.5 ? 0 : 1);
+        triggerPenaltyKick(penTeam, null);
       }
     }
     drawFrame();
@@ -3657,7 +3661,7 @@ function gameLoop() {
 
     // Ball pickup (free ball)
     if (!ball.owner) {
-      const all = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff && p.state !== 'diving' && p.state !== 'celebrating' && p.state !== 'dejected' && p.state !== 'slacking');
+      const all = [...homePlayers, ...awayPlayers].filter(p => canAct(p));
       for (const p of all) {
         if (dist(p.x, p.y, ball.x, ball.y) < 20) {
           ball.owner = p; ball.lastTouchedBy = p;
@@ -3825,11 +3829,10 @@ function drawFrame() {
       const idx = Math.floor(age * 2) % messages.length;
       ctx.fillText(messages[idx], CW / 2, CH / 2 + 14);
     } else if (age < varEffects[0].duration) {
-      const result = Math.random() > 0.5 ? 'NO GOAL!' : 'PENALTY!';
       ctx.fillStyle = '#f0c44c';
       ctx.font = "bold 42px 'Anton', sans-serif";
       ctx.textAlign = 'center';
-      ctx.fillText(result, CW / 2, CH / 2);
+      ctx.fillText(varResult || 'NO GOAL — squinting continues', CW / 2, CH / 2);
     }
   }
 
