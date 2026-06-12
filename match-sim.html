@@ -116,6 +116,38 @@ a.back-link:hover{color:var(--chalk)}
 #startOverlay .so-sub{font-family:var(--font-mono);font-size:14px;color:var(--gold);letter-spacing:.2em;margin-top:16px;animation:blink 1.2s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .mute-btn{position:fixed;bottom:16px;right:16px;background:var(--pitch-2);border:1px solid var(--line);color:var(--chalk);font-size:18px;width:36px;height:36px;border-radius:50%;cursor:pointer;z-index:100;display:none;align-items:center;justify-content:center}
+
+/* ---- CRT Scanline Filter ---- */
+#crtOverlay{
+  position:fixed;inset:0;pointer-events:none;z-index:50;display:none;
+  background:repeating-linear-gradient(
+    transparent, transparent 2px,
+    rgba(0,0,0,0.07) 2px, rgba(0,0,0,0.07) 4px
+  );
+}
+#crtOverlay.on{display:block}
+.crt-btn{
+  position:fixed;top:12px;right:12px;background:var(--pitch-2);
+  border:1px solid var(--line);color:var(--chalk-dim);
+  font-size:13px;padding:5px 10px;border-radius:6px;cursor:pointer;
+  font-family:var(--font-mono);z-index:100;
+}
+.crt-btn:hover{color:var(--chalk)}
+
+/* ---- Pre-match Banter Overlay ---- */
+#prematchOverlay{
+  position:fixed;inset:0;background:rgba(12,23,19,.95);z-index:80;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:24px;padding:40px;text-align:center;
+}
+.pm-team{max-width:480px}
+.pm-team-name{font-family:var(--font-display);font-size:28px;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.pm-anecdote{font-family:var(--font-body);font-size:14px;color:var(--chalk-dim);font-style:italic;line-height:1.6}
+.pm-vs{font-family:var(--font-display);font-size:48px;color:var(--chalk);margin:0 20px}
+.pm-countdown{font-family:var(--font-mono);font-size:12px;color:var(--chalk-faint);letter-spacing:.2em;margin-top:20px}
+
+/* ---- Narrative Result Stats ---- */
+.rs-stat{font-family:var(--font-body);font-size:13px;color:var(--chalk-dim);font-style:italic;padding:4px 0}
 </style>
 </head>
 <body>
@@ -175,6 +207,24 @@ a.back-link:hover{color:var(--chalk)}
   <div class="so-sub">CLICK TO START</div>
 </div>
 <button class="mute-btn" id="muteBtn" aria-label="Toggle sound">&#128266;</button>
+
+<!-- ===== CRT SCANLINE OVERLAY ===== -->
+<div id="crtOverlay"></div>
+<button class="crt-btn" id="crtBtn" title="Toggle CRT effect">&#128250; CRT</button>
+
+<!-- ===== PRE-MATCH BANTER OVERLAY ===== -->
+<div id="prematchOverlay" style="display:none">
+  <div class="pm-team" id="pmHome">
+    <div class="pm-team-name" id="pmHomeName"></div>
+    <div class="pm-anecdote" id="pmHomeAnecdote"></div>
+  </div>
+  <div class="pm-vs">VS</div>
+  <div class="pm-team" id="pmAway">
+    <div class="pm-team-name" id="pmAwayName"></div>
+    <div class="pm-anecdote" id="pmAwayAnecdote"></div>
+  </div>
+  <div class="pm-countdown">Kick off in <span id="pmTimer">4</span>s</div>
+</div>
 
 <script>
 /* ================================================================
@@ -2451,15 +2501,16 @@ function showResult() {
     <div class="reason">${motmReason}</div>
   `;
 
-  // Comedy stats
-  $('resStats').innerHTML = `
-    <div class="res-stat"><div class="n">${comedyStats.dives}</div><div class="l">Theatrical Dives</div></div>
-    <div class="res-stat"><div class="n">${comedyStats.varReviews}</div><div class="l">VAR Reviews</div></div>
-    <div class="res-stat"><div class="n">${comedyStats.fights}</div><div class="l">Mass Brawls</div></div>
-    <div class="res-stat"><div class="n">${comedyStats.redCards}</div><div class="l">Red Cards</div></div>
-    <div class="res-stat"><div class="n">${comedyStats.pitchInvaders}</div><div class="l">Pitch Invaders</div></div>
-    <div class="res-stat"><div class="n">${comedyStats.selfies}</div><div class="l">Goal Selfies</div></div>
-  `;
+  // Narrative comedy stats
+  const narratives = [
+    narrativeStat(comedyStats.dives, comedyNarratives.dives),
+    narrativeStat(comedyStats.varReviews, comedyNarratives.varReviews),
+    narrativeStat(comedyStats.fights, comedyNarratives.fights),
+    narrativeStat(comedyStats.redCards, comedyNarratives.redCards),
+    narrativeStat(comedyStats.pitchInvaders, comedyNarratives.pitchInvaders),
+    narrativeStat(comedyStats.selfies, comedyNarratives.selfies),
+  ].filter(Boolean).join('');
+  $('resStats').innerHTML = narratives || '<div class="rs-stat">A remarkably clean match. Suspicious, frankly.</div>';
 }
 
 // ---- KICK OFF ----
@@ -2518,31 +2569,32 @@ async function startMatch() {
 
   updateScoreboard();
 
-  // Kickoff commentary
-  const homeNick = TEAM_NICKNAMES[homeTeamName] || homeTeamName;
-  const awayNick = TEAM_NICKNAMES[awayTeamName] || awayTeamName;
-  AudioManager.playWhistle(false);
-  AudioManager.setCrowd(0.2);
-  const koVars = {
-    home: homeTeamName, away: awayTeamName,
-    home_nick: homeNick, away_nick: awayNick,
-    home_anecdote: getTeamAnecdote(homeTeamName),
-  };
-  addCommentary('info', pickComment('kick_off', koVars));
+  // Show pre-match banter overlay, then kick off
+  showPrematch(homeTeamName, awayTeamName, function actualKickoff() {
+    const homeNick = TEAM_NICKNAMES[homeTeamName] || homeTeamName;
+    const awayNick = TEAM_NICKNAMES[awayTeamName] || awayTeamName;
+    AudioManager.playWhistle(false);
+    AudioManager.setCrowd(0.2);
+    const koVars = {
+      home: homeTeamName, away: awayTeamName,
+      home_nick: homeNick, away_nick: awayNick,
+      home_anecdote: getTeamAnecdote(homeTeamName),
+    };
+    addCommentary('info', pickComment('kick_off', koVars));
 
-  // Give ball to home team striker
-  const striker = homePlayers.find(p => p.position === 'FW' && !p.sentOff);
-  if (striker) {
-    striker.x = WORLD_W / 2 + 5;
-    striker.y = WORLD_H / 2 + 5;
-    ball.owner = striker;
-    ball.free = false;
-  }
+    const striker = homePlayers.find(p => p.position === 'FW' && !p.sentOff);
+    if (striker) {
+      striker.x = WORLD_W / 2 + 5;
+      striker.y = WORLD_H / 2 + 5;
+      ball.owner = striker;
+      ball.free = false;
+    }
 
-  gameState = 'playing';
+    gameState = 'playing';
 
-  if (animId) cancelAnimationFrame(animId);
-  gameLoop();
+    if (animId) cancelAnimationFrame(animId);
+    gameLoop();
+  });
 }
 
 // ---- REMATCH ----
@@ -2551,6 +2603,27 @@ function rematch() {
   if (animId) cancelAnimationFrame(animId);
   gameState = 'teamSelect';
   startMatch();
+}
+
+// ---- PRE-MATCH BANTER ----
+function showPrematch(homeName, awayName, onComplete) {
+  const overlay = $('prematchOverlay');
+  $('pmHomeName').textContent = homeName;
+  $('pmAwayName').textContent = awayName;
+  $('pmHomeAnecdote').textContent = getTeamAnecdote(homeName);
+  $('pmAwayAnecdote').textContent = getTeamAnecdote(awayName);
+  $('pmTimer').textContent = '4';
+  overlay.style.display = 'flex';
+  let countdown = 4;
+  const timer = setInterval(() => {
+    countdown--;
+    $('pmTimer').textContent = countdown;
+    if (countdown <= 0) {
+      clearInterval(timer);
+      overlay.style.display = 'none';
+      onComplete();
+    }
+  }, 1000);
 }
 
 // ---- INIT ----
@@ -2576,6 +2649,50 @@ $('muteBtn').addEventListener('click', function() {
   this.textContent = AudioManager.muted ? '\u{1F507}' : '\u{1F50A}';
   if (AudioManager.crowdGain) AudioManager.crowdGain.gain.value = AudioManager.muted ? 0 : 0.04;
 });
+
+$('crtBtn').addEventListener('click', () => {
+  $('crtOverlay').classList.toggle('on');
+});
+
+// ---- NARRATIVE COMEDY STATS ----
+const comedyNarratives = {
+  dives: [
+    "1 theatrical dive. Just warming up.",
+    "{n} dives. The physio had a busy afternoon.",
+    "{n} dives. Someone's gunning for a BAFTA.",
+    "{n} dives. At this point it's just performance art.",
+  ],
+  fights: [
+    "1 mass confrontation. Handbags at dawn.",
+    "{n} confrontations. Some deeply held feelings were expressed.",
+    "{n} brawls. The referee's card hand is getting a workout.",
+  ],
+  varReviews: [
+    "1 VAR review. Was anyone certain? No.",
+    "{n} VAR reviews. The technology exists. Clarity doesn't.",
+    "{n} VAR reviews. The replay operators are getting overtime.",
+  ],
+  redCards: [
+    "1 red card. Someone's watching from the tunnel.",
+    "{n} red cards. The dressing room is getting crowded.",
+    "{n} red cards. At this rate, we'll finish 7-a-side.",
+  ],
+  pitchInvaders: [
+    "1 pitch invader. Stewards earned their overtime.",
+    "{n} pitch invaders. Security is having an existential crisis.",
+  ],
+  selfies: [
+    "1 goal selfie. The social media manager approves.",
+    "{n} goal selfies. Instagram engagement through the roof.",
+    "{n} goal selfies. More content created than chances.",
+  ],
+};
+
+function narrativeStat(value, templates) {
+  if (!value) return '';
+  const t = templates[Math.min(value - 1, templates.length - 1)];
+  return `<div class="rs-stat">${t.replace('{n}', value)}</div>`;
+}
 </script>
 </body>
 </html>
