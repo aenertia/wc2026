@@ -2,7 +2,7 @@
 
 A single-file interactive wallchart for all 104 matches of the 2026 FIFA World Cup (11 June – 19 July). Filter by group, stage or team, switch timezones, and see live scores update automatically.
 
-**Live version: [wc26-wallchart.duckdns.org](https://wc26-wallchart.duckdns.org/world-cup-2026-schedule_1.html)**
+**Live version: [aenertia.github.io/wc2026](https://aenertia.github.io/wc2026/)**
 
 ## Features
 
@@ -22,72 +22,13 @@ A single-file interactive wallchart for all 104 matches of the 2026 FIFA World C
 
 ## Running locally
 
-All you need is a browser and a way to serve the file over HTTP. A bare `file://` path won't work due to browser fetch restrictions on the scores API.
+All you need is a browser and any static HTTP server. The page calls external APIs (ESPN, worldcup26.ir) directly — no server-side proxy needed.
 
 ```bash
-python3 server.py
+python3 -m http.server 8191
 ```
 
-Then open `http://localhost:8191/world-cup-2026-schedule_1.html`.
-
-> `server.py` serves static files and proxies `/api/*` requests to the scores API on the server side, bypassing browser CORS restrictions. Using `python3 -m http.server` will serve the page but live scores won't load.
-
-## Running as an interactive desktop wallpaper (macOS)
-
-This setup uses [Plash](https://apps.apple.com/app/plash/id1494023538) to render the wallchart as a live, interactive macOS wallpaper that survives reboots and sleep.
-
-### 1. Serve the file on login
-
-Create a launchd agent so the HTTP server starts automatically and restarts if it ever dies:
-
-```bash
-cat > ~/Library/LaunchAgents/dev.YOUR_USERNAME.wallchart-server.plist << 'EOF'
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>Label</key>
-  <string>dev.YOUR_USERNAME.wallchart-server</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>/usr/bin/python3</string>
-    <string>/Users/YOUR_USERNAME/PATH/TO/fifa-wc-2026-wallpaper/server.py</string>
-    <string>8191</string>
-  </array>
-  <key>RunAtLoad</key>
-  <true/>
-  <key>KeepAlive</key>
-  <true/>
-  <key>StandardOutPath</key>
-  <string>/tmp/wallchart-server.log</string>
-  <key>StandardErrorPath</key>
-  <string>/tmp/wallchart-server.log</string>
-</dict>
-</plist>
-EOF
-
-launchctl load ~/Library/LaunchAgents/dev.YOUR_USERNAME.wallchart-server.plist
-```
-
-Replace `YOUR_USERNAME` with your macOS username and `PATH/TO` with the path to the folder. The agent loads at login and restarts automatically if the process exits.
-
-### 2. Configure Plash
-
-1. Install Plash from the [Mac App Store](https://apps.apple.com/app/plash/id1494023538)
-2. Click the Plash menu bar icon → **Add Website…**
-3. Enter `http://localhost:8191/world-cup-2026-schedule_1.html`
-4. Click the Plash menu bar icon → **Browsing Mode** to bring the wallchart to the front and interact with it (filters, search, scroll). Toggle it off to send it back behind your windows
-5. Click the Plash menu bar icon → **⋯** → **Settings…** → enable **Launch at Login**
-
-### 3. Blend the edges (optional)
-
-Set your macOS wallpaper to a solid `#0c1713` so the page background matches seamlessly.
-
-### Stopping the server
-
-```bash
-launchctl unload ~/Library/LaunchAgents/dev.YOUR_USERNAME.wallchart-server.plist
-```
+Then open `http://localhost:8191/`.
 
 ## Team profiles
 

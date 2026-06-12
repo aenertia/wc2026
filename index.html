@@ -1372,7 +1372,8 @@ function parseScorers(v){
 
 async function fetchScores(){
   try{
-    const res=await fetch("/scores",{cache:"no-store"});
+    const today=new Date().toISOString().slice(0,10).replace(/-/g,"");
+    const res=await fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-"+today,{cache:"no-store"});
     if(!res.ok)throw new Error(res.status);
     const data=await res.json();
     const map=new Map();
@@ -1580,7 +1581,7 @@ updateBanner();setInterval(updateBanner,1000);
 /* ---------- standings ---------- */
 async function fetchStandings(){
   try{
-    const tRes=await fetch("/flags",{cache:"no-store"});
+    const tRes=await fetch("https://worldcup26.ir/get/teams",{cache:"no-store"});
     if(!tRes.ok)return;
     const td=await tRes.json();
     flagByName=new Map();
