@@ -131,6 +131,12 @@ button{font-family:inherit;cursor:pointer}
   text-decoration:underline;text-underline-offset:3px;padding:6px 4px;
 }
 .clear-btn:hover{color:var(--chalk)}
+.notif-btn{
+  font-size:13px;background:none;border:none;color:var(--chalk-faint);
+  padding:6px 4px;cursor:pointer;white-space:nowrap;
+}
+.notif-btn:hover{color:var(--chalk)}
+.notif-btn.on{color:var(--chalk)}
 .tz-row{margin-top:-2px}
 .tz-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--chalk-faint)}
 .tz-select{
@@ -340,6 +346,7 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
       <div class="filter-row">
         <input class="search" id="search" type="text" placeholder="Search a team — e.g. Scotland, Argentina…" aria-label="Search by team">
         <button class="clear-btn" id="clearAll">Clear filters</button>
+        <button class="notif-btn" id="notifBtn" title="Notifications fire only while this page is open">🔔 Match alerts</button>
       </div>
       <div class="filter-row tz-row">
         <label class="tz-label" for="tzSel">Times in</label>
@@ -649,6 +656,7 @@ async function fetchScores(){
     });
     scores=map;
     updateBanner();
+    scheduleNotifications();
     // patch knockout team names once the API knows the real teams
     data.games.forEach(g=>{
       if(g.type==="group"||g.home_team_id==="0"||!g.home_team_name_en)return;
@@ -866,6 +874,71 @@ function renderStrip(){
     }).join("")
     +'</tbody></table>';
 }
+
+/* ---------- notifications ---------- */
+let notifTimers=[];
+let notifsEnabled=localStorage.getItem("wc26_notifs")==="on";
+
+function fireNotif(r){
+  const ov=teamOverrides.get(r[0]);
+  const home=ov?.home??r[5], away=ov?.away??r[6];
+  const n=new Notification("⚽ Kick-off in 15 minutes",{
+    body:"Match "+r[0]+" · "+home+" v "+away+"\n"+(VENUES[r[0]]||"")+" · "+fmtTime(r.epoch),
+    icon:"/icon-192.png",
+  });
+  n.onclick=()=>window.focus();
+}
+
+function cancelNotifications(){
+  notifTimers.forEach(clearTimeout);
+  notifTimers=[];
+}
+
+function scheduleNotifications(){
+  cancelNotifications();
+  if(!notifsEnabled||Notification.permission!=="granted")return;
+  const now=Date.now();
+  const FIFTEEN=15*60*1000;
+  const HORIZON=48*60*60*1000;
+  D.forEach(r=>{
+    const ms=r.epoch-now-FIFTEEN;
+    if(ms>0&&ms<HORIZON)notifTimers.push(setTimeout(()=>fireNotif(r),ms));
+  });
+}
+
+function updateNotifBtn(){
+  const btn=$("notifBtn");
+  if(!btn)return;
+  if(Notification.permission==="denied"){
+    btn.textContent="🔕 Blocked";
+    btn.title="Enable notifications in your browser settings";
+    btn.classList.remove("on");
+    return;
+  }
+  if(notifsEnabled&&Notification.permission==="granted"){
+    btn.textContent="🔔 Alerts on";
+    btn.classList.add("on");
+  }else{
+    btn.textContent=notifsEnabled?"🔔 Match alerts":"🔕 Alerts off";
+    btn.classList.remove("on");
+  }
+}
+
+$("notifBtn").addEventListener("click",async()=>{
+  if(Notification.permission==="denied")return;
+  if(Notification.permission==="default"){
+    const result=await Notification.requestPermission();
+    if(result!=="granted"){updateNotifBtn();return;}
+  }
+  notifsEnabled=!notifsEnabled;
+  localStorage.setItem("wc26_notifs",notifsEnabled?"on":"off");
+  if(notifsEnabled)scheduleNotifications();else cancelNotifications();
+  updateNotifBtn();
+});
+
+// restore on load
+if(Notification.permission==="granted"&&notifsEnabled)scheduleNotifications();
+updateNotifBtn();
 
 updateTzLabels();
 render();
