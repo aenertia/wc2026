@@ -42,22 +42,21 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
 
     def do_GET(self):
-        if self.path == "/api/espn":
+        if self.path == "/scores":
             today = date.today().strftime("%Y%m%d")
             url = f"{ESPN_BASE}?dates={TOURNAMENT_START}-{today}"
             try:
                 data = fetch_url(url, "espn")
                 self._send_json(data)
             except Exception as e:
-                self.send_error(502, f"ESPN proxy error: {e}")
-        elif self.path.startswith("/api/"):
-            endpoint = self.path[5:]  # strip /api/
-            url = f"{WC_API_BASE}/{endpoint}"
+                self.send_error(502, f"Scores proxy error: {e}")
+        elif self.path == "/flags":
+            url = f"{WC_API_BASE}/teams"
             try:
-                data = fetch_url(url, endpoint)
+                data = fetch_url(url, "teams")
                 self._send_json(data)
             except Exception as e:
-                self.send_error(502, f"Proxy error: {e}")
+                self.send_error(502, f"Flags proxy error: {e}")
         else:
             super().do_GET()
 

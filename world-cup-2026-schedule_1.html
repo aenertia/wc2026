@@ -677,7 +677,7 @@ function parseScorers(v){
 
 async function fetchScores(){
   try{
-    const res=await fetch("/api/espn",{cache:"no-store"});
+    const res=await fetch("/scores",{cache:"no-store"});
     if(!res.ok)throw new Error(res.status);
     const data=await res.json();
     const map=new Map();
@@ -872,7 +872,7 @@ updateBanner();setInterval(updateBanner,1000);
 /* ---------- standings ---------- */
 async function fetchStandings(){
   try{
-    const tRes=await fetch("/api/teams",{cache:"no-store"});
+    const tRes=await fetch("/flags",{cache:"no-store"});
     if(!tRes.ok)return;
     const td=await tRes.json();
     flagByName=new Map();
