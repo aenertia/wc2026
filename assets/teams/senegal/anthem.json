@@ -1,6 +1,8 @@
 {
-  "name": null,
-  "audio_file": null,
-  "has_audio": false,
+  "name": "Pincez Tous vos Koras",
+  "video_id": "XMyj4Nkw7sk",
+  "video_title": "Senegal National Anthem",
+  "audio_file": "anthem.m4a",
+  "has_audio": true,
   "midi_file": "anthem.mid"
 }
