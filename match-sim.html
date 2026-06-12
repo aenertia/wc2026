@@ -2743,24 +2743,116 @@ function rematch() {
 }
 
 // ---- PRE-MATCH BANTER ----
-function showPrematch(homeName, awayName, onComplete) {
+// ---- Inline MIDI Parser ----
+function parseMidi(buf) {
+  const d = new Uint8Array(buf); let p = 0;
+  const u32=()=>(d[p++]<<24)|(d[p++]<<16)|(d[p++]<<8)|d[p++];
+  const u16=()=>(d[p++]<<8)|d[p++];
+  const vlq=()=>{let v=0,b;do{b=d[p++];v=(v<<7)|(b&0x7f);}while(b&0x80);return v;};
+  p=8; const fmt=u16(),trks=u16(),div=u16(); const notes=[];
+  for(let t=0;t<trks;t++){
+    p+=4; const end=p+u32(); let tk=0,ls=0; const on={};
+    while(p<end){
+      tk+=vlq(); let st=d[p]; if(st<0x80){st=ls;}else{p++;ls=st;}
+      const tp=st&0xF0;
+      if(tp===0x90){const n=d[p++],v=d[p++];if(v>0){on[n]={t:tk,v};}else if(on[n]){notes.push({t:on[n].t/div,n,v:on[n].v,dur:(tk-on[n].t)/div});delete on[n];}}
+      else if(tp===0x80){const n=d[p++];p++;if(on[n]){notes.push({t:on[n].t/div,n,v:on[n].v,dur:(tk-on[n].t)/div});delete on[n];}}
+      else if(tp===0xC0||tp===0xD0){p++;}
+      else if(tp===0xFF){p++;const l=vlq();p+=l;}
+      else if(tp===0xF0||tp===0xF7){const l=vlq();p+=l;}
+      else{p+=2;}
+    }
+    for(const n in on)notes.push({t:on[n].t/div,n:+n,v:on[n].v,dur:0.1});
+  }
+  return {div,notes:notes.sort((a,b)=>a.t-b.t)};
+}
+
+function scheduleMidi(midiData, maxSec=10, tempo=120) {
+  const ac = AudioManager.ctx;
+  if (!ac || AudioManager.muted) return;
+  const bps = tempo/60;
+  const mg = ac.createGain(); mg.gain.value=0.25; mg.connect(ac.destination);
+  for(const n of midiData.notes){
+    const s=n.t/bps; if(s>maxSec) break;
+    const dur=Math.min(n.dur/bps,1.4);
+    const freq=440*Math.pow(2,(n.n-69)/12);
+    const osc=ac.createOscillator(), g=ac.createGain();
+    osc.type='square'; osc.frequency.value=freq;
+    g.gain.setValueAtTime((n.v/127)*0.35, ac.currentTime+s);
+    g.gain.linearRampToValueAtTime(0, ac.currentTime+s+dur);
+    osc.connect(g); g.connect(mg);
+    osc.start(ac.currentTime+s); osc.stop(ac.currentTime+s+dur+0.05);
+  }
+}
+
+async function playAnthemMidi(slug, maxSec=10) {
+  if (!AudioManager.ctx || AudioManager.muted) return 2000;
+  try {
+    const resp = await fetch(`assets/teams/${slug}/anthem.mid`);
+    if (!resp.ok) return 2000;
+    scheduleMidi(parseMidi(await resp.arrayBuffer()), maxSec);
+    return maxSec * 1000;
+  } catch(e) { return 2000; }
+}
+
+async function showPrematch(homeName, awayName, onComplete) {
   const overlay = $('prematchOverlay');
+  const homeSlug = TEAM_META[homeName]?.slug || '';
+  const awaySlug = TEAM_META[awayName]?.slug || '';
+
+  // Walk players out to lineup positions at halfway line
+  homePlayers.forEach((p,i) => {
+    p.x = PITCH_L + PW*(0.15 + (i%11)*0.068);
+    p.y = WORLD_H/2 + 45 + Math.floor(i/6)*35;
+  });
+  awayPlayers.forEach((p,i) => {
+    p.x = PITCH_L + PW*(0.15 + (i%11)*0.068);
+    p.y = WORLD_H/2 - 45 - Math.floor(i/6)*35;
+  });
+  snapCamera(WORLD_W/2, WORLD_H/2);
+
+  // Build anthem name display
+  const homeAnthemName = (ANTHEM_TRANSLATIONS?.[homeName])?.[0] || '';
+  const awayAnthemName = (ANTHEM_TRANSLATIONS?.[awayName])?.[0] || '';
+
+  // Home anthem
+  $('pmHomeName').textContent = homeName + (TEAM_NICKNAMES[homeName] ? ` — ${TEAM_NICKNAMES[homeName]}` : '');
+  $('pmAwayName').textContent = '';
+  $('pmHomeAnecdote').textContent = homeAnthemName ? `♪ ${homeAnthemName} ♪` : '♪ National Anthem ♪';
+  $('pmAwayAnecdote').textContent = '';
+  $('pmTimer').textContent = '10';
+  overlay.style.display = 'flex';
+
+  let t=10;
+  const homeTimer = setInterval(()=>{ t--; $('pmTimer').textContent=t; if(t<=0)clearInterval(homeTimer); }, 1000);
+  await new Promise(r=>setTimeout(r, await playAnthemMidi(homeSlug, 10)));
+  clearInterval(homeTimer);
+
+  // Away anthem
+  $('pmHomeName').textContent = '';
+  $('pmAwayName').textContent = awayName + (TEAM_NICKNAMES[awayName] ? ` — ${TEAM_NICKNAMES[awayName]}` : '');
+  $('pmHomeAnecdote').textContent = '';
+  $('pmAwayAnecdote').textContent = awayAnthemName ? `♪ ${awayAnthemName} ♪` : '♪ National Anthem ♪';
+  $('pmTimer').textContent = '10';
+
+  let t2=10;
+  const awayTimer = setInterval(()=>{ t2--; $('pmTimer').textContent=t2; if(t2<=0)clearInterval(awayTimer); }, 1000);
+  await new Promise(r=>setTimeout(r, await playAnthemMidi(awaySlug, 10)));
+  clearInterval(awayTimer);
+
+  // Anecdotes before kickoff
   $('pmHomeName').textContent = homeName;
   $('pmAwayName').textContent = awayName;
   $('pmHomeAnecdote').textContent = getTeamAnecdote(homeName);
   $('pmAwayAnecdote').textContent = getTeamAnecdote(awayName);
-  $('pmTimer').textContent = '4';
-  overlay.style.display = 'flex';
-  let countdown = 4;
-  const timer = setInterval(() => {
-    countdown--;
-    $('pmTimer').textContent = countdown;
-    if (countdown <= 0) {
-      clearInterval(timer);
-      overlay.style.display = 'none';
-      onComplete();
-    }
-  }, 1000);
+  $('pmTimer').textContent = '3';
+  let t3=3;
+  await new Promise(r=>{
+    const ct=setInterval(()=>{ t3--; $('pmTimer').textContent=t3; if(t3<=0){clearInterval(ct);r();}},1000);
+  });
+
+  overlay.style.display = 'none';
+  onComplete();
 }
 
 // ---- INIT ----
