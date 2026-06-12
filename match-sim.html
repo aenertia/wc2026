@@ -3017,10 +3017,28 @@ async function showPrematch(homeName, awayName, onComplete) {
   $('pmTimer').textContent = '10';
   overlay.style.display = 'flex';
 
+  // Add skip button to overlay
+  let skipCeremony = false;
+  const skipBtn = document.createElement('button');
+  skipBtn.textContent = 'Skip ▶';
+  skipBtn.style.cssText = 'font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;background:none;border:1px solid var(--line);color:var(--chalk-faint);border-radius:999px;padding:5px 16px;margin-top:20px;cursor:pointer;';
+  skipBtn.onclick = () => { skipCeremony = true; };
+  overlay.appendChild(skipBtn);
+
+  const waitMs = (ms) => new Promise(r => {
+    const start = Date.now();
+    const check = setInterval(() => {
+      if (skipCeremony || Date.now() - start >= ms) { clearInterval(check); r(); }
+    }, 100);
+  });
+
+  // Home anthem
   let t=10;
-  const homeTimer = setInterval(()=>{ t--; $('pmTimer').textContent=t; if(t<=0)clearInterval(homeTimer); }, 1000);
-  await new Promise(r=>setTimeout(r, await playAnthemMidi(homeSlug, 10)));
+  const homeTimer = setInterval(()=>{ t--; if ($('pmTimer')) $('pmTimer').textContent=Math.max(0,t); if(t<=0)clearInterval(homeTimer); }, 1000);
+  const homeDur = await playAnthemMidi(homeSlug, 10).catch(()=>2000);
+  await waitMs(homeDur);
   clearInterval(homeTimer);
+  if (skipCeremony) { overlay.removeChild(skipBtn); overlay.style.display='none'; onComplete(); return; }
 
   // Away anthem
   $('pmHomeName').textContent = '';
@@ -3030,21 +3048,20 @@ async function showPrematch(homeName, awayName, onComplete) {
   $('pmTimer').textContent = '10';
 
   let t2=10;
-  const awayTimer = setInterval(()=>{ t2--; $('pmTimer').textContent=t2; if(t2<=0)clearInterval(awayTimer); }, 1000);
-  await new Promise(r=>setTimeout(r, await playAnthemMidi(awaySlug, 10)));
+  const awayTimer = setInterval(()=>{ t2--; if ($('pmTimer')) $('pmTimer').textContent=Math.max(0,t2); if(t2<=0)clearInterval(awayTimer); }, 1000);
+  const awayDur = await playAnthemMidi(awaySlug, 10).catch(()=>2000);
+  await waitMs(awayDur);
   clearInterval(awayTimer);
 
-  // Anecdotes before kickoff
+  // Brief anecdote pause
   $('pmHomeName').textContent = homeName;
   $('pmAwayName').textContent = awayName;
   $('pmHomeAnecdote').textContent = getTeamAnecdote(homeName);
   $('pmAwayAnecdote').textContent = getTeamAnecdote(awayName);
   $('pmTimer').textContent = '3';
-  let t3=3;
-  await new Promise(r=>{
-    const ct=setInterval(()=>{ t3--; $('pmTimer').textContent=t3; if(t3<=0){clearInterval(ct);r();}},1000);
-  });
+  await waitMs(3000);
 
+  overlay.removeChild(skipBtn);
   overlay.style.display = 'none';
   onComplete();
 }
@@ -3062,8 +3079,13 @@ $('startOverlay').addEventListener('click', function() {
   AudioManager.init();
   this.style.display = 'none';
   $('muteBtn').style.display = 'flex';
-  if ($('homeSelect').value && $('awaySelect').value && $('homeSelect').value !== $('awaySelect').value) {
+  // Show team select if not already pre-selected via URL params
+  const hs = $('homeSelect').value, as = $('awaySelect').value;
+  if (hs && as && hs !== as) {
     startMatch();
+  } else {
+    // Show the team select screen
+    $('teamSelect').classList.remove('hidden');
   }
 });
 
