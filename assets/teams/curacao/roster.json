@@ -39,7 +39,19 @@
       "club": "Abha",
       "club_nation": "KSA",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34218477",
+      "full_name": "Juriën Godfried Juan Gaari",
+      "last_name": "Gaari",
+      "first_name": "Juriën",
+      "bio": "Juriën Godfried Juan Gaari (born 23 December 1993) is a professional footballer for Saudi club Abha. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Kerkrade, Netherlands",
+      "height": "181 cm",
+      "weight": "73 kg",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 4,
@@ -52,7 +64,19 @@
       "club": "RKC Waalwijk",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34246316",
+      "full_name": "Roshon Felix Romar Jordan van Eijma",
+      "last_name": "Eijma",
+      "first_name": "Roshon van",
+      "bio": "Roshon Felix Romar Jordan van Eijma (born 6 June 1998) is a professional footballer who plays as a centre-back for Eerste Divisie club RKC Waalwijk. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Tilburg, Netherlands",
+      "height": "186 cm",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 5,
@@ -65,7 +89,21 @@
       "club": "PEC Zwolle",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34170547",
+      "full_name": "Sherel Constancio Floranus",
+      "last_name": "Floranus",
+      "first_name": "Sherel",
+      "bio": "Sherel Floranus (born 23 August 1998) is a professional footballer who plays as a right-back for Eredivisie club PEC Zwolle. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Rotterdam, Netherlands",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "161 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "facebook": "www.facebook.com/roby.floranus"
+      }
     },
     {
       "number": 6,
@@ -78,7 +116,19 @@
       "club": "RKC Waalwijk",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34170440",
+      "full_name": "Godfried Roemeratoe",
+      "last_name": "Roemeratoe",
+      "first_name": "Godfried",
+      "bio": "Godfried Roemeratoe (born 19 August 1999) is a professional footballer who plays for Eredivisie club RKC Waalwijk. Born in the Netherlands, he plays for the Curaçao.",
+      "birth_location": "Oost-Souburg, Netherlands",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "104 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 7,
@@ -91,7 +141,20 @@
       "club": "Volendam",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34173580",
+      "full_name": "Juninho Gracielo Bacuna",
+      "last_name": "Bacuna",
+      "first_name": "Juninho",
+      "bio": "Juninho Bacuna (born 7 August 1997) is a professional footballer who plays as a central midfielder for Eredivisie club Volendam on loan from Turkish club Gaziantep. Born in the Netherlands, he represents the Curaçao national team.\r\n\r\nBacuna began his career in his native Netherlands with Groningen before moving to English football with Huddersfield Town. After one season in the Premier League and two in the second-tier Championship, he spent six months with Scottish Premiership club Rangers and ",
+      "birth_location": "Groningen, Netherlands",
+      "height": "178 cm",
+      "weight": "170 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q19280531"
     },
     {
       "number": 8,
@@ -104,7 +167,20 @@
       "club": "Zürich",
       "club_nation": "SUI",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34277762",
+      "full_name": "Livano Shyron Liomar Comenencia",
+      "last_name": "Comenencia",
+      "first_name": "Livano",
+      "bio": "Livano Shyron Liomar Comenencia (born 3 February 2004) is a professional footballer who plays as a right-back for Swiss Super League club Zürich. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Breda, Netherlands",
+      "height": "191 cm",
+      "weight": "",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q108800542"
     },
     {
       "number": 9,
@@ -117,7 +193,19 @@
       "club": "Miami FC",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34181047",
+      "full_name": "Jürgen Leonardo Locadia",
+      "last_name": "Locadia",
+      "first_name": "Jürgen",
+      "bio": "Jürgen Leonardo Locadia (born 7 November 1993) is a professional footballer who plays as a striker who currently plays for Miami FC in the USL Championship. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Emmen, Netherlands",
+      "height": "193 cm",
+      "weight": "85 kg",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 10,
@@ -130,7 +218,20 @@
       "club": "Iğdır",
       "club_nation": "TUR",
       "captain": true,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34145458",
+      "full_name": "Leandro Jones Johan Bacuna",
+      "last_name": "Bacuna",
+      "first_name": "Leandro",
+      "bio": "Leandro Jones Johan Bacuna (born 21 August 1991) is a professional footballer who plays as a midfielder or right-back for TFF First League club Iğdır FK. Born in the Netherlands, he was a former youth international for them, before switching to represent the Curaçao national team at senior level. He is their joint most-capped player along with Eloy Room.",
+      "birth_location": "Groningen, Netherlands",
+      "height": "1.87 m (6 ft 2 in)",
+      "weight": "170 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q249344"
     },
     {
       "number": 11,
@@ -143,7 +244,19 @@
       "club": "Kifisia",
       "club_nation": "GRE",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34218502",
+      "full_name": "Jeremy Cornelis Jacobus Antonisse",
+      "last_name": "Antonisse",
+      "first_name": "Jeremy",
+      "bio": "Jeremy Cornelis Jacobus Antonisse (born 29 March 2002) is a professional footballer who plays as a left winger for Greek Super League club A.E. Kifisia. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Rosmalen, Netherlands",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "152 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 12,

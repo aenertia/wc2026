@@ -78,7 +78,23 @@
       "club": "Porto",
       "club_nation": "POR",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34148636",
+      "full_name": "Seko Mohamed Fofana",
+      "last_name": "Fofana",
+      "first_name": "Seko",
+      "bio": "Seko Mohamed Fofana (born 7 May 1995) is a professional footballer who plays as a midfielder for Primeira Liga club Porto, on loan from Ligue 1 club Rennes. Born in France, he plays for the Ivory Coast national team.",
+      "birth_location": "Paris, France",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "161 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/sekofofana/",
+        "twitter": "twitter.com/sekofofana"
+      },
+      "wikidata_id": "Q18635274"
     },
     {
       "number": 7,
@@ -91,7 +107,22 @@
       "club": "Atalanta",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34171312",
+      "full_name": "Kouakou Odilon Dorgeless Kossounou",
+      "last_name": "Kossounou",
+      "first_name": "Odilon",
+      "bio": "Kouakou Odilon Dorgeless Kossounou (; born 4 January 2001) is an Ivorian professional footballer who plays as a defender forAtalanta and the Ivory Coast national team.\r\n\r\nKossounou debuted with the Ivory Coast national team in a 1–1 friendly draw with Belgium on 8 October 2020.\r\n\r\nIn 2020, Kossounou was the subject of a TV-documentary on Swedish television titled \"Det vackra spelet\" (The beautiful game), that for three years followed him on his transfer to Hammarby and then on to Club Brugge.",
+      "birth_location": "Abidjan, Cote d'Ivoire",
+      "height": "191 cm",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/odilonkossounou/"
+      },
+      "wikidata_id": "Q64009388"
     },
     {
       "number": 8,
@@ -104,7 +135,23 @@
       "club": "Al-Ahli",
       "club_nation": "KSA",
       "captain": true,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34162310",
+      "full_name": "Franck Yannick Kessié",
+      "last_name": "Kessié",
+      "first_name": "Franck",
+      "bio": "Franck Yannick Kessié (born 19 December 1996) is an Ivorian professional footballer who plays as a central midfielder for Saudi Pro League club Al-Ahli and the Ivory Coast national team.\r\n\r\nAfter advancing through Atalanta, Kessié joined AC Milan in 2017 on loan, securing a permanent move two years later and playing a pivotal role in their Serie A success in the 2021–22 season. In 2022, he joined Barcelona, clinching titles in La Liga and Supercopa de España, before his transfer to Al-Ahli in 20",
+      "birth_location": "Ouragahio, Cote d'Ivoire",
+      "height": "1.83 m (6 ft 0 in)",
+      "weight": "161 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "adidas Predator 20.1",
+      "social": {
+        "instagram": "www.instagram.com/franckkessie/",
+        "facebook": "www.facebook.com/KessieYannick/"
+      },
+      "wikidata_id": "Q18044401"
     },
     {
       "number": 9,
@@ -117,7 +164,19 @@
       "club": "Inter Milan",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34229850",
+      "full_name": "Ange-Yoan Bonny",
+      "last_name": "Bonny",
+      "first_name": "Ange-Yoan",
+      "bio": "Ange-Yoan Bonny (born 25 October 2003) is a professional footballer who plays as a forward for Serie A club Inter Milan. Born in France, he chose to represent Ivory Coast internationally.",
+      "birth_location": "Aubervilliers, France",
+      "height": "189 cm",
+      "weight": "",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 10,
@@ -130,7 +189,23 @@
       "club": "Monaco",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34199659",
+      "full_name": "Simon Adingra",
+      "last_name": "Adingra",
+      "first_name": "Simon",
+      "bio": "Simon Adingra (born 1 January 2002) is an Ivorian professional footballer who plays as a winger for Ligue 1 club Monaco, on loan from Premier League club Sunderland, and the Ivory Coast national team.\r\n\r\nA former player of Right to Dream Academy, Adingra joined Danish club Nordsjælland in January 2020. He made his professional debut on 18 April 2021 in a 2–2 league draw against Copenhagen. He replaced Ivan Mesík at the 68th minute of the game and went on to score his team's second goal.\r\n\r\nOn 24",
+      "birth_location": "Abobo, Cote d'Ivoire",
+      "height": "1.75 m (5 ft 9 in)",
+      "weight": "150 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/simon.adingra17/",
+        "facebook": "www.facebook.com/nguessan.adingra"
+      },
+      "wikidata_id": "Q107742783"
     },
     {
       "number": 11,
@@ -143,7 +218,19 @@
       "club": "RB Leipzig",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34336277",
+      "full_name": "Yan Diomande",
+      "last_name": "Diomande",
+      "first_name": "Yan",
+      "bio": "Yan Diomande (born 14 November 2006) is an Ivorian professional footballer who plays as a winger for Bundesliga club RB Leipzig and the Ivory Coast national team.",
+      "birth_location": "Abidjan, Ivory Coast",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 12,
@@ -156,7 +243,20 @@
       "club": "Nice",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34173526",
+      "full_name": "Sepe Elye Delmas Wahi",
+      "last_name": "Wahi",
+      "first_name": "Elye",
+      "bio": "Sepe Elye Delmas Wahi (born 2 January 2003) is a professional footballer who plays as a forward for Ligue 1 club Nice, on loan from Bundesliga club Eintracht Frankfurt. Born in France, he plays for the Ivory Coast national team.",
+      "birth_location": "Courcouronnes, France",
+      "height": "1.81 m (5 ft 11 in)",
+      "weight": "161 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q104215027"
     },
     {
       "number": 13,
@@ -169,7 +269,19 @@
       "club": "İstanbul Başakşehir",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34220132",
+      "full_name": "Christopher Téa Operi",
+      "last_name": "Opéri",
+      "first_name": "Christopher",
+      "bio": "Christopher Téa Opéri (born 29 April 1997) is an Ivorian professional footballer who plays as a left-back for Süper Lig club İstanbul Başakşehir and the Ivory Coast national team. \r\n\r\nCareer\r\nAfter years in the youth academy of Caen, Opéri was transferred to Châteauroux on 24 July 2017. He made his first professional appearance with Châteauroux in a 2–1 Ligue 2 loss to Gazélec Ajaccio on 22 September 2017.\r\n\r\nOn 2 June 2021, he signed a two-year contract with Gent in Belgium. On 21 June 2022, Op",
+      "birth_location": "Abidjan, Ivory Coast",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "73 kg",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 14,
@@ -182,7 +294,19 @@
       "club": "Cercle Brugge",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34220034",
+      "full_name": "Oumar Diakité",
+      "last_name": "Diakité",
+      "first_name": "Oumar",
+      "bio": "Oumar Diakité (born 20 December 2003) is an Ivorian footballer who plays as a forward for Belgian Pro League club Cercle Brugge, on loan from Ligue 2 club Reims, and the Ivory Coast national team.\r\n\r\nClub career\r\nDiakité joined Red Bull Salzburg from ASEC Mimosas on 12 January 2022 and quickly sent on loan to Red Bull Salzburg's farm team, Liefering. He made his debut in a league match against SKN St. Pölten in 20 February. Diakité scored his first goal against SK Rapid Wien II in the league mat",
+      "birth_location": "Bingerville, Cote d'Ivoire",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "168 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 15,
@@ -195,7 +319,22 @@
       "club": "Manchester United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34173019",
+      "full_name": "Amad Diallo",
+      "last_name": "Diallo",
+      "first_name": "Amad",
+      "bio": "Amad Diallo (born 11 July 2002) is an Ivorian professional footballer who plays as a winger or midfielder for Premier League club Manchester United and the Ivory Coast national team. \r\n\r\nBorn in the Ivory Coast, Diallo moved to Italy as a child. He joined the Atalanta youth system in 2015, where he won two Campionato Primavera 1 titles. In 2019, he scored on his debut for the senior team, making him the first player born in 2002 to score in Serie A. In January 2021, Diallo joined English club Ma",
+      "birth_location": "Abidjan, Cote d'Ivoire",
+      "height": "1.73 m (5 ft 8 in)",
+      "weight": "",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/amaddiallo79/"
+      },
+      "wikidata_id": "Q72603655"
     },
     {
       "number": 16,
@@ -208,7 +347,19 @@
       "club": "Charleroi",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34231198",
+      "full_name": "Mohamed Koné",
+      "last_name": "Koné",
+      "first_name": "Mohamed",
+      "bio": "Mohamed Koné (born 7 March 2002) is an Ivorian professional footballer who plays as a goalkeeper for Belgian club Charleroi.",
+      "birth_location": "Adjamé, Cote d'Ivoire",
+      "height": "186 cm",
+      "weight": "172 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 17,
@@ -221,7 +372,19 @@
       "club": "Strasbourg",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34221975",
+      "full_name": "Guéla Maho Lewis Doué",
+      "last_name": "Doué",
+      "first_name": "Guéla",
+      "bio": "Guéla Maho Lewis Doué (born 17 October 2002) is a professional footballer who plays as a right-back for Ligue 1 club Strasbourg. Born in France, he plays for the Ivory Coast national team.",
+      "birth_location": "Angers, France",
+      "height": "1.86 m (6 ft 1 in)",
+      "weight": "",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 18,
@@ -234,7 +397,23 @@
       "club": "Nottingham Forest",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34172570",
+      "full_name": "Ibrahim Sangaré",
+      "last_name": "Sangaré",
+      "first_name": "Ibrahim",
+      "bio": "Ibrahim Sangaré (born 2 December 1997) is an Ivorian professional footballer who plays as a defensive midfielder for Nottingham Forest and the Ivory Coast national team.",
+      "birth_location": "Abidjan, Cote d'Ivoire",
+      "height": "1.91 m (6 ft 3 in)",
+      "weight": "170 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/ibrahim_sangare225/?hl=fr",
+        "twitter": "twitter.com/ibrahimsangar19"
+      },
+      "wikidata_id": "Q27832634"
     },
     {
       "number": 19,
@@ -312,7 +491,19 @@
       "club": "TSG Hoffenheim",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34240022",
+      "full_name": "Bazoumana Touré",
+      "last_name": "Touré",
+      "first_name": "Bazoumana",
+      "bio": "Bazoumana Touré (born 2 March 2006) is an Ivorian professional footballer who plays as a winger for German Bundesliga club TSG Hoffenheim and the Ivory Coast national team.",
+      "birth_location": "Bouaké, Ivory Coast",
+      "height": "175 cm",
+      "weight": "",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -325,7 +516,19 @@
       "club": "Charleroi",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34220649",
+      "full_name": "Parfait Guiagon",
+      "last_name": "Guiagon",
+      "first_name": "Parfait",
+      "bio": "Parfait Guiagon (born 22 February 2001) is an Ivorian professional footballer who plays as a midfielder for Charleroi and the Ivory Coast national team.",
+      "birth_location": "Logouale, Ivory Coast",
+      "height": "169 cm",
+      "weight": "139 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -338,7 +541,19 @@
       "club": "Trabzonspor",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34300787",
+      "full_name": "Christ Ravynel Inao Oulaï",
+      "last_name": "Oulaï",
+      "first_name": "Christ Inao",
+      "bio": "Christ Ravynel Inao Oulaï (born 6 April 2006) is an Ivorian professional footballer who plays as a midfielder for Trabzonspor and the Ivory Coast national team.",
+      "birth_location": "Yopougon, Ivory Coast",
+      "height": "173 cm",
+      "weight": "",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     }
   ]
 }

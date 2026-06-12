@@ -13,7 +13,19 @@
       "club": "Le Havre",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34175006",
+      "full_name": "Lionel Mpasi-Nzau",
+      "last_name": "Mpasi",
+      "first_name": "Lionel",
+      "bio": "Lionnel Mpasi Nzau (born 1 August 1994) is a professional footballer who plays as goalkeeper for Ligue 1 club Le Havre. Born in France, he plays for the DR Congo national team.",
+      "birth_location": "Meaux, France",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "78 kg",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 2,
@@ -26,7 +38,24 @@
       "club": "West Ham United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34167575",
+      "full_name": "Aaron Wan-Bissaka",
+      "last_name": "Wan-Bissaka",
+      "first_name": "Aaron",
+      "bio": "Aaron Wan-Bissaka (born 26 November 1997) is a professional footballer who plays as a right-back for Premier League club West Ham United. Born in England, he plays for the DR Congo national team.\r\n\r\nAn academy graduate of hometown club Crystal Palace, Wan-Bissaka made his senior debut in 2018, and quickly rose to prominence, being named the club's Player of the Year in his only full season. In 2019, he moved to Manchester United for £50 million, winning an EFL Cup and FA Cup with the club before",
+      "birth_location": "Croydon, England",
+      "height": "6 ft 0 in (1.83 m)",
+      "weight": "72 kg",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "adidas Nemeziz 19+",
+      "social": {
+        "instagram": "www.instagram.com/a_bissaka/",
+        "facebook": "www.facebook.com/awbissaka/",
+        "twitter": "twitter.com/awbissaka"
+      },
+      "wikidata_id": "Q50137347"
     },
     {
       "number": 3,
