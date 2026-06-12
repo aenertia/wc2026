@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 download_assets.py — Pre-cache team data from Wikipedia for WC2026 wallchart.
-Usage: python3 download_assets.py [--team SLUG] [--dry-run] [--force]
+Usage: python3 download_assets.py [--team SLUG] [--dry-run] [--force] [--enrich]
 """
 import urllib.request
 import urllib.parse
@@ -695,6 +695,149 @@ def download_player_photos(slug, squad_data, dry_run=False, force=False):
     return found_photos, silhouette_count
 
 
+def enrich_player_bios(slug, dry_run=False, force=False):
+    """Enrich roster.json players with TheSportsDB bio data (search + lookup)."""
+    roster_path = os.path.join(ASSETS_DIR, "teams", slug, "roster.json")
+    if not os.path.exists(roster_path):
+        print(f"  No roster.json for {slug}, skipping enrichment")
+        return 0
+
+    with open(roster_path) as f:
+        roster_data = json.load(f)
+
+    players = roster_data["players"]
+    team_display = roster_data.get("team", slug)
+
+    nationality_map = {
+        "england": "English", "scotland": "Scottish", "usa": "American",
+        "korea-republic": "South Korean", "ir-iran": "Iranian",
+        "cote-d-ivoire": "Ivorian", "congo-dr": "Congolese",
+        "cabo-verde": "Cape Verdean", "czechia": "Czech",
+        "bosnia-and-herzegovina": "Bosnian", "curacao": "Curaçaoan",
+        "turkiye": "Turkish", "new-zealand": "New Zealand",
+        "saudi-arabia": "Saudi Arabian", "south-africa": "South African",
+        "algeria": "Algerian", "argentina": "Argentine",
+        "australia": "Australian", "austria": "Austrian",
+        "belgium": "Belgian", "brazil": "Brazilian",
+        "canada": "Canadian", "colombia": "Colombian",
+        "croatia": "Croatian", "ecuador": "Ecuadorian",
+        "egypt": "Egyptian", "france": "French",
+        "germany": "German", "ghana": "Ghanaian",
+        "haiti": "Haitian", "iraq": "Iraqi",
+        "japan": "Japanese", "jordan": "Jordanian",
+        "mexico": "Mexican", "morocco": "Moroccan",
+        "netherlands": "Dutch", "norway": "Norwegian",
+        "panama": "Panamanian", "paraguay": "Paraguayan",
+        "portugal": "Portuguese", "qatar": "Qatari",
+        "senegal": "Senegalese", "spain": "Spanish",
+        "sweden": "Swedish", "switzerland": "Swiss",
+        "tunisia": "Tunisian", "uruguay": "Uruguayan",
+        "uzbekistan": "Uzbekistani",
+    }
+    expected_nationality = nationality_map.get(slug, team_display)
+
+    enriched_count = 0
+    for player in players:
+        name = player["name"]
+
+        if not force and player.get("tsdb_id"):
+            enriched_count += 1
+            continue
+
+        search_url = "https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=" + urllib.parse.quote(name)
+        try:
+            raw = fetch_url(search_url, retries=2, delay=2)
+            data = json.loads(raw)
+            tsdb_players = data.get("player") or []
+        except Exception as e:
+            print(f"    Search failed for {name}: {e}")
+            time.sleep(2)
+            continue
+
+        soccer_players = [p for p in tsdb_players if p.get("strSport") == "Soccer"]
+        matched = None
+        for p in soccer_players:
+            nat = p.get("strNationality", "")
+            if expected_nationality.lower() in nat.lower() or nat.lower() in expected_nationality.lower():
+                matched = p
+                break
+        if not matched and soccer_players:
+            matched = soccer_players[0]
+
+        if not matched:
+            print(f"    No TSDB match for {name}")
+            time.sleep(2)
+            continue
+
+        id_player = matched.get("idPlayer")
+        if not id_player:
+            time.sleep(2)
+            continue
+
+        time.sleep(2)
+
+        lookup_url = f"https://www.thesportsdb.com/api/v1/json/3/lookupplayer.php?id={id_player}"
+        try:
+            raw = fetch_url(lookup_url, retries=2, delay=2)
+            ldata = json.loads(raw)
+            plist = ldata.get("players") or []
+            p = plist[0] if plist else None
+        except Exception as e:
+            print(f"    Lookup failed for {name} (id={id_player}): {e}")
+            time.sleep(2)
+            continue
+
+        if not p:
+            time.sleep(2)
+            continue
+
+        social = {
+            "instagram": p.get("strInstagram"),
+            "facebook": p.get("strFacebook"),
+            "twitter": p.get("strTwitter"),
+            "youtube": p.get("strYoutube"),
+            "website": p.get("strWebsite"),
+        }
+        social = {k: v for k, v in social.items() if v}
+
+        last_name = p.get("strLastName")
+        player_name_full = p.get("strPlayer", "")
+        first_name = (player_name_full.replace(last_name, "").strip() if last_name else None)
+
+        bio_raw = p.get("strDescriptionEN") or ""
+        bio = bio_raw[:500]
+
+        player["tsdb_id"] = p.get("idPlayer")
+        player["full_name"] = p.get("strPlayerAlternate") or p.get("strPlayer")
+        player["last_name"] = last_name
+        player["first_name"] = first_name if first_name else None
+        player["bio"] = bio
+        player["birth_location"] = p.get("strBirthLocation")
+        player["height"] = p.get("strHeight")
+        player["weight"] = p.get("strWeight")
+        player["position_detail"] = p.get("strPosition")
+        player["preferred_foot"] = p.get("strSide")
+        player["kit"] = p.get("strKit")
+        player["social"] = social
+        player["wikidata_id"] = p.get("idWikidata")
+
+        for key in ["full_name", "last_name", "first_name", "bio", "birth_location",
+                     "height", "weight", "position_detail", "preferred_foot", "kit", "wikidata_id"]:
+            if player.get(key) is None:
+                player.pop(key, None)
+
+        enriched_count += 1
+        print(f"    ✓ {name} → {player.get('full_name', name)} ({player.get('position_detail', '')})")
+        time.sleep(2)
+
+    if not dry_run:
+        with open(roster_path, "w") as f:
+            json.dump(roster_data, f, ensure_ascii=False, indent=2)
+
+    print(f"  {slug}: {enriched_count}/{len(players)} players enriched")
+    return enriched_count
+
+
 def main():
     parser = argparse.ArgumentParser(description="Download WC2026 team assets")
     parser.add_argument("--team", help="Single team slug (e.g. mexico)")
@@ -713,6 +856,9 @@ def main():
     parser.add_argument(
         "--anthems-only", action="store_true", help="Only download anthems"
     )
+    parser.add_argument(
+        "--enrich", action="store_true", help="Enrich player bios from TheSportsDB"
+    )
     args = parser.parse_args()
 
     if args.team and args.team not in TEAMS_BY_SLUG:
@@ -720,18 +866,31 @@ def main():
         print(f"Valid slugs: {', '.join(sorted(TEAMS_BY_SLUG.keys()))}")
         sys.exit(1)
 
+    if args.team:
+        teams_to_process = [(TEAMS_BY_SLUG[args.team],
+                             TEAMS[TEAMS_BY_SLUG[args.team]])]
+    else:
+        teams_to_process = list(TEAMS.items())
+
+    if args.enrich:
+        total = len(teams_to_process)
+        print(f"Enriching player bios for {total} teams...")
+        for i, (name, meta) in enumerate(teams_to_process, 1):
+            slug = meta["slug"]
+            print(f"\n[{i}/{total}] {name} ({slug})")
+            enrich_player_bios(slug, dry_run=args.dry_run, force=args.force)
+        if args.dry_run:
+            print(f"\nDry run complete. Would enrich {total} teams.")
+        else:
+            print(f"\nDone. Enriched {total} teams.")
+        return
+
     if not args.anthems_only:
         squads = parse_wikipedia_squads()
         print(f"Parsed {sum(len(s['players']) for s in squads.values())} players "
               f"across {len(squads)} teams\n")
     else:
         squads = {}
-
-    if args.team:
-        teams_to_process = [(TEAMS_BY_SLUG[args.team],
-                             TEAMS[TEAMS_BY_SLUG[args.team]])]
-    else:
-        teams_to_process = list(TEAMS.items())
 
     total = len(teams_to_process)
     for i, (name, meta) in enumerate(teams_to_process, 1):
