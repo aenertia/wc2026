@@ -1,6 +1,8 @@
 {
-  "name": null,
-  "audio_file": null,
-  "has_audio": false,
+  "name": "The Star-Spangled Banner",
+  "video_id": "vPKp29Luryc",
+  "video_title": "Star Spangled Banner with Lyrics, Vocals, and Beautiful Photos",
+  "audio_file": "anthem.m4a",
+  "has_audio": true,
   "midi_file": "anthem.mid"
 }
