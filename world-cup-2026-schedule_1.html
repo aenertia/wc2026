@@ -599,6 +599,11 @@ const fmtDateShort=e=>new Intl.DateTimeFormat("en-IE",{timeZone:tz,weekday:"shor
 const dateKey=e=>new Intl.DateTimeFormat("en-CA",{timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit"}).format(e);
 const hourIn=e=>Number(new Intl.DateTimeFormat("en-IE",{timeZone:tz,hour:"numeric",hourCycle:"h23"}).format(e));
 const isLate=e=>hourIn(e)<6;
+function fmtElapsed(e){
+  if(!e||e==="notstarted"||e==="null")return "";
+  if(e==="HT"||e==="ht")return "HT";
+  return e+"'";
+}
 function updateTzLabels(){
   $("tzNote").textContent="Times shown in "+tz.replace(/_/g," ")+". ";
   updateBanner();
@@ -716,7 +721,7 @@ function render(){
       if(sc){
         const stateHtml=sc.finished
           ?'<span class="sc-state ft">FT</span>'
-          :sc.live?'<span class="sc-state live-label"><span class="live-dot"></span>'+sc.elapsed+"'</span>"
+          :sc.live?'<span class="sc-state live-label"><span class="live-dot"></span>'+fmtElapsed(sc.elapsed)+'</span>'
           :'';
         scoreHtml='<div class="m-score"><span class="sc">'+sc.home+'<span class="sep">–</span>'+sc.away+'</span>'+stateHtml+'</div>';
       }else{
@@ -767,7 +772,7 @@ function updateBanner(){
     const {r,sc,h,a}=liveRow;
     $("kickoff").querySelector(".k-label").textContent="Live now";
     $("countdown").textContent=(sc?.home??"0")+" – "+(sc?.away??"0");
-    $("koLine").textContent="Match "+r[0]+" · "+h+" v "+a+(sc?.elapsed&&sc.elapsed!=="notstarted"?" · "+sc.elapsed+"'":"");
+    $("koLine").textContent="Match "+r[0]+" · "+h+" v "+a+(fmtElapsed(sc?.elapsed)?" · "+fmtElapsed(sc?.elapsed):"");
     return;
   }
   // find next upcoming match
