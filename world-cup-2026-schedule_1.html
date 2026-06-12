@@ -1058,6 +1058,15 @@ render();
 fetchStandings().then(()=>fetchScores());
 setInterval(fetchScores,2*60*1000);
 setInterval(fetchStandings,30*60*1000); // flags rarely change
+
+// iOS bfcache: when navigating back, Safari restores the frozen page state.
+// Timers were paused, scores are stale, and the view may have been left on Groups.
+// pageshow with persisted:true fires on bfcache restore — re-sync everything.
+window.addEventListener("pageshow",e=>{
+  if(!e.persisted)return;
+  setView("schedule");
+  fetchStandings().then(()=>fetchScores());
+});
 </script>
 </body>
 </html>
