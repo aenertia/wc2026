@@ -501,6 +501,167 @@ const GROUP_COLORS={A:"#f25c5c",B:"#f2913d",C:"#f2c14e",D:"#a8d44d",E:"#4dc97b",
 
 window.DEBUG_STATS = {goals:0, passes:0, fouls:0, dives:0, fights:0, varReviews:0, matchId:''};
 
+// ---- COMEDY COOLDOWN & VISUAL EFFECTS ----
+let lastComedyTime = 0;
+const COMEDY_COOLDOWN = 10000; // 10 seconds minimum between comedy events
+const playerEventCounts = new Map(); // name → {dives:0, fights:0, selfies:0}
+
+function canTriggerComedy() {
+  return Date.now() - lastComedyTime > COMEDY_COOLDOWN;
+}
+function triggerComedyCooldown() {
+  lastComedyTime = Date.now();
+}
+function trackPlayerEvent(playerName, eventType) {
+  const pec = playerEventCounts.get(playerName) || {dives:0, fights:0, selfies:0};
+  pec[eventType]++;
+  playerEventCounts.set(playerName, pec);
+  return pec;
+}
+
+// Visual effects queue — array of active effects to render each frame
+const activeEffects = [];
+
+function addEffect(type, worldX, worldY, data = {}) {
+  activeEffects.push({
+    type, x: worldX, y: worldY,
+    startTime: Date.now(),
+    ...data
+  });
+}
+
+function updateAndDrawEffects() {
+  const now = Date.now();
+  for (let i = activeEffects.length - 1; i >= 0; i--) {
+    const e = activeEffects[i];
+    const age = (now - e.startTime) / 1000; // seconds
+
+    if (e.type === 'stars') {
+      // Draw 5 star shapes rotating outward around dive victim
+      if (age > 1.5) { activeEffects.splice(i, 1); continue; }
+      const alpha = 1 - age / 1.5;
+      for (let s = 0; s < 5; s++) {
+        const angle = (s / 5) * Math.PI * 2 + age * 3;
+        const r = 20 + age * 30;
+        const sx = e.x + Math.cos(angle) * r;
+        const sy = e.y + Math.sin(angle) * r;
+        ctx.fillStyle = `rgba(240,196,76,${alpha})`;
+        ctx.font = '14px serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('\u2726', sx, sy);
+      }
+    }
+
+    else if (e.type === 'exclaim') {
+      // Floating exclamation bubbles rising upward from mass confrontation
+      if (age > 2) { activeEffects.splice(i, 1); continue; }
+      const alpha = 1 - age / 2;
+      for (let b = 0; b < 4; b++) {
+        const bx = e.x + (b - 1.5) * 20 + Math.sin(age * 3 + b) * 5;
+        const by = e.y - age * 30 - b * 15;
+        ctx.fillStyle = `rgba(255,80,80,${alpha})`;
+        ctx.font = '16px serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('\u2757', bx, by);
+      }
+    }
+
+    else if (e.type === 'dust') {
+      // Dust particles from slide tackles
+      if (age > 0.8) { activeEffects.splice(i, 1); continue; }
+      const alpha = 1 - age / 0.8;
+      for (let d = 0; d < 6; d++) {
+        const dx = e.x + (e.dir || 1) * (20 + d * 8);
+        const dy = e.y + Math.sin(d) * 8;
+        const r = (4 - d * 0.5) * (1 - age / 0.8);
+        ctx.fillStyle = `rgba(160,180,140,${alpha * 0.6})`;
+        ctx.beginPath();
+        ctx.arc(dx, dy, Math.max(0.5, r), 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    else if (e.type === 'var_overlay') {
+      // Semi-transparent purple overlay + dashed rectangle on pitch
+      if (age > e.duration) { activeEffects.splice(i, 1); continue; }
+      if (age < e.duration - 0.5) {
+        ctx.fillStyle = 'rgba(100,0,200,0.15)';
+        ctx.fillRect(e.x - 200, e.y - 150, 400, 300);
+        ctx.strokeStyle = 'rgba(180,0,255,0.7)';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([8, 4]);
+        ctx.strokeRect(e.x - 180, e.y - 130, 360, 260);
+        ctx.setLineDash([]);
+        ctx.lineWidth = 1;
+      }
+    }
+
+    else if (e.type === 'slide') {
+      // Player sliding past the ball — slide tackle gone wrong
+      if (age > 0.6) { activeEffects.splice(i, 1); continue; }
+      const progress = age / 0.6;
+      const sx = e.x + (e.dx || 1) * progress * 60;
+      const sy = e.y + (e.dy || 0) * progress * 20;
+      ctx.save();
+      ctx.translate(sx, sy);
+      ctx.rotate(progress * Math.PI * 2);
+      ctx.fillStyle = e.kitColor || '#f2f4ec';
+      ctx.fillRect(-4, -8, 8, 16);
+      ctx.restore();
+      // Spawn dust behind slider
+      if (Math.random() < 0.3) {
+        addEffect('dust', sx, sy, {dir: (e.dx || 1) > 0 ? 1 : -1});
+      }
+    }
+
+    else if (e.type === 'red_flash') {
+      // Screen-space red tint flash for red cards
+      if (age > 0.3) { activeEffects.splice(i, 1); continue; }
+      e.screenSpace = true; // rendered in screen-space pass
+    }
+
+    else if (e.type === 'phone') {
+      // Selfie celebration — small rectangle (phone) held by scorer
+      if (age > 2) { activeEffects.splice(i, 1); continue; }
+      const alpha = 1 - age / 2;
+      ctx.fillStyle = `rgba(30,30,30,${alpha})`;
+      ctx.fillRect(e.x - 4, e.y - 20, 8, 12);
+      ctx.fillStyle = `rgba(100,180,255,${alpha * 0.8})`;
+      ctx.fillRect(e.x - 3, e.y - 19, 6, 10);
+      // Nearby teammates cluster
+      ctx.fillStyle = `rgba(240,196,76,${alpha * 0.5})`;
+      ctx.font = '10px serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('\uD83E\uDD33', e.x + 12, e.y - 16);
+    }
+
+    else if (e.type === 'invader') {
+      // Silhouette zigzagging across pitch
+      if (age > 4) { activeEffects.splice(i, 1); continue; }
+      const progress = age / 4;
+      const ix = e.x + progress * (PITCH_R - PITCH_L);
+      const iy = e.y + Math.sin(age * 4) * 40;
+      // Invader silhouette
+      ctx.fillStyle = 'rgba(0,0,0,0.8)';
+      ctx.beginPath();
+      ctx.arc(ix, iy - 6, 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillRect(ix - 3, iy, 6, 9);
+      // Two stewards chasing
+      for (let st = 0; st < 2; st++) {
+        const sx = ix - 30 - st * 20;
+        const sy = iy + st * 8;
+        ctx.fillStyle = '#f0c44c';
+        ctx.beginPath();
+        ctx.arc(sx, sy - 6, 6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillRect(sx - 3, sy, 6, 9);
+      }
+    }
+  }
+}
+
 // ---- AUDIO MANAGER (Web Audio API — all procedural, zero files) ----
 const AudioManager = {
   ctx: null, crowdGain: null, muted: false,
@@ -800,6 +961,8 @@ function createPlayers(teamData, teamName, side) {
       captain: pd.captain || false,
       team: side,
       teamName: teamName,
+      slug: slug,
+      awayColor: side === 1 ? (colors[0] || '#e05cd9') : null,
       shirtColor: side === 0 ? colors[0] : colors[1],
       shortsColor: side === 0 ? colors[1] : colors[0],
       img, imgLoaded: () => imgLoaded,
@@ -821,7 +984,7 @@ const playerSpriteCache = new Map(); // key: "slug/number", value: OffscreenCanv
 function buildSpriteCache(slug, players, images) {
   for (const player of players) {
     const key = `${slug}/${player.number}`;
-    const size = 24; // head diameter
+    const size = 18; // head diameter (matches hr=9 in drawPlayer)
     // Use OffscreenCanvas if available, fallback to createElement
     const oc = typeof OffscreenCanvas !== 'undefined'
       ? new OffscreenCanvas(size, size)
@@ -978,80 +1141,127 @@ function drawPitch(ctx) {
   ctx.strokeStyle = 'rgba(255,255,255,0.9)';
 }
 
-// ---- DRAW PLAYER ----
+// ---- DRAW PLAYER (Sensible Soccer style: oversized head on tiny body) ----
 function drawPlayer(ctx, p) {
   if (p.sentOff) return;
 
   const x = p.x + (p.slideX || 0);
   const y = p.y + (p.slideY || 0);
+  const isMoving = Math.abs(p.vx) > 0.3 || Math.abs(p.vy) > 0.3;
+  const frame = Math.floor(Date.now() / 120) % 2; // 2-frame walk cycle ~8fps
+  const hasBall = ball.owner === p;
 
-  // Shadow
-  ctx.fillStyle = 'rgba(0,0,0,0.3)';
+  // --- Shadow ---
+  ctx.fillStyle = 'rgba(0,0,0,0.25)';
   ctx.beginPath();
-  ctx.ellipse(x, y + PLAYER_BODY_H + 2, 8, 3, 0, 0, Math.PI * 2);
+  ctx.ellipse(x, y + 3, 10, 4, 0, 0, Math.PI * 2);
   ctx.fill();
 
-  // Body
-  ctx.fillStyle = p.shirtColor;
-  ctx.fillRect(x - PLAYER_BODY_W / 2, y, PLAYER_BODY_W, PLAYER_BODY_H);
+  // --- Body (tiny rectangle) ---
+  const kitColor = p.position === 'GK' ? '#aadd44'
+    : p.team === 0 ? '#f2f4ec'
+    : (p.awayColor || '#e05cd9');
+  const bw = 6, bh = 8;
+  const legShift = isMoving ? (frame === 0 ? 1 : -1) : 0;
+  ctx.fillStyle = kitColor;
+  ctx.fillRect(x - bw / 2, y - bh / 2 + legShift, bw, bh);
 
-  // Shorts
-  ctx.fillStyle = p.shortsColor;
-  ctx.fillRect(x - PLAYER_BODY_W / 2, y + PLAYER_BODY_H - 3, PLAYER_BODY_W, 3);
+  // --- Shorts: darker lower half of body ---
+  ctx.fillStyle = 'rgba(0,0,0,0.3)';
+  ctx.fillRect(x - bw / 2, y, bw, bh / 2 + legShift);
 
-  // Head (circular mugshot or fallback)
-  ctx.save();
-  ctx.beginPath();
-  ctx.arc(x, y - PLAYER_HEAD_R + 2, PLAYER_HEAD_R, 0, Math.PI * 2);
-  ctx.clip();
-
-  if (p.imgLoaded()) {
-    ctx.drawImage(p.img, x - PLAYER_HEAD_R, y - PLAYER_HEAD_R * 2 + 2, PLAYER_HEAD_R * 2, PLAYER_HEAD_R * 2);
-  } else {
-    // Colored circle fallback
-    ctx.fillStyle = p.shirtColor;
-    ctx.fill();
-    // Number
-    ctx.fillStyle = p.shortsColor;
-    ctx.font = 'bold 10px Arial';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(p.number, x, y - PLAYER_HEAD_R + 2);
-  }
-  ctx.restore();
-
-  // Head border
-  ctx.strokeStyle = 'rgba(0,0,0,0.4)';
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.arc(x, y - PLAYER_HEAD_R + 2, PLAYER_HEAD_R, 0, Math.PI * 2);
-  ctx.stroke();
-
-  // Captain armband
+  // --- Captain armband: gold stripe ---
   if (p.captain) {
     ctx.fillStyle = '#f0c44c';
-    ctx.fillRect(x + PLAYER_BODY_W / 2, y + 2, 3, 3);
+    ctx.fillRect(x + bw / 2 - 2, y - bh / 2 + 1, 2, 3);
   }
 
-  // Diving effect
+  // --- Head: circular mugshot (comically oversized) ---
+  const hr = 9; // head radius — ~60% of total sprite height
+  const headY = y - bh / 2 - hr + 1; // sits just above body
+  const cacheKey = `${p.slug}/${p.number}`;
+  const cachedHead = playerSpriteCache.get(cacheKey);
+
+  if (cachedHead) {
+    ctx.drawImage(cachedHead, x - hr, headY - hr, hr * 2, hr * 2);
+  } else {
+    // Fallback: coloured circle with number
+    ctx.fillStyle = kitColor;
+    ctx.beginPath();
+    ctx.arc(x, headY, hr, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = 'bold 8px monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(String(p.number), x, headY);
+  }
+
+  // Head outline ring (team colour tint)
+  ctx.strokeStyle = p.position === 'GK' ? '#aadd44'
+    : (p.team === 0 ? 'rgba(255,255,255,0.5)' : 'rgba(240,196,76,0.5)');
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.arc(x, headY, hr, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.lineWidth = 1;
+
+  // --- Facing indicator: tiny triangle below body ---
+  if (isMoving) {
+    const angle = Math.atan2(p.vy, p.vx);
+    const tSize = 3;
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.save();
+    ctx.translate(x, y + bh / 2 + 3);
+    ctx.rotate(angle - Math.PI / 2);
+    ctx.beginPath();
+    ctx.moveTo(0, -tSize);
+    ctx.lineTo(-tSize / 2, tSize / 2);
+    ctx.lineTo(tSize / 2, tSize / 2);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
+  // --- Name label (initial letter of surname only) ---
+  const initial = (p.lastName || p.name || '?').charAt(0).toUpperCase();
+  ctx.fillStyle = 'rgba(255,255,255,0.7)';
+  ctx.font = '7px "Space Mono", monospace';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'top';
+  ctx.fillText(initial, x, y + bh / 2 + 7);
+
+  // --- Ball at feet ---
+  if (hasBall) {
+    const dir = Math.atan2(p.vy || 1, p.vx || 0);
+    const bfx = x + Math.cos(dir) * 10;
+    const bfy = y + Math.sin(dir) * 10;
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(bfx, bfy, 5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // --- Diving effect ---
   if (p.state === 'diving') {
-    // Stars
     const t = p.stateTimer;
     for (let s = 0; s < 3; s++) {
-      const angle = (t * 0.1 + s * 2.1);
-      const sx = x + Math.cos(angle) * 16;
-      const sy = y - PLAYER_HEAD_R + Math.sin(angle) * 12 - 8;
+      const sAngle = (t * 0.1 + s * 2.1);
+      const sx = x + Math.cos(sAngle) * 16;
+      const sy = headY + Math.sin(sAngle) * 12 - 8;
       ctx.fillStyle = '#f0c44c';
       ctx.font = '10px serif';
-      ctx.fillText('★', sx, sy);
+      ctx.textAlign = 'center';
+      ctx.fillText('\u2605', sx, sy);
     }
   }
 
-  // Fighting effect
+  // --- Fighting effect ---
   if (p.state === 'fighting') {
     const t = p.stateTimer;
     ctx.font = '12px serif';
-    ctx.fillText(['💥', '👊', '🤬'][Math.floor(t / 10) % 3], x + 10, y - 14);
+    ctx.textAlign = 'center';
+    ctx.fillText(['\u{1F4A5}', '\u{1F44A}', '\u{1F92C}'][Math.floor(t / 10) % 3], x + 10, headY - 8);
   }
 }
 
