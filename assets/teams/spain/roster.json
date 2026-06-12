@@ -26,7 +26,19 @@
       "club": "Atlético Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34195287",
+      "full_name": "Marc Pubill Pagès",
+      "last_name": "Pubill",
+      "first_name": "Marc",
+      "bio": "Marc Pubill Pagès (born 20 June 2003) is a Spanish professional footballer who plays as a right-back or centre-back for La Liga club Atlético Madrid.",
+      "birth_location": "Terrassa, Spain",
+      "height": "1.91 m (6 ft 3 in)",
+      "weight": "190 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 3,
@@ -39,7 +51,23 @@
       "club": "Bayer Leverkusen",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34160527",
+      "full_name": "Alejandro Grimaldo García",
+      "last_name": "Grimaldo",
+      "first_name": "Álex",
+      "bio": "Alejandro \"Álex\" Grimaldo García (born 20 September 1995) is a Spanish professional footballer who plays as a left wing-back for Bundesliga club Bayer Leverkusen and the Spain national team.",
+      "birth_location": "Valencia, Spain",
+      "height": "1.70m",
+      "weight": "",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/grimaldo35/",
+        "facebook": "www.facebook.com/alejandrogrimaldo3535/?fref=nf",
+        "twitter": "twitter.com/grimaldo35"
+      }
     },
     {
       "number": 4,
@@ -52,7 +80,23 @@
       "club": "Barcelona",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34172241",
+      "full_name": "Eric García Martret",
+      "last_name": "García",
+      "first_name": "Eric",
+      "bio": "Eric García Martret (born 9 January 2001) is a Spanish professional footballer from Catalonia who plays as a centre-back for La Liga club Barcelona and the Spain national team.\r\n\r\nGarcía moved from Barcelona at the age of 17 to Manchester City. He made his Premier League debut on 21 September 2019. In his final season at the club, he won the league and was runner-up in the UEFA Champions League. In June 2021, Garcia rejoined Barcelona on a free transfer, following the expiration of his contract.",
+      "birth_location": "Barcelona, Spain",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "168 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "adidas Copa 19.1",
+      "social": {
+        "instagram": "www.instagram.com/ericgm3/",
+        "twitter": "twitter.com/ericgm3"
+      },
+      "wikidata_id": "Q59938996"
     },
     {
       "number": 5,
@@ -65,7 +109,20 @@
       "club": "Atlético Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34146345",
+      "full_name": "Marcos Llorente Moreno",
+      "last_name": "Llorente",
+      "first_name": "Marcos",
+      "bio": "Marcos Llorente Moreno (born 30 January 1995) is a Spanish professional footballer who plays as a midfielder or right-back for La Liga club Atlético Madrid and the Spain national team.\r\n\r\nDeveloped at Real Madrid, he appeared in 39 competitive matches over three seasons, also serving a loan at Alavés. He signed with Atlético Madrid in June 2019, winning the 2020–21 La Liga while being deployed in several positions.\r\n\r\nLlorente made his full debut for Spain in 2020, and was part of the squads at ",
+      "birth_location": "Madrid, Spain",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "161 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "Nike Phantom VNM",
+      "social": {},
+      "wikidata_id": "Q21130285"
     },
     {
       "number": 6,
@@ -78,7 +135,23 @@
       "club": "Arsenal",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34161591",
+      "full_name": "Mikel Merino Zazón",
+      "last_name": "Merino",
+      "first_name": "Mikel",
+      "bio": "Mikel Merino Zazón (Spanish pronunciation: ; born 22 June 1996) is a Spanish professional footballer who plays as a midfielder for Premier League club Arsenal and the Spain national team.\r\n\r\nAfter starting out at Osasuna, he had short spells with Borussia Dortmund and Newcastle United before signing for Real Sociedad in 2018. With the last of those clubs, he won the 2019–20 Copa del Rey and totalled 242 appearances and 27 goals. In August 2024, he joined Arsenal.\r\n\r\nMerino represented Spain in t",
+      "birth_location": "Pamplona, Spain",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "183 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/mikelmerino/",
+        "twitter": "twitter.com/mikelmerino1"
+      },
+      "wikidata_id": "Q17612631"
     },
     {
       "number": 7,
@@ -91,7 +164,24 @@
       "club": "Barcelona",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34163478",
+      "full_name": "Ferran Torres García",
+      "last_name": "Torres",
+      "first_name": "Ferran",
+      "bio": "Ferran Torres García (born 29 February 2000) is a Spanish professional footballer who plays as a forward for La Liga club Barcelona and the Spain national team.\r\n\r\nHe began his career at Valencia, where he made his senior début in 2017, before moving to Manchester City in 2020 and winning the Premier League championship and the EFL Cup in the 2020–21 season. Torres quickly fell out of favour, and he departed for Barcelona in 2022. He has represented Spain internationally at various youth levels,",
+      "birth_location": "Foios, Spain",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "170 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "adidas X 19.1",
+      "social": {
+        "instagram": "www.instagram.com/ferrantorres7",
+        "facebook": "www.facebook.com/ferrantorres20",
+        "twitter": "twitter.com/ferrantorres20"
+      },
+      "wikidata_id": "Q44297797"
     },
     {
       "number": 8,
@@ -104,7 +194,22 @@
       "club": "Paris Saint-Germain",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34163617",
+      "full_name": "Fabián Ruiz Peña",
+      "last_name": "Ruiz",
+      "first_name": "Fabián",
+      "bio": "Fabián Ruiz Peña (born 3 April 1996), simply known as Fabián, is a Spanish professional footballer who plays as a central midfielder for Ligue 1 club Paris Saint-Germain and the Spain national team.",
+      "birth_location": "Los Palacios y Villafranca, Spain",
+      "height": "1.89 m (6 ft 2 in)",
+      "weight": "78 Kg",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Left",
+      "kit": "Nike Tiempo Legend VIII",
+      "social": {
+        "instagram": "www.instagram.com/fabianruiz52/",
+        "twitter": "twitter.com/fabianrp52"
+      }
     },
     {
       "number": 9,
@@ -117,7 +222,20 @@
       "club": "Barcelona",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34148977",
+      "full_name": "Gavin Gunning",
+      "last_name": "Gunning",
+      "first_name": "Gavin",
+      "bio": "Gavin Jude Gunning (born 26 January 1991) is an Irish footballer who plays as a centre back for National League North side Gloucester City. \r\nHe played Gaelic football and association football in his youth, before moving to England in February 2006 after being signed by Blackburn Rovers from Crumlin United. He never played a first team game for Blackburn, though did have loan spells at Tranmere Rovers, Rotherham United, Bury, and Motherwell. He transferred to Dundee United in August 2011 and wen",
+      "birth_location": "Dublin, Ireland",
+      "height": "1.85",
+      "weight": "83.45",
+      "position_detail": "Defender",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q1008587"
     },
     {
       "number": 10,
@@ -130,7 +248,23 @@
       "club": "Barcelona",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34168363",
+      "full_name": "Daniel Olmo Carvajal",
+      "last_name": "Olmo",
+      "first_name": "Dani",
+      "bio": "Daniel Olmo Carvajal (born 7 May 1998) is a Spanish professional footballer who plays as an attacking midfielder or left winger for La Liga club Barcelona and the Spain national team.\r\n\r\nAfter a period at La Masia, Olmo made his professional debut for Dinamo Zagreb in Croatia in 2015. He made 124 total appearances for the club, scoring 34 goals and winning the league five times and the cup three times. In 2020, he joined RB Leipzig, where he won two DFB-Pokals in 2022 and 2023 as well as the 202",
+      "birth_location": "Terrassa, Spain",
+      "height": "1.79 m (5 ft 10 in)",
+      "weight": "159 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "adidas X 19.1",
+      "social": {
+        "instagram": "www.instagram.com/daniolmo7/",
+        "twitter": "twitter.com/daniolmo7"
+      },
+      "wikidata_id": "Q19560313"
     },
     {
       "number": 11,

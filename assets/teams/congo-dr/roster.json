@@ -68,7 +68,19 @@
       "club": "Widzew Łódź",
       "club_nation": "POL",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34221918",
+      "full_name": "Steve Nkanu Kapuadi",
+      "last_name": "Kapuadi",
+      "first_name": "Steve",
+      "bio": "Steve Nkanu Kapuadi (born 30 April 1998) is a professional footballer who plays as a centre-back for Polish club Widzew Łódź. Born in France, he represents the DR Congo national team.",
+      "birth_location": "Saint-Denis, France",
+      "height": "196 cm",
+      "weight": "192 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 4,
@@ -81,7 +93,22 @@
       "club": "Burnley",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34160942",
+      "full_name": "Axel Tuanzebe",
+      "last_name": "Tuanzebe",
+      "first_name": "Axel",
+      "bio": "Axel Tuanzebe (born 14 November 1997) is a Congolese professional footballer who plays as a defender for Premier League club Burnley and the DR Congo national team. \r\n\r\nTuanzebe is a graduate of the Manchester United youth system and won both the Jimmy Murphy Young Player of the Year and Denzil Haroun Reserve Team Player of the Year awards. He made his competitive debut in an FA Cup game against Wigan Athletic in January 2017. He has had three spells on loan at Aston Villa and helped them to win",
+      "birth_location": "Bunia, DR Congo",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "163 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/axeltuanzebe_38/"
+      },
+      "wikidata_id": "Q27019988"
     },
     {
       "number": 5,
@@ -94,7 +121,22 @@
       "club": "AEL",
       "club_nation": "GRE",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34200491",
+      "full_name": "Buduka Dylan Batubinsika",
+      "last_name": "Batubinsika",
+      "first_name": "Dylan",
+      "bio": "Buduka Dylan Batubinsika (born 15 February 1996) is a professional footballer who plays as a centre-back for Super League Greece club AEL. Born in France, he plays for the DR Congo national team.",
+      "birth_location": "Cergy-Pontoise, France",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/d.batubinsika21/",
+        "twitter": "mobile.twitter.com/dbatubinsika"
+      }
     },
     {
       "number": 6,
@@ -107,7 +149,19 @@
       "club": "Lille",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34220629",
+      "full_name": "Ngal'ayel Mukau",
+      "last_name": "Mukau",
+      "first_name": "Ngal'ayel",
+      "bio": "Ngal'ayel Mukau (born 3 November 2004) is a professional footballer who plays as a midfielder for Ligue 1 club Lille. Born in Belgium, he plays for the DR Congo national team.",
+      "birth_location": "Antwerpen, Belgium",
+      "height": "186 cm",
+      "weight": "152 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 7,
@@ -159,7 +213,20 @@
       "club": "Spartak Moscow",
       "club_nation": "RUS",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34153550",
+      "full_name": "Théo Bongonda Mbul'Ofeko Batombo",
+      "last_name": "Bongonda",
+      "first_name": "Theo",
+      "bio": "Théo Bongonda Mbul'Ofeko Batombo (born 20 November 1995) is a professional footballer who plays as a winger for Russian club Spartak Moscow. Born in Belgium, he plays for the DR Congo national team.",
+      "birth_location": "Charleroi, Belgium",
+      "height": "1.77 m (5 ft 10 in)",
+      "weight": "161 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q14948183"
     },
     {
       "number": 11,
@@ -172,7 +239,20 @@
       "club": "AEL",
       "club_nation": "GRE",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34173423",
+      "full_name": "Gaël Romeo Kakuta Mambenga",
+      "last_name": "Kakuta",
+      "first_name": "Gaël",
+      "bio": "Gaël Romeo Kakuta Mambenga (born 21 June 1991) is a professional footballer who plays as a winger for Greek Super League club AEL. Born in France, he represents the DR Congo national team.\r\n\r\nA youth product of RC Lens, Kakuta moved to Chelsea in 2007 in a controversial transfer. Rarely used at Chelsea, he was loaned to six teams in five countries before leaving for Sevilla upon the expiration of his contract in 2015.\r\n\r\nHe was a French youth international and represented the nation at every age",
+      "birth_location": "Lille, France",
+      "height": "173cm / 5'8\"",
+      "weight": "139 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q299703"
     },
     {
       "number": 12,
@@ -185,7 +265,19 @@
       "club": "Genk",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34175563",
+      "full_name": "Joris Kayembe Ditu",
+      "last_name": "Kayembe",
+      "first_name": "Joris",
+      "bio": "Joris Kayembe Ditu (born 8 August 1994) is a professional footballer who as a winger plays for Belgian Pro League club Genk. Born in Belgium and formerly a Belgium international in a pair of friendly matches, he plays for the DR Congo national team.",
+      "birth_location": "Brussel, Belgium",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "161 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
@@ -198,7 +290,19 @@
       "club": "Alanyaspor",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34177797",
+      "full_name": "Meschak Elia Lina",
+      "last_name": "Elia",
+      "first_name": "Meschak",
+      "bio": "Meschak Elia Lina (born 6 August 1997) is a Congolese professional footballer who plays as a forward for Süper Lig club Alanyaspor and the DR Congo national team. He received the best player award after him and his team's win in the 2016 African Nations Championship.",
+      "birth_location": "Kinshasa, Congo DR",
+      "height": "1.73 m (5 ft 8 in)",
+      "weight": "",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 14,
@@ -211,7 +315,19 @@
       "club": "Sunderland",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34220648",
+      "full_name": "Noah Junior Sadiki",
+      "last_name": "Sadiki",
+      "first_name": "Noah",
+      "bio": "Noah Junior Sadiki (born 17 December 2004) is a professional footballer who plays as a full-back, centre-back or defensive midfielder for Premier League club Sunderland. Born in Belgium, he represents the DR Congo national team.",
+      "birth_location": "Brussel, Belgium",
+      "height": "1.73 m (5 ft 8 in)",
+      "weight": "128 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 15,
@@ -289,7 +405,20 @@
       "club": "Newcastle United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34173364",
+      "full_name": "Yoane Wissa",
+      "last_name": "Wissa",
+      "first_name": "Yoane",
+      "bio": "Yoane Wissa is a professional footballer who plays as a forward or left winger for Premier League club Newcastle United. Born in France, he represents the DR Congo national team at international level.\r\n\r\nA product of the Châteauroux academy, Wissa began his senior career with the club in 2015. Following a spell with Angers, he transferred to Lorient in 2018. Wissa was a part of the Lorient team which finished the 2019–20 season as Ligue 2 champions. Following a season in Ligue 1, he joined Bren",
+      "birth_location": "Villeneuve-Saint-George, France",
+      "height": "1.76 m (5 ft 8 in)",
+      "weight": "161 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q28101965"
     },
     {
       "number": 21,
@@ -302,7 +431,20 @@
       "club": "Standard Liège",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34237862",
+      "full_name": "Matthieu Epolo Luka",
+      "last_name": "Epolo",
+      "first_name": "Matthieu",
+      "bio": "Matthieu Epolo Luka (born 15 January 2005) is a professional footballer who plays as a goalkeeper for Belgian Pro League club Standard Liège. Born in Belgium, he plays for the DR Congo national team.\r\n\r\nEpolo first became known to international football audiences for keeping six clean sheets in his first eight games of the 2024–25 Belgian Pro League season, making him the most successful goalkeeper for shutouts in the top-20 ranked European leagues.",
+      "birth_location": "Brussels, Belgium",
+      "height": "183 cm",
+      "weight": "163 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q113628776"
     },
     {
       "number": 22,
@@ -315,7 +457,22 @@
       "club": "Lille",
       "club_nation": "FRA",
       "captain": true,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34153479",
+      "full_name": "Chancel Mbemba Mangulu",
+      "last_name": "Mbemba",
+      "first_name": "Chancel",
+      "bio": "Chancel Mangulu Mbemba (born 8 August 1994) is a Congolese professional footballer who plays as a centre-back for Ligue 1 club Lille and the DR Congo national team, of which he is the captain.\r\n\r\nMbemba began his professional career Anderlecht, where he won the Belgian Pro League in his debut season of 2013–14. A year later, he moved to Newcastle United, where he played in the Premier League and won the Championship in 2017. In four years at Porto, he won the Primeira Liga and Taça de Portugal d",
+      "birth_location": "Kinshasa, Zaire",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "80 kg (176 lb)",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/chancel22/",
+        "twitter": "twitter.com/mbemba22"
+      }
     },
     {
       "number": 23,
@@ -328,7 +485,21 @@
       "club": "Al Jazira",
       "club_nation": "UAE",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34173413",
+      "full_name": "Simon Bokoté Banza",
+      "last_name": "Banza",
+      "first_name": "Simon",
+      "bio": "Simon Bokoté Banza (born 13 August 1996) is a professional footballer who plays as a forward for UAE Pro League side Al Jazira. Born in France, he plays for the DR Congo national team.\r\n\r\nFormed at Lens, where he played 98 games and scored 16 goals including in Ligue 1 and Ligue 2, he went on to play in Portugal's Primeira Liga for Famalicão and Braga. Shortly after making his senior international debut, he was chosen for the 2023 Africa Cup of Nations.",
+      "birth_location": "Creil, France",
+      "height": "1.89 m (6 ft 2 in)",
+      "weight": "77 kg",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/simbnz/"
+      }
     },
     {
       "number": 24,
@@ -341,7 +512,23 @@
       "club": "Aris Limassol",
       "club_nation": "CYP",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34174850",
+      "full_name": "Gédéon Tshingoma Kalulu Kyatengwa",
+      "last_name": "Kalulu",
+      "first_name": "Gédéon",
+      "bio": "Gédéon Tshingoma Kalulu Kyatengwa (born 29 August 1997) is a professional footballer who plays as a right-back for Cypriot club Aris Limassol. Born in France, he plays for the DR Congo national team.",
+      "birth_location": "Lyon, France",
+      "height": "179 cm",
+      "weight": "172 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/iam__k2/",
+        "facebook": "www.facebook.com/GedeonKalulu.K2",
+        "twitter": "twitter.com/gedeon_k2"
+      }
     },
     {
       "number": 25,
@@ -354,7 +541,22 @@
       "club": "Watford",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34172196",
+      "full_name": "Edouard Kayembe Kayembe",
+      "last_name": "Kayembe",
+      "first_name": "Edo",
+      "bio": "Edouard \"Edo\" Kayembe (born 3 June 1998) is a Congolese professional footballer who plays as a midfielder for EFL Championship club Watford and the DR Congo national team.",
+      "birth_location": "Kananga, DR Congo",
+      "height": "183 cm",
+      "weight": "77 kg",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/edokayembe/?hl=fr"
+      },
+      "wikidata_id": "Q46699047"
     },
     {
       "number": 26,

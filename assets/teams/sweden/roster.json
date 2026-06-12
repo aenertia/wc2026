@@ -182,7 +182,20 @@
       "club": "Burnley",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34190544",
+      "full_name": "Hjalmar Ekdal",
+      "last_name": "Ekdal",
+      "first_name": "Hjalmar",
+      "bio": "Hjalmar Ekdal (Swedish: ; born 21 October 1998) is a Swedish professional footballer who plays as a centre-back for Premier League club Burnley and the Sweden national team. He is the younger brother of former footballer Albin Ekdal.\r\n\r\nBeginning his professional career with IK Frej in 2018, Ekdal briefly represented Assyriska FF, Hammarby IF, and IK Sirius before signing with Djurgårdens IF in 2021.",
+      "birth_location": "Stockholm, Sweden",
+      "height": "188 cm",
+      "weight": "170 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q56641379"
     },
     {
       "number": 15,
@@ -195,7 +208,20 @@
       "club": "Celta Vigo",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34178200",
+      "full_name": "Carl Anders Theodor Starfelt",
+      "last_name": "Starfelt",
+      "first_name": "Carl",
+      "bio": "Carl Anders Theodor Starfelt (born 1 June 1995) is a Swedish professional footballer who plays as a centre-back for La Liga club Celta Vigo and the Sweden national team.\r\n\r\nAfter having made two appearances for the Sweden U19 team in 2014, Starfelt was called up to the Sweden national team for the first time on 30 September 2020 ahead of their games against Russia, Croatia, and Portugal in October 2020. He made his full international debut on 8 October 2020 in a friendly game against Russia, pla",
+      "birth_location": "Stockholm, Sweden",
+      "height": "187 cm",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q16633442"
     },
     {
       "number": 16,
@@ -208,7 +234,21 @@
       "club": "Udinese",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34176094",
+      "full_name": "Jesper Karlström",
+      "last_name": "Karlström",
+      "first_name": "Jesper",
+      "bio": "Jesper Kewe Karlström (born 21 June 1995) is a Swedish professional footballer who plays as a midfielder for Serie A club Udinese and the Sweden national team.\r\n\r\nKarlström has represented Sweden at the U17, U19 and U21 levels. In November 2014 he made his debut for the Sweden national under-21 football team against Austria.\r\n\r\nHe made his full international debut for the Sweden national team on 11 January 2018 in a friendly 1–0 win against Denmark, playing for 66 minutes before being replaced b",
+      "birth_location": "Stockholm, Sweden",
+      "height": "185 cm",
+      "weight": "179 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/jesperkarlstrom/"
+      }
     },
     {
       "number": 17,
@@ -221,7 +261,20 @@
       "club": "Arsenal",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34173576",
+      "full_name": "ویکتور گیوکرش",
+      "last_name": "Gyökeres",
+      "first_name": "Viktor",
+      "bio": "Viktor Einar Gyökeres (born 4 June 1998) is a Swedish professional footballer who plays as a striker for Premier League club Arsenal and the Sweden national team. \r\n\r\nGyökeres made his senior professional debut with Swedish side Brommapojkarna in 2015, with whom he made over fifty appearances before signing for Brighton & Hove Albion three years later. Gyökeres had loan spells out to clubs across various clubs, including St. Pauli, Swansea City and Coventry City, joining the latter permanently i",
+      "birth_location": "Stockholm, Sweden",
+      "height": "189cm / 6'2\"",
+      "weight": "196 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q47075606"
     },
     {
       "number": 18,
@@ -234,7 +287,20 @@
       "club": "Brighton & Hove Albion",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34208394",
+      "full_name": "Yasin Abbas Ayari",
+      "last_name": "Ayari",
+      "first_name": "Yasin",
+      "bio": "Yasin Abbas Ayari (Arabic: ياسين عباس عياري; Swedish pronunciation: ; born 6 October 2003) is a Swedish professional footballer who plays as a midfielder for Premier League club Brighton & Hove Albion and the Sweden national team.",
+      "birth_location": "Solna, Sweden",
+      "height": "172 cm",
+      "weight": "150 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q103979811"
     },
     {
       "number": 19,
@@ -247,7 +313,21 @@
       "club": "VfL Wolfsburg",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34169393",
+      "full_name": "Mattias Svanberg",
+      "last_name": "Svanberg",
+      "first_name": "Mattias",
+      "bio": "Mattias Olof Svanberg (born 5 January 1999) is a Swedish professional footballer who plays as a midfielder for VfL Wolfsburg and the Sweden national team.",
+      "birth_location": "Malmö, Sweden",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "163 lbs",
+      "position_detail": "Midfielder",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/mattiasvanberg/"
+      }
     },
     {
       "number": 20,
@@ -260,7 +340,19 @@
       "club": "FC St. Pauli",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34177533",
+      "full_name": "Eric Anders Smith",
+      "last_name": "Smith",
+      "first_name": "Eric",
+      "bio": "Eric Anders Smith (born 8 January 1997) is a Swedish professional footballer who plays as a central defender for Bundesliga club FC St. Pauli.",
+      "birth_location": "Halmstad, Sweden",
+      "height": "1.92 m (6 ft 3 in)",
+      "weight": "86 kg",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 21,
@@ -273,7 +365,19 @@
       "club": "Holstein Kiel",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34220794",
+      "full_name": "Alexander Olof Bernhardsson",
+      "last_name": "Bernhardsson",
+      "first_name": "Alexander",
+      "bio": "Alexander Olof Bernhardsson (born 8 September 1998) is a Swedish professional footballer who plays as a forward for Bundesliga club Holstein Kiel.\r\n\r\nBernhardsson made his full international debut for Sweden on 9 January 2023, playing for 90 minutes in a friendly 2–0 win against Finland.",
+      "birth_location": "Göteborg, Sweden",
+      "height": "185 cm",
+      "weight": "152 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 22,
@@ -286,7 +390,19 @@
       "club": "Union Saint-Gilloise",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34242366",
+      "full_name": "Besfort Zeneli",
+      "last_name": "Zeneli",
+      "first_name": "Besfort",
+      "bio": "Besfort Zeneli (born 21 November 2002) is a Swedish professional footballer who plays as a midfielder for Belgian Pro League club Union Saint-Gilloise and the Sweden national team.",
+      "birth_location": "Säter, Sweden",
+      "height": "187 cm",
+      "weight": "157 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 23,
@@ -299,7 +415,20 @@
       "club": "AIK",
       "club_nation": "SWE",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34155606",
+      "full_name": "Kristoffer Nordfeldt",
+      "last_name": "Nordfeldt",
+      "first_name": "Kristoffer",
+      "bio": "Bo Kristoffer Nordfeldt (born 23 June 1989) is a Swedish professional footballer who plays as a goalkeeper for AIK and the Swedish national team.",
+      "birth_location": "Stockholm, Sweden",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "185 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q1398221"
     },
     {
       "number": 24,
@@ -312,7 +441,19 @@
       "club": "Mjällby AIF",
       "club_nation": "SWE",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34237410",
+      "full_name": "Elliot Karl Stroud",
+      "last_name": "Stroud",
+      "first_name": "Elliot",
+      "bio": "Elliot Karl Stroud (born 22 June 2002) is a Swedish professional footballer who plays as a midfielder for Allsvenskan club Mjällby AIF.\r\n\r\nStroud started his youth career in IK Oddevold, joining the senior team in 2019. The club then suffered relegation to Division 2, the fourth tier of Swedish football, but bounced back to compete in the 2022 Ettan. Expressen named Stroud as Oddevold's talent to watch out for in 2022. Aftonbladet included him on their top 30 list in the division, regardless of ",
+      "birth_location": "Uddevalla, Sweden",
+      "height": "180 cm",
+      "weight": "163 lbs",
+      "position_detail": "Left Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,

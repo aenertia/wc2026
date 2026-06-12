@@ -26,7 +26,21 @@
       "club": "Nice",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34202671",
+      "full_name": "علي عبدي",
+      "last_name": "Abdi",
+      "first_name": "Ali",
+      "bio": "Ali El Abdi (Arabic: علي العابدي; born 20 December 1993), known as Ali Abdi, is a Tunisian professional footballer who plays as a left-back for Ligue 1 club Nice and the Tunisia national team.",
+      "birth_location": "Sfax, Tunisia",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "161 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/ali_abdi_officiel/"
+      }
     },
     {
       "number": 3,
@@ -39,7 +53,19 @@
       "club": "Lorient",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34194940",
+      "full_name": "منتصر الطالبي",
+      "last_name": "Talbi",
+      "first_name": "Montassar",
+      "bio": "Montassar Omar Talbi (Arabic: مُنْتَصِر عُمَر الطَّالِبِيّ; born 26 May 1998) is a professional footballer who plays as a centre-back for Ligue 1 club Lorient. Born in France, he plays for the Tunisia national team.",
+      "birth_location": "Paris, France",
+      "height": "190 cm",
+      "weight": "179 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 4,
@@ -52,7 +78,20 @@
       "club": "Maribor",
       "club_nation": "SVN",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34215675",
+      "full_name": "عمر رقيق",
+      "last_name": "Rekik",
+      "first_name": "Omar",
+      "bio": "Omar Rekik (Arabic: عمر رقيق; born 20 December 2001) is a professional footballer who plays as a centre-back for Slovenian PrvaLiga club Maribor. Born in the Netherlands, he represents the Tunisia national team.",
+      "birth_location": "Helmond, Netherlands",
+      "height": "186 cm",
+      "weight": "190 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q96678415"
     },
     {
       "number": 5,
@@ -65,7 +104,19 @@
       "club": "Kasımpaşa",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34433870",
+      "full_name": "آدم عروس",
+      "last_name": "Arous",
+      "first_name": "Adem",
+      "bio": "Adem Arous (Arabic: آدم عروس; born 17 July 2004) is a professional footballer who plays as a centre-back for Süper Lig club Kasımpaşa. Born in Saudi Arabia, he plays for the Tunisia national team.",
+      "birth_location": "Medina, Saudi Arabia",
+      "height": "188 cm",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 6,
@@ -78,7 +129,22 @@
       "club": "Servette",
       "club_nation": "SUI",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34173489",
+      "full_name": "دِيلاَن دَانِيَال مَحْمُود بْرون",
+      "last_name": "Bronn",
+      "first_name": "Dylan",
+      "bio": "Dylan Daniel Mahmoud Bronn (Arabic: دِيلاَن دَانِيَال مَحْمُود بْرون; born 19 June 1995) is a professional footballer who plays as a defender for Swiss Super League club Servette. Born in France, he plays for the Tunisia national team. Before becoming professional, Bronn played in the French lower leagues with Cannes, his hometown club.",
+      "birth_location": "Cannes, France",
+      "height": "1.86 m (6 ft 1 in)",
+      "weight": "168 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/dylanbronnofficiel/"
+      },
+      "wikidata_id": "Q26405549"
     },
     {
       "number": 7,
@@ -91,7 +157,19 @@
       "club": "Copenhagen",
       "club_nation": "DEN",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34220789",
+      "full_name": "Mohamed Elias Achouri; مُحَمَّد إِلْيَاس عَاشُورِيّ",
+      "last_name": "Achouri",
+      "first_name": "Elias",
+      "bio": "Mohamed Elias Achouri (Arabic: مُحَمَّد إِلْيَاس عَاشُورِيّ; born 10 February 1999) is a professional footballer who plays as a midfielder for Danish Superliga side Copenhagen. Born in France, Achouri plays for the Tunisia national team.\r\n\r\nOn 26 August 2021, Achouri joined Liga Portugal 2 club Trofense on loan from Estoril. On 31 August 2022, Achouri joined Danish Superliga side Viborg FF on a deal until June 2025.\r\n\r\nAchouri made the move to 15-time Danish Superliga champions Copenhagen on 24 ",
+      "birth_location": "Saint-Denis de La Réunion, Réunion",
+      "height": "177 cm",
+      "weight": "68 kg",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 8,
@@ -104,7 +182,19 @@
       "club": "Hannover 96",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34217526",
+      "full_name": "إِلْيَاس سَعْد",
+      "last_name": "Saad",
+      "first_name": "Elias",
+      "bio": "Elias Saad (Arabic: إِلْيَاس سَعْد; born 27 December 1999) is a professional footballer who plays as a left winger for 2. Bundesliga club Hannover 96 on loan from FC Augsburg. Born in Germany, he plays for the Tunisia national team, having previously been a former international for the Germany national futsal team.",
+      "birth_location": "Hamburg, Germany",
+      "height": "185 cm",
+      "weight": "159 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 9,
@@ -117,7 +207,19 @@
       "club": "Dynamo Makhachkala",
       "club_nation": "RUS",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34303353",
+      "full_name": "حازم المستوري",
+      "last_name": "Mastouri",
+      "first_name": "Hazem",
+      "bio": "Hazem Mastouri (Arabic: حازم المستوري; born 18 June 1997) is a Tunisian professional footballer who plays as a striker for Russian club Dynamo Makhachkala and the Tunisia national team.",
+      "birth_location": "Tunis, Tunisia",
+      "height": "191 cm",
+      "weight": "",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 10,
@@ -130,7 +232,22 @@
       "club": "Burnley",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34197314",
+      "full_name": "حَنِّبَعْل المجبري",
+      "last_name": "Mejbri",
+      "first_name": "Hannibal",
+      "bio": "Hannibal Mejbri (Arabic: حَنِّبَعْل المجبري; born 21 January 2003), also known mononymously as Hannibal, is a professional footballer who plays as a midfielder for Premier League club Burnley and the Tunisia national team.\r\n\r\nMejbri joined the Manchester United youth system in 2019 from Monaco. He had previously spent time at the Clairefontaine academy. He made his senior debut for the club in a Premier League game in May 2021. Mejbri spent the 2022–23 season on loan to Championship club Birming",
+      "birth_location": "Ivry-sur-Seine, France",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "161 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/hannibal.mj/"
+      },
+      "wikidata_id": "Q96755704"
     },
     {
       "number": 11,
@@ -143,7 +260,23 @@
       "club": "FC Augsburg",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34192369",
+      "full_name": "Ismaël Seifallah Gharbi, إسماعيل سيفالله غربي ",
+      "last_name": "Gharbi",
+      "first_name": "Ismaël",
+      "bio": "Ismaël Seifallah Gharbi (Tunisian Arabic: إسماعيل سيفالله غربي; born 10 April 2004) is a professional footballer who plays as a midfielder for Bundesliga club FC Augsburg, on loan from Primeira Liga club Braga. Born in France and a former youth international for France and Spain, he plays for the Tunisia national team.",
+      "birth_location": "Paris, France",
+      "height": "1.73 m (5 ft 8 in)",
+      "weight": "148 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/i.gharbi10/",
+        "facebook": "www.facebook.com/ismael.gharbi.9"
+      },
+      "wikidata_id": "Q107746612"
     },
     {
       "number": 12,
@@ -156,7 +289,19 @@
       "club": "Kasımpaşa",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34192817",
+      "full_name": "مرتضى بن وناس",
+      "last_name": "Ouanes",
+      "first_name": "Mortadha Ben",
+      "bio": "Ahmed Mortadha Ouanes (Arabic: مرتضى بن وناس; born 2 July 1994) is a Tunisian professional footballer who plays as a left-back for Süper Lig club Kasımpaşa and the Tunisia national team.",
+      "birth_location": "Sousse, Tunisia",
+      "height": "182 cm",
+      "weight": "78 kg",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,

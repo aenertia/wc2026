@@ -65,7 +65,20 @@
       "club": "Galatasaray",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34169550",
+      "full_name": "Wilfried Stephane Singo",
+      "last_name": "Singo",
+      "first_name": "Wilfried",
+      "bio": "Wilfried Stephane Singo (born 25 December 2000) is an Ivorian professional footballer who plays as a defender for Süper Lig club Galatasaray and the Ivory Coast national team.",
+      "birth_location": "Grand-Béréby, Cote d'Ivoire",
+      "height": "1.90 m (6 ft 3 in)",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q78255759"
     },
     {
       "number": 6,
@@ -426,7 +439,20 @@
       "club": "Villarreal",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34167754",
+      "full_name": "Nicolas Pépé",
+      "last_name": "Pépé",
+      "first_name": "Nicolas",
+      "bio": "Nicolas Pépé (born 29 May 1995) is a professional footballer who plays as a right winger or forward for La Liga club Villarreal. Born in France, he plays for the Ivory Coast national team.\r\n\r\nPépé began his senior club career with Poitiers in the Championnat de France Amateur 2. He signed for Angers in 2013, aged 18, and spent a season on loan at Orléans in 2015. He signed for Lille in 2017, and was named to the UNFP Ligue 1 Team of the Year in the 2018–19 season. That summer, Pépé joined Arsena",
+      "birth_location": "Mantes-la-Jolie, France",
+      "height": "1.83 m (6 ft 0 in)",
+      "weight": "161 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "Nike Mercurial Vapor XIII Elite FG",
+      "social": {},
+      "wikidata_id": "Q20641306"
     },
     {
       "number": 20,
@@ -439,7 +465,20 @@
       "club": "Beşiktaş",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34175728",
+      "full_name": "Emmanuel Elysee Djedje Agbadou Badobre",
+      "last_name": "Agbadou",
+      "first_name": "Emmanuel",
+      "bio": "Badobre Emmanuel Elysee Djedje Agbadou (born 17 June 1997) is an Ivorian professional footballer who plays as a centre-back for Süper Lig club Beşiktaş and the Ivory Coast national team.[",
+      "birth_location": "Abidjan, Cote d'Ivoire",
+      "height": "1.92 m (6 ft 3 in)",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q69523791"
     },
     {
       "number": 21,
@@ -452,7 +491,21 @@
       "club": "Roma",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34169130",
+      "full_name": "Obite Evan Ndicka",
+      "last_name": "Ndicka",
+      "first_name": "Evan",
+      "bio": "Obite Evan Ndicka (born 20 August 1999) is a professional footballer who plays as a centre-back for Serie A club Roma. Born in France, he plays for the Ivory Coast national team.\r\n\r\nNdicka is an academy graduate of Auxerre and made his senior debut for the club in January 2017, aged 17. He spent the next season-and-half at the club, making 14 senior appearances before joining Bundesliga side Eintracht Frankfurt in July 2018.",
+      "birth_location": "Paris, France",
+      "height": "1.92 m (6 ft 4 in)",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/evanndicka/"
+      }
     },
     {
       "number": 22,
@@ -465,7 +518,20 @@
       "club": "Crystal Palace",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34194251",
+      "full_name": "Evann Ludovic Vidjannagni Guessand",
+      "last_name": "Guessand",
+      "first_name": "Evann",
+      "bio": "Evann Ludovic Vidjannagni Guessand (born 1 July 2001) is a professional footballer who plays as a forward or attacking midfielder for Premier League club Crystal Palace, on loan from Aston Villa. He also represents the Ivory Coast national team. \r\n\r\nGuessand is a product of the Nice academy, and progressed through their youth and B sides to the first team, before transferring to Aston Villa in 2025. He also spent time on loan at Lausanne-Sport and Nantes earlier in his career.\r\n\r\nBorn in France ",
+      "birth_location": "Ajaccio, France",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "172 lbs",
+      "position_detail": "Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q98593672"
     },
     {
       "number": 23,
@@ -478,7 +544,24 @@
       "club": "Panathinaikos",
       "club_nation": "GRE",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34164496",
+      "full_name": "Alban-Marc Lafont",
+      "last_name": "Lafont",
+      "first_name": "Alban",
+      "bio": "Alban-Marc Lafont (born 23 January 1999) is a professional footballer who plays as goalkeeper for Greek Super League club Panathinaikos, on loan from Ligue 1 club Nantes. Born in Burkina Faso and raised in France, he plays for the Ivory Coast national team.\r\n\r\nHaving progressed through the academy of AS Lattoise, Lafont signed for Toulouse in 2014 where he became the youngest goalkeeper ever to play in Ligue 1 upon making his debut the following year. He went on to make over 100 appearances for ",
+      "birth_location": "Ouagadougou, Burkina Faso",
+      "height": "1.93 m (6 ft 4 in)",
+      "weight": "181 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/alban_lafont/",
+        "facebook": "www.facebook.com/albanlafontt/",
+        "twitter": "twitter.com/albanlafont"
+      },
+      "wikidata_id": "Q21590318"
     },
     {
       "number": 24,
