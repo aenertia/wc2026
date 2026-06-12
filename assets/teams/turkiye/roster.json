@@ -195,7 +195,23 @@
       "club": "TSG Hoffenheim",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34169296",
+      "full_name": "Ozan Muhammed Kabak",
+      "last_name": "Kabak",
+      "first_name": "Ozan",
+      "bio": "Ozan Muhammed Kabak (born 25 March 2000) is a Turkish professional footballer who plays as a centre-back for Bundesliga club 1899 Hoffenheim and the Turkey national team.",
+      "birth_location": "Ankara, Türkiye",
+      "height": "1.86 m (6 ft 1 in)",
+      "weight": "190 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/ozankabak4/",
+        "twitter": "twitter.com/ozankabak4"
+      },
+      "wikidata_id": "Q53280628"
     },
     {
       "number": 16,
@@ -208,7 +224,19 @@
       "club": "Fenerbahçe",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34194495",
+      "full_name": "İsmail Yüksek",
+      "last_name": "Yüksek",
+      "first_name": "İsmail",
+      "bio": "İsmail Yüksek (born 26 January 1999) is a Turkish professional footballer who plays as a midfielder for Süper Lig side Fenerbahçe and the Turkey national team.",
+      "birth_location": "Bursa, Türkiye",
+      "height": "183 cm",
+      "weight": "163 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 17,
@@ -221,7 +249,21 @@
       "club": "Kasımpaşa",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34158100",
+      "full_name": "İrfan Can Kahveci",
+      "last_name": "Kahveci",
+      "first_name": "İrfan Can",
+      "bio": "İrfan Can Kahveci (born 15 July 1995) is a Turkish professional footballer who plays as an attacking midfielder or a winger for Süper Lig club Kasımpaşa, on loan from Fenerbahçe, and the Turkey national team.",
+      "birth_location": "Corum, Türkiye",
+      "height": "180 cm",
+      "weight": "157 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/kahveci10/"
+      }
     },
     {
       "number": 18,
@@ -234,7 +276,21 @@
       "club": "Fenerbahçe",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34169527",
+      "full_name": "Mert Müldür",
+      "last_name": "Müldür",
+      "first_name": "Mert",
+      "bio": "Mert Müldür (born 3 April 1999) is a professional footballer who plays as a right-back or a centre-back for Süper Lig club Fenerbahçe. Born in Austria, he represents the Turkey national team. A versatile player, he is capable of playing in multiple positions, especially as a defender.",
+      "birth_location": "Wien, Austria",
+      "height": "184 cm",
+      "weight": "161 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/mert.m99/?hl=en"
+      }
     },
     {
       "number": 19,
@@ -247,7 +303,19 @@
       "club": "Galatasaray",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34200679",
+      "full_name": "Yunus Akgün",
+      "last_name": "Akgün",
+      "first_name": "Yunus",
+      "bio": "Yunus Akgün (born 7 July 2000) is a Turkish professional footballer who plays as an attacking midfielder or right winger for Süper Lig club Galatasaray, and the Turkey national team.",
+      "birth_location": "Istanbul, Türkiye",
+      "height": "173 cm",
+      "weight": "141 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 20,
@@ -260,7 +328,20 @@
       "club": "Brighton & Hove Albion",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34181631",
+      "full_name": "Ferdi Erenay Kadıoğlu",
+      "last_name": "Kadıoğlu",
+      "first_name": "Ferdi",
+      "bio": "Ferdi Erenay Kadıoğlu (born 7 October 1999) is a professional footballer who plays as a full-back, midfielder or winger for Premier League club Brighton & Hove Albion. Born in the Netherlands, he plays for the Turkey national team.",
+      "birth_location": "Arnhem, Netherlands",
+      "height": "1.74 m (5 ft 9 in)",
+      "weight": "68 kg (150 lb)",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q26719541"
     },
     {
       "number": 21,
@@ -273,7 +354,19 @@
       "club": "Galatasaray",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34219547",
+      "full_name": "Barış Alper Yılmaz",
+      "last_name": "Yılmaz",
+      "first_name": "Barış Alper",
+      "bio": "Barış Alper Yılmaz (born 23 May 2000) is a Turkish professional footballer who plays as a winger for Süper Lig club Galatasaray and the Turkey national team.",
+      "birth_location": "Rize, Türkiye",
+      "height": "186 cm",
+      "weight": "",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 22,
@@ -286,7 +379,21 @@
       "club": "Galatasaray",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34155255",
+      "full_name": "Kaan Ayhan",
+      "last_name": "Ayhan",
+      "first_name": "Kaan",
+      "bio": "Kaan Ayhan (born 10 November 1994) is a professional footballer who plays as a centre back or a right back for Süper Lig club Galatasaray. Born in Germany, he plays for the Turkey national team.",
+      "birth_location": "Gelsenkirchen, Germany",
+      "height": "185 cm",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/kaanayhan/"
+      }
     },
     {
       "number": 23,
@@ -299,7 +406,21 @@
       "club": "Galatasaray",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34156875",
+      "full_name": "Uğurcan Çakır",
+      "last_name": "Çakır",
+      "first_name": "Uğurcan",
+      "bio": "Uğurcan Çakır (born 5 April 1996) is a Turkish professional footballer who plays as a goalkeeper for Süper Lig club Galatasaray and the Turkey national team.",
+      "birth_location": "Antalya, Turkey",
+      "height": "1.91 m (6 ft 3 in)",
+      "weight": "172 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/cakirugurcan61/"
+      }
     },
     {
       "number": 24,
@@ -312,7 +433,19 @@
       "club": "Fenerbahçe",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34226058",
+      "full_name": "Oğuz Aydın",
+      "last_name": "Aydın",
+      "first_name": "Oğuz",
+      "bio": "Oğuz Aydın (born 27 October 2000) is a professional footballer who plays as a winger for Fenerbahçe. Born in the Netherlands, he represents the Turkey national team.",
+      "birth_location": "Den Haag, Netherlands",
+      "height": "183 cm",
+      "weight": "",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -325,7 +458,19 @@
       "club": "Çaykur Rizespor",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34216592",
+      "full_name": "Samet Akaydin",
+      "last_name": "Akaydin",
+      "first_name": "Samet",
+      "bio": "Samet Akaydın (born 13 March 1994) is a Turkish professional footballer who plays as a centre-back for Süper Lig club Çaykur Rizespor and the Turkey national team.",
+      "birth_location": "Trabzon, Türkiye",
+      "height": "190 cm",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -338,7 +483,19 @@
       "club": "Eintracht Frankfurt",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34244130",
+      "full_name": "Can Yılmaz Uzun",
+      "last_name": "Uzun",
+      "first_name": "Can",
+      "bio": "Can Yılmaz Uzun (born 11 November 2005) is a professional footballer who plays as an attacking midfielder for Bundesliga club Eintracht Frankfurt. Born in Germany, he plays for the Turkey national team.\r\n\r\nUzun, who hails from the Upper Palatinate, began his club career in his hometown of Regensburg in the youth department of SSV Jahn Regensburg before moving to Upper Bavarian side FC Ingolstadt.\r\n\r\nIn 2019, he joined Franconian club 1. FC Nürnberg, where he started playing for the U17 team from",
+      "birth_location": "Regensburg, Germany",
+      "height": "186 cm",
+      "weight": "148 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     }
   ]
 }

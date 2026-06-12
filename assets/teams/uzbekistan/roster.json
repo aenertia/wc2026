@@ -286,7 +286,19 @@
       "club": "İstanbul Başakşehir",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34231670",
+      "full_name": "Abbosbek Sayidjon oʻgʻli Fayzullayev; Файзуллаев Аббосбек Саиджон угли",
+      "last_name": "Fayzullaev",
+      "first_name": "Abbosbek",
+      "bio": "Abbosbek Saidzhon ugli Fayzullaev (Uzbek: Abbosbek Sayidjon oʻgʻli Fayzullayev; born 3 October 2003) is an Uzbek professional footballer who plays as an attacking midfielder or winger for Süper Lig club İstanbul Başakşehir and the Uzbekistan national team.",
+      "birth_location": "Sirdaryo, Uzbekistan",
+      "height": "167 cm",
+      "weight": "59 kg",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 23,
@@ -299,7 +311,19 @@
       "club": "Bukhara",
       "club_nation": "UZB",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34279834",
+      "full_name": "Sherzod Dilshodovich Esanov; Эсанов Шерзод Дилшод угли",
+      "last_name": "Esanov",
+      "first_name": "Sherzod",
+      "bio": "Sherzod Dilshodovich Esanov (born 1 February 2003) is an Uzbekistani football player who plays as a central midfielder for Bukhara and the Uzbekistan national team.",
+      "birth_location": "Navoi, Uzbekistan",
+      "height": "190 cm",
+      "weight": "163 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 24,
@@ -312,7 +336,19 @@
       "club": "Surkhon Termiz",
       "club_nation": "UZB",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34436191",
+      "full_name": "Behruz Karimov; Каримов Бехрузджон",
+      "last_name": "Karimov",
+      "first_name": "Bekhruz",
+      "bio": "Bekhruzdjon Karimov (Uzbek: Behruzjon Karimov, Беҳрузжон Каримов; born 7 August 2007) is an Uzbekistani professional footballer who plays as a right-back for Uzbekistan Super League club Surkhon, and the Uzbekistan national team.",
+      "birth_location": "Tashkent, Uzbekistan",
+      "height": "172 cm",
+      "weight": "",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -325,7 +361,19 @@
       "club": "AGMK",
       "club_nation": "UZB",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34436192",
+      "full_name": "Avazbek Alisher oʻgʻli Oʻlmasaliev; Авазбек Алишер оглы Ўлмасалиев",
+      "last_name": "Ulmasaliev",
+      "first_name": "Avazbek",
+      "bio": "Avazbek Alisher oʻgʻli Oʻlmasaliev (born 27 March 2000) is an Uzbekistani professional footballer who plays as a centre-back for AGMK and the Uzbekistan national team.",
+      "birth_location": "Fergana, Uzbekistan",
+      "height": "187 cm",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -338,7 +386,19 @@
       "club": "Dinamo Samarqand",
       "club_nation": "UZB",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34259797",
+      "full_name": "Jahongir Oʻrozov; Урозов Жахонгир",
+      "last_name": "Urozov",
+      "first_name": "Jakhongir",
+      "bio": "Jahongir Oʻrozov (Uzbek Cyrillic: Жаҳонгир Ўрозов; born 18 January 2004) is an Uzbek professional footballer who plays as a left-back for Dinamo Samarqand and the Uzbekistan national team.",
+      "birth_location": "Viloyat Jizzax, Uzbekistan",
+      "height": "190 cm",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     }
   ]
 }

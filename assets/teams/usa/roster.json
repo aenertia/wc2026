@@ -104,7 +104,24 @@
       "club": "Juventus",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34163483",
+      "full_name": "Weston James Earl McKennie",
+      "last_name": "McKennie",
+      "first_name": "Weston",
+      "bio": "Weston James Earl McKennie (born August 28, 1998) is an American professional soccer player who plays as a midfielder for Serie A club Juventus, and the United States national team. A versatile player, McKennie is capable of playing in a multitude of positions in midfield—mainly as a box-to-box or as a deep-lying defensive midfielder.\r\n\r\nComing through the youth system, McKennie began his senior club career at Bundesliga side Schalke 04. In 2017–18, he established himself as a first team player,",
+      "birth_location": "Little Elm, Texas, United States",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "183 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/west.mckennie/",
+        "facebook": "www.facebook.com/WestonMcKennieOfficial/",
+        "twitter": "twitter.com/wmckennie"
+      },
+      "wikidata_id": "Q29998966"
     },
     {
       "number": 9,
@@ -117,7 +134,20 @@
       "club": "PSV Eindhoven",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34180925",
+      "full_name": "Ricardo Daniel Pepi",
+      "last_name": "Pepi",
+      "first_name": "Ricardo",
+      "bio": "Ricardo Daniel Pepi (born January 9, 2003) is an American professional soccer player who plays as a striker for Eredivisie club PSV Eindhoven and the United States national team.\r\n\r\nPepi had his breakthrough with Major League Soccer club FC Dallas and was named the MLS Young Player of the Year in 2021. In 2022 he joined Bundesliga club FC Augsburg and was later loaned to Eredivisie club FC Groningen, where he scored 12 goals in 29 league appearances. In 2023 he signed with PSV Eindhoven for €9 m",
+      "birth_location": "El Paso, Texas, United States",
+      "height": "185 cm",
+      "weight": "161 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q62597239"
     },
     {
       "number": 10,
@@ -130,7 +160,24 @@
       "club": "Milan",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34163470",
+      "full_name": "Christian Mate Pulisic",
+      "last_name": "Pulisic",
+      "first_name": "Christian",
+      "bio": "Christian Mate Pulisic (/ˈmɑːteɪ pəˈlɪsɪk, ˈpʊlɪʃɪtʃ/; Croatian: Pulišić, pronounced ; born September 18, 1998) is an American professional soccer player who plays as a winger or an attacking midfielder for Italian Serie A club Milan and the United States national team. Due to his high level of play along with his nationality, he has been given the nickname \"Captain America\" by fans and other players.\r\n\r\nPulisic began his professional career at German club Borussia Dortmund, where, after fast pr",
+      "birth_location": "Hershey, Pennsylvania, United States",
+      "height": "178cm / 5'10\"",
+      "weight": "161 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "Nike Mercurial Vapor XII Elite",
+      "social": {
+        "instagram": "http://www.instagram.com/cmpulisic",
+        "facebook": "http://www.facebook.com/cmpulisic/",
+        "twitter": "http://twitter.com/cpulisic_10"
+      },
+      "wikidata_id": "Q22279773"
     },
     {
       "number": 11,
@@ -143,7 +190,23 @@
       "club": "Leeds United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34174227",
+      "full_name": "Brenden Russell Aaronson",
+      "last_name": "Aaronson",
+      "first_name": "Brenden",
+      "bio": "Brenden Russell Aaronson (born October 22, 2000) is an American professional soccer player who plays as an attacking midfielder or winger for Premier League club Leeds United and the United States national team.",
+      "birth_location": "Medford, New Jersey, United States",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "150 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/baaronson7/",
+        "twitter": "twitter.com/aaronsonbrenden?lang=ca"
+      },
+      "wikidata_id": "Q33129609"
     },
     {
       "number": 12,
@@ -156,7 +219,20 @@
       "club": "FC Cincinnati",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34179608",
+      "full_name": "Miles Gordon Robinson",
+      "last_name": "Robinson",
+      "first_name": "Miles",
+      "bio": "Miles Gordon Robinson (born March 14, 1997) is an American professional soccer player who plays as a center-back for Major League Soccer club FC Cincinnati and the United States national team. \r\n\r\nCollege career\r\nRobinson attended Syracuse University, where he played for their soccer team for two years. He was named the ACC Defensive Player of the Year in 2016.\r\n\r\nClub career\r\nRobinson was chosen as the 2nd pick of the 2017 MLS SuperDraft by Atlanta United. He had been selected for the Generatio",
+      "birth_location": "Arlington, Massachusetts, USA",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q30122953"
     },
     {
       "number": 13,
@@ -169,7 +245,20 @@
       "club": "Charlotte FC",
       "club_nation": "USA",
       "captain": true,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34148733",
+      "full_name": "Timothy Michael Ream",
+      "last_name": "Ream",
+      "first_name": "Tim",
+      "bio": "Timothy Michael Ream (born October 5, 1987) is an American professional soccer player who plays as a center-back for Major League Soccer club Charlotte FC and the United States national team.",
+      "birth_location": "St. Louis, Missouri, United States",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q716113"
     },
     {
       "number": 14,
@@ -182,7 +271,20 @@
       "club": "Vancouver Whitecaps FC",
       "club_nation": "CAN",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34181055",
+      "full_name": "Sebastian Matthew Berhalter",
+      "last_name": "Berhalter",
+      "first_name": "Sebastian",
+      "bio": "Sebastian Matthew Berhalter (born May 10, 2001) is an American professional soccer player who plays as a midfielder for Major League Soccer club Vancouver Whitecaps FC and the United States national team.",
+      "birth_location": "London, England",
+      "height": "1.75 m (5 ft 9 in)",
+      "weight": "152 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q86301356"
     },
     {
       "number": 15,
@@ -195,7 +297,20 @@
       "club": "Seattle Sounders FC",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34164785",
+      "full_name": "Cristian Roldan",
+      "last_name": "Roldan",
+      "first_name": "Cristian",
+      "bio": "Cristian Roldan (born June 3, 1995) is an American professional soccer player, who currently plays as a midfielder for Seattle Sounders FC in Major League Soccer.\r\n\r\nCareer\r\nCollege and Amateur\r\nRoldan was named the 2013 Gatorade National Player of the Year in soccer while attending El Rancho High School in Pico Rivera, California.\r\n\r\nRoldan spent his college career at the University of Washington. In his two seasons with the Huskies, Roldan made a total of 41 appearances and tallied 10 goals an",
+      "birth_location": "Artesia, California, United States",
+      "height": "1.73 m (5 ft 8 in)",
+      "weight": "163 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q19519224"
     },
     {
       "number": 16,
@@ -208,7 +323,19 @@
       "club": "Villarreal",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34196608",
+      "full_name": "Alexander Michael Freeman",
+      "last_name": "Freeman",
+      "first_name": "Alex",
+      "bio": "Alexander Michael Freeman (born August 9, 2004) is an American professional soccer player who plays as a right-back or right winger for La Liga club Villarreal and the United States national team.\r\n\r\nIn 2022, Freeman signed with Major League Soccer franchise Orlando City, but spent the first three seasons of his professional career primarily playing for the reserve team, Orlando City B, in MLS Next Pro. In 2024, during his last season with Orlando City B, Freeman contributed the most assists and",
+      "birth_location": "Fort Lauderdale, Florida, United States",
+      "height": "188 cm",
+      "weight": "",
+      "position_detail": "Right-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 17,
@@ -221,7 +348,19 @@
       "club": "Bayer Leverkusen",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34192962",
+      "full_name": "Malik Leon Tillman",
+      "last_name": "Tillman",
+      "first_name": "Malik",
+      "bio": "Malik Leon Tillman (born May 28, 2002) is a professional soccer player who plays as an attacking midfielder for Bundesliga club Bayer Leverkusen. Born in Germany, he represents the United States national team.\r\n\r\nTillman is a graduate of Bayern Munich's youth system, which he joined in 2015 from Greuther Fürth. He made his debut for Bayern's first-team in August 2021, having previously featured for Bayern Munich II. In July 2022, he signed for Scottish Premiership club Rangers on loan, where he ",
+      "birth_location": "Nürnberg, Germany",
+      "height": "1.87 m (6 ft 2 in)",
+      "weight": "157 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 18,

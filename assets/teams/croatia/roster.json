@@ -215,7 +215,21 @@
       "club": "Osasuna",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34167652",
+      "full_name": "Ante Budimir",
+      "last_name": "Budimir",
+      "first_name": "Ante",
+      "bio": "Ante Budimir (born 22 July 1991) is a Croatian professional footballer who plays as a striker for La Liga club Osasuna and the Croatia national team.",
+      "birth_location": "Zenica, Jugoslawien (SFR)",
+      "height": "1.90 m (6 ft 3 in)",
+      "weight": "163 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Left",
+      "kit": "Nike Mercurial Superfly VI Elite",
+      "social": {
+        "instagram": "www.instagram.com/budimir__ante/"
+      }
     },
     {
       "number": 12,
@@ -228,7 +242,21 @@
       "club": "Hull City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34172348",
+      "full_name": "Ivor Pandur",
+      "last_name": "Pandur",
+      "first_name": "Ivor",
+      "bio": "Ivor Pandur (born 25 March 2000) is a Croatian professional footballer who plays as a goalkeeper for EFL Championship club Hull City.",
+      "birth_location": "Rijeka, Croatia",
+      "height": "1.87 m",
+      "weight": "179 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/ivorpandur/"
+      }
     },
     {
       "number": 13,
@@ -241,7 +269,22 @@
       "club": "Torino",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34161382",
+      "full_name": "Nikola Vlašić",
+      "last_name": "Vlašić",
+      "first_name": "Nikola",
+      "bio": "Nikola Vlašić (born 4 October 1997) is a Croatian professional footballer who plays as an attacking midfielder for Italian Serie A club Torino and the Croatia national team. \r\nBorn in the famous Croatian sports family Vlašić, Nikola is a youth product of Hajduk Split academy. He made his senior debut in summer 2014, making The Guardian's Next Generation list later that year. In 2017, his performances earned him a move to Everton; however, after an unsuccessful season, he was loaned out to CSKA M",
+      "birth_location": "Split, Croatia",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "172 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/niksivlasic_/"
+      },
+      "wikidata_id": "Q17501875"
     },
     {
       "number": 14,
@@ -254,7 +297,23 @@
       "club": "PSV Eindhoven",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34155055",
+      "full_name": "Ivan Perišić",
+      "last_name": "Perišić",
+      "first_name": "Ivan",
+      "bio": "Ivan Perišić (born 2 February 1989) is a Croatian professional footballer who plays as a winger for Eredivisie club PSV and the Croatia national team. Usually deployed as a left winger, he has also featured as an attacking midfielder, second striker, or left wing-back. Known for his ambidexterity and versatility, he is considered to be one of the greatest Croatian players of all time.\r\n\r\nA product of the Hajduk Split and Sochaux youth academies, Perišić made a name for himself while playing for ",
+      "birth_location": "Split, SR Croatia, Yugoslavia",
+      "height": "186 cm",
+      "weight": "174 lbs",
+      "position_detail": "Left Midfield",
+      "preferred_foot": "Both",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/ivanperisic444/",
+        "facebook": "www.facebook.com/IvanPerisic49/"
+      },
+      "wikidata_id": "Q161054"
     },
     {
       "number": 15,
@@ -267,7 +326,23 @@
       "club": "Atalanta",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34145537",
+      "full_name": "Mario Pašalić",
+      "last_name": "Pašalić",
+      "first_name": "Mario",
+      "bio": "Mario Pašalić (born 9 February 1995) is a Croatian professional footballer who plays as a central midfielder for Serie A side Atalanta and the Croatia national team.\r\n\r\nHe began his career at Hajduk Split before moving to Chelsea for a reported £3 million in 2014. Chelsea loaned him to Elche, Monaco, Milan, Spartak Moscow and then Atalanta.\r\n\r\nPašalić made his senior international debut for Croatia in 2014.",
+      "birth_location": "Mainz, Germany",
+      "height": "1.86 m (6 ft 1 in)",
+      "weight": "170 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/pasalicmario",
+        "facebook": "www.facebook.com/MarioPasalic"
+      },
+      "wikidata_id": "Q14625183"
     },
     {
       "number": 16,
@@ -280,7 +355,20 @@
       "club": "Como",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34200040",
+      "full_name": "Martin Baturina",
+      "last_name": "Baturina",
+      "first_name": "Martin",
+      "bio": "Martin Baturina (born 16 February 2003) is a professional footballer who plays as an attacking midfielder for Serie A club Como. Born in Switzerland, he plays for the Croatia national team.",
+      "birth_location": "Zurich, Switzerland",
+      "height": "1.72 m",
+      "weight": "150 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q107446975"
     },
     {
       "number": 17,
@@ -306,7 +394,19 @@
       "club": "FC Augsburg",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34177773",
+      "full_name": "Kristijan Jakić",
+      "last_name": "Jakić",
+      "first_name": "Kristijan",
+      "bio": "Kristijan Jakić (born 14 May 1997) is a Croatian professional footballer who plays as a defensive midfielder for German Bundesliga club FC Augsburg and the Croatia national team. \r\nJakić earned his first call-up to the Croatia national team on 20 September 2021, when coach Zlatko Dalić called him up for the October World Cup qualifiers against Cyprus and Slovakia. He made him debut on 8 October against the former opponent, getting substituted on in the 84th minute of the 3–0 victory.",
+      "birth_location": "Split, Croatia",
+      "height": "181 cm",
+      "weight": "172 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 19,
@@ -319,7 +419,19 @@
       "club": "Rijeka",
       "club_nation": "CRO",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34236432",
+      "full_name": "Toni Fruk",
+      "last_name": "Fruk",
+      "first_name": "Toni",
+      "bio": "Toni Fruk (born 9 March 2001) is a Croatian professional footballer who plays as an attacking midfielder or forward for Croatian Football League club Rijeka and the Croatia national team.",
+      "birth_location": "Našice, Croatia",
+      "height": "1.78 m",
+      "weight": "",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 20,

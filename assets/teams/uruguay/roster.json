@@ -91,7 +91,19 @@
       "club": "Flamengo",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34174118",
+      "full_name": "Diego Nicolás de la Cruz Arcosa",
+      "last_name": "Cruz",
+      "first_name": "Nicolás De La",
+      "bio": "Diego Nicolás de la Cruz Arcosa (born 1 June 1997) is a Uruguayan professional footballer who plays as an attacking midfielder for Campeonato Brasileiro Serie A club Flamengo and the Uruguay national team.",
+      "birth_location": "Montevideo , Uruguay",
+      "height": "1.67 m (5 ft 6 in)",
+      "weight": "141 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 8,
@@ -104,7 +116,24 @@
       "club": "Real Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34164200",
+      "full_name": "Federico Santiago Valverde Dipetta",
+      "last_name": "Valverde",
+      "first_name": "Federico",
+      "bio": "Federico Santiago Valverde Dipetta (born 22 July 1998) is a Uruguayan professional footballer who plays for Spanish club Real Madrid and the Uruguay national team as a central midfielder.",
+      "birth_location": "Montevideo, Uruguay",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "172 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "Nike Mercurial Superfly VI Elite",
+      "social": {
+        "instagram": "www.instagram.com/fedeevalverde",
+        "facebook": "www.facebook.com/FedeValverdeOficial",
+        "twitter": "twitter.com/fedeevalverde"
+      },
+      "wikidata_id": "Q19509544"
     },
     {
       "number": 9,
@@ -117,7 +146,24 @@
       "club": "Al-Hilal",
       "club_nation": "KSA",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34172395",
+      "full_name": "Darwin Gabriel Núñez Ribeiro",
+      "last_name": "Núñez",
+      "first_name": "Darwin",
+      "bio": "Darwin Gabriel Núñez Ribeiro is a Uruguayan professional footballer who plays as a forward for Saudi Pro League club Al-Hilal and the Uruguay national team. \r\n\r\nNúñez came through Peñarol's youth academy, being promoted to the first team in 2017. In August 2019, he joined Spanish Segunda División side Almería. Benfica signed him in 2020 for a club-record transfer worth €24 million, the most expensive signing in Portuguese football history. In his second season, he won the Bola de Prata for top s",
+      "birth_location": "Artigas, Uruguay",
+      "height": "1.87 m (6 ft 2 in)",
+      "weight": "179 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/darwin_n9/",
+        "facebook": "www.facebook.com/darwin.nunez.7927",
+        "twitter": "twitter.com/darwinn99"
+      },
+      "wikidata_id": "Q46372260"
     },
     {
       "number": 10,
@@ -130,7 +176,22 @@
       "club": "Flamengo",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34190579",
+      "full_name": "Giorgian Daniel De Arrascaeta Benedetti",
+      "last_name": "Arrascaeta",
+      "first_name": "Giorgian De",
+      "bio": "Giorgian Daniel De Arrascaeta Benedetti (born 1 June 1994) is a Uruguayan footballer who plays as an attacking midfielder for Brazilian Série A club Flamengo and the Uruguay national team.\r\n\r\nDe Arrascaeta played for Uruguay U20 and has been a member of the senior team since 2014. He represented the nation at the Copa América in 2015, 2019 and 2021, as well as the 2018 FIFA World Cup.",
+      "birth_location": "Nuevo Berlín, Uruguay",
+      "height": "1.72 m (5 ft 8 in)",
+      "weight": "161 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/g10dearrascaeta/",
+        "twitter": "twitter.com/giorgiandea"
+      }
     },
     {
       "number": 11,
@@ -143,7 +204,20 @@
       "club": "Panathinaikos",
       "club_nation": "GRE",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34174058",
+      "full_name": "Facundo Pellistri Rebollo",
+      "last_name": "Pellistri",
+      "first_name": "Facundo",
+      "bio": "Facundo Pellistri Rebollo (Spanish pronunciation: ; born 20 December 2001) is a Uruguayan professional footballer who plays as a winger for Greek Super League club Panathinaikos and the Uruguay national team.\r\n\r\nBorn in Montevideo, Pellistri is a graduate of Peñarol's youth system. He made 37 first-team appearances for the club and was named in the Uruguayan Primera División Team of the Season in 2019. He transferred to Manchester United in October 2020, for a fee of £9 million. After joining Un",
+      "birth_location": "Montevideo, Uruguay",
+      "height": "1.74 m (5 ft 7 in)",
+      "weight": "150 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q72091732"
     },
     {
       "number": 12,
@@ -156,7 +230,19 @@
       "club": "Monterrey",
       "club_nation": "MEX",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34218553",
+      "full_name": "Santiago Andrés Mele Castanero",
+      "last_name": "Mele",
+      "first_name": "Santiago",
+      "bio": "Santiago Andrés Mele Castañero (born 6 September 1997) is a Uruguayan professional footballer who plays as a goalkeeper for Categoría Primera A club Atlético Junior and the Uruguay national team.",
+      "birth_location": "Montevideo, Uruguay",
+      "height": "184 cm",
+      "weight": "78 kg",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
@@ -169,7 +255,23 @@
       "club": "Flamengo",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34145646",
+      "full_name": "Guillermo Varela Olivera",
+      "last_name": "Varela",
+      "first_name": "Guillermo",
+      "bio": "Guillermo Varela Olivera (; born 24 March 1993) is a Uruguayan professional footballer who plays as a right-back for Campeonato Brasileiro Série A club Flamengo and the Uruguay national team.\r\n\r\nVarela began his career with Peñarol, in his home town of Montevideo, before joining Manchester United in 2013. He made 11 first-team appearances for United and spent time on loan at Real Madrid's reserve team, Real Madrid Castilla, and at Eintracht Frankfurt, before rejoining Peñarol in 2017. Varela won",
+      "birth_location": "Montevideo, Uruguay",
+      "height": "1.73 m (5 ft 8 in)",
+      "weight": "70 kg",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/guillermovarela4",
+        "twitter": "twitter.com/guille_varela4"
+      },
+      "wikidata_id": "Q13422031"
     },
     {
       "number": 14,
@@ -182,7 +284,21 @@
       "club": "Fluminense",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34200741",
+      "full_name": "Agustín Canobbio Graviz",
+      "last_name": "Canobbio",
+      "first_name": "Agustín",
+      "bio": "Agustín Canobbio Graviz (born 1 October 1998) is a Uruguayan professional footballer who plays as a winger for Brazilian club Athletico Paranaense and the Uruguay national team.",
+      "birth_location": "Montevideo",
+      "height": "1.75 m (5 ft 9 in)",
+      "weight": "163 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/agus_cano7/"
+      }
     },
     {
       "number": 15,
@@ -195,7 +311,24 @@
       "club": "Palmeiras",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34145423",
+      "full_name": "Damián Emiliano Martínez Romero",
+      "last_name": "Martinez",
+      "first_name": "Emiliano",
+      "bio": "Damián Emiliano Martínez Romero (born 2 September 1992) is an Argentine professional footballer who plays as a goalkeeper for Premier League club Aston Villa and the Argentina national team.\r\n\r\nMartínez trained at Independiente's youth ranks before moving to Arsenal in 2010. At Arsenal, he served as understudy, being loaned to various English clubs, before breaking into the starting line-up in 2019, helping them win a FA Cup and FA Community Shield. In September 2020, Martínez moved to fellow Pr",
+      "birth_location": "Mar del Plata, Argentina",
+      "height": "195 cm",
+      "weight": "192 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/emi_martinez26/",
+        "facebook": "www.facebook.com/emimartinez26/",
+        "twitter": "twitter.com/emimartinezz1"
+      },
+      "wikidata_id": "Q3275904"
     },
     {
       "number": 16,
