@@ -13,7 +13,24 @@
       "club": "Atlético Nacional",
       "club_nation": "COL",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34145434",
+      "full_name": "David Ospina Ramírez",
+      "last_name": "Ospina",
+      "first_name": "David",
+      "bio": "David Ospina Ramírez (born 31 August 1988) is a Colombian professional footballer who plays as a goalkeeper for Categoría Primera A club Atlético Nacional, which he captains, and the Colombia national team.\r\n\r\nOspina began his career at Atlético Nacional, making his debut with the club in 2005. After achieving two domestic titles with Los Verdolagas, Ospina joined French side Nice. In 2014, he joined Arsenal on a four-year deal. During his time in London, Ospina won three trophies with the club:",
+      "birth_location": "Medellín, Colombia",
+      "height": "1.83 m (6 ft 0 in)",
+      "weight": "170 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/d_ospina1/",
+        "facebook": "www.facebook.com/dospina/",
+        "twitter": "twitter.com/d_ospina1"
+      },
+      "wikidata_id": "Q436987"
     },
     {
       "number": 2,
@@ -26,7 +43,20 @@
       "club": "Crystal Palace",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34175627",
+      "full_name": "Daniel Muñoz Mejía",
+      "last_name": "Muñoz",
+      "first_name": "Daniel",
+      "bio": "Daniel Muñoz Mejía (born 26 May 1996) is a Colombian professional footballer who plays as a right-back or right wing-back for Premier League club Crystal Palace and the Colombia national team.",
+      "birth_location": "Amalfi, Colombia",
+      "height": "1.83 m (6 ft 0 in)",
+      "weight": "70 kg",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q56703599"
     },
     {
       "number": 3,
@@ -39,7 +69,19 @@
       "club": "Bologna",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34175625",
+      "full_name": "Jhon Janer Lucumí Bonilla",
+      "last_name": "Lucumí",
+      "first_name": "Jhon",
+      "bio": "Jhon Janer Lucumí Bonilla (born 26 June 1998) is a Colombian professional footballer who plays as a centre-back for Serie A club Bologna and the Colombia national team.\r\n\r\nA youth product of hometown club Deportivo Cali, Lucumí made his professional football debut with the first team in 2015. After three years with the club, he transferred to Belgian Pro League side K.R.C. Genk, where he achieved a league title along with the Belgian Super Cup in his first season. In 2021, Lucumí won the Belgian",
+      "birth_location": "Cali, Colombia",
+      "height": "1.83 m (6 ft 0 in)",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 4,
@@ -52,7 +94,24 @@
       "club": "Independiente",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34155713",
+      "full_name": "Santiago Arias Naranjo",
+      "last_name": "Arias",
+      "first_name": "Santiago",
+      "bio": "Santiago Arias Naranjo (born 13 January 1992) is a Colombian professional footballer who plays as a right-back for Bahia and the Colombia national team.",
+      "birth_location": "Medellín, Colombia",
+      "height": "1.77 m (5 ft 10 in)",
+      "weight": "159 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "adidas Nemeziz 19+",
+      "social": {
+        "instagram": "www.instagram.com/santiagoarias13/",
+        "facebook": "www.facebook.com/SantiagoArias13/",
+        "twitter": "twitter.com/santiagoarias13"
+      },
+      "wikidata_id": "Q2502118"
     },
     {
       "number": 5,
@@ -65,7 +124,19 @@
       "club": "River Plate",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34221188",
+      "full_name": "Kevin Duván Castaño Gil",
+      "last_name": "Castaño",
+      "first_name": "Kevin",
+      "bio": "Kevin Duván Castaño Gil (born 29 September 2000) is a Colombian professional footballer who plays as a defensive midfielder for Argentine Primera División club River Plate and the Colombia national team.",
+      "birth_location": "Itagüí, Colombia",
+      "height": "1.77 m (5 ft 10 in)",
+      "weight": "73 kg (161 lb)",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 6,
@@ -78,7 +149,19 @@
       "club": "Benfica",
       "club_nation": "POR",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34222522",
+      "full_name": "Richard Ríos Montoya",
+      "last_name": "Ríos",
+      "first_name": "Richard",
+      "bio": "Richard Ríos Montoya (born 2 June 2000) is a Colombian professional footballer who plays as a central midfielder for Primeira Liga club Benfica and the Colombia national team. Ríos is renowned for his versatility and ball-winning ability.\r\n\r\nAfter beginning his career in Brazil with Flamengo and Guarani, he moved to Palmeiras, where he won the Campeonato Brasileiro Série A in 2023 and the Campeonato Paulista in 2024. In 2025, he transferred to Benfica and won the Supertaça Cândido de Oliveira in",
+      "birth_location": "Vegachí, Colombia",
+      "height": "180 cm",
+      "weight": "161 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 7,
@@ -91,7 +174,23 @@
       "club": "Bayern Munich",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34171827",
+      "full_name": "Luis Fernando Díaz Marulanda",
+      "last_name": "Díaz",
+      "first_name": "Luis",
+      "bio": "Luis Fernando Díaz Marulanda (born 13 January 1997) is a Colombian professional footballer who plays as a left winger for Bundesliga club Bayern Munich and the Colombia national team. \r\n\r\nDíaz began his professional career in the Categoría Primera B at Barranquilla, before moving to Atlético Junior, winning Categoría Primera A, one Copa Colombia and one Superliga Colombiana. In 2019, he joined Porto for a reported fee of €7 million, winning two Primeira Liga titles, one Taça de Portugal, and one",
+      "birth_location": "Barrancas, Colombia",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "141 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/luisdiaz19_/",
+        "twitter": "twitter.com/luisfdiaz19"
+      },
+      "wikidata_id": "Q28531111"
     },
     {
       "number": 8,
@@ -104,7 +203,21 @@
       "club": "Flamengo",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34174117",
+      "full_name": "Jorge Andrés Carrascal Guardo",
+      "last_name": "Carrascal",
+      "first_name": "Jorge",
+      "bio": "Jorge Andrés Carrascal Guardo (born 25 May 1998) is a Colombian professional footballer who plays as an attacking midfielder for Campeonato Brasileiro Série A club Flamengo and the Colombia national team.",
+      "birth_location": "Cartagena, Colombia",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "163 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/carrascall/"
+      }
     },
     {
       "number": 9,
@@ -117,7 +230,22 @@
       "club": "Krasnodar",
       "club_nation": "RUS",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34149480",
+      "full_name": "Jhon Andrés Córdoba Copete",
+      "last_name": "Córdoba",
+      "first_name": "Jhon",
+      "bio": "Jhon Andrés Córdoba Copete (born 11 May 1993) is a Colombian professional footballer who plays as a striker for Russian Premier League club Krasnodar and the Colombia national team.\r\n\r\nCórdoba is well known for his strength and his powerful shots. His skills and talents have led many to consider him to be a Colombian version of Didier Drogba due to their similar traits.",
+      "birth_location": "Istmina, Colombia",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "85 kg (187 lb)",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "Nike Hypervenom Phantom III",
+      "social": {
+        "instagram": "www.instagram.com/jhoncordoba9/",
+        "twitter": "twitter.com/jhoncordoba4"
+      }
     },
     {
       "number": 10,
@@ -130,7 +258,24 @@
       "club": "Minnesota United FC",
       "club_nation": "USA",
       "captain": true,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34146289",
+      "full_name": "James David Rodríguez Rubio",
+      "last_name": "Rodríguez",
+      "first_name": "James",
+      "bio": "James David Rodríguez Rubio (born 12 July 1991) is a Colombian professional footballer who plays as an attacking midfielder or winger for Major League Soccer club Minnesota United and captains the Colombia national team. Regarded as one of the best Colombian players of all time, he has been praised for his technique, vision, and playmaking skills. He was often considered the successor to his compatriot Carlos Valderrama.\r\n\r\nStarting his career at Envigado, and then moving to Argentina side Banfi",
+      "birth_location": "Cúcuta, Colombia",
+      "height": "1.81 m (5 ft 11 in)",
+      "weight": "163 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "adidas X 19.1",
+      "social": {
+        "instagram": "www.instagram.com/jamesrodriguez10",
+        "facebook": "www.facebook.com/10Jamesrodriguez/",
+        "twitter": "twitter.com/jamesdrodriguez"
+      },
+      "wikidata_id": "Q368441"
     },
     {
       "number": 11,
@@ -143,7 +288,19 @@
       "club": "Palmeiras",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34196662",
+      "full_name": "Jhon Adolfo Arias Andrade",
+      "last_name": "Arias",
+      "first_name": "Jhon",
+      "bio": "Jhon Adolfo Arias Andrade (born 21 September 1997) is a Colombian professional footballer who plays as wide midfielder or attacking midfielder for Campeonato Brasileiro Série A club Palmeiras and the Colombia national team.",
+      "birth_location": "Quibdó, Colombia",
+      "height": "1.70 m (5 ft 7 in)",
+      "weight": "170 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 12,
@@ -156,7 +313,19 @@
       "club": "Atlas",
       "club_nation": "MEX",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34191368",
+      "full_name": "Camilo Andrés Vargas Gil",
+      "last_name": "Vargas",
+      "first_name": "Camilo",
+      "bio": "Camilo Andrés Vargas Gil (born 9 March 1989) is a Colombian professional footballer who plays as a goalkeeper for Liga MX club Atlas and the Colombia national team.",
+      "birth_location": "Bogotá, Colombia",
+      "height": "185 cm",
+      "weight": "179 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
@@ -169,7 +338,22 @@
       "club": "Cagliari",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34162095",
+      "full_name": "Yerry Fernando Mina González",
+      "last_name": "Mina",
+      "first_name": "Yerry",
+      "bio": "Yerry Fernando Mina González (born 23 September 1994) is a Colombian professional footballer who plays as a centre-back for Serie A club Cagliari and the Colombia national team.",
+      "birth_location": "Guachené, Colombia",
+      "height": "1.95 m (6 ft 5 in)",
+      "weight": "205 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/yerrymina/"
+      },
+      "wikidata_id": "Q16648816"
     },
     {
       "number": 14,
@@ -182,7 +366,19 @@
       "club": "Racing Santander",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34222028",
+      "full_name": "Gustavo Adolfo Puerta Molano",
+      "last_name": "Puerta",
+      "first_name": "Gustavo",
+      "bio": "Gustavo Adolfo Puerta Molano (born 23 July 2003) is a Colombian professional footballer who plays as a midfielder for Segunda División club Racing de Santander and the Colombia national team.",
+      "birth_location": "La Victoria, Colombia",
+      "height": "172 cm",
+      "weight": "73 kg",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 15,
@@ -195,7 +391,19 @@
       "club": "Athletico Paranaense",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34347172",
+      "full_name": "Juan Camilo Portilla Orozco",
+      "last_name": "Portilla",
+      "first_name": "Juan",
+      "bio": "Juan Camilo Portilla Orozco (born 12 September 1998) is a Colombian professional footballer who plays as a midfielder for Campeonato Brasileiro Série A club Athletico Paranaense and the Colombia national team.\r\n\r\nAfter beginning his career in Colombia with youth sides including Boca Juniors Cali and breaking into senior football with Universitario Popayán, he had stints abroad at Jacksonville Armada in the United States and Deportes Melipilla in Chile, before returning to Colombia with Alianza P",
+      "birth_location": "Cali, Colombia",
+      "height": "185 cm",
+      "weight": "80 kg",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 16,
@@ -208,7 +416,20 @@
       "club": "Crystal Palace",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34163807",
+      "full_name": "Jefferson Andrés Lerma Solís",
+      "last_name": "Lerma",
+      "first_name": "Jefferson",
+      "bio": "Jefferson Andrés Lerma Solís (born 25 October 1994) is a Colombian professional footballer who plays for Premier League club Crystal Palace and the Colombia national team. Typically a central midfielder, he has also been used as a defensive midfielder and as a right-back. \r\n\r\nClub career\r\nEarly career and Atlético Huila\r\nBorn in El Cerrito, Valle del Cauca, Lerma graduated with Atlético Huila's youth setup. After being promoted to the main squad in January 2013, he made his professional debut on",
+      "birth_location": "Cerrito, Colombia",
+      "height": "1.79 m (5 ft 10 in)",
+      "weight": "152 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q16300824"
     },
     {
       "number": 17,
@@ -221,7 +442,23 @@
       "club": "Mallorca",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34146436",
+      "full_name": "Johan Andrés Mojica Palacio",
+      "last_name": "Mojica",
+      "first_name": "Johan",
+      "bio": "Johan Andrés Mojica Palacio (born 21 August 1992) is a Colombian professional footballer who plays for as a left-back for La Liga club Mallorca and the Colombia national team.\r\n\r\nMojica began his football career in Colombia with second division side Academia before joining league counterpart Llaneros in 2012. Over the next two years, he had loan periods with Deportivo Cali and La Liga side Rayo Vallecano. In 2014, Mojica was permanently signed by Rayo, however, he did not play much games with th",
+      "birth_location": "Santiago de Cali, Colombia",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "146 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/johanmojica/",
+        "twitter": "http://twitter.com/11johanmojica"
+      },
+      "wikidata_id": "Q5932872"
     },
     {
       "number": 18,
@@ -234,7 +471,19 @@
       "club": "Cruz Azul",
       "club_nation": "MEX",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34180028",
+      "full_name": "Willer Emilio Ditta Pérez",
+      "last_name": "Ditta",
+      "first_name": "Willer",
+      "bio": "Willer Emilio Ditta Pérez (born 23 January 1997) is a Colombian professional footballer who plays as a centre-back for Liga MX club Cruz Azul and the Colombia national team.",
+      "birth_location": "Ibirico, Colombia",
+      "height": "1.75 m (5 ft 7 in)",
+      "weight": "141 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 19,
@@ -247,7 +496,23 @@
       "club": "Real Betis",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34170279",
+      "full_name": "Juan Camilo Hernández Suárez",
+      "last_name": "Hernández",
+      "first_name": "Cucho",
+      "bio": "Juan Camilo Hernández Suárez (born 20 April 1999), known simply as Cucho Hernández, is a Colombian professional footballer who plays as a striker or winger for La Liga club Real Betis and the Colombia national team.",
+      "birth_location": "Pereira, Colombia",
+      "height": "1.75 m (5 ft 9 in)",
+      "weight": "",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/cuchohernandez10/",
+        "twitter": "twitter.com/cucho1099"
+      },
+      "wikidata_id": "Q27037962"
     },
     {
       "number": 20,
@@ -260,7 +525,24 @@
       "club": "River Plate",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34146588",
+      "full_name": "Juan Fernando Quintero Paniagua",
+      "last_name": "Quintero",
+      "first_name": "Juan Fernando",
+      "bio": "Juan Fernando Quintero Paniagua, better known as Juanfer Quintero (born 18 January 1993), is a Colombian professional footballer who plays as attacking midfielder or winger for Argentine Primera División club River Plate and the Colombia national team.\r\n\r\nQuintero first received attention at age 19 due to his performances in the 2013 South American Youth Championship, where Colombia won the title. He was named the tournament's MVP with five goals and four assists; shortly after he was recognized",
+      "birth_location": "Medellín, Colombia",
+      "height": "1.69 m (5 ft 7 in)",
+      "weight": "139 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/juanferquinterop/",
+        "facebook": "www.facebook.com/juanfernandoquinteroOficial/",
+        "twitter": "twitter.com/juanferquinte10"
+      },
+      "wikidata_id": "Q2092409"
     },
     {
       "number": 21,
@@ -273,7 +555,19 @@
       "club": "Rosario Central",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34191384",
+      "full_name": "Jaminton Leandro Campaz",
+      "last_name": "Campaz",
+      "first_name": "Jaminton",
+      "bio": "Jaminton Leandro Campaz (born 24 May 2000) is a Colombian professional footballer who plays as an attacking midfielder for Argentine Primera División club Rosario Central and the Colombia national team.",
+      "birth_location": "Ibagué, Colombia",
+      "height": "165 cm",
+      "weight": "150 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 22,
@@ -286,7 +580,19 @@
       "club": "Nantes",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34193281",
+      "full_name": "Deiver Andrés Machado Mena",
+      "last_name": "Machado",
+      "first_name": "Deiver",
+      "bio": "Deiver Andrés Machado Mena (born 2 September 1993) is a Colombian professional footballer who plays as a left-back or left wing-back for Ligue 1 club Nantes and the Colombia national team.",
+      "birth_location": "Tadó, Colombia",
+      "height": "172 cm",
+      "weight": "163 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 23,
@@ -299,7 +605,24 @@
       "club": "Galatasaray",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34161358",
+      "full_name": "Davinson Sánchez Mina",
+      "last_name": "Sánchez",
+      "first_name": "Davinson",
+      "bio": "Davinson Sánchez Mina (born 12 June 1996) is a Colombian professional footballer who plays as a centre-back for Süper Lig club Galatasaray and the Colombia national team.\r\n\r\nSánchez relocated to Medellín and made his professional debut for Atlético Nacional in 2013; collectively, he achieved four domestic league titles, two Copa Colombia's, a Superliga Colombiana, and a Copa Libertadores during his time with Nacional. Sánchez made the leap to European football in 2016, joining Eredivisie side AF",
+      "birth_location": "Caloto, Colombia",
+      "height": "187 cm",
+      "weight": "179 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "Nike Tiempo Legend VII",
+      "social": {
+        "instagram": "www.instagram.com/daosanchez13",
+        "facebook": "www.facebook.com/Daosanchez26/",
+        "twitter": "twitter.com/daosanchez26"
+      },
+      "wikidata_id": "Q20737387"
     },
     {
       "number": 24,
@@ -312,7 +635,19 @@
       "club": "Vélez Sarsfield",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34196652",
+      "full_name": "Álvaro David Montero Perales",
+      "last_name": "Montero",
+      "first_name": "Álvaro",
+      "bio": "Álvaro David Montero Perales (born 29 March 1995) is a Colombian professional footballer who plays as a goalkeeper for Argentine Primera División club Vélez Sarsfield, on loan from Categoría Primera A club Millonarios and the Colombia national team.",
+      "birth_location": "El Molino, Colombia",
+      "height": "197 cm",
+      "weight": "214 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -325,7 +660,24 @@
       "club": "Sporting CP",
       "club_nation": "POR",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34146348",
+      "full_name": "Luis Alberto Suárez Díaz",
+      "last_name": "Suárez",
+      "first_name": "Luis",
+      "bio": "Luis Alberto Suárez Díaz (Spanish pronunciation: ; born 24 January 1987) is a Uruguayan professional footballer who plays as a striker for Major League Soccer club Inter Miami and the Uruguay national team. Nicknamed \"El Pistolero\" ('The Gunman'), he is regarded as one of the best strikers of his generation. He has won two European Golden Shoes, an Eredivisie Golden Boot, a Premier League Golden Boot and a Pichichi Trophy, and has scored over 500 career goals for club and country.\r\n\r\nSuárez bega",
+      "birth_location": "Salto, Uruguay",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "159 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "Puma Future 19.1 Netfit",
+      "social": {
+        "instagram": "www.instagram.com/luissuarez9",
+        "facebook": "www.facebook.com/LuisSuarez9",
+        "twitter": "twitter.com/luissuarez9"
+      },
+      "wikidata_id": "Q28736721"
     },
     {
       "number": 26,
