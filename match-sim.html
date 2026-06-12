@@ -501,6 +501,118 @@ const GROUP_COLORS={A:"#f25c5c",B:"#f2913d",C:"#f2c14e",D:"#a8d44d",E:"#4dc97b",
 
 window.DEBUG_STATS = {goals:0, passes:0, fouls:0, dives:0, fights:0, varReviews:0, matchId:''};
 
+// ---- COMMENTARY TEMPLATE SYSTEM (sardonic pub pundit voice) ----
+const COMMENT = {
+  kick_off: [
+    "{home} get us underway. {home_anecdote}",
+    "And we're off. The {home_nick} host the {away_nick}. Should be chaotic.",
+    "{away} have kicked off. Their opponents: {home}. Their history: complicated.",
+  ],
+  goal: [
+    "GOAL! {scorer} makes it {score}! {scorer_fact}",
+    "{scorer} scores! {score}! The {team_nick} are losing their minds!",
+    "IN OFF THE POST! {scorer}! {score}! {scorer_fact}",
+    "It's in! {scorer} with the finish! {score}! {team_anecdote}",
+  ],
+  own_goal: [
+    "OWN GOAL! {player} puts it in their own net. {score}. Deafening silence.",
+    "OWN GOAL! {player}! {score}! That'll take explaining to the manager.",
+    "Remarkable. {player} with the assist. For the wrong team. {score}.",
+  ],
+  shot_saved: [
+    "Good stop from {keeper}! {keeper_fact}",
+    "{keeper} with a solid save. Unlike most things today, that was competent.",
+    "Denied! {keeper} equal to that one.",
+    "The keeper {keeper} wasn't having that.",
+  ],
+  foul: [
+    "Foul by {fouler}. The referee was watching, unfortunately for them.",
+    "{fouler} catches {victim} late. A yellow card might be coming.",
+    "Poor challenge from {fouler}. Going in like a personal grudge.",
+    "{fouler} wipes out {victim}. Old-fashioned defending. Very old-fashioned.",
+  ],
+  dive: [
+    "{player} goes down! Was there contact? The replays will be unconvincing. {player_fact}",
+    "Down goes {player}! The crowd aren't buying it. Neither is the ref.",
+    "{player} hits the deck. If they can walk, they'll sprint in 30 seconds.",
+  ],
+  dive_repeat: [
+    "{player} again! Two dives in one match. Dedication or ambition.",
+    "OH COME ON! {player} is spending more time horizontal than vertical.",
+  ],
+  dive_hat_trick: [
+    "{player} on the turf for the {n}th time. Oscar nomination pending.",
+    "ANOTHER from {player}! At this point it's performance art.",
+  ],
+  tackle: [
+    "{fouler} with a crunching tackle on {victim}.",
+    "Bit of a reducer there from {fouler}.",
+  ],
+  var: [
+    "VAR is checking. The ref draws a rectangle in the air...",
+    "We're going to the monitor. Nobody's quite sure what for.",
+    "VAR review. The technology exists. Whether it helps remains uncertain.",
+  ],
+  fight: [
+    "Melee near the {zone}! Everyone's having a word.",
+    "Handbags! Six players having an intense philosophical discussion.",
+    "Coming-together! The ref is desperately consulting his yellow cards.",
+  ],
+  keeper_rush: [
+    "The keeper's out! To the halfway line! Goal is wide open!",
+    "{keeper} has decided the penalty area is too small for their ambitions.",
+    "What is {keeper} doing?! That goal is EMPTY!",
+  ],
+  halftime: [
+    "Half time: {home} {hs}–{as} {away}. {anecdote}",
+    "Ref blows for half time. {home} {hs}-{as} {away}. Time for a brew.",
+    "Half time! {hs}-{as}. Both teams off for the manager's motivational talk.",
+  ],
+  fulltime: [
+    "FULL TIME! {home} {hs}–{as} {away}! {anecdote}",
+    "The referee ends it! {home} {hs}, {away} {as}! That was... something.",
+    "Final whistle! {hs}-{as}! {home_nick} vs {away_nick} — one for the ages.",
+  ],
+  goal_celebration: [
+    "{scorer} does a knee slide... rips a divot out. Groundskeeper in shambles.",
+    "{scorer} pulls out an invisible phone for a selfie with teammates.",
+    "{scorer} slides to the corner flag and the entire bench pile on.",
+  ],
+  idle: [], // filled from TEAM_ANECDOTES dynamically
+};
+
+// ---- COMMENTARY HELPERS ----
+function formatComment(template, vars) {
+  return template.replace(/\{(\w+)\}/g, (_, key) => vars[key] || '');
+}
+
+function pickComment(type, vars = {}) {
+  const templates = COMMENT[type] || [];
+  if (!templates.length) return '';
+  const t = templates[Math.floor(Math.random() * templates.length)];
+  return formatComment(t, vars);
+}
+
+function getPlayerFact(player) {
+  return player?.facts || '';
+}
+
+function getTeamAnecdote(teamName) {
+  const anecs = TEAM_ANECDOTES?.[teamName];
+  if (!anecs || !anecs.length) return '';
+  return anecs[Math.floor(Math.random() * anecs.length)];
+}
+
+function findPlayerInRoster(name, side) {
+  const data = side === 0 ? homeData : awayData;
+  const players = data?.roster?.players || data?.roster || [];
+  if (!players.length || !name) return null;
+  return players.find(p => lastName(p.name) === name || p.name === name) || null;
+}
+
+let lastCommentaryTime = 0;
+const IDLE_INTERVAL = 27000;
+
 // ---- COMEDY COOLDOWN & VISUAL EFFECTS ----
 let lastComedyTime = 0;
 const COMEDY_COOLDOWN = 10000; // 10 seconds minimum between comedy events
@@ -967,7 +1079,8 @@ function createPlayers(teamData, teamName, side) {
       shortsColor: side === 0 ? colors[1] : colors[0],
       img, imgLoaded: () => imgLoaded,
       state: 'idle', // idle | chasing | hasBall | celebrating | fighting | diving | sentOff
-      speed: pd.position === 'GK' ? GK_SPEED : pd.position === 'FW' ? SPRINT_SPEED : pd.position === 'MF' ? 2.0 : JOG_SPEED,
+      caps: pd.caps || 0,
+      speed: pd.position === 'GK' ? GK_SPEED : playerSpeed(pd.caps || 0),
       stateTimer: 0,
       goals: 0,
       sentOff: false,
@@ -1408,7 +1521,15 @@ function scoreGoal(scoringTeam) {
   goalScorers.push({ player: scorer, team: teamName, minute });
 
   AudioManager.playGoal();
-  addCommentary('goal', `GOOOAL! ${scorer.lastName} makes it ${homeScore}–${awayScore}! The ${TEAM_NICKNAMES[teamName] || teamName} go wild!`);
+  const scorerRoster = findPlayerInRoster(scorer.lastName, scoringTeam);
+  const goalVars = {
+    scorer: scorer.lastName,
+    score: `${homeScore}–${awayScore}`,
+    team_nick: TEAM_NICKNAMES[teamName] || teamName,
+    scorer_fact: getPlayerFact(scorerRoster),
+    team_anecdote: getTeamAnecdote(teamName),
+  };
+  addCommentary('goal', pickComment('goal', goalVars));
 
   // Celebration
   for (const p of scoringPlayers) {
@@ -1417,13 +1538,19 @@ function scoreGoal(scoringTeam) {
     p.stateTimer = 90;
   }
 
-  // Comedy celebration events
-  if (Math.random() < 0.5) {
-    addCommentary('comedy', `${scorer.lastName} does an elaborate knee slide... and rips a divot out of the turf. Groundskeeper in shambles.`);
+  // Comedy celebration events with visual effects
+  if (Math.random() < 0.4) {
+    const celebVars = { scorer: scorer.lastName };
+    addCommentary('comedy', pickComment('goal_celebration', celebVars));
+    // Selfie celebration: phone shape + dust from knee slide
+    if (Math.random() < 0.5) {
+      addEffect('phone', scorer.x, scorer.y);
+    } else {
+      addEffect('dust', scorer.x, scorer.y, {dir: 1});
+      addEffect('dust', scorer.x, scorer.y, {dir: -1});
+    }
     comedyStats.selfies++;
-  } else if (Math.random() < 0.3) {
-    addCommentary('comedy', `${scorer.lastName} pulls out an invisible phone for a selfie with teammates. VAR reviews whether the phone is offside.`);
-    comedyStats.selfies++;
+    trackPlayerEvent(scorer.name, 'selfies');
   }
 
   // Reset ball
@@ -1444,6 +1571,35 @@ function scoreGoal(scoringTeam) {
 // ---- PLAYER AI ----
 function dist(x1, y1, x2, y2) {
   return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+}
+
+function playerSpeed(caps) {
+  // caps 0-200+ → speed 2.0-4.5 (world units per frame)
+  return 2.0 + Math.min(caps, 120) / 120 * 2.5;
+}
+
+function getChaseRoles(players) {
+  const outfield = players.filter(p => p.position !== 'GK' && !p.sentOff && p.state !== 'diving' && p.state !== 'fighting' && p.state !== 'celebrating');
+  outfield.sort((a, b) => dist(a.x, a.y, ball.x, ball.y) - dist(b.x, b.y, ball.x, ball.y));
+  return {
+    chaser: outfield[0] || null,
+    support: outfield[1] || null,
+    holders: outfield.slice(2)
+  };
+}
+
+function getShiftedHomePos(player, myTeamHasBall, isHomeTeam) {
+  const hx = player.homeX, hy = player.homeY;
+  const shiftFactor = 0.15;
+  const ownGoalY = isHomeTeam ? PITCH_B : PITCH_T;
+  const oppGoalY = isHomeTeam ? PITCH_T : PITCH_B;
+  let sy = hy;
+  if (myTeamHasBall) {
+    sy += (oppGoalY - hy) * shiftFactor;
+  } else {
+    sy += (ownGoalY - hy) * shiftFactor;
+  }
+  return { x: hx, y: sy };
 }
 
 function moveToward(p, tx, ty, speed) {
@@ -1514,13 +1670,14 @@ function passBall(p, target) {
   ball.free = true;
   p.state = 'idle';
   AudioManager.playKick();
+  window.DEBUG_STATS.passes++;
 
   if (Math.random() < 0.15) {
     addCommentary('default', `${p.lastName} finds ${target.lastName} with a lovely ball.`);
   }
 }
 
-function updatePlayerAI(p, teammates, opponents) {
+function updatePlayerAI(p, teammates, opponents, roles) {
   if (p.sentOff) return;
 
   // Decrement state timers
@@ -1548,10 +1705,13 @@ function updatePlayerAI(p, teammates, opponents) {
     return;
   }
 
+  const isHomeTeam = p.team === 0;
+  const myTeamHasBall = ball.owner && ball.owner.team === p.team;
+
   // Check if this player has the ball
   if (ball.owner === p) {
     p.state = 'hasBall';
-    const attackGoalY = p.team === 0 ? PITCH_T : PITCH_B;
+    const attackGoalY = isHomeTeam ? PITCH_T : PITCH_B;
     const distToGoal = dist(p.x, p.y, WORLD_W / 2, attackGoalY);
 
     // Shooting range
@@ -1570,19 +1730,18 @@ function updatePlayerAI(p, teammates, opponents) {
     }
 
     // Dribble toward goal
-    const dribDir = p.team === 0 ? -1 : 1;
+    const dribDir = isHomeTeam ? -1 : 1;
     p.vx = (WORLD_W / 2 - p.x) * 0.02 + (Math.random() - 0.5) * 1.6;
     p.vy = DRIBBLE_SPEED * dribDir + (Math.random() - 0.5) * 0.6;
     return;
   }
 
-  // Check if nearest to ball — chase it
-  const nearest = findNearestBallChaser(teammates);
-  if (nearest === p && !ball.owner) {
+  // --- Anti-swarm: role-based movement ---
+
+  // Designated chaser (nearest to ball) — moves aggressively toward ball
+  if (roles.chaser === p && !ball.owner) {
     p.state = 'chasing';
     moveToward(p, ball.x, ball.y, p.speed);
-
-    // Pick up ball if close
     if (dist(p.x, p.y, ball.x, ball.y) < 24) {
       ball.owner = p;
       ball.free = false;
@@ -1591,10 +1750,24 @@ function updatePlayerAI(p, teammates, opponents) {
     return;
   }
 
-  // If ball owned by opponent nearby — try to tackle
+  // Support runner (2nd nearest) — positions ~80px ahead of ball in attack direction
+  if (roles.support === p && !ball.owner) {
+    const supportDir = isHomeTeam ? -1 : 1;
+    const sx = ball.x + ((ball.x < WORLD_W / 2) ? 60 : -60);
+    const sy = ball.y + supportDir * 80;
+    moveToward(p, sx, sy, p.speed * 0.7);
+    if (dist(p.x, p.y, ball.x, ball.y) < 20) {
+      ball.owner = p;
+      ball.free = false;
+      p.state = 'hasBall';
+    }
+    return;
+  }
+
+  // If ball owned by opponent nearby — try to tackle (even formation holders)
   if (ball.owner && ball.owner.team !== p.team) {
     const dToBallCarrier = dist(p.x, p.y, ball.owner.x, ball.owner.y);
-    if (dToBallCarrier < 120 && p.position !== 'GK') {
+    if (dToBallCarrier < 120) {
       moveToward(p, ball.owner.x, ball.owner.y, p.speed * 0.9);
       if (dToBallCarrier < TACKLE_RANGE) {
         attemptTackle(p, ball.owner);
@@ -1603,11 +1776,36 @@ function updatePlayerAI(p, teammates, opponents) {
     }
   }
 
-  // Drift toward formation position
+  // Forward off-ball diagonal runs when teammate has ball
+  if (p.position === 'FW' && myTeamHasBall) {
+    const runDir = isHomeTeam ? -1 : 1;
+    const lateralDir = (p.number % 2 === 0) ? 1 : -1;
+    const runX = Math.max(PITCH_L + 20, Math.min(PITCH_R - 20, p.homeX + lateralDir * 40));
+    const runY = Math.max(PITCH_T + 20, Math.min(PITCH_B - 20, p.homeY + runDir * 60));
+    const dx = runX - p.x, dy = runY - p.y;
+    const d = Math.sqrt(dx * dx + dy * dy);
+    if (d > 20) {
+      p.vx = (dx / d) * p.speed * 0.5;
+      p.vy = (dy / d) * p.speed * 0.5;
+    }
+    p.state = 'idle';
+    return;
+  }
+
+  // Formation holders — drift toward shifted home position (elastic spring-back)
   p.state = 'idle';
-  const homeX = p.homeX + (Math.random() - 0.5) * 40;
-  const homeY = p.homeY + (ball.y - WORLD_H / 2) * 0.15 + (Math.random() - 0.5) * 30;
-  moveToward(p, homeX, homeY, JOG_SPEED * 0.5);
+  const home = getShiftedHomePos(p, myTeamHasBall, isHomeTeam);
+  const dx = home.x - p.x, dy = home.y - p.y;
+  const d = Math.sqrt(dx * dx + dy * dy);
+  if (d > 60) {
+    // Drift at 40% speed when far from formation
+    p.vx = (dx / d) * p.speed * 0.4;
+    p.vy = (dy / d) * p.speed * 0.4;
+  } else {
+    // Small idle jitter near home position
+    p.vx = (Math.random() - 0.5) * 0.5;
+    p.vy = (Math.random() - 0.5) * 0.5;
+  }
 }
 
 function updateGK(gk, opponents) {
@@ -1643,7 +1841,8 @@ function updateGK(gk, opponents) {
           ball.owner = null;
           if (Math.random() < 0.3) {
             const shooterName = findNearestPlayerName(opponents, ball.x, ball.y);
-            addCommentary('default', `Great save by ${gk.lastName}! ${shooterName} denied!`);
+            const gkRoster = findPlayerInRoster(gk.lastName, gk.team);
+            addCommentary('default', pickComment('shot_saved', { keeper: gk.lastName, keeper_fact: getPlayerFact(gkRoster) }));
           }
         }
       }
@@ -1699,7 +1898,7 @@ function attemptTackle(tackler, ballCarrier) {
     ball.x = ballCarrier.x;
     ball.y = ballCarrier.y;
     const minute = Math.floor(matchClock);
-    addCommentary('card', `Foul by ${tackler.lastName} on ${ballCarrier.lastName}. Free kick.`);
+    addCommentary('card', pickComment('foul', { fouler: tackler.lastName, victim: ballCarrier.lastName }));
 
     // Card chance
     if (Math.random() < 0.15) {
@@ -1710,7 +1909,8 @@ function attemptTackle(tackler, ballCarrier) {
         tackler.sentOff = true;
         tackler.state = 'sentOff';
         comedyStats.redCards++;
-        // Red card flash will be drawn
+        // Red card: screen flash + player walks off
+        addEffect('red_flash', 0, 0);
       }
     }
   } else {
@@ -1724,17 +1924,25 @@ function theatricalDive(victim, fouler) {
   AudioManager.playComedy();
   victim.state = 'diving';
   victim.stateTimer = 60;
-  victim.slideX = (Math.random() > 0.5 ? 1 : -1) * 20;
+  const slideDir = (Math.random() > 0.5 ? 1 : -1);
+  victim.slideX = slideDir * 40; // 40px slide with rotation
   victim.slideY = -10;
   comedyStats.dives++;
   window.DEBUG_STATS.dives++;
-  const descriptions = [
-    `${victim.lastName} goes down clutching his face despite being touched on the ankle. Oscar-worthy.`,
-    `${victim.lastName} collapses as if shot by a sniper. ${fouler.lastName} barely touched him.`,
-    `${victim.lastName} performs a triple somersault and lands clutching both shins simultaneously. Medically impossible.`,
-    `${victim.lastName} falls dramatically, rolls four times, peeks to see if the ref is watching, then rolls twice more.`,
-  ];
-  addCommentary('comedy', descriptions[Math.floor(Math.random() * descriptions.length)]);
+  // Visual effects: stars around victim + slide animation
+  addEffect('stars', victim.x, victim.y);
+  addEffect('slide', victim.x, victim.y, {dx: slideDir, dy: -0.3, kitColor: victim.shirtColor});
+  addEffect('dust', victim.x + slideDir * 30, victim.y, {dir: slideDir});
+  // Per-player tracking for escalating commentary
+  const pec = trackPlayerEvent(victim.name, 'dives');
+  const diverRoster = findPlayerInRoster(victim.lastName, victim.team);
+  const diveType = pec.dives >= 3 ? 'dive_hat_trick' : pec.dives >= 2 ? 'dive_repeat' : 'dive';
+  const diveVars = {
+    player: victim.lastName,
+    player_fact: getPlayerFact(diverRoster),
+    n: pec.dives,
+  };
+  addCommentary('comedy', pickComment(diveType, diveVars));
   ball.owner = null;
   ball.free = true;
 }
@@ -1746,7 +1954,9 @@ function triggerVAR() {
   varTimer = 180;
   comedyStats.varReviews++;
   window.DEBUG_STATS.varReviews++;
-  addCommentary('var', 'VAR is checking... the referee is drawing a rectangle in the air...');
+  // Visual: purple overlay with dashed rectangle on pitch around ball area
+  addEffect('var_overlay', ball.x, ball.y, {duration: 3.5});
+  addCommentary('var', pickComment('var'));
 
   const results = [
     'NO GOAL — ball was 0.3mm offside',
@@ -1771,13 +1981,14 @@ function triggerMassConfrontation() {
     p.state = 'fighting';
     p.stateTimer = 80;
     moveToward(p, cx + (Math.random() - 0.5) * 30, cy + (Math.random() - 0.5) * 30, p.speed);
+    trackPlayerEvent(p.name, 'fights');
   }
-  const comments = [
-    "Mass confrontation! Players from both sides are having a polite disagreement at close range!",
-    "Handbags! Six players surrounding the referee who looks like he wants to be literally anywhere else.",
-    "It's kicked off! Not the ball — the players! The referee is trying to separate them with all the authority of a supply teacher.",
-  ];
-  addCommentary('comedy', comments[Math.floor(Math.random() * comments.length)]);
+  // Visual: exclamation bubbles floating up from cluster
+  addEffect('exclaim', cx, cy);
+  addEffect('exclaim', cx + 20, cy - 10);
+  const zones = ['halfway line', 'penalty area', 'corner flag', 'centre circle'];
+  const fightVars = { zone: zones[Math.floor(Math.random() * zones.length)] };
+  addCommentary('comedy', pickComment('fight', fightVars));
 }
 
 function triggerKeeperRush(team) {
@@ -1786,7 +1997,7 @@ function triggerKeeperRush(team) {
   gk.homeX = WORLD_W / 2;
   gk.homeY = WORLD_H / 2;
   moveToward(gk, WORLD_W / 2 + (Math.random() - 0.5) * 200, WORLD_H / 2, GK_SPEED);
-  addCommentary('comedy', `${gk.lastName} has LOST THE PLOT! The goalkeeper is sprinting to the halfway line! The goal is completely empty!`);
+  addCommentary('comedy', pickComment('keeper_rush', { keeper: gk.lastName }));
   setTimeout(() => {
     gk.homeX = WORLD_W / 2;
     gk.homeY = team === 0 ? PITCH_B - 12 : PITCH_T + 12;
@@ -1801,6 +2012,8 @@ function triggerPitchInvader() {
     timer: 200,
     steward: { x: PITCH_L - 40, y: PITCH_T + PH / 2 }
   };
+  // Visual: silhouette zigzagging with steward chase
+  addEffect('invader', PITCH_L, PITCH_T + Math.random() * PH);
   addCommentary('comedy', "A pitch invader has breached security! Stewards in pursuit! Players scattering like startled pigeons!");
 }
 
@@ -1815,7 +2028,8 @@ function triggerOwnGoal(team) {
   ball.vy = (ownGoalY - unlucky.y) * 0.04;
   ball.owner = null;
   ball.free = true;
-  addCommentary('comedy', `Oh no! ${unlucky.lastName} has played a catastrophic backpass! The keeper is scrambling!`);
+  const ogVars = { player: unlucky.lastName, score: `${homeScore}–${awayScore}` };
+  addCommentary('comedy', pickComment('own_goal', ogVars));
 }
 
 function triggerDoubleRedCard(team) {
@@ -1826,23 +2040,52 @@ function triggerDoubleRedCard(team) {
   p1.sentOff = true; p1.state = 'sentOff';
   p2.sentOff = true; p2.state = 'sentOff';
   comedyStats.redCards += 2;
+  addEffect('red_flash', 0, 0);
   addCommentary('card', `DOUBLE RED CARD! ${p1.lastName} and ${p2.lastName} sent off for fighting EACH OTHER! Same team! Absolute chaos!`);
 }
 
 function checkComedyEvents() {
   if (varActive || gameState !== 'playing') return;
+  if (!canTriggerComedy()) return; // 10-second cooldown between all comedy events
   const t = matchClock / 90; // progress factor
 
-  if (Math.random() < 0.001 * (1 + t)) theatricalDive(
-    randomPlayer(Math.random() < 0.5 ? homePlayers : awayPlayers),
-    randomPlayer(Math.random() < 0.5 ? awayPlayers : homePlayers)
-  );
-  if (Math.random() < 0.0003 * (1 + t * 2)) triggerMassConfrontation();
-  if (Math.random() < 0.0004) triggerKeeperRush(Math.random() < 0.5 ? 0 : 1);
-  if (Math.random() < 0.0003 * (1 + t)) triggerVAR();
-  if (Math.random() < 0.0001) triggerPitchInvader();
-  if (Math.random() < 0.001) triggerOwnGoal(Math.random() < 0.5 ? 0 : 1);
-  if (Math.random() < 0.00005) triggerDoubleRedCard(Math.random() < 0.5 ? 0 : 1);
+  if (Math.random() < 0.001 * (1 + t)) {
+    triggerComedyCooldown();
+    const victim = randomPlayer(Math.random() < 0.5 ? homePlayers : awayPlayers);
+    const fouler = randomPlayer(Math.random() < 0.5 ? awayPlayers : homePlayers);
+    theatricalDive(victim, fouler);
+    return;
+  }
+  if (Math.random() < 0.0003 * (1 + t * 2)) {
+    triggerComedyCooldown();
+    triggerMassConfrontation();
+    return;
+  }
+  if (Math.random() < 0.0004) {
+    triggerComedyCooldown();
+    triggerKeeperRush(Math.random() < 0.5 ? 0 : 1);
+    return;
+  }
+  if (Math.random() < 0.0003 * (1 + t)) {
+    triggerComedyCooldown();
+    triggerVAR();
+    return;
+  }
+  if (Math.random() < 0.0001) {
+    triggerComedyCooldown();
+    triggerPitchInvader();
+    return;
+  }
+  if (Math.random() < 0.001) {
+    triggerComedyCooldown();
+    triggerOwnGoal(Math.random() < 0.5 ? 0 : 1);
+    return;
+  }
+  if (Math.random() < 0.00005) {
+    triggerComedyCooldown();
+    triggerDoubleRedCard(Math.random() < 0.5 ? 0 : 1);
+    return;
+  }
 }
 
 function randomPlayer(players) {
@@ -1932,7 +2175,14 @@ function gameLoop() {
       halfSwapped = true;
       pauseTimer = 180;
       snapCamera(WORLD_W / 2, WORLD_H / 2);
-      addCommentary('default', `Half time! ${homeTeamName} ${homeScore}–${awayScore} ${awayTeamName}. ${Math.random() < 0.5 ? 'Time for some questionable tactical analysis.' : 'Players head to the tunnel. Someone\'s nicked the half-time oranges.'}`);
+      const htVars = {
+        home: homeTeamName, away: awayTeamName,
+        hs: homeScore, as: awayScore,
+        home_nick: TEAM_NICKNAMES[homeTeamName] || homeTeamName,
+        away_nick: TEAM_NICKNAMES[awayTeamName] || awayTeamName,
+        anecdote: getTeamAnecdote(homeScore >= awayScore ? homeTeamName : awayTeamName),
+      };
+      addCommentary('info', pickComment('halftime', htVars));
       updateScoreboard();
       drawFrame();
       return;
@@ -1955,8 +2205,10 @@ function gameLoop() {
     updateBall();
 
     // Update players
-    for (const p of homePlayers) { updatePlayerAI(p, homePlayers, awayPlayers); applyVelocity(p); }
-    for (const p of awayPlayers) { updatePlayerAI(p, awayPlayers, homePlayers); applyVelocity(p); }
+    const homeRoles = getChaseRoles(homePlayers);
+    const awayRoles = getChaseRoles(awayPlayers);
+    for (const p of homePlayers) { updatePlayerAI(p, homePlayers, awayPlayers, homeRoles); applyVelocity(p); }
+    for (const p of awayPlayers) { updatePlayerAI(p, awayPlayers, homePlayers, awayRoles); applyVelocity(p); }
 
     // Update camera
     updateCamera();
@@ -2083,11 +2335,46 @@ function drawFrame() {
   for (const p of allPlayers) drawPlayer(ctx, p);
   drawBall(ctx);
   drawPitchInvader(ctx);
+  updateAndDrawEffects(); // Visual effects in world space
 
   ctx.restore();
 
   // === SCREEN SPACE (HUD) ===
   drawVAR(ctx);
+
+  // VAR overlay text in screen space (from activeEffects)
+  const varEffects = activeEffects.filter(e => e.type === 'var_overlay');
+  if (varEffects.length > 0) {
+    const age = (Date.now() - varEffects[0].startTime) / 1000;
+    if (age < varEffects[0].duration - 0.5) {
+      ctx.fillStyle = 'rgba(180,0,255,0.9)';
+      ctx.font = "bold 28px 'Anton', sans-serif";
+      ctx.textAlign = 'center';
+      ctx.fillText('VAR REVIEWING...', CW / 2, CW > 600 ? CH / 2 - 20 : CH / 2 - 10);
+      ctx.fillStyle = 'rgba(255,255,255,0.7)';
+      ctx.font = "14px 'Space Mono', monospace";
+      const messages = ['Checking handball...', 'Reviewing offside...', 'Checking for simulation...'];
+      const idx = Math.floor(age * 2) % messages.length;
+      ctx.fillText(messages[idx], CW / 2, CH / 2 + 14);
+    } else if (age < varEffects[0].duration) {
+      const result = Math.random() > 0.5 ? 'NO GOAL!' : 'PENALTY!';
+      ctx.fillStyle = '#f0c44c';
+      ctx.font = "bold 42px 'Anton', sans-serif";
+      ctx.textAlign = 'center';
+      ctx.fillText(result, CW / 2, CH / 2);
+    }
+  }
+
+  // Red card screen flash (screen-space)
+  const redFlash = activeEffects.find(e => e.type === 'red_flash');
+  if (redFlash) {
+    const age = (Date.now() - redFlash.startTime) / 1000;
+    if (age < 0.3) {
+      ctx.fillStyle = `rgba(220,30,30,${0.3 * (1 - age / 0.3)})`;
+      ctx.fillRect(0, 0, CW, CH);
+    }
+  }
+
   drawMinimap();
 
   // Halftime overlay
@@ -2204,6 +2491,9 @@ async function startMatch() {
   ball = { x: WORLD_W / 2, y: WORLD_H / 2, vx: 0, vy: 0, owner: null, free: true };
   varActive = false;
   pitchInvader = null;
+  lastComedyTime = 0;
+  activeEffects.length = 0;
+  playerEventCounts.clear();
   $('commentary').innerHTML = '';
 
   // Snap camera to center for kickoff
