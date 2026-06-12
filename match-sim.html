@@ -2193,7 +2193,14 @@ function gameLoop() {
       AudioManager.playWhistle(true);
       AudioManager.setCrowd(0.6);
       gameState = 'fulltime';
-      addCommentary('default', `Full time! ${homeTeamName} ${homeScore}–${awayScore} ${awayTeamName}.`);
+      const ftVars = {
+        home: homeTeamName, away: awayTeamName,
+        hs: homeScore, as: awayScore,
+        home_nick: TEAM_NICKNAMES[homeTeamName] || homeTeamName,
+        away_nick: TEAM_NICKNAMES[awayTeamName] || awayTeamName,
+        anecdote: getTeamAnecdote(homeScore > awayScore ? homeTeamName : awayTeamName),
+      };
+      addCommentary('info', pickComment('fulltime', ftVars));
       updateScoreboard();
       showResult();
       return;
