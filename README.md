@@ -7,7 +7,7 @@ A single-file interactive wallchart for all 104 matches of the 2026 FIFA World C
 ## Features
 
 - All 104 matches with correct IST kick-off times and dates
-- Live scores and final results via the [worldcup26.ir](https://worldcup26.ir) API — no API key required, polls every 2 minutes
+- Live scores, elapsed time, half-time indicator, and goal scorers via the ESPN scoreboard API — no API key required, polls every 2 minutes; group standings via [worldcup26.ir](https://worldcup26.ir)
 - Header banner counts down to the next kick-off; switches to live score during a match; reverts to countdown when the final whistle goes
 - Knockout stage team names update automatically once teams qualify — placeholder labels (e.g. "Winner Group A") are replaced with real country names as the API confirms them
 - In-play matches show a live score with pulsing indicator and current minute
@@ -94,5 +94,6 @@ launchctl unload ~/Library/LaunchAgents/dev.YOUR_USERNAME.wallchart-server.plist
 | Data | Source |
 |------|--------|
 | Match schedule & times | Verified against Sky Sports BST kick-off times |
-| Live scores & results | [worldcup26.ir](https://worldcup26.ir) (free, no key) |
+| Live scores, elapsed time & goal scorers | ESPN unofficial scoreboard API (no key, ~9s refresh) |
+| Group standings & team flags | [worldcup26.ir](https://worldcup26.ir) (free, no key) |
 | Venues | worldcup26.ir stadiums endpoint |
