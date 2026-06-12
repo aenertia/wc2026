@@ -182,7 +182,19 @@
       "club": "Utrecht",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34222292",
+      "full_name": "Zidane Ammar Iqbal; زيدان عمار إقبال",
+      "last_name": "Iqbal",
+      "first_name": "Zidane",
+      "bio": "Zidane Ammar Iqbal (Arabic: زيدان عمار إقبال; born 27 April 2003) is a professional footballer who plays as a midfielder for Eredivisie club Utrecht. Born in England, he plays for the Iraq national team.\r\n\r\nIqbal joined Manchester United's youth system aged nine. He made his first-team debut in a UEFA Champions League match in December 2021. Iqbal represented Iraq at under-23 level before making his senior international debut in January 2022.",
+      "birth_location": "Manchester, England",
+      "height": "181 cm",
+      "weight": "157 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 15,
@@ -195,7 +207,19 @@
       "club": "Al-Karma",
       "club_nation": "IRQ",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34436245",
+      "full_name": "Ahmed Hassan Maknzi Salman Al-Lami Al-Reeshawee; أحمد حسن مكنزي",
+      "last_name": "Maknzi",
+      "first_name": "Ahmed",
+      "bio": "Ahmed Hassan Maknzi (Arabic: أحمد حسن مكنزي; born 24 September 2001) is an Iraqi professional football player who plays as a left-back for Iraq Stars League club Al-Karma and the Iraq national team.",
+      "birth_location": "Baghdad, Iraq",
+      "height": "183 cm",
+      "weight": "",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 16,
@@ -208,7 +232,19 @@
       "club": "Cracovia",
       "club_nation": "POL",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34226710",
+      "full_name": "Amir Fouad Abboud Al-Ammari; أمير فؤاد عبود العماري",
+      "last_name": "Al-Ammari",
+      "first_name": "Amir",
+      "bio": "Amir Fouad Abboud Al-Ammari (Arabic: أمير فؤاد عبود العماري; born 27 July 1997) is a professional footballer who plays as a midfielder for Ekstraklasa club Cracovia and the Iraq national team. Born in Sweden, he represented them at youth level before switching his allegiance to Iraq.",
+      "birth_location": "Jönköping, Sweden",
+      "height": "180 cm",
+      "weight": "70 kg",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 17,
@@ -221,7 +257,19 @@
       "club": "Al-Najma",
       "club_nation": "KSA",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34246294",
+      "full_name": "Ali Jasim Elaibi Al-Tameemi, علي جاسم لعيبي التميمي",
+      "last_name": "Jasim",
+      "first_name": "Ali",
+      "bio": "Ali Jasim Elaibi Al-Tameemi (Arabic: علي جاسم لعيبي التميمي; born 20 January 2004) is an Iraqi professional footballer who plays as a forward for Saudi Pro League club Al-Najma, on loan from Serie A club Como, and the Iraq national team.",
+      "birth_location": "Rusafa, Baghdad, Iraq",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "74 kg",
+      "position_detail": "Left Centre",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 18,
@@ -234,7 +282,19 @@
       "club": "Al-Karma",
       "club_nation": "IRQ",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34246295",
+      "full_name": "Ayman Hussein Ghadhban Al-Mafraje; أيمن حسين غضبان المفرجي; Abu Tubar",
+      "last_name": "Hussein",
+      "first_name": "Aymen",
+      "bio": "Ayman Hussein Ghadhban Al-Mafraje (Arabic: أيمن حسين غضبان المفرجي; born 22 March 1996), nicknamed Abu Tubar (Arabic: أبو طبر, lit. 'The Hatchet Man'), is an Iraqi professional footballer who plays as a striker for Iraq Stars League side Al-Karma and the Iraq national team. A prolific goal-scorer, he is currently Iraq's 5th all time top goal scorer.",
+      "birth_location": "Al-Safra, Kirkuk, Iraq",
+      "height": "190 cm",
+      "weight": "84 kg",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 19,
@@ -247,7 +307,19 @@
       "club": "AGF",
       "club_nation": "DEN",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34225896",
+      "full_name": "Kevin Enkido Yakob; كيفن إنكيدو يعقوب",
+      "last_name": "Yakob",
+      "first_name": "Kevin",
+      "bio": "Kevin Enkido Yakob (Syriac: ܟܒܢ ܝܥܩܘܒ, born 10 October 2000) is a professional footballer who plays as a midfielder for Danish Superliga club AGF. Born in Sweden, he plays for the Iraq national team.",
+      "birth_location": "Göteborg, Sweden",
+      "height": "184 cm",
+      "weight": "",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 20,
@@ -260,7 +332,21 @@
       "club": "Sarpsborg 08",
       "club_nation": "NOR",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34193451",
+      "full_name": "Aimar Hazar Sher, أيمار هزار شير",
+      "last_name": "Sher",
+      "first_name": "Aimar",
+      "bio": "Aimar Hazar Anwar Sher (born 20 December 2002) is an Iraqi professional footballer who plays as a midfielder for Sarpsborg 08 and the Iraq national team.\r\n\r\nHe grew up in Stockholm and started to play football as a youngster with local clubs Mälarhöjdens IK and Enskede IK, before joining the academy of Hammarby IF in 2014. Sher was part of the Hammarby side that won the U17's Swedish championship in 2019.",
+      "birth_location": "Kirkuk, Iraq",
+      "height": "180 cm",
+      "weight": "141 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/aimar.sher"
+      }
     },
     {
       "number": 21,
@@ -273,7 +359,19 @@
       "club": "Venezia",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34237337",
+      "full_name": "Marko Hussein Farji; ماركو فرج",
+      "last_name": "Farji",
+      "first_name": "Marko",
+      "bio": "Marko Hussein Farji (born 16 March 2004) is a professional footballer who plays as a forward for Serie A club Venezia. Born in Norway, he plays for the Iraq national team.",
+      "birth_location": "Grimstad, Norway",
+      "height": "184 cm",
+      "weight": "",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 22,
@@ -286,7 +384,19 @@
       "club": "Al-Shorta",
       "club_nation": "IRQ",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34287439",
+      "full_name": "Ahmed Basil Fadhil Al Fadhli; أَحْمَد بَاسِل فَاضِل الْفَضْلِيّ",
+      "last_name": "Basil",
+      "first_name": "Ahmed",
+      "bio": "Ahmed Basil Fadhil Al Fadhli (Arabic: أَحْمَد بَاسِل فَاضِل الْفَضْلِيّ; born 19 August 1996) is an Iraqi professional footballer who plays as a goalkeeper for the Iraq Stars League club Al-Shorta and the Iraq national team.",
+      "birth_location": "Baghdad, Iraq",
+      "height": "186 cm",
+      "weight": "174 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Both",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 23,
@@ -299,7 +409,19 @@
       "club": "Viktoria Plzeň",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34239816",
+      "full_name": "Merchas Ghazi Salih Doski; ميرخاس غازي صالح دوسكي",
+      "last_name": "Doski",
+      "first_name": "Merchas",
+      "bio": "Merchas Ghazi Salih Doski (Arabic: ميرخاس غازي صالح دوسكي; born 7 December 1999) is a professional footballer who plays as a left-back for Viktoria Plzeň. Born in Germany, he represents the Iraq national team.",
+      "birth_location": "Hannover, Germany",
+      "height": "172 cm",
+      "weight": "96 kg",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 24,
@@ -312,7 +434,19 @@
       "club": "Al-Talaba",
       "club_nation": "IRQ",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34436133",
+      "full_name": "Zaid Ismail Al-Dulaimi; زيد اسماعيل الدليمي",
+      "last_name": "Ismail",
+      "first_name": "Zaid",
+      "bio": "Zaid Ismail Al-Dulaimi (Arabic: زيد اسماعيل الدليمي; born 3 January 2002) is an Iraqi professional footballer who plays as a defensive midfielder for Iraqi club Al-Talaba and the Iraq national team.",
+      "birth_location": "Diyala, Iraq",
+      "height": "185 cm",
+      "weight": "",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -325,7 +459,19 @@
       "club": "Al-Shorta",
       "club_nation": "IRQ",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34297045",
+      "full_name": "Mustafa Saadoon Abbood Al-Korji; مصطفى سعدون",
+      "last_name": "Saadoon",
+      "first_name": "Mustafa",
+      "bio": "Mustafa Saadoon Abbood Al-Korji (Arabic: مصطفى سعدون; born 25 May 2001) is an Iraqi professional footballer who plays as a right back for Iraq Stars League club Al-Shorta and the Iraq national team.",
+      "birth_location": "Corgi, Iraq",
+      "height": "182 cm",
+      "weight": "161 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -338,7 +484,19 @@
       "club": "Persib",
       "club_nation": "IDN",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34199262",
+      "full_name": "Frans Putros",
+      "last_name": "Putros",
+      "first_name": "Frans",
+      "bio": "Frans Dhia Jirjis Haddad (born 14 July 1993), known as Frans Putros , is a professional footballer who plays as a centre back or a right back for Thai League 1 club Port and the Iraq national team. \r\nBorn in Denmark, Putros is of Assyrian ethnicity from Iraq; he represented his native country internationally at youth level, before switching allegiance to Iraq, making his debut in 2018.",
+      "birth_location": "Aarhus, Denmark",
+      "height": "5 ft 11 in",
+      "weight": "",
+      "position_detail": "Defender",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     }
   ]
 }

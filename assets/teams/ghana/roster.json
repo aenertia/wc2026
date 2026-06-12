@@ -52,7 +52,19 @@
       "club": "VfL Wolfsburg",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34245527",
+      "full_name": "Jonas Adjetey",
+      "last_name": "Adjetey",
+      "first_name": "Jonas",
+      "bio": "Jonas Adjetey (born 13 December 2003) is a 22-year-old Ghanaian professional footballer who plays as a centre-back for the Ghana national team and German club VfL Wolfsburg. He completed a high-profile €10 million transfer to Wolfsburg from Swiss side FC Basel on the transfer deadline day in February 2026, signing a long-term contract through to June 2030. Standing 1.88 metres tall, he is known for his highly physical defensive style and his capability to adapt as a full-back on either flank.",
+      "birth_location": "Accra, Ghana",
+      "height": "188 cm",
+      "weight": "82 kg",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 5,
@@ -65,7 +77,24 @@
       "club": "Villarreal",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34160703",
+      "full_name": "Thomas Partey",
+      "last_name": "Partey",
+      "first_name": "Thomas",
+      "bio": "Thomas Teye Partey (born 13 June 1993) is a Ghanaian professional footballer who plays as a defensive midfielder for La Liga club Villarreal and the Ghana national team.\r\n\r\nPartey began his professional career at Spanish club Atlético Madrid in 2013, going on loan to Mallorca and Almería, and returned to Atlético in 2015, with whom he won the UEFA Europa League and UEFA Super Cup in 2018. In 2020, he joined Arsenal in a transfer worth £45 million (€50 million), becoming the most expensive Ghanai",
+      "birth_location": "Odumase Krobo, Ghana",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "170 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "adidas Nemeziz 19.1",
+      "social": {
+        "instagram": "www.instagram.com/thomaspartey5",
+        "facebook": "www.facebook.com/ThomasPartey5",
+        "twitter": "twitter.com/Thomaspartey22"
+      },
+      "wikidata_id": "Q15963873"
     },
     {
       "number": 6,
@@ -78,7 +107,22 @@
       "club": "Rayo Vallecano",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34201922",
+      "full_name": "Abdul Mumin",
+      "last_name": "Mumin",
+      "first_name": "Abdul",
+      "bio": "Khalid Abdul Mumin Suleman (born 6 June 1998), commonly known as Abdul Mumin, is a Ghanaian professional footballer who plays as a centre-back for La Liga club Rayo Vallecano.",
+      "birth_location": "Accra, Ghana",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/abdulmumin.suleman/",
+        "twitter": "http://twitter.com/abdul_mumin30"
+      }
     },
     {
       "number": 7,
@@ -91,7 +135,21 @@
       "club": "Leicester City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34201827",
+      "full_name": "Abdul Fatawu Issahaku",
+      "last_name": "Fatawu",
+      "first_name": "Abdul",
+      "bio": "Abdul Fatawu Issahaku (born 8 March 2004), commonly known as Abdul Fatawu, is a Ghanaian professional footballer who plays as a winger for EFL Championship club Leicester City and the Ghana national team.",
+      "birth_location": "Tamale, Ghana",
+      "height": "1.77 m (5 ft 10 in)",
+      "weight": "",
+      "position_detail": "Right Winger",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/issahakufatawu10/"
+      }
     },
     {
       "number": 8,
@@ -104,7 +162,19 @@
       "club": "Oviedo",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34258862",
+      "full_name": "Kwasi Sibo",
+      "last_name": "Sibo",
+      "first_name": "Kwasi",
+      "bio": "Kwasi Sibo (born 24 January 1998) is a Ghanaian professional footballer who plays as a midfielder for Spanish club Real Oviedo.\r\n\r\nSibo began his career with Ghanaian side Cheetah FC before joining Armenian Premier League side Banants in September 2017. The following year, he signed for Premier League side Watford on a long-term deal.\r\n\r\nIn January 2019, Sibo joined Albanian Superliga side Skënderbeu Korçë on loan until the end of the season. The following season he spent some time training with",
+      "birth_location": "Wa, Ghana",
+      "height": "182 cm",
+      "weight": "159 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 9,
@@ -117,7 +187,23 @@
       "club": "Leicester City",
       "club_nation": "ENG",
       "captain": true,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34152863",
+      "full_name": "Jordan Pierre Ayew",
+      "last_name": "Ayew",
+      "first_name": "Jordan",
+      "bio": "Jordan Pierre Ayew (born 11 September 1991) is a Ghanaian professional footballer who plays as a winger or forward for EFL Championship club Leicester City and the Ghana national team. \r\n\r\nAyew began his professional career with Marseille, scoring on his senior debut in 2009. After short spells with fellow Ligue 1 clubs Sochaux and Lorient, Ayew was signed by English side Aston Villa in 2015, finishing his only full season as the team's top scorer as they was relegated from the Premier League; t",
+      "birth_location": "Marseille, France",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "174 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "Nike Mercurial Superfly VII Elite FG",
+      "social": {
+        "instagram": "www.instagram.com/jordanayew9",
+        "twitter": "twitter.com/jordan_ayew9"
+      },
+      "wikidata_id": "Q367861"
     },
     {
       "number": 10,
@@ -130,7 +216,20 @@
       "club": "Coventry City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34216160",
+      "full_name": "Solomon Brandon Michael Clarke Thomas-Asante",
+      "last_name": "Thomas-Asante",
+      "first_name": "Brandon",
+      "bio": "Solomon Brandon Michael Clarke Thomas-Asante (born 29 December 1998) is a professional footballer who plays as a centre forward for EFL Championship club Coventry City. Born in England, he plays for the Ghana national team.\r\n\r\nThomas-Asante began his career with Milton Keynes Dons, where he made his professional debut aged in 2016 aged 17. After spells on loan with Sutton United and Oxford City, he left Milton Keynes in 2019, spending a short spell at Ebbsfleet United before signing for Salford ",
+      "birth_location": "Milton Keynes, England",
+      "height": "5 ft 11 in (1.80 m)",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q26251815"
     },
     {
       "number": 11,
@@ -143,7 +242,21 @@
       "club": "Manchester City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34163719",
+      "full_name": "Antoine Semenyo",
+      "last_name": "Semenyo",
+      "first_name": "Antoine",
+      "bio": "Antoine Serlom Semenyo (born 7 January 2000) is a professional footballer who plays as a winger or wide midfielder for Premier League club Manchester City. Born in England, he plays for the Ghana national team.",
+      "birth_location": "London, England",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "79 kg (174 lb)",
+      "position_detail": "Right Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "twitter": "twitter.com/serlomkofi"
+      }
     },
     {
       "number": 12,
@@ -156,7 +269,19 @@
       "club": "St Patrick's Athletic",
       "club_nation": "IRL",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34193776",
+      "full_name": "Joseph Anang",
+      "last_name": "Anang",
+      "first_name": "Joseph",
+      "bio": "Joseph Tetteh Anang (born 8 June 2000) is a professional footballer who plays as a goalkeeper for League of Ireland Premier Division club St Patrick's Athletic.",
+      "birth_location": "Teshie, Ghana",
+      "height": "1.90 m (6 ft 3 in)",
+      "weight": "159 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
@@ -182,7 +307,20 @@
       "club": "Auxerre",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34191744",
+      "full_name": "Gideon Mensah",
+      "last_name": "Mensah",
+      "first_name": "Gideon",
+      "bio": "Gideon Mensah (born 18 July 1998) is a Ghanaian professional footballer who plays as a left back for AJ Auxerre . He represents the Ghana national team.",
+      "birth_location": "Accra, Ghana",
+      "height": "178 cm",
+      "weight": "152 lbs",
+      "position_detail": "Defender",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q25939340"
     },
     {
       "number": 15,
@@ -195,7 +333,19 @@
       "club": "Auxerre",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34175611",
+      "full_name": "Elisha Owusu",
+      "last_name": "Owusu",
+      "first_name": "Elisha",
+      "bio": "Elisha Owusu (born 7 November 1997) is a professional footballer who plays as a midfielder for Ligue 1 club Auxerre. Born in France, he plays for the Ghana national team.",
+      "birth_location": "Montreuil, France",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "159 lbs",
+      "position_detail": "Midfielder",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 16,
@@ -208,7 +358,19 @@
       "club": "Hearts of Oak",
       "club_nation": "GHA",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34435899",
+      "full_name": "Benjamin Asare",
+      "last_name": "Asare",
+      "first_name": "Benjamin",
+      "bio": "Benjamin Asare (born 13 July 1992) is a Ghanaian professional footballer who plays as a goalkeeper for Accra Hearts of Oak in the Ghana Premier League and the Ghana national team.\r\n\r\nHe rose to prominence in the Ghana Premier League through his performances for Accra Great Olympics before joining Hearts of Oak. In 2025 he earned his first call-up to the Ghana national team during the 2026 FIFA World Cup qualification campaign.",
+      "birth_location": "",
+      "height": "",
+      "weight": "",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 17,
@@ -221,7 +383,18 @@
       "club": "PAOK",
       "club_nation": "GRE",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34271926",
+      "full_name": "Abdul Rahman Baba",
+      "last_name": "Baba",
+      "first_name": "Abdul Rahman",
+      "bio": "",
+      "birth_location": "Tamale, Ghana",
+      "height": "179cm",
+      "weight": "159 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "left",
+      "social": {}
     },
     {
       "number": 18,
@@ -234,7 +407,19 @@
       "club": "İstanbul Başakşehir",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34176386",
+      "full_name": "Jerome Opoku",
+      "last_name": "Opoku",
+      "first_name": "Jerome",
+      "bio": "Jerome Osei Opoku (born 14 October 1998) is a professional footballer. He plays as a centre-back for Süper Lig club İstanbul Başakşehir. Born in England, he plays for the Ghana national team.\r\n\r\nOpoku grew up admiring Gareth Bale and initially aspired to become a top-class winger. However, during his U-15 years, his coach Mark Pembridge shifted him to left-back. Around the same time, a sudden growth spurt prompted another change — this time to centre-back — a position he would go on to play for ",
+      "birth_location": "London, England",
+      "height": "1.89 m (6 ft 2 in)",
+      "weight": "172 lbs",
+      "position_detail": "Defender",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 19,
@@ -247,7 +432,24 @@
       "club": "Athletic Bilbao",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34149326",
+      "full_name": "Iñaki Williams",
+      "last_name": "Williams",
+      "first_name": "Iñaki",
+      "bio": "Iñaki Williams Arthuer (born 15 June 1994) is a Spanish professional footballer who plays for Athletic Bilbao as a forward.",
+      "birth_location": "Bilbao, Spain",
+      "height": "1.86 m (6 ft 1 in)",
+      "weight": "179 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/williaaaams11/",
+        "facebook": "www.facebook.com/inakiwilliamsoficial/",
+        "twitter": "twitter.com/williaaams45"
+      },
+      "wikidata_id": "Q18608497"
     },
     {
       "number": 20,
@@ -260,7 +462,19 @@
       "club": "Saint-Étienne",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34216118",
+      "full_name": "Augustine Boakye",
+      "last_name": "Boakye",
+      "first_name": "Augustine",
+      "bio": "Augustine Boakye (born 3 November 2000) is a Ghanaian professional footballer who plays as a midfielder for club Saint-Étienne.",
+      "birth_location": "Bompata, Ghana",
+      "height": "178 cm",
+      "weight": "152 lbs",
+      "position_detail": "Midfielder",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 21,
@@ -273,7 +487,19 @@
       "club": "Nice",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34346909",
+      "full_name": "Kojo Peprah Oppong",
+      "last_name": "Oppong",
+      "first_name": "Kojo Peprah",
+      "bio": "Kojo Peprah Oppong (born 4 June 2004) is a Ghanaian professional footballer who plays as a defender for Ligue 1 club Nice and the Ghana national team.\r\n\r\nEarly life\r\nPeprah Oppong was born on 4 June 2004 in Accra, Ghana. The son of Cecilia and Joseph, he has a sister.\r\n\r\nCareer\r\nPeprah Oppong started his career with Ghanaian side Attram De Visser. Following his stint there, he signed for Swedish side IFK Norrköping in 2023, where he made sixteen league appearances and scored zero goals.\r\n\r\nDurin",
+      "birth_location": "Accra, Ghana",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "",
+      "position_detail": "Defender",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 22,
@@ -286,7 +512,24 @@
       "club": "Atalanta",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34192115",
+      "full_name": "Kamaldeen Sulemana",
+      "last_name": "Sulemana",
+      "first_name": "Kamaldeen",
+      "bio": "Kamaldeen Sulemana (born 15 February 2002), also known simply as Kamaldeen, is a Ghanaian professional footballer who plays as a left winger or a forward for Serie A club Atalanta and the Ghana national team.",
+      "birth_location": "Techiman, Ghana",
+      "height": "175 cm",
+      "weight": "152 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/kamaldeenho10/",
+        "facebook": "www.facebook.com/deenho10/",
+        "twitter": "twitter.com/kamaldeenho10"
+      },
+      "wikidata_id": "Q86269576"
     },
     {
       "number": 23,
@@ -299,7 +542,19 @@
       "club": "Pafos",
       "club_nation": "CYP",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34155703",
+      "full_name": "Derrick Luckassen",
+      "last_name": "Luckassen",
+      "first_name": "Derrick",
+      "bio": "Derrick Luckassen (born 3 July 1995) is a Dutch professional footballer who plays as a centre-back for Cypriot club Pafos.",
+      "birth_location": "Amsterdam, Netherlands",
+      "height": "1.86 m (6 ft 1 in)",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 24,
@@ -312,7 +567,19 @@
       "club": "Lyon",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34202601",
+      "full_name": "Ernest Nuamah",
+      "last_name": "Nuamah",
+      "first_name": "Ernest",
+      "bio": "Ernest Appiah Nuamah (born 1 November 2003) is a Ghanaian professional footballer who plays as a winger for Ligue 1 club Lyon, on loan from RWD Molenbeek, and the Ghana national team.\r\n\r\nNuamah started his career with Right to Dream Academy before joining FC Nordsjælland in January 2022. He made his debut on 10 April 2022 when he came on in the 67th minute for Magnus Andersen to score an 84th minute goal in a 2–2 draw to Aarhus GF. He was adjudged as the team's man of the match at the end of the",
+      "birth_location": "Kumasi, Ghana",
+      "height": "178 cm",
+      "weight": "157 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -325,7 +592,19 @@
       "club": "Viktoria Plzeň",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34246756",
+      "full_name": "Prince Kwabena Adu",
+      "last_name": "Adu",
+      "first_name": "Prince",
+      "bio": "Prince Kwabena Adu (born 23 September 2003) is a Ghanaian footballer who plays for Viktoria Plzeň. He was included in The Guardian's \"Next Generation 2020\".\r\n\r\nOn 28 August 2024, Kwabena Adu signed a three-year contract with Czech First League club Viktoria Plzeň.",
+      "birth_location": "Sampa, Bono Region, Ghana",
+      "height": "1.79 m (5 ft 10 in)",
+      "weight": "",
+      "position_detail": "Attacker",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -338,7 +617,20 @@
       "club": "Auxerre",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34200204",
+      "full_name": "Marvin Senaya",
+      "last_name": "Senaya",
+      "first_name": "Marvin",
+      "bio": "Marvin Senaya (born 28 January 2001) is a professional footballer who plays as a right-back for Ligue 1 club Auxerre. Born in France, he plays for the Ghana national team.",
+      "birth_location": "Saint-Maurice, France",
+      "height": "181 cm",
+      "weight": "168 lbs",
+      "position_detail": "Defender",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q108606228"
     }
   ]
 }

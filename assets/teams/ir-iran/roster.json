@@ -13,7 +13,21 @@
       "club": "Tractor",
       "club_nation": "IRN",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34202673",
+      "full_name": "Alireza Safar Beiranvand; علیرضا صفربیرانوند",
+      "last_name": "Beiranvand",
+      "first_name": "Alireza",
+      "bio": "Alireza Safar Beiranvand (Persian: علیرضا بیرانوند; born 21 September 1992) is an Iranian professional footballer who plays as a goalkeeper for the Persian Gulf Pro League club Tractor and the Iran national team.\r\n\r\nBeiranvand represented Iran internationally at the AFC Asian Cup in 2015, 2019 and 2023, and at the FIFA World Cup in 2018 and 2022.\r\n\r\nIn 2017, Beiranvand became the first Iranian ever to be nominated for an individual award at The Best FIFA Football Awards. He has been the best goa",
+      "birth_location": "Khorramabad, Iran",
+      "height": "1.96 m (6 ft 5 in)",
+      "weight": "85 kg",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/alirezabeyranvand.official/?hl=en"
+      }
     },
     {
       "number": 2,
@@ -26,7 +40,19 @@
       "club": "Esteghlal",
       "club_nation": "IRN",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34253110",
+      "full_name": "صالح حردانی",
+      "last_name": "Hardani",
+      "first_name": "Saleh",
+      "bio": "Saleh Hardani (Persian: صالح حردانی; born 26 December 1998), also known as Saadat Hardani is an Iranian footballer who plays as a right-back for the Persian Gulf Pro League club Esteghlal and the Iran national team. He is younger brother of Saber Hardani.",
+      "birth_location": "Bahmaei, Khuzestan, Iran",
+      "height": "176 cm",
+      "weight": "",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 3,
@@ -39,7 +65,19 @@
       "club": "Sepahan",
       "club_nation": "IRN",
       "captain": true,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34202675",
+      "full_name": "احسان حاج‌صفی",
+      "last_name": "Hajsafi",
+      "first_name": "Ehsan",
+      "bio": "Ehsan Hajsafi (Persian: احسان حاج‌صفی; born 25 February 1990) is an Iranian professional footballer who plays for Sepahan and the Iran national team.\r\n\r\nHajsafi is regarded as a utility player, being able to play as a winger, left-back or defensive midfielder.\r\n\r\nIn 2009, Hajsafi was selected by Goal.com as the most promising player in Asian football. Hajsafi has represented Iran at the 2014, 2018 and 2022 editions of the FIFA World Cup, as well as the 2011, 2015, 2019 and 2023 AFC Asian Cup tou",
+      "birth_location": "Kashan, Isfahan, Iran",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "181 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 4,
@@ -52,7 +90,21 @@
       "club": "Tractor",
       "club_nation": "IRN",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34202677",
+      "full_name": "شجاع خلیل‌زاده",
+      "last_name": "Khalilzadeh",
+      "first_name": "Shojae",
+      "bio": "Shojae Khalilzadeh (Persian: شجاع خلیل زاده; born 14 May 1989) is an Iranian professional footballer who plays as a centre-back for Persian Gulf Pro League club Tractor and Iran national team. He is known for his pace, artistic tackles and positional sense.\r\n\r\nKhalilzadeh starting his career in Kerman where he moved to two clubs, first joining Mes Rafsanjan and then signing with Mes Kerman in 2010. His performance earned him a transfer to Sepahan Isfahan in 2013 and spent four years with Talaei ",
+      "birth_location": "Bahnemir, Mazandaran, Iran",
+      "height": "1.77 m (5 ft 10 in)",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/shoja_khalilzadeh/"
+      }
     },
     {
       "number": 5,
@@ -65,7 +117,21 @@
       "club": "Persepolis",
       "club_nation": "IRN",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34202674",
+      "full_name": "Milad Mohammadi Keshmarzi; میلاد محمدی کشمرزی",
+      "last_name": "Mohammadi",
+      "first_name": "Milad",
+      "bio": "Milad Mohammadi Keshmarzi, known as Milad Mohammadi (Persian: ميلاد محمدی کشمرزی; born 29 September 1993) is an Iranian professional footballer who plays for Persian Gulf Pro League club Persepolis and the Iranian national team.\r\n\r\nKnown for his speed and versatility, Milad plays as a left back and winger. His twin brother Mehrdad plays for Esteghlal in the Persian Gulf Pro League.",
+      "birth_location": "Tehran, Iran",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "152 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/miladmohammadi.official/?hl=en"
+      }
     },
     {
       "number": 6,
@@ -78,7 +144,21 @@
       "club": "Shabab Al Ahli",
       "club_nation": "UAE",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34175921",
+      "full_name": "Saeid Ezatolahi Afagh; سعید عزت‌اللهی آفاق",
+      "last_name": "Ezatolahi",
+      "first_name": "Saeid",
+      "bio": "Saeid Ezatolahi Afagh (Persian: سعید عزت‌اللهی آفاق; born 1 October 1996) is an Iranian professional footballer who plays as a defensive midfielder for club Shabab Al Ahli in UAE Pro League and the Iran national team.\r\n\r\nEzatolahi came up through Malavan's youth academy and impressed from an early age, making his first team debut in 2012 and being the Iran Pro League's youngest ever player at the age of 16. Ezatolahi has earned several accolades, including the Iranian federation's young player o",
+      "birth_location": "Bandar-e Anzali, Iran",
+      "height": "1.90 m (6 ft 2 in)",
+      "weight": "78 kg",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/saeedezatolahi/"
+      }
     },
     {
       "number": 7,
@@ -91,7 +171,23 @@
       "club": "Dender",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34168934",
+      "full_name": "‎علیرضا جهانبخش",
+      "last_name": "Jahanbakhsh",
+      "first_name": "Alireza",
+      "bio": "Alireza Jahanbakhsh (born 11 August 1993) is an Iranian professional footballer who plays as a winger for Belgian Pro League club FCV Dender EH and captains the Iran national team. \r\n\r\nIn 2014 Jahanbakhsh was voted the second greatest young talent of the 2013–14 Eredivisie season. In the 2017–18 Eredivisie season, Jahanbakhsh scored 21 league goals, making him the first Asian player to become top scorer in a major European league.",
+      "birth_location": "Jirandeh, Gilan, Iran",
+      "height": "181 cm",
+      "weight": "172 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/alirezajb_official/",
+        "facebook": "www.facebook.com/alirezajahanbakhsh30/"
+      },
+      "wikidata_id": "Q4406552"
     },
     {
       "number": 8,
@@ -104,7 +200,19 @@
       "club": "Rostov",
       "club_nation": "RUS",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34234281",
+      "full_name": "محمد محبی",
+      "last_name": "Mohebi",
+      "first_name": "Mohammad",
+      "bio": "Mohammad Mohebi (Persian: محمد محبی; born 20 December 1998) is an Iranian professional footballer who plays as a winger for Russian club Rostov and the Iran national team.",
+      "birth_location": "Bushehr, Iran",
+      "height": "187 cm",
+      "weight": "83 kg",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 9,
@@ -117,7 +225,23 @@
       "club": "Olympiacos",
       "club_nation": "GRE",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34172025",
+      "full_name": "مهدی طارمی",
+      "last_name": "Taremi",
+      "first_name": "Mehdi",
+      "bio": "Mehdi Taremi (born 18 July 1992) is an Iranian professional footballer who plays as a striker for Super League Greece club Olympiacos and the Iran national team.\r\n\r\nA late bloomer, he began his career at Shahin Bushehr and Iranjavan, and then played for Persepolis between 2014 and 2018; he was Persian Gulf Pro League top scorer on two occasions (2015–16 and 2016–17). He played for Qatari side Al-Gharafa between 2018 and 2019, before joining Rio Ave in Portugal, with whom he was Primeira Liga joi",
+      "birth_location": "Bushehr, Iran",
+      "height": "1.87 m (6 ft 2 in)",
+      "weight": "181 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "Nike Mercurial Vapor XI TC",
+      "social": {
+        "instagram": "www.instagram.com/mehditaremiofficial9/",
+        "twitter": "twitter.com/MehdiTaremi9"
+      },
+      "wikidata_id": "Q17070837"
     },
     {
       "number": 10,
@@ -130,7 +254,19 @@
       "club": "Al Nasr",
       "club_nation": "UAE",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34236523",
+      "full_name": "مهدی قایدی",
+      "last_name": "Ghayedi",
+      "first_name": "Mehdi",
+      "bio": "Mehdi Ghayedi (Persian: مهدی قایدی; born 5 December 1998) is an Iranian professional footballer who plays as a winger or second striker for UAE Pro League club Al-Nasr and the Iran national team.",
+      "birth_location": "Bushehr, Iran",
+      "height": "166 cm",
+      "weight": "128 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 11,
@@ -143,7 +279,19 @@
       "club": "Persepolis",
       "club_nation": "IRN",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34191479",
+      "full_name": "علی علیپور",
+      "last_name": "Alipour",
+      "first_name": "Ali",
+      "bio": "Ali Alipour (Persian: علی علیپور; born 11 November 1995) is an Iranian professional footballer who plays as a Striker for Persian Gulf Pro League club Persepolis and the Iran national team.\r\n\r\nAt the age of 19 years and 185 days, Alipour was the youngest-ever player to score in the Tehran derby after scoring in Persepolis 1–0 victory on 15 May 2015. He is the only player in Tehran derby history who has scored the winning goal in two derby matches.",
+      "birth_location": "Qaemshahr, Mazandaran, Iran",
+      "height": "181 cm",
+      "weight": "152 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Both",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 12,

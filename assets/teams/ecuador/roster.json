@@ -13,7 +13,22 @@
       "club": "Huracán",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34185326",
+      "full_name": "Hernán Ismael Galíndez",
+      "last_name": "Galíndez",
+      "first_name": "Hernán",
+      "bio": "Hernán Ismael Galíndez (born 30 March 1987) is a professional footballer who plays as a goalkeeper for Argentine Primera División club Huracán. Born in Argentina, he represents the Ecuador national team.\r\n\r\nBorn in Argentina, he began his career in Argentina with Rosario Central before settling in Ecuador with Universidad Católica, where he made over 300 appearances in a nine-year spell. In 2022, he joined Universidad de Chile but left the club after six months, citing harassment from the club's",
+      "birth_location": "Rosario, Argentina",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "183 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "twitter": "twitter.com/hernangali12"
+      },
+      "wikidata_id": "Q5742434"
     },
     {
       "number": 2,
@@ -26,7 +41,19 @@
       "club": "Internacional",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34202696",
+      "full_name": "Félix Eduardo Torres Caicedo",
+      "last_name": "Torres",
+      "first_name": "Félix",
+      "bio": "Félix Eduardo Torres Caicedo (born 11 January 1997) is an Ecuadorian professional footballer who plays as a centre-back for Campeonato Brasileiro Serie A club Internacional on loan from Corinthians and the Ecuador national team.\r\n\r\nAfter beginning his career with LDU Portoviejo, Torres signed for Barcelona in 2017 before joining Santos Laguna in 2019. He made his international debut in 2019 and represented Ecuador at both the 2021 Copa America and the 2022 FIFA World Cup. At the beginning of 202",
+      "birth_location": "San Lorenzo, Ecuador",
+      "height": "187 cm",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 3,
@@ -39,7 +66,19 @@
       "club": "Arsenal",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34182526",
+      "full_name": "Piero Martín Hincapié Reyna",
+      "last_name": "Hincapié",
+      "first_name": "Piero",
+      "bio": "Piero Martín Hincapié Reyna (born 9 January 2002) is an Ecuadorian professional footballer who plays as a centre-back or left-back for Premier League club Arsenal, on loan from Bundesliga club Bayer Leverkusen, and the Ecuador national team.\r\n\r\nClub career\r\nHincapié began playing football at the age of seven, initially for local clubs Escuela Refinería, Emelec and Barcelona. Aged ten, the defender moved to Guayaquil with Norte América. After a spell with Deportivo Azogues, he joined Independient",
+      "birth_location": "Esmeraldas, Ecuador",
+      "height": "183 cm",
+      "weight": "170 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 4,
@@ -52,7 +91,19 @@
       "club": "Club Brugge",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34229984",
+      "full_name": "Joel Leandro Ordóñez Guerrero",
+      "last_name": "Ordóñez",
+      "first_name": "Joel",
+      "bio": "Joel Leandro Ordóñez Guerrero (born 21 April 2004) is an Ecuadorian professional footballer who plays as a centre-back for the Belgian club Club Brugge.",
+      "birth_location": "Guayaquil, Ecuador",
+      "height": "188 cm",
+      "weight": "168 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 5,
@@ -65,7 +116,20 @@
       "club": "Independiente del Valle",
       "club_nation": "ECU",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34195781",
+      "full_name": "Jordy José Alcívar Macías",
+      "last_name": "Alcívar",
+      "first_name": "Jordy",
+      "bio": "Jordy José Alcívar Macías (born 5 August 1999) is an Ecuadorean professional footballer who plays as a midfielder or defender for Independiente del Valle and the Ecuador national team.\r\n\r\nAlcívar started his career with LDU Quito, where he was nicknamed \"La Bochorna 44\" after his video game username.\r\nOn 18 October 2021, it was announced that he would join newly-formed Major League Soccer side Charlotte FC in January 2022 on a four-year deal.",
+      "birth_location": "Manta, Ecuador",
+      "height": "175 cm",
+      "weight": "168 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q60842122"
     },
     {
       "number": 6,
@@ -143,7 +207,18 @@
       "club": "Union Saint-Gilloise",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "silhouettes/fw.svg"
+      "photo": "silhouettes/fw.svg",
+      "tsdb_id": "34198063",
+      "full_name": "Kevin Rodríguez",
+      "last_name": "Rodríguez",
+      "first_name": "Kevin",
+      "bio": "",
+      "birth_location": "bo, Colombia",
+      "height": "",
+      "weight": "",
+      "position_detail": "Attacker",
+      "social": {},
+      "wikidata_id": "Q62018984"
     },
     {
       "number": 12,
@@ -156,7 +231,19 @@
       "club": "Kifisia",
       "club_nation": "GRE",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34240828",
+      "full_name": "Wellington Moisés Ramírez Preciado",
+      "last_name": "Ramírez",
+      "first_name": "Moisés",
+      "bio": "Wellington Moisés Ramírez Preciado (born 9 September 2000) is an Ecuadorian footballer who plays as a goalkeeper for Super League Greece club A.E. Kifisia and the Ecuador national team.",
+      "birth_location": "Guayaquil, Ecuador",
+      "height": "185 cm",
+      "weight": "75 kg",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
@@ -169,7 +256,23 @@
       "club": "Pachuca",
       "club_nation": "MEX",
       "captain": true,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34146018",
+      "full_name": "Enner Remberto Valencia Lastra",
+      "last_name": "Valencia",
+      "first_name": "Enner",
+      "bio": "Enner Remberto Valencia Lastra (born 4 November 1989) is an Ecuadorian professional footballer who plays as a forward for Liga MX club Pachuca and captains the Ecuador national team.\r\n\r\nValencia previously played for Emelec in Ecuador, where he won the 2013 Ecuadorian Serie A and was awarded the Copa Sudamericana Golden Boot in 2013. He also played for Pachuca in Mexico, being awarded the Liga MX Golden Boot in the 2014 Clausura tournament. He joined English club West Ham United for an estimated",
+      "birth_location": "San Lorenzo, Ecuador",
+      "height": "1.74 m (5 ft 8 1⁄2 in)",
+      "weight": "161 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/ennervalencia1",
+        "twitter": "twitter.com/ennervalencia14"
+      },
+      "wikidata_id": "Q2843080"
     },
     {
       "number": 14,
@@ -182,7 +285,19 @@
       "club": "Atlético Mineiro",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34220643",
+      "full_name": "Alan Steve Minda García",
+      "last_name": "Minda",
+      "first_name": "Alan",
+      "bio": "Alan Steve Minda García (born 14 May 2003) is an Ecuadorian professional footballer who plays as a winger for Campeonato Brasileiro Série A club Atlético Mineiro and the Ecuador national team.",
+      "birth_location": "Esmeraldas, Ecuador",
+      "height": "171 cm",
+      "weight": "150 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 15,
@@ -195,7 +310,20 @@
       "club": "Pumas",
       "club_nation": "MEX",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34197701",
+      "full_name": "Pedro Jeampierre Vite Uca",
+      "last_name": "Vite",
+      "first_name": "Pedro",
+      "bio": "Pedro Jeampierre Vite Uca (born 9 March 2002) is an Ecuadorian professional footballer who plays as an attacking midfielder for Liga MX club UNAM and the Ecuador national team. \r\n\r\nVite came up through the youth system at Independiente del Valle, going on to help the team win the U-20 Copa Libertadores in 2020. He made his professional debut for Independiente's reserve team, Independiente Juniors, in 2019 in the Ecuadorian Serie B. In 2021, Vite played his first season in the Ecuadorian Serie A,",
+      "birth_location": "Babahoyo, Ecuador",
+      "height": "1.68 m (5 ft 6 in)",
+      "weight": "150 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q105920173"
     },
     {
       "number": 16,
@@ -208,7 +336,21 @@
       "club": "Huracán",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34182638",
+      "full_name": "Jordy Josué Caicedo Medina",
+      "last_name": "Caicedo",
+      "first_name": "Jordy",
+      "bio": "Jordy Josué Caicedo Medina (born 18 November 1997) is an Ecuadorian professional footballer who plays as a striker for Argentine club Huracán, on loan from Mexican club Atlas, and the Ecuador national team.\r\n\r\nAs a child, Caicedo played football \"in rich boy\" neighborhoods, bet money and always won. At the age of 15, he had an unsuccessful trial with Santos, one of the most successful teams in Brazil. He has been compared to Ecuador international Felipe Caicedo. In February 2021, he joined Bulga",
+      "birth_location": "Machala, Ecuador",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "181 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/jordy_caicedo_oficial_/"
+      }
     },
     {
       "number": 17,
@@ -260,7 +402,19 @@
       "club": "Sunderland",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34218316",
+      "full_name": "Nilson David Angulo Ramírez",
+      "last_name": "Angulo",
+      "first_name": "Nilson",
+      "bio": "Nilson David Angulo Ramírez (born 19 June 2003) is an Ecuadorian professional footballer who plays as a winger or wide midfielder for Premier League club Sunderland and the Ecuador national team.",
+      "birth_location": "Quito, Ecuador",
+      "height": "184 cm",
+      "weight": "141 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 21,
@@ -273,7 +427,19 @@
       "club": "Atlético Mineiro",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34182531",
+      "full_name": "Alan Steven Franco Palma",
+      "last_name": "Franco",
+      "first_name": "Alan",
+      "bio": "Alan Steven Franco Palma (born 21 August 1998) is an Ecuadorian professional footballer who plays as a midfielder for Campeonato Brasileiro Série A club Atlético Mineiro and the Ecuador national team.",
+      "birth_location": "Alfredo Baquerizo Moreno, Ecuador",
+      "height": "1.76 m (5 ft 9+1⁄2 in)",
+      "weight": "148 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 22,
@@ -286,7 +452,19 @@
       "club": "LDU Quito",
       "club_nation": "ECU",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34238149",
+      "full_name": "Gonzalo Roberto Valle Bustamante",
+      "last_name": "Valle",
+      "first_name": "Gonzalo",
+      "bio": "Gonzalo Roberto Valle Bustamante (born 28 February 1996) is an Ecuadorian professional footballer who plays as a goalkeeper for Ecuadorian Serie A side L.D.U. Quito and the Ecuador national team.",
+      "birth_location": "Riobamba, Ecuador",
+      "height": "185 cm",
+      "weight": "85 kg",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 23,
@@ -299,7 +477,22 @@
       "club": "Chelsea",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34176947",
+      "full_name": "Moisés Isaac Caicedo Corozo",
+      "last_name": "Caicedo",
+      "first_name": "Moisés",
+      "bio": "Moisés Isaac Caicedo Corozo (born 2 November 2001) is an Ecuadorian professional footballer who currently plays as a defensive midfielder for Premier League club Chelsea and the Ecuador national team.",
+      "birth_location": "Santo Domingo, Ecuador",
+      "height": "178cm / 5'10\"",
+      "weight": "161 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "facebook": "www.facebook.com/rprestigefla"
+      },
+      "wikidata_id": "Q87715532"
     },
     {
       "number": 24,
@@ -312,7 +505,19 @@
       "club": "VfB Stuttgart",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34242677",
+      "full_name": "Jeremy Alberto Arévalo Mera",
+      "last_name": "Arévalo",
+      "first_name": "Jeremy",
+      "bio": "Jeremy Alberto Arévalo Mera (born 19 March 2005) is a footballer who plays as a forward for German Bundesliga club VfB Stuttgart. Born in Spain, he plays for the Ecuador national team.\r\n\r\nBorn in Santander, Cantabria to Ecuadorian parents, Arévalo was a Racing de Santander youth graduate. He made his senior debut with the reserves at the age of 16 on 8 January 2022, coming on as a late substitute in a 3–0 Segunda División RFEF away loss against CD Laredo.\r\n\r\nArévalo was handed his first start on",
+      "birth_location": "Santander, Spain",
+      "height": "180 cm",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -325,19 +530,7 @@
       "club": "Tijuana",
       "club_nation": "MEX",
       "captain": false,
-      "photo": "players/25.png",
-      "tsdb_id": "34178310",
-      "full_name": "Jackson Gabriel Porozo Vernaza",
-      "last_name": "Porozo",
-      "first_name": "Jackson",
-      "bio": "Jackson Gabriel Porozo Vernaza (born 4 August 2000) is an Ecuadorian professional footballer who plays as a centre-back for Liga MX club Tijuana and the Ecuador national team.",
-      "birth_location": "San Lorenzo, Ecuador",
-      "height": "1.92 m (6 ft 3 in)",
-      "weight": "181 lbs",
-      "position_detail": "Centre-Back",
-      "preferred_foot": "Right",
-      "kit": "",
-      "social": {}
+      "photo": "players/25.png"
     },
     {
       "number": 26,
@@ -350,19 +543,7 @@
       "club": "Genk",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/26.png",
-      "tsdb_id": "34237571",
-      "full_name": "Yaimar Abel Medina Ortiz",
-      "last_name": "Medina",
-      "first_name": "Yaimar",
-      "bio": "Yaimar Abel Medina Ortiz (born 5 November 2004) is an Ecuadorian professional footballer who plays as a midfielder for Belgian Pro League club Genk and the Ecuador national team.",
-      "birth_location": "Eloy Alfaro, Ecuador",
-      "height": "177 cm",
-      "weight": "73 kg",
-      "position_detail": "Left-Back",
-      "preferred_foot": "Left",
-      "kit": "",
-      "social": {}
+      "photo": "players/26.png"
     }
   ]
 }
