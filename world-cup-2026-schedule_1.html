@@ -536,6 +536,14 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
 }
 .team-link{color:inherit;text-decoration:none;cursor:pointer}
 .team-link:hover{text-decoration:underline;text-underline-offset:3px;color:var(--gold)}
+
+/* ---------- loading spinner ---------- */
+.td-spinner{
+  width:32px;height:32px;border:3px solid var(--line);
+  border-top-color:var(--gold);border-radius:50%;
+  animation:spin .8s linear infinite;margin:20px auto;display:block;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
@@ -1192,7 +1200,7 @@ function showTeamDialog(teamName){
   document.getElementById('td-title').textContent=teamName;
   document.getElementById('td-flag').src='';
   document.getElementById('td-flag').alt='';
-  document.getElementById('td-body').innerHTML='<div class="td-loading">Loading team profile…</div>';
+  document.getElementById('td-body').innerHTML='<div style="text-align:center;padding:40px 0"><div class="td-spinner"></div><div class="td-loading" style="margin-top:8px">Loading team profile…</div></div>';
   document.getElementById('td-fifa-link').href='#';
   document.body.style.overflow='hidden';
   dlg.showModal();
