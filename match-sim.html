@@ -1451,8 +1451,8 @@ function drawPitch(ctx) {
 function drawPlayer(ctx, p) {
   if (p.sentOff) return;
 
-  const x = p.x + (p.slideX || 0);
-  const y = p.y + (p.slideY || 0);
+  let x = p.x + (p.slideX || 0);
+  let y = p.y + (p.slideY || 0);
   const isMoving = Math.abs(p.vx) > 0.3 || Math.abs(p.vy) > 0.3;
   const frame = Math.floor(Date.now() / 120) % 2; // 2-frame walk cycle ~8fps
   const hasBall = ball.owner === p;
