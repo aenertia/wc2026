@@ -719,16 +719,19 @@ async function fetchScores(){
       if(dRow)teamOverrides.set(dRow[0],{home,away});
     });
     scores=map;
+    _log("fetchScores ok: "+map.size+" entries");
     computeStandings();
     updateBanner();
     scheduleNotifications();
     render();
   }catch(e){
+    _log("fetchScores FAILED: "+e);
     console.warn("Score fetch failed:",e);
   }
 }
 
 function render(){
+  try{
   let rows=D.filter(r=>{
     if(state.stage&&r[1]!==state.stage)return false;
     if(state.group&&r[2]!==state.group)return false;
@@ -793,6 +796,8 @@ function render(){
     });
   });
   renderStrip();
+  _log("render ok: "+rows.length+" rows, scores="+scores.size+", list.display="+($("list").style.display||"block"));
+  }catch(err){_log("render FAILED: "+err);}
 }
 
 /* dynamic banner — next match countdown / live indicator */
@@ -878,7 +883,7 @@ async function fetchStandings(){
     flagByName=new Map();
     td.teams.forEach(t=>flagByName.set(normName(t.name_en),t.flag));
     computeStandings();
-  }catch(e){console.warn("Standings fetch failed:",e);}
+  }catch(e){_log("fetchStandings FAILED: "+e);console.warn("Standings fetch failed:",e);}
 }
 
 function computeStandings(){
@@ -1059,14 +1064,37 @@ fetchStandings().then(()=>fetchScores());
 setInterval(fetchScores,2*60*1000);
 setInterval(fetchStandings,30*60*1000); // flags rarely change
 
-// iOS bfcache: when navigating back, Safari restores the frozen page state.
-// Timers were paused, scores are stale, and the view may have been left on Groups.
-// pageshow with persisted:true fires on bfcache restore — re-sync everything.
+// iOS bfcache restore — re-sync view and data
 window.addEventListener("pageshow",e=>{
   if(!e.persisted)return;
   setView("schedule");
   fetchStandings().then(()=>fetchScores());
 });
+
+// ---- debug panel (tap footer 5× to show) ----
+const _dbgEl=document.createElement("div");
+_dbgEl.style.cssText="display:none;position:fixed;bottom:0;left:0;right:0;max-height:40vh;overflow:auto;background:rgba(0,0,0,.92);color:#4dc97b;font:11px/1.7 monospace;padding:10px 12px;z-index:9999;white-space:pre-wrap;";
+document.body.appendChild(_dbgEl);
+let _dbgTaps=0,_dbgLog=[];
+function _log(msg){
+  const t=new Date().toTimeString().slice(0,8);
+  _dbgLog.push("["+t+"] "+msg);
+  if(_dbgLog.length>40)_dbgLog.shift();
+  if(_dbgEl.style.display!=="none")_dbgEl.textContent=_dbgLog.join("\n");
+}
+window.onerror=(msg,src,line)=>{_log("JS ERROR: "+msg+" (line "+line+")");return false;};
+window.addEventListener("unhandledrejection",e=>{_log("PROMISE ERR: "+e.reason);});
+let _dbgArea=document.querySelector("footer");
+if(_dbgArea)_dbgArea.addEventListener("click",()=>{
+  if(++_dbgTaps>=5){
+    _dbgTaps=0;
+    _dbgEl.style.display=_dbgEl.style.display==="none"?"block":"none";
+    _dbgEl.textContent=_dbgLog.join("\n");
+  }
+});
+_log("page loaded, D="+D.length+" matches, tz="+tz);
+_log("list display="+($("list").style.display||"(css default)"));
+_log("ua="+navigator.userAgent.slice(0,80));
 </script>
 </body>
 </html>
