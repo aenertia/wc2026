@@ -1170,6 +1170,13 @@ document.addEventListener('keydown', e => {
 });
 let pitchInvader = null;
 let celebrationTimer = 0;
+let pitchOffscreen = null; // Pre-rendered pitch canvas
+function buildPitchCanvas() {
+  pitchOffscreen = document.createElement('canvas');
+  pitchOffscreen.width = WORLD_W;
+  pitchOffscreen.height = WORLD_H;
+  drawPitch(pitchOffscreen.getContext('2d'));
+}
 let canvas, ctx;
 
 // ---- CAMERA ----
@@ -3809,7 +3816,7 @@ function drawFrame(frameTime = Date.now()) {
   ctx.save();
   ctx.translate(-Math.round(camera.x), -Math.round(camera.y));
 
-  drawPitch(ctx);
+  if (pitchOffscreen) ctx.drawImage(pitchOffscreen, 0, 0);
   const sortedPlayers = [...allPlayers].sort((a, b) => a.y - b.y);
   for (const p of sortedPlayers) drawPlayer(ctx, p, frameTime);
   drawReferee(ctx);
@@ -4047,6 +4054,7 @@ async function startMatch() {
 
   canvas = $('pitchCanvas');
   ctx = canvas.getContext('2d');
+  buildPitchCanvas();
 
   // User click interaction
   canvas.onclick = (e) => {
