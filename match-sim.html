@@ -940,6 +940,12 @@ function updateAndDrawEffects() {
       ctx.beginPath(); ctx.arc(e.x, e.y - PLAYER_HEAD_R, PLAYER_HEAD_R + 6, 0, Math.PI*2); ctx.stroke();
       ctx.lineWidth = 1;
     }
+
+    else if (e.type === 'special_event') {
+      // This renders in SCREEN SPACE (after ctx.restore) — flag it
+      e.screenSpace = true;
+      if (age > e.duration) { activeEffects.splice(i, 1); continue; }
+    }
   }
 }
 
@@ -2694,6 +2700,135 @@ function randomPlayer(players) {
   return valid.length ? valid[Math.floor(Math.random() * valid.length)] : players[0];
 }
 
+// ---- TEAM SPECIAL EVENTS (guaranteed 1 per team per match) ----
+// Each team gets one iconic cinematic moment during the game
+let specialEventsFired = {home: false, away: false};
+let specialEventActive = false;
+let specialEventTimer = 0;
+let specialSlowMo = 1; // 1 = normal speed, 0.2 = slow motion
+
+const TEAM_SPECIAL_EVENTS = {
+  "Argentina":  {icon:"✋🏈",  title:"HAND OF GOD", desc:"Maradona reaches from beyond to guide the ball...", zoom:1.8},
+  "Brazil":     {icon:"7️⃣1️⃣",  title:"THE MINEIRAZO", desc:"The ghosts of 2014 haunt the pitch...", zoom:1.5},
+  "England":    {icon:"🏠❌",  title:"IT'S NOT COMING HOME", desc:"55 years of hurt... and counting...", zoom:1.6},
+  "Germany":    {icon:"⚙️🎯",  title:"GERMAN EFFICIENCY", desc:"Ze machine is perfectly calibrated...", zoom:1.4},
+  "France":     {icon:"🤕💫",  title:"ZIDANE'S GHOST", desc:"An invisible headbutt shakes the stadium...", zoom:1.8},
+  "Italy":      {icon:"🤌🍝",  title:"CATENACCIO", desc:"The great wall of Italy descends...", zoom:1.3},
+  "Spain":      {icon:"🔄🔄",  title:"TIKI-TAKA OVERLOAD", desc:"Pass... pass... pass... is anyone going to shoot?", zoom:1.2},
+  "Netherlands":{icon:"🟠🌊",  title:"TOTAL FOOTBALL", desc:"Everyone is everywhere. Cruyff smiles from above.", zoom:1.5},
+  "Portugal":   {icon:"😤🐐",  title:"SIIIUUU!", desc:"A familiar celebration echoes across the stadium...", zoom:2.0},
+  "Mexico":     {icon:"🌮🎉",  title:"NO ERA PENAL", desc:"The referee makes a controversial decision. Mexico disagrees. Violently.", zoom:1.6},
+  "USA":        {icon:"🦅🇺🇸",  title:"FREEDOM GOAL", desc:"A bald eagle circles the stadium. Fireworks explode. It's the 4th of July.", zoom:1.8},
+  "Japan":      {icon:"🗾⚡",  title:"SAMURAI SPIRIT", desc:"The blade is drawn. One perfect strike.", zoom:1.7},
+  "Korea Republic":{icon:"🇰🇷🔴",title:"2002 FLASHBACK", desc:"The referee looks confused. So does everyone else.", zoom:1.5},
+  "Australia":  {icon:"🦘⚽",  title:"SOCCEROO BOUNCE", desc:"A kangaroo hops across the pitch. Nobody questions it.", zoom:1.6},
+  "New Zealand":{icon:"🖤💀",  title:"THE HAKA", desc:"The All Whites perform a terrifying war dance. Opponents reconsider.", zoom:2.0},
+  "South Africa":{icon:"📯🐝", title:"VUVUZELA BLAST", desc:"BZZZZZZZZZZZZZZZ. Nobody can hear anything. Perfect.", zoom:1.3},
+  "Scotland":   {icon:"🏴󠁧󠁢󠁳󠁣󠁴󠁿🥃", title:"FLOWER OF SCOTLAND", desc:"The Tartan Army sings. Tears flow. Whisky flows faster.", zoom:1.5},
+  "Morocco":    {icon:"🦁🏔️",  title:"ATLAS LION ROAR", desc:"2022 semi-final energy returns. Africa believes.", zoom:1.7},
+  "Senegal":    {icon:"🦁🥁",  title:"TERANGA POWER", desc:"The drums beat. The lion stalks. Papa Bouba Diop dances in spirit.", zoom:1.6},
+  "Ghana":      {icon:"⭐🖐️",  title:"SUÁREZ REVENGE", desc:"A mysterious handball occurs. Ghana has waited since 2010.", zoom:1.8},
+  "Colombia":   {icon:"☕💃",  title:"CAFETERO MAGIC", desc:"The coffee kicks in. The hips don't lie. Neither does the scoreboard.", zoom:1.5},
+  "Uruguay":    {icon:"🦷😬",  title:"THE BITE", desc:"A player nervously checks their shoulder. Suárez energy is eternal.", zoom:1.9},
+  "Croatia":    {icon:"🔥🏁",  title:"VATRENI FIRE", desc:"The checkered warriors ignite. 2018 final energy.", zoom:1.5},
+  "Belgium":    {icon:"🍟😈",  title:"GOLDEN GENERATION... AGAIN", desc:"This is definitely their year. Again. For real this time.", zoom:1.4},
+  "Switzerland":{icon:"🧀⏰",  title:"SWISS PRECISION", desc:"The goal arrives exactly on schedule. Like a Swiss train.", zoom:1.3},
+  "Türkiye":    {icon:"🌙⭐",  title:"CRESCENT STRIKE", desc:"The star and crescent align. 2002 semi-final vibes.", zoom:1.5},
+  "Egypt":      {icon:"🏛️👁️",  title:"PHARAOH'S CURSE", desc:"Ancient powers awaken. The referee starts speaking hieroglyphics.", zoom:1.8},
+  "IR Iran":    {icon:"🏟️🤐",  title:"SILENT PROTEST", desc:"The players stand. The crowd roars. History watches.", zoom:1.6},
+  "Saudi Arabia":{icon:"🦅🏜️", title:"DESERT STORM", desc:"Remember Argentina 2022? It's happening again.", zoom:1.7},
+  "Qatar":      {icon:"🏗️💰",  title:"THE INVESTMENT", desc:"Money can't buy you happiness. But it can buy a World Cup.", zoom:1.4},
+  "Tunisia":    {icon:"🦅🏛️",  title:"CARTHAGE RISES", desc:"Hannibal would be proud. Or confused. Probably confused.", zoom:1.5},
+  "Canada":     {icon:"🍁🏒",  title:"WRONG SPORT?", desc:"A player asks for a puck. Confusion reigns.", zoom:1.6},
+  "Iraq":       {icon:"🦁📜",  title:"MESOPOTAMIAN MAGIC", desc:"The cradle of civilization produces a goal. 5000 years in the making.", zoom:1.5},
+  "Jordan":     {icon:"🏜️👑",  title:"ROYAL DECREE", desc:"The king has spoken. Jordan shall not lose.", zoom:1.4},
+  "Cabo Verde": {icon:"🦈🌊",  title:"SHARK ATTACK", desc:"The Blue Sharks smell blood in the water.", zoom:1.6},
+  "Curaçao":    {icon:"🏝️🌺",  title:"ISLAND TIME", desc:"Everything moves at island pace. Including the referee.", zoom:1.3},
+  "Haiti":      {icon:"🥊🏔️",  title:"GRENADIER EXPLOSION", desc:"Les Grenadiers detonate. The underdogs bite.", zoom:1.5},
+  "Panama":     {icon:"🚢🔓",  title:"CANAL OPENED", desc:"The floodgates open. Goals flow through.", zoom:1.5},
+  "Paraguay":   {icon:"🔴⚪",  title:"ALBIRROJA FURY", desc:"Red and white fury. South American grit.", zoom:1.4},
+  "Ecuador":    {icon:"🌋⚡",  title:"VOLCANIC ERUPTION", desc:"The altitude advantage kicks in. Wait, this isn't Quito.", zoom:1.5},
+  "Norway":     {icon:"🧊⚡",  title:"VIKING THUNDER", desc:"Haaland's spirit possesses the entire team.", zoom:1.7},
+  "Sweden":     {icon:"👑🎵",  title:"ABBA GOAL", desc:"The winner takes it all. Waterloo for the opposition.", zoom:1.4},
+  "Austria":    {icon:"🎵🏔️",  title:"SOUND OF FOOTBALL", desc:"The hills are alive with the sound of goals.", zoom:1.3},
+  "Czechia":    {icon:"🍺⚡",  title:"CZECH MATE", desc:"A perfectly calculated move. Like a chess grandmaster with a beer.", zoom:1.4},
+  "Algeria":    {icon:"🦊🏜️",  title:"FENNEC FOX STRIKE", desc:"Small, fast, deadly. The desert fox hunts at night.", zoom:1.5},
+  "Uzbekistan": {icon:"🐺🌙",  title:"WHITE WOLF HOWL", desc:"Central Asia announces itself. The wolf pack hunts.", zoom:1.5},
+  "Bosnia & Herzegovina":{icon:"🐉🔥",title:"DRAGON FIRE", desc:"The Zmajevi breathe fire. Nobody expected this.", zoom:1.6},
+  "Congo DR":   {icon:"🐆💥",  title:"LEOPARD POUNCE", desc:"Les Léopards strike from the shadows.", zoom:1.5},
+  "Côte d'Ivoire":{icon:"🐘🌍",title:"ELEPHANT CHARGE", desc:"Les Éléphants stampede. The ground shakes.", zoom:1.7},
+};
+
+function triggerSpecialEvent(teamName, teamSide) {
+  const evt = TEAM_SPECIAL_EVENTS[teamName];
+  if (!evt || specialEventActive) return;
+
+  specialEventActive = true;
+  specialEventsFired[teamSide] = true;
+  specialSlowMo = 0.15; // extreme slow motion
+  specialEventTimer = 300; // 5 seconds at 60fps
+
+  // Zoom camera in dramatically
+  const zoomTarget = teamSide === 'home'
+    ? {x: ball.x, y: ball.y}
+    : {x: ball.x, y: ball.y};
+  snapCamera(zoomTarget.x, zoomTarget.y);
+
+  // Commentary
+  addCommentary('comedy', `⚡ ${evt.title} ⚡`);
+  setTimeout(() => addCommentary('comedy', evt.desc), 1500);
+
+  // Draw overlay effect
+  addEffect('special_event', WORLD_W/2, WORLD_H/2, {
+    duration: 5,
+    icon: evt.icon,
+    title: evt.title,
+    desc: evt.desc,
+    zoom: evt.zoom,
+    teamName: teamName,
+    screenSpace: true,
+  });
+
+  AudioManager.playGoal(); // dramatic sound
+
+  // Resume normal speed after event
+  setTimeout(() => {
+    specialEventActive = false;
+    specialSlowMo = 1;
+  }, 5000);
+}
+
+// Check if special events should fire (guaranteed 1 per team, around minutes 25-35 and 60-75)
+function checkSpecialEvents() {
+  if (specialEventActive || gameState !== 'playing') return;
+
+  // Home team event: fire between minute 25-35 if not yet fired
+  if (!specialEventsFired.home && matchClock >= 25 && matchClock < 36) {
+    if (Math.random() < 0.008) { // ~once in that window
+      triggerSpecialEvent(homeTeamName, 'home');
+      return;
+    }
+  }
+  // Force home event by minute 36 if still not fired
+  if (!specialEventsFired.home && matchClock >= 36 && matchClock < 45) {
+    triggerSpecialEvent(homeTeamName, 'home');
+    return;
+  }
+
+  // Away team event: fire between minute 60-75
+  if (!specialEventsFired.away && matchClock >= 60 && matchClock < 76) {
+    if (Math.random() < 0.008) {
+      triggerSpecialEvent(awayTeamName, 'away');
+      return;
+    }
+  }
+  // Force away event by minute 76
+  if (!specialEventsFired.away && matchClock >= 76 && matchClock < 85) {
+    triggerSpecialEvent(awayTeamName, 'away');
+    return;
+  }
+}
+
 // ---- COMMENTARY ----
 function addCommentary(type, text) {
   if (!text) return;
@@ -2782,8 +2917,13 @@ function gameLoop() {
 
   // Match clock
   if (gameState === 'playing') {
-    realTick++;
+    // Apply slow motion during special events
+    const tickInc = specialSlowMo < 1 ? specialSlowMo : 1;
+    realTick += tickInc;
     matchClock = realTick / TICKS_PER_MINUTE;
+
+    // Check for guaranteed team special events
+    checkSpecialEvents();
 
     // Minimap zoom snap-back timer
     if (minimapZoomTimer > 0) {
@@ -3036,6 +3176,49 @@ function drawFrame() {
 
   drawMinimap();
 
+  // Special team event overlay (cinematic)
+  const specialEvt = activeEffects.find(e => e.type === 'special_event');
+  if (specialEvt) {
+    const age = (Date.now() - specialEvt.startTime) / 1000;
+    if (age < specialEvt.duration) {
+      // Dramatic vignette overlay
+      const alpha = age < 0.5 ? age * 1.2 : (age > specialEvt.duration - 0.8 ? (specialEvt.duration - age) * 1.2 : 0.6);
+      ctx.fillStyle = `rgba(0,0,0,${Math.min(0.6, alpha)})`;
+      ctx.fillRect(0, 0, CW, CH);
+
+      // Giant pixelated icon (absurdly large, centered)
+      const iconSize = 60 + Math.sin(age * 2) * 10;
+      ctx.font = `${iconSize}px serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(specialEvt.data.icon, CW / 2, CH / 2 - 40);
+
+      // Title (huge, pixelated retro feel)
+      ctx.fillStyle = '#f0c44c';
+      ctx.font = `bold ${36 + Math.sin(age*3)*4}px "Anton", sans-serif`;
+      ctx.fillText(specialEvt.data.title, CW / 2, CH / 2 + 40);
+
+      // Description
+      ctx.fillStyle = 'rgba(255,255,255,0.85)';
+      ctx.font = '14px "Space Mono", monospace';
+      ctx.fillText(specialEvt.data.desc, CW / 2, CH / 2 + 75);
+
+      // Team name
+      ctx.fillStyle = 'rgba(240,196,76,0.5)';
+      ctx.font = '11px "Space Mono", monospace';
+      ctx.fillText(`⚡ ${specialEvt.data.teamName} SPECIAL EVENT ⚡`, CW / 2, CH / 2 + 100);
+
+      // Slow-mo indicator
+      if (specialSlowMo < 0.5) {
+        ctx.fillStyle = 'rgba(240,196,76,0.4)';
+        ctx.font = '10px "Space Mono", monospace';
+        ctx.textAlign = 'right';
+        ctx.fillText('◀◀ SLOW MOTION', CW - 10, CH - 10);
+        ctx.textAlign = 'center';
+      }
+    }
+  }
+
   // Halftime overlay
   if (gameState === 'halftime') {
     ctx.fillStyle = 'rgba(0,0,0,0.5)';
@@ -3183,6 +3366,9 @@ async function startMatch() {
   lastCommentaryTime = 0;
   activeEffects.length = 0;
   playerEventCounts.clear();
+  specialEventsFired = {home: false, away: false};
+  specialEventActive = false;
+  specialSlowMo = 1;
   $('commentary').innerHTML = '';
 
   // Snap camera to center for kickoff
