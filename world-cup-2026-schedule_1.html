@@ -584,6 +584,7 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
   cursor:pointer;border:none;
 }
 .sim-btn:hover{opacity:.8}
+.replay-btn{background:var(--pitch-2);color:var(--gold);border:1px solid var(--gold);}
 </style>
 </head>
 <body>
@@ -1420,7 +1421,8 @@ function render(){
 
       const venueHtml=VENUES[r[0]]?'<div class="m-venue">'+VENUES[r[0]]+'</div>':'';
       const simLink=isRealTeam(homeName)&&isRealTeam(awayName)?'<a href="match-sim.html?home='+encodeURIComponent(homeName)+'&away='+encodeURIComponent(awayName)+'" class="sim-btn" title="Simulate this match">▶ Sim</a>':'';
-      m.innerHTML=timeHtml+homeHtml+scoreHtml+awayHtml+'<div class="meta">'+simLink+tagFor(r)+'<span class="num">#'+String(r[0]).padStart(3,"0")+'</span></div>'+venueHtml;
+      const replayLink=(sc?.finished&&isRealTeam(homeName)&&isRealTeam(awayName)&&hNum!==null&&aNum!==null)?'<a href="match-sim.html?home='+encodeURIComponent(homeName)+'&away='+encodeURIComponent(awayName)+'&homeScore='+hNum+'&awayScore='+aNum+'" class="sim-btn replay-btn" title="Replay actual result: '+homeName+' '+hNum+'–'+aNum+' '+awayName+'">↺ Replay</a>':'';
+      m.innerHTML=timeHtml+homeHtml+scoreHtml+awayHtml+'<div class="meta">'+simLink+replayLink+tagFor(r)+'<span class="num">#'+String(r[0]).padStart(3,"0")+'</span></div>'+venueHtml;
       list.appendChild(m);
     });
   });
