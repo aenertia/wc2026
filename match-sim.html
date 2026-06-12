@@ -1365,7 +1365,7 @@ function createPlayers(teamData, teamName, side) {
       shirtColor: side === 0 ? colors[0] : colors[1],
       shortsColor: side === 0 ? colors[1] : colors[0],
       img, imgLoaded: () => imgLoaded,
-      state: 'idle', // idle | chasing | hasBall | celebrating | fighting | diving | sentOff
+      state: 'idle', // idle | chasing | hasBall | celebrating | dejected | fighting | diving | sentOff
       caps: pd.caps || 0,
       speed: pd.position === 'GK' ? GK_SPEED : playerSpeed(pd.caps || 0),
       stateTimer: 0,
@@ -1552,7 +1552,7 @@ function drawPlayer(ctx, p) {
   const hasBall = ball.owner === p;
 
   // Dramatic states: rotate player horizontal + jiggle
-  const isDramatic = p.state === 'diving' || p.state === 'fighting' || p.state === 'celebrating' || p.state === 'slacking';
+  const isDramatic = p.state === 'diving' || p.state === 'fighting' || p.state === 'celebrating' || p.state === 'slacking' || p.state === 'dejected';
   if (isDramatic) {
     ctx.save();
     ctx.translate(x, y);
@@ -1562,7 +1562,27 @@ function drawPlayer(ctx, p) {
       ctx.rotate(Math.sin(Date.now() / 80) * 0.5); // jiggling aggressively
       ctx.translate(Math.sin(Date.now() / 50) * 4, Math.cos(Date.now() / 60) * 3); // shaking
     } else if (p.state === 'celebrating') {
-      ctx.rotate(Math.sin(Date.now() / 200) * 0.4); // swaying happily
+      // Varied celebration rotations based on type
+      if (p.celebrationType === 'kneeSlide') {
+        ctx.rotate(0.3); // slight lean forward
+        ctx.translate((p.celebSlideX || 0), 4); // sliding forward + lower
+      } else if (p.celebrationType === 'cornerFlag' && p.celebPhase > 30) {
+        ctx.rotate(Math.sin(Date.now() / 100) * 0.8); // wild dance at corner
+      } else if (p.celebrationType === 'shirtPull') {
+        ctx.translate(0, -3); // shirt over head lifts body
+      } else {
+        ctx.rotate(Math.sin(Date.now() / 200) * 0.4); // default sway
+      }
+    } else if (p.state === 'dejected') {
+      if (p.dejectionType === 'dropToKnees') {
+        ctx.translate(0, 6); // sink down
+        ctx.rotate(0.15); // slight forward lean
+      } else if (p.dejectionType === 'stareAtGround') {
+        ctx.rotate(0.2); // head down
+      } else if (p.dejectionType === 'argueWithRef') {
+        ctx.rotate(Math.sin(Date.now() / 60) * 0.15); // agitated
+      }
+      // handsOnHead: no rotation, just the overlaid visual
     } else if (p.state === 'slacking') {
       ctx.rotate(Math.PI / 2); // lying down
     }
@@ -1764,6 +1784,64 @@ function drawPlayer(ctx, p) {
       ctx.closePath(); ctx.fill();
     }
     ctx.lineWidth = 1;
+  }
+
+  // --- Celebration type visuals ---
+  if (p.state === 'celebrating' && p.celebrationType) {
+    if (p.celebrationType === 'kneeSlide') {
+      // Dust trail behind knee slide
+      if (p.celebPhase < 40 && p.celebPhase % 5 === 0) {
+        addEffect('dust', p.x - 10, p.y + 4, {dir: -1});
+      }
+    } else if (p.celebrationType === 'armsUp') {
+      // Two lines extending upward from shoulders (raised arms)
+      ctx.strokeStyle = 'rgba(255,255,255,0.8)';
+      ctx.lineWidth = 2;
+      const armWave = Math.sin(Date.now() / 150) * 3;
+      ctx.beginPath(); ctx.moveTo(x - 3, y - bh/2); ctx.lineTo(x - 6 + armWave, y - bh - 8); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x + 3, y - bh/2); ctx.lineTo(x + 6 - armWave, y - bh - 8); ctx.stroke();
+      ctx.lineWidth = 1;
+    } else if (p.celebrationType === 'shirtPull') {
+      // Shirt over head: upper body becomes skin tone
+      ctx.fillStyle = '#d4a574';
+      ctx.fillRect(x - bw/2, y - bh/2, bw, bh/2);
+    } else if (p.celebrationType === 'pileOn' && p.celebPhase > 20) {
+      // Extra jiggle on pile-on
+      ctx.fillStyle = 'rgba(240,196,76,0.3)';
+      ctx.beginPath(); ctx.arc(x, y, 15, 0, Math.PI * 2); ctx.fill();
+    }
+  }
+
+  // --- Dejection type visuals ---
+  if (p.state === 'dejected' && p.dejectionType) {
+    if (p.dejectionType === 'handsOnHead') {
+      // Two small circles above head (hands)
+      const headY2 = y - bh/2 - PLAYER_HEAD_R + 1;
+      ctx.fillStyle = '#d4a574';
+      ctx.beginPath(); ctx.arc(x - 8, headY2 - PLAYER_HEAD_R - 2, 4, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + 8, headY2 - PLAYER_HEAD_R - 2, 4, 0, Math.PI * 2); ctx.fill();
+      // Arm lines
+      ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(x - 3, y - bh/2); ctx.lineTo(x - 8, headY2 - PLAYER_HEAD_R - 2); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x + 3, y - bh/2); ctx.lineTo(x + 8, headY2 - PLAYER_HEAD_R - 2); ctx.stroke();
+      ctx.lineWidth = 1;
+    } else if (p.dejectionType === 'dropToKnees') {
+      // Draw body shorter (already translated down via isDramatic)
+      ctx.globalAlpha = 0.85;
+    } else if (p.dejectionType === 'argueWithRef') {
+      // Arm lines flailing
+      const wave = Math.sin(Date.now() / 80) * 8;
+      ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(x - 3, y); ctx.lineTo(x - 12 + wave, y - 10); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x + 3, y); ctx.lineTo(x + 12 - wave, y - 10); ctx.stroke();
+      ctx.lineWidth = 1;
+    }
+    // Subtle grey overlay for dejection
+    if (p.dejectionType !== 'argueWithRef') {
+      ctx.globalAlpha = 0.85;
+    }
   }
 
   // Slacking — idle comedy antic when camera zooms via minimap
@@ -2182,18 +2260,62 @@ function scoreGoal(scoringTeam) {
     }
   }
 
-  // Celebration
+  // Varied celebrations for scoring team
+  const celebTypes = ['kneeSlide', 'armsUp', 'cornerFlag', 'shirtPull', 'armsUp'];
+  let pileOnCount = 0;
   for (const p of scoringPlayers) {
     if (p.sentOff) continue;
     p.state = 'celebrating';
     p.stateTimer = 90;
+    if (p === scorer) {
+      // Scorer gets pile-on — teammates converge on them
+      p.celebrationType = 'pileOn';
+      p.celebPhase = 0;
+    } else if (pileOnCount < 2 && dist(p.x, p.y, scorer.x, scorer.y) < 250) {
+      // 2 nearest teammates also pile on
+      p.celebrationType = 'pileOn';
+      p.celebTarget = {x: scorer.x, y: scorer.y};
+      p.celebPhase = 0;
+      pileOnCount++;
+    } else {
+      // Others get random celebration
+      p.celebrationType = celebTypes[Math.floor(Math.random() * celebTypes.length)];
+      p.celebPhase = 0;
+      if (p.celebrationType === 'cornerFlag') {
+        // Target nearest corner
+        const corners = [{x:PITCH_L,y:PITCH_T},{x:PITCH_R,y:PITCH_T},{x:PITCH_L,y:PITCH_B},{x:PITCH_R,y:PITCH_B}];
+        let nearestCorner = corners[0], minCD = Infinity;
+        for (const c of corners) { const cd = dist(p.x,p.y,c.x,c.y); if (cd < minCD) { minCD = cd; nearestCorner = c; } }
+        p.celebTarget = nearestCorner;
+      } else if (p.celebrationType === 'kneeSlide') {
+        p.celebSlideX = 0;
+      }
+    }
+  }
+
+  // Dejection for conceding team
+  const concedingPlayers = scoringTeam === 0 ? awayPlayers : homePlayers;
+  const dejectionTypes = ['handsOnHead', 'dropToKnees', 'stareAtGround', 'handsOnHead'];
+  let argueCount = 0;
+  for (const p of concedingPlayers) {
+    if (p.sentOff) continue;
+    p.state = 'dejected';
+    p.stateTimer = 90;
+    p.celebPhase = 0;
+    if (argueCount < 2 && p.position !== 'GK' && Math.random() < 0.25) {
+      p.dejectionType = 'argueWithRef';
+      argueCount++;
+    } else if (p.position === 'GK') {
+      p.dejectionType = Math.random() < 0.5 ? 'dropToKnees' : 'stareAtGround';
+    } else {
+      p.dejectionType = dejectionTypes[Math.floor(Math.random() * dejectionTypes.length)];
+    }
   }
 
   // Comedy celebration events with visual effects
   if (Math.random() < 0.4) {
     const celebVars = { scorer: scorer.lastName };
     addCommentary('comedy', pickComment('goal_celebration', celebVars));
-    // Selfie celebration: phone shape + dust from knee slide
     if (Math.random() < 0.5) {
       addEffect('phone', scorer.x, scorer.y);
     } else {
@@ -2230,7 +2352,7 @@ function playerSpeed(caps) {
 }
 
 function getChaseRoles(players) {
-  const outfield = players.filter(p => p.position !== 'GK' && !p.sentOff && p.state !== 'diving' && p.state !== 'fighting' && p.state !== 'celebrating');
+  const outfield = players.filter(p => p.position !== 'GK' && !p.sentOff && p.state !== 'diving' && p.state !== 'fighting' && p.state !== 'celebrating' && p.state !== 'dejected');
   outfield.sort((a, b) => dist(a.x, a.y, ball.x, ball.y) - dist(b.x, b.y, ball.x, ball.y));
   return {
     chaser: outfield[0] || null,
@@ -2267,7 +2389,7 @@ function moveToward(p, tx, ty, speed) {
 function findNearestBallChaser(players) {
   let nearest = null, minD = Infinity;
   for (const p of players) {
-    if (p.sentOff || p.state === 'diving' || p.state === 'fighting' || p.state === 'celebrating') continue;
+    if (p.sentOff || p.state === 'diving' || p.state === 'fighting' || p.state === 'celebrating' || p.state === 'dejected') continue;
     const d = dist(p.x, p.y, ball.x, ball.y);
     if (d < minD) { minD = d; nearest = p; }
   }
@@ -2380,6 +2502,7 @@ function handleMinimapClick(localX, localY, mmw, mmh) {
     !p.sentOff &&
     p.state !== 'fighting' &&
     p.state !== 'celebrating' &&
+    p.state !== 'dejected' &&
     p !== ball.owner &&
     dist(p.x, p.y, targetWX, targetWY) < 250 &&
     dist(p.x, p.y, ball.x, ball.y) > 300
@@ -2528,7 +2651,44 @@ function updatePlayerAI(p, teammates, opponents, roles) {
       return;
     }
     if (p.state === 'celebrating') {
-      if (p.stateTimer <= 0) p.state = 'idle';
+      p.celebPhase = (p.celebPhase || 0) + 1;
+      // Movement for celebration types
+      if (p.celebrationType === 'kneeSlide' && p.celebPhase < 40) {
+        p.celebSlideX = (p.celebSlideX || 0) + 1.5; // slide forward
+        p.x += 1.5;
+      } else if (p.celebrationType === 'cornerFlag' && p.celebTarget) {
+        const cd = dist(p.x, p.y, p.celebTarget.x, p.celebTarget.y);
+        if (cd > 15) {
+          moveToward(p, p.celebTarget.x, p.celebTarget.y, p.speed * 2);
+          p.x += p.vx; p.y += p.vy;
+        }
+      } else if (p.celebrationType === 'pileOn' && p.celebTarget) {
+        const cd = dist(p.x, p.y, p.celebTarget.x, p.celebTarget.y);
+        if (cd > 15) {
+          moveToward(p, p.celebTarget.x, p.celebTarget.y, p.speed * 1.5);
+          p.x += p.vx; p.y += p.vy;
+        }
+      } else if (p.celebrationType === 'armsUp') {
+        // Slow random jog
+        p.x += (Math.random() - 0.5) * 1.5;
+        p.y += (Math.random() - 0.5) * 1.5;
+      } else if (p.celebrationType === 'shirtPull') {
+        // Stumbling walk
+        p.x += (Math.random() - 0.5) * 2;
+        p.y += (Math.random() - 0.5) * 1;
+      }
+      if (p.stateTimer <= 0) { p.state = 'idle'; p.celebrationType = null; p.celebTarget = null; p.celebSlideX = 0; p.celebPhase = 0; }
+      return;
+    }
+    if (p.state === 'dejected') {
+      p.celebPhase = (p.celebPhase || 0) + 1;
+      // Movement for dejection types
+      if (p.dejectionType === 'argueWithRef' && p.celebPhase < 45 && typeof ref !== 'undefined') {
+        moveToward(p, ref.x, ref.y, p.speed * 1.5);
+        p.x += p.vx; p.y += p.vy;
+      }
+      // Others: stay still
+      if (p.stateTimer <= 0) { p.state = 'idle'; p.dejectionType = null; p.celebPhase = 0; }
       return;
     }
   }
@@ -3476,7 +3636,7 @@ function gameLoop() {
 
     // Ball pickup (free ball)
     if (!ball.owner) {
-      const all = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff && p.state !== 'diving' && p.state !== 'celebrating' && p.state !== 'slacking');
+      const all = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff && p.state !== 'diving' && p.state !== 'celebrating' && p.state !== 'dejected' && p.state !== 'slacking');
       for (const p of all) {
         if (dist(p.x, p.y, ball.x, ball.y) < 20) {
           ball.owner = p; ball.lastTouchedBy = p;
