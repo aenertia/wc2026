@@ -2095,9 +2095,11 @@ function randomPlayer(players) {
 
 // ---- COMMENTARY ----
 function addCommentary(type, text) {
+  if (!text) return;
+  lastCommentaryTime = Date.now();
   const minute = Math.floor(matchClock);
   const el = $('commentary');
-  const cls = type === 'goal' ? 'goal' : type === 'card' ? 'card' : type === 'comedy' ? 'comedy' : type === 'var' ? 'var' : '';
+  const cls = type === 'goal' ? 'goal' : type === 'card' ? 'card' : type === 'comedy' ? 'comedy' : type === 'var' ? 'var' : type === 'info' ? '' : '';
   const div = document.createElement('div');
   div.className = 'event ' + cls;
   div.innerHTML = `<span class="min">${minute}'</span>${text}`;
@@ -2242,6 +2244,13 @@ function gameLoop() {
 
     // Comedy events
     checkComedyEvents();
+
+    // Idle commentary — team anecdotes between events
+    if (Date.now() - lastCommentaryTime > IDLE_INTERVAL) {
+      const idleTeam = Math.random() > 0.5 ? homeTeamName : awayTeamName;
+      const anec = getTeamAnecdote(idleTeam);
+      if (anec) addCommentary('info', anec);
+    }
 
     // Pitch invader update
     if (pitchInvader) {
@@ -2499,6 +2508,7 @@ async function startMatch() {
   varActive = false;
   pitchInvader = null;
   lastComedyTime = 0;
+  lastCommentaryTime = 0;
   activeEffects.length = 0;
   playerEventCounts.clear();
   $('commentary').innerHTML = '';
@@ -2513,7 +2523,12 @@ async function startMatch() {
   const awayNick = TEAM_NICKNAMES[awayTeamName] || awayTeamName;
   AudioManager.playWhistle(false);
   AudioManager.setCrowd(0.2);
-  addCommentary('default', `We're underway! ${homeTeamName} kick off against ${awayTeamName}. The ${homeNick} looking to make a statement today.`);
+  const koVars = {
+    home: homeTeamName, away: awayTeamName,
+    home_nick: homeNick, away_nick: awayNick,
+    home_anecdote: getTeamAnecdote(homeTeamName),
+  };
+  addCommentary('info', pickComment('kick_off', koVars));
 
   // Give ball to home team striker
   const striker = homePlayers.find(p => p.position === 'FW' && !p.sentOff);
