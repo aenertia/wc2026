@@ -963,6 +963,7 @@ async function fetchScores(){
 }
 
 function isRealTeam(name){return!/^(Winner|Runner-up|Loser|3rd place)/.test(name)}
+function teamLink(name){return isRealTeam(name)?'<a href="#" class="team-link" data-team="'+name+'">'+name+'</a>':name;}
 function render(){
   let rows=D.filter(r=>{
     if(state.stage&&r[1]!==state.stage)return false;
@@ -1047,7 +1048,7 @@ function updateBanner(){
     const {r,sc,h,a}=liveRow;
     $("kickoff").querySelector(".k-label").textContent="Live now";
     $("countdown").textContent=sc.elapsed+"'";
-    $("koLine").textContent="Match "+r[0]+" · "+h+" v "+a;
+    $("koLine").innerHTML="Match "+r[0]+" · "+teamLink(h)+" v "+teamLink(a);
     return;
   }
   // find next upcoming match
@@ -1058,8 +1059,9 @@ function updateBanner(){
     $("koLine").textContent="Final · 19 July 2026 · MetLife Stadium";
     return;
   }
+  const nh=teamOverrides.get(next[0])?.home??next[5], na=teamOverrides.get(next[0])?.away??next[6];
   $("kickoff").querySelector(".k-label").textContent="Next kick-off in";
-  $("koLine").textContent="Match "+next[0]+" · "+(teamOverrides.get(next[0])?.home??next[5])+" v "+(teamOverrides.get(next[0])?.away??next[6])+" · "+fmtDateShort(next.epoch)+", "+fmtTime(next.epoch);
+  $("koLine").innerHTML="Match "+next[0]+" · "+teamLink(nh)+" v "+teamLink(na)+" · "+fmtDateShort(next.epoch)+", "+fmtTime(next.epoch);
   const ms=next.epoch-now;
   const d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4),s=Math.floor(ms%6e4/1e3);
   $("countdown").textContent=(d>0?d+"d ":"")+String(h).padStart(2,"0")+"h "+String(m).padStart(2,"0")+"m "+String(s).padStart(2,"0")+"s";
@@ -1716,7 +1718,11 @@ document.getElementById("groupsGrid").addEventListener("click",e=>{
   const link=e.target.closest(".team-link");
   if(link){e.preventDefault();e.stopPropagation();showTeamDialog(link.dataset.team);}
 });
-document.getElementById("standingsStrip").addEventListener("click",e=>{
+ document.getElementById("standingsStrip").addEventListener("click",e=>{
+  const link=e.target.closest(".team-link");
+  if(link){e.preventDefault();e.stopPropagation();showTeamDialog(link.dataset.team);}
+});
+document.getElementById("kickoff").addEventListener("click",e=>{
   const link=e.target.closest(".team-link");
   if(link){e.preventDefault();e.stopPropagation();showTeamDialog(link.dataset.team);}
 });
