@@ -667,6 +667,8 @@ const IDLE_INTERVAL = 27000;
 let lastComedyTime = 0;
 let lastCornerTime = 0;
 const CORNER_COOLDOWN = 3000;
+// Referee sprite state
+const ref = { x: WORLD_W/2, y: WORLD_H/2, targetX: WORLD_W/2, targetY: WORLD_H/2, inFight: false, fightX: 0, fightY: 0 };
 const COMEDY_COOLDOWN = 10000; // 10 seconds minimum between comedy events
 const playerEventCounts = new Map(); // name → {dives:0, fights:0, selfies:0}
 
@@ -1452,6 +1454,34 @@ function drawPlayer(ctx, p) {
 }
 
 // ---- DRAW BALL ----
+function drawReferee(ctx) {
+  // Track ball, offset to side; during fight: sprint to cluster
+  ref.targetX = ref.inFight ? ref.fightX : ball.x + 75;
+  ref.targetY = ref.inFight ? ref.fightY : ball.y - 25;
+  ref.x += (ref.targetX - ref.x) * (ref.inFight ? 0.18 : 0.03);
+  ref.y += (ref.targetY - ref.y) * (ref.inFight ? 0.18 : 0.03);
+  ref.x = Math.max(PITCH_L+5, Math.min(PITCH_R-5, ref.x));
+  ref.y = Math.max(PITCH_T+5, Math.min(PITCH_B-5, ref.y));
+  const rx = ref.x, ry = ref.y;
+  // Shadow
+  ctx.fillStyle = 'rgba(0,0,0,0.18)';
+  ctx.beginPath(); ctx.ellipse(rx, ry+3, 6, 2.5, 0, 0, Math.PI*2); ctx.fill();
+  // Black body with yellow stripe
+  ctx.fillStyle = '#111827';
+  ctx.fillRect(rx-3, ry-4, 6, 9);
+  ctx.fillStyle = '#f0c44c';
+  ctx.fillRect(rx-3, ry+1, 6, 2);
+  // Head
+  ctx.fillStyle = '#ddb896';
+  ctx.beginPath(); ctx.arc(rx, ry-7, 5, 0, Math.PI*2); ctx.fill();
+  ctx.strokeStyle = '#111'; ctx.lineWidth = 0.5; ctx.stroke(); ctx.lineWidth = 1;
+  // Show yellow card during fight
+  if (ref.inFight && Math.random() < 0.08) {
+    ctx.fillStyle = '#f0c44c';
+    ctx.fillRect(rx+5, ry-12, 6, 8);
+  }
+}
+
 function drawBall(ctx) {
   ctx.fillStyle = 'rgba(0,0,0,0.25)';
   ctx.beginPath();
@@ -1801,6 +1831,14 @@ function triggerCornerKick(attackingTeam, goalEnd, side) {
 }
 
 function updatePlayerAI(p, teammates, opponents, roles) {
+  // Walk-off animation for red-carded player
+  if (p.state === 'walkingOff') {
+    const dx = p.walkOffTargetX - p.x, dy = p.walkOffTargetY - p.y;
+    const d = Math.sqrt(dx*dx+dy*dy);
+    if (d > 8) { p.x += (dx/d)*3; p.y += (dy/d)*3; }
+    else { p.sentOff = true; } // fully off pitch — stop drawing
+    return;
+  }
   if (p.sentOff) return;
 
   // Decrement state timers
@@ -2096,22 +2134,47 @@ function triggerMassConfrontation() {
   AudioManager.playComedy();
   comedyStats.fights++;
   window.DEBUG_STATS.fights++;
-  // 6+ players cluster around center
-  const allPlayers = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff);
-  const fighters = allPlayers.sort(() => Math.random() - 0.5).slice(0, Math.min(8, allPlayers.length));
+  triggerComedyCooldown();
+  // 8-10 players from both teams involved
+  const allP = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff && p.state !== 'sentOff');
+  const fighters = allP.sort((a,b) => dist(a.x,a.y,ball.x,ball.y)-dist(b.x,b.y,ball.x,ball.y)).slice(0, Math.min(10, allP.length));
   const cx = ball.x, cy = ball.y;
   for (const p of fighters) {
     p.state = 'fighting';
-    p.stateTimer = 80;
-    moveToward(p, cx + (Math.random() - 0.5) * 30, cy + (Math.random() - 0.5) * 30, p.speed);
+    p.stateTimer = 300; // 5 seconds at 60fps
+    moveToward(p, cx + (Math.random()-0.5)*40, cy + (Math.random()-0.5)*40, p.speed);
     trackPlayerEvent(p.name, 'fights');
   }
-  // Visual: exclamation bubbles floating up from cluster
+  // Referee runs into fight
+  if (typeof ref !== 'undefined') { ref.inFight = true; ref.fightX = cx; ref.fightY = cy; }
+  // Visual effects
   addEffect('exclaim', cx, cy);
-  addEffect('exclaim', cx + 20, cy - 10);
+  addEffect('exclaim', cx - 25, cy + 15);
+  addEffect('exclaim', cx + 30, cy - 20);
   const zones = ['halfway line', 'penalty area', 'corner flag', 'centre circle'];
-  const fightVars = { zone: zones[Math.floor(Math.random() * zones.length)] };
+  const fightVars = { zone: zones[Math.floor(Math.random() * zones.length)], fouler: fighters[0]?.lastName || 'Someone' };
   addCommentary('comedy', pickComment('fight', fightVars));
+  // After 5 seconds: card decision
+  setTimeout(() => {
+    if (typeof ref !== 'undefined') ref.inFight = false;
+    fighters.forEach(p => { if (p.state === 'fighting') p.state = 'idle'; });
+    const victim = fighters[Math.floor(Math.random() * fighters.length)];
+    if (!victim || victim.sentOff) return;
+    const rand = Math.random();
+    if (rand < 0.15) {
+      // RED CARD
+      victim.sentOff = true; victim.state = 'walkingOff';
+      victim.walkOffTargetX = victim.x < WORLD_W/2 ? PITCH_L - 50 : PITCH_R + 50;
+      victim.walkOffTargetY = victim.y;
+      AudioManager.playCard(); AudioManager.playWhistle(false);
+      addEffect('red_flash', ball.x, ball.y, {duration: 0.4});
+      addCommentary('card', `RED CARD! ${victim.lastName} is given his marching orders! Incredible scenes.`);
+      window.DEBUG_STATS.reds = (window.DEBUG_STATS.reds||0)+1;
+    } else if (rand < 0.75) {
+      AudioManager.playCard();
+      addCommentary('card', `Yellow card for ${victim.lastName}. Not the last one tonight, probably.`);
+    }
+  }, 5000);
 }
 
 function triggerKeeperRush(team) {
@@ -2472,6 +2535,7 @@ function drawFrame() {
   drawPitch(ctx);
   const allPlayers = [...homePlayers, ...awayPlayers].sort((a, b) => a.y - b.y);
   for (const p of allPlayers) drawPlayer(ctx, p);
+  drawReferee(ctx);
   drawBall(ctx);
   drawPitchInvader(ctx);
   updateAndDrawEffects(); // Visual effects in world space
