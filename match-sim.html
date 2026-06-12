@@ -1041,7 +1041,7 @@ const PITCH_M = PW / 105; // pixels per metre (pitch width = 105m)
 const GOAL_W = Math.round(7.32 * PITCH_M), GOAL_H = Math.round(2.4 * PITCH_M);
 const GOAL_L = (WORLD_W / 2) - (GOAL_W / 2), GOAL_R = (WORLD_W / 2) + (GOAL_W / 2);
 const GOAL_TOP_Y = PITCH_T - GOAL_H, GOAL_BOT_Y = PITCH_B;
-const BALL_R = 4, PLAYER_HEAD_R = 20, PLAYER_BODY_W = 6, PLAYER_BODY_H = 10;
+const BALL_R = 7, PLAYER_HEAD_R = 20, PLAYER_BODY_W = 6, PLAYER_BODY_H = 10;
 const FRICTION = 0.98, MAX_SPEED = 10, SPRINT_SPEED = 5.6, JOG_SPEED = 2.4, GK_SPEED = 7;
 const TACKLE_RANGE = 32, PASS_SPEED = 9, SHOOT_SPEED = 14, DRIBBLE_SPEED = 4.4;
 
@@ -1563,16 +1563,7 @@ function drawPlayer(ctx, p) {
   ctx.textBaseline = 'middle';
   ctx.fillText(String(p.number), x, y - 1);
 
-  // --- Ball at feet ---
-  if (hasBall) {
-    const dir = Math.atan2(p.vy || 1, p.vx || 0);
-    const bfx = x + Math.cos(dir) * 10;
-    const bfy = y + Math.sin(dir) * 10;
-    ctx.fillStyle = '#fff';
-    ctx.beginPath();
-    ctx.arc(bfx, bfy, 5, 0, Math.PI * 2);
-    ctx.fill();
-  }
+  // Ball at feet removed — the actual ball tracks the owner in updateBall()
 
   // --- Diving effect ---
   if (p.state === 'diving') {
@@ -1641,16 +1632,54 @@ function drawReferee(ctx) {
 function drawBall(ctx) {
   ctx.fillStyle = 'rgba(0,0,0,0.25)';
   ctx.beginPath();
-  ctx.ellipse(ball.x + 2, ball.y + 2, BALL_R + 1, BALL_R - 1, 0, 0, Math.PI * 2);
+  ctx.ellipse(ball.x + 2, ball.y + 3, BALL_R + 2, BALL_R - 1, 0, 0, Math.PI * 2);
   ctx.fill();
 
+  const bx = ball.x, by = ball.y, br = BALL_R;
+
+  // White base
   ctx.fillStyle = '#fff';
   ctx.beginPath();
-  ctx.arc(ball.x, ball.y, BALL_R, 0, Math.PI * 2);
+  ctx.arc(bx, by, br, 0, Math.PI * 2);
   ctx.fill();
-  ctx.strokeStyle = '#ccc';
-  ctx.lineWidth = 0.5;
+
+  // Classic dodecahedron pentagon pattern (5 dark patches)
+  ctx.fillStyle = '#222';
+  const spin = (Date.now() / 300) * (Math.abs(ball.vx) + Math.abs(ball.vy)) * 0.05;
+  for (let i = 0; i < 5; i++) {
+    const angle = spin + (i / 5) * Math.PI * 2;
+    const px = bx + Math.cos(angle) * br * 0.52;
+    const py = by + Math.sin(angle) * br * 0.52;
+    ctx.beginPath();
+    // Small pentagon approximated as circle
+    ctx.arc(px, py, br * 0.28, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  // Center pentagon
+  ctx.beginPath();
+  ctx.arc(bx, by, br * 0.3, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Outline
+  ctx.strokeStyle = '#555';
+  ctx.lineWidth = 0.8;
+  ctx.beginPath();
+  ctx.arc(bx, by, br, 0, Math.PI * 2);
   ctx.stroke();
+  ctx.lineWidth = 1;
+
+  // Seam lines (connecting pentagons)
+  ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+  ctx.lineWidth = 0.5;
+  for (let i = 0; i < 5; i++) {
+    const a1 = spin + (i / 5) * Math.PI * 2;
+    const a2 = spin + ((i + 1) % 5 / 5) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.moveTo(bx + Math.cos(a1) * br * 0.52, by + Math.sin(a1) * br * 0.52);
+    ctx.lineTo(bx + Math.cos(a2) * br * 0.52, by + Math.sin(a2) * br * 0.52);
+    ctx.stroke();
+  }
+  ctx.lineWidth = 1;
 }
 
 // ---- DRAW VAR OVERLAY ----
