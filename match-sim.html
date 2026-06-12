@@ -941,6 +941,47 @@ function updateAndDrawEffects() {
       ctx.lineWidth = 1;
     }
 
+    else if (e.type === 'possession_change') {
+      // Big directional arrow showing team gaining possession
+      if (age > e.duration) { activeEffects.splice(i, 1); continue; }
+      const alpha = age < 0.3 ? age / 0.3 : 1 - (age - 0.3) / (e.duration - 0.3);
+      const teamCol = e.toTeam === 0 ? 'rgba(255,255,255,' : 'rgba(240,196,76,';
+
+      // Arrow pointing in attack direction (team 0 attacks up, team 1 attacks down)
+      const arrowDir = e.toTeam === 0 ? -1 : 1;
+      const arrowLen = 60 + age * 40; // grows over time
+      const baseY = e.y;
+      const tipY = baseY + arrowDir * arrowLen;
+      const headSize = 16;
+
+      // Shaft — thick dashed line
+      ctx.strokeStyle = teamCol + (alpha * 0.7) + ')';
+      ctx.lineWidth = 4;
+      ctx.setLineDash([10, 6]);
+      ctx.beginPath();
+      ctx.moveTo(e.x, baseY);
+      ctx.lineTo(e.x, tipY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Arrowhead — solid triangle
+      ctx.fillStyle = teamCol + alpha + ')';
+      ctx.beginPath();
+      ctx.moveTo(e.x, tipY);
+      ctx.lineTo(e.x - headSize, tipY - arrowDir * headSize);
+      ctx.lineTo(e.x + headSize, tipY - arrowDir * headSize);
+      ctx.closePath();
+      ctx.fill();
+
+      // Label: "INTERCEPTION" / team name
+      ctx.fillStyle = teamCol + (alpha * 0.9) + ')';
+      ctx.font = 'bold 10px monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(e.playerName.toUpperCase(), e.x, baseY - arrowDir * 12);
+      ctx.lineWidth = 1;
+    }
+
     else if (e.type === 'special_event') {
       // This renders in SCREEN SPACE (after ctx.restore) — flag it
       e.screenSpace = true;
@@ -1050,6 +1091,13 @@ const GOAL_TOP_Y = PITCH_T - GOAL_H, GOAL_BOT_Y = PITCH_B;
 const BALL_R = 7, PLAYER_HEAD_R = 20, PLAYER_BODY_W = 6, PLAYER_BODY_H = 10;
 const FRICTION = 0.98, MAX_SPEED = 10, SPRINT_SPEED = 5.6, JOG_SPEED = 2.4, GK_SPEED = 7;
 const TACKLE_RANGE = 32, PASS_SPEED = 12, SHOOT_SPEED = 16, DRIBBLE_SPEED = 4.0;
+// Penalty box geometry (in world-space pixels)
+const PB_W = 40.32 * (PW / 105); // penalty box width
+const PB_H = 16.5 * (PW / 105);  // penalty box depth
+const PB_X = (WORLD_W - PB_W) / 2; // penalty box left edge
+const PEN_SPOT_DIST = 11 * (PW / 105); // penalty spot distance from goal line
+// Possession change tracking
+let lastPossessionTeam = -1; // -1 = no team
 
 // ---- STATE ----
 let gameState = 'teamSelect'; // teamSelect | playing | halftime | goalScored | fulltime
@@ -2561,6 +2609,151 @@ function findNearestPlayerName(players, x, y) {
   return nearest ? nearest.lastName : 'someone';
 }
 
+// ---- PENALTY BOX CHECK ----
+// Returns which team's penalty box contains the point, or -1
+// Team 0 (home) defends PITCH_B (bottom), team 1 (away) defends PITCH_T (top)
+function inPenaltyBox(x, y) {
+  if (x >= PB_X && x <= PB_X + PB_W) {
+    // Top penalty box (away's defensive box — team 1 defends here)
+    if (y >= PITCH_T && y <= PITCH_T + PB_H) return 1;
+    // Bottom penalty box (home's defensive box — team 0 defends here)
+    if (y >= PITCH_B - PB_H && y <= PITCH_B) return 0;
+  }
+  return -1;
+}
+
+// ---- PENALTY KICK ----
+let penaltyState = null; // { attackingTeam, kicker, keeper, phase, timer }
+
+function triggerPenaltyKick(attackingTeam, fouledPlayer) {
+  const defendingTeam = attackingTeam === 0 ? 1 : 0;
+  const goalY = attackingTeam === 0 ? PITCH_T : PITCH_B;
+  const spotY = attackingTeam === 0 ? PITCH_T + PEN_SPOT_DIST : PITCH_B - PEN_SPOT_DIST;
+  const spotX = WORLD_W / 2;
+
+  // Find kicker — the fouled player, or best forward
+  const attackers = (attackingTeam === 0 ? homePlayers : awayPlayers).filter(p => !p.sentOff);
+  let kicker = fouledPlayer || attackers.find(p => p.position === 'FW') || attackers[0];
+
+  // Find keeper
+  const defenders = (defendingTeam === 0 ? homePlayers : awayPlayers).filter(p => !p.sentOff);
+  const keeper = defenders.find(p => p.position === 'GK') || defenders[0];
+
+  // Stop all play
+  ball.vx = 0; ball.vy = 0;
+  ball.x = spotX; ball.y = spotY;
+  ball.owner = null; ball.free = true;
+
+  // Position kicker behind ball
+  kicker.x = spotX; kicker.y = spotY + (attackingTeam === 0 ? 40 : -40);
+  kicker.vx = 0; kicker.vy = 0; kicker.state = 'idle';
+
+  // Position keeper on goal line
+  keeper.x = spotX; keeper.y = goalY + (attackingTeam === 0 ? 5 : -5);
+  keeper.vx = 0; keeper.vy = 0; keeper.state = 'idle';
+
+  // Position everyone else behind the penalty arc
+  const arcEdgeY = attackingTeam === 0 ? spotY + PEN_SPOT_DIST * 0.7 : spotY - PEN_SPOT_DIST * 0.7;
+  const allOthers = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff && p !== kicker && p !== keeper);
+  allOthers.forEach((p, i) => {
+    p.vx = 0; p.vy = 0;
+    // Spread them across the width, behind the penalty arc
+    const spread = (i - allOthers.length/2) * 30;
+    p.x = Math.max(PITCH_L + 30, Math.min(PITCH_R - 30, spotX + spread));
+    p.y = arcEdgeY + (attackingTeam === 0 ? 1 : -1) * (20 + Math.abs(spread) * 0.3);
+    p.state = 'idle';
+  });
+
+  // Camera focuses on penalty spot
+  snapCamera(spotX, spotY);
+
+  // Commentary
+  AudioManager.playWhistle(false);
+  const kickerRoster = findPlayerInRoster(kicker.lastName, attackingTeam);
+  const keeperRoster = findPlayerInRoster(keeper.lastName, defendingTeam);
+  const tName = attackingTeam === 0 ? homeTeamName : awayTeamName;
+  addCommentary('card', `PENALTY! ${tName} awarded a penalty kick!`);
+  setTimeout(() => {
+    addCommentary('default', `${kicker.lastName} places the ball on the spot. ${keeper.lastName} bouncing on the line.`);
+  }, 1500);
+
+  // Set penalty state — the game loop will handle the kick after a delay
+  penaltyState = {
+    attackingTeam, kicker, keeper, phase: 'setup', timer: 150, // 2.5 seconds at 60fps
+    goalY, spotX, spotY
+  };
+}
+
+function updatePenaltyKick() {
+  if (!penaltyState) return false;
+  const ps = penaltyState;
+
+  ps.timer--;
+
+  if (ps.phase === 'setup') {
+    // Kicker walks up to ball
+    const approachY = ps.spotY + (ps.attackingTeam === 0 ? 8 : -8);
+    moveToward(ps.kicker, ps.spotX, approachY, 1.5);
+    // Keeper bounces
+    ps.keeper.x = ps.spotX + Math.sin(Date.now() / 200) * 20;
+
+    if (ps.timer <= 0) {
+      ps.phase = 'kick';
+      ps.timer = 10;
+    }
+    return true; // block normal play
+  }
+
+  if (ps.phase === 'kick') {
+    if (ps.timer === 10) {
+      // THE KICK
+      AudioManager.playKick();
+      const aimX = ps.spotX + (Math.random() - 0.5) * GOAL_W * 0.8;
+      const aimY = ps.goalY + (ps.attackingTeam === 0 ? -5 : 5);
+      const d = dist(ps.spotX, ps.spotY, aimX, aimY);
+      ball.vx = ((aimX - ps.spotX) / d) * SHOOT_SPEED * 1.2;
+      ball.vy = ((aimY - ps.spotY) / d) * SHOOT_SPEED * 1.2;
+      ball.lastTouchedBy = ps.kicker;
+      ball.owner = null; ball.free = true;
+      ps.kicker.state = 'idle';
+
+      // Keeper dive decision — picks a side
+      const diveDir = Math.random() < 0.5 ? -1 : 1;
+      const diveSpeed = GK_SPEED * 1.8;
+      ps.keeper.vx = diveDir * diveSpeed;
+      ps.keeper.vy = (ps.goalY - ps.keeper.y) * 0.1;
+    }
+
+    ps.timer--;
+    if (ps.timer <= 0) {
+      ps.phase = 'aftermath';
+      ps.timer = 60; // 1 second to let the ball reach the goal or get saved
+    }
+    return true;
+  }
+
+  if (ps.phase === 'aftermath') {
+    ps.timer--;
+    // Let ball physics + goal detection run normally, but block AI
+    updateBall();
+    if (ps.timer <= 0) {
+      // Penalty sequence over — resume normal play
+      penaltyState = null;
+      // If ball didn't go in, reset
+      if (gameState !== 'goalScored') {
+        addCommentary('default', ball.y > PITCH_T && ball.y < PITCH_B ?
+          `${ps.keeper.lastName} saves it! What a stop!` :
+          `${ps.kicker.lastName} puts it wide! The agony!`);
+        AudioManager.playSave();
+      }
+      return false;
+    }
+    return true;
+  }
+
+  return false;
+}
+
 // ---- TACKLING ----
 function attemptTackle(tackler, ballCarrier) {
   const roll = Math.random();
@@ -2580,6 +2773,31 @@ function attemptTackle(tackler, ballCarrier) {
     ball.x = ballCarrier.x;
     ball.y = ballCarrier.y;
     const minute = Math.floor(matchClock);
+
+    // Check if foul is in the penalty box — PENALTY!
+    const boxTeam = inPenaltyBox(ballCarrier.x, ballCarrier.y);
+    if (boxTeam !== -1 && boxTeam === tackler.team) {
+      // Foul by defender in their own box → penalty to attacker
+      const attackingTeam = ballCarrier.team;
+      addCommentary('card', `FOUL by ${tackler.lastName} inside the box!`);
+      // Card for the foul
+      if (Math.random() < 0.35) {
+        AudioManager.playCard();
+        if (Math.random() < 0.15) {
+          addCommentary('card', `RED CARD for ${tackler.lastName}! Last man! Denying a clear goal-scoring opportunity!`);
+          tackler.state = 'walkingOff';
+          tackler.walkOffTargetX = tackler.x < WORLD_W/2 ? PITCH_L - 50 : PITCH_R + 50;
+          tackler.walkOffTargetY = tackler.y;
+          comedyStats.redCards++;
+          addEffect('red_flash', 0, 0);
+        } else {
+          addCommentary('card', `Yellow card for ${tackler.lastName}. Cynical challenge.`);
+        }
+      }
+      triggerPenaltyKick(attackingTeam, ballCarrier);
+      return; // skip normal foul handling
+    }
+
     addCommentary('card', pickComment('foul', { fouler: tackler.lastName, victim: ballCarrier.lastName }));
 
     // Card chance
@@ -3001,19 +3219,9 @@ function gameLoop() {
       varActive = false;
       addCommentary('var', `VAR decision: ${varResult}`);
       if (varResult === 'PENALTY!') {
-        // Give ball to random attacker near penalty spot
+        // VAR awards a penalty to a random team
         const team = Math.random() < 0.5 ? 0 : 1;
-        const players = team === 0 ? homePlayers : awayPlayers;
-        const taker = players.find(p => !p.sentOff && p.position === 'FW') || players.find(p => !p.sentOff && p.position !== 'GK');
-        if (taker) {
-          const penY = team === 0 ? PITCH_T + 110 : PITCH_B - 110;
-          taker.x = WORLD_W / 2;
-          taker.y = penY;
-          ball.x = WORLD_W / 2;
-          ball.y = penY;
-          ball.owner = taker;
-          ball.free = false;
-        }
+        triggerPenaltyKick(team, null);
       }
     }
     drawFrame();
@@ -3098,8 +3306,33 @@ function gameLoop() {
 
     updateScoreboard();
 
+    // Penalty kick in progress — blocks normal play
+    if (penaltyState) {
+      const blocking = updatePenaltyKick();
+      // Still draw players moving during penalty
+      for (const p of [...homePlayers, ...awayPlayers]) applyVelocity(p);
+      updateCamera();
+      drawFrame();
+      return;
+    }
+
     // Update ball
     updateBall();
+
+    // Track possession changes for visual arrow
+    if (ball.owner) {
+      const newTeam = ball.owner.team;
+      if (lastPossessionTeam !== -1 && newTeam !== lastPossessionTeam) {
+        // Possession changed teams — flash an arrow
+        addEffect('possession_change', ball.x, ball.y, {
+          fromTeam: lastPossessionTeam,
+          toTeam: newTeam,
+          playerName: ball.owner.lastName,
+          duration: 1.2,
+        });
+      }
+      lastPossessionTeam = newTeam;
+    }
 
     // Update players
     const homeRoles = getChaseRoles(homePlayers);
@@ -3300,59 +3533,94 @@ function drawFrame() {
 
   drawMinimap();
 
-  // Special team event overlay (cinematic)
+  // Special team event overlay (cinematic — FILLS ENTIRE SCREEN)
   const specialEvt = activeEffects.find(e => e.type === 'special_event');
   if (specialEvt) {
     const age = (Date.now() - specialEvt.startTime) / 1000;
     if (age < specialEvt.duration) {
-      // FULL SCREEN dramatic overlay — heavy blackout
-      const alpha = age < 0.8 ? age * 0.9 : (age > specialEvt.duration - 1 ? (specialEvt.duration - age) * 0.8 : 0.75);
-      ctx.fillStyle = `rgba(0,0,0,${Math.min(0.8, alpha)})`;
-      ctx.fillRect(0, 0, CW, CH);
+      ctx.save();
+
+      // SCREEN SHAKE — violent at start, settles
+      const shakeIntensity = age < 1.5 ? (1.5 - age) * 6 : Math.sin(age * 8) * 1.5;
+      ctx.translate(
+        Math.sin(Date.now() * 0.03) * shakeIntensity,
+        Math.cos(Date.now() * 0.04) * shakeIntensity
+      );
+
+      // FULL SCREEN dramatic overlay — near-total blackout
+      const alpha = age < 0.5 ? age * 1.8 : (age > specialEvt.duration - 1.2 ? (specialEvt.duration - age) * 0.75 : 0.88);
+      ctx.fillStyle = `rgba(0,0,0,${Math.min(0.92, alpha)})`;
+      ctx.fillRect(-10, -10, CW + 20, CH + 20);
 
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
-      // Giant canvas-drawn icon (retro pixel art — no emoji dependency)
-      const pulse = Math.sin(age * 3) * 0.15 + 1;
-      drawSpecialIcon(ctx, specialEvt.data.icon, CW/2, CH/2 - 60, 80 * pulse);
+      // GIANT canvas-drawn icon — MUCH bigger, pulsing, with glow
+      const pulse = Math.sin(age * 3) * 0.2 + 1;
+      const iconSize = Math.min(CW * 0.22, 160) * pulse;
+      // Glow behind icon
+      const gradient = ctx.createRadialGradient(CW/2, CH/2 - 50, 0, CW/2, CH/2 - 50, iconSize * 1.5);
+      gradient.addColorStop(0, `rgba(240,196,76,${0.3 * alpha})`);
+      gradient.addColorStop(1, 'rgba(240,196,76,0)');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(CW/2 - iconSize*2, CH/2 - 50 - iconSize*2, iconSize*4, iconSize*4);
+      drawSpecialIcon(ctx, specialEvt.data.icon, CW/2, CH/2 - 50, iconSize);
 
-      // MASSIVE title — fills width
-      const titleSize = Math.min(CW * 0.08, 64) + Math.sin(age*2.5) * 4;
+      // MASSIVE title — nearly full width, bouncing
+      const titleBounce = age < 1 ? Math.pow(1 - age, 2) * 100 : 0;
+      const titleSize = Math.min(CW * 0.12, 90) + Math.sin(age*2.5) * 6;
       ctx.fillStyle = '#f0c44c';
-      ctx.font = `bold ${titleSize}px "Anton", sans-serif`;
-      // Text stroke for readability
-      ctx.strokeStyle = 'rgba(0,0,0,0.6)';
-      ctx.lineWidth = 3;
-      ctx.strokeText(specialEvt.data.title, CW/2, CH/2 + 30);
-      ctx.fillText(specialEvt.data.title, CW/2, CH/2 + 30);
+      ctx.font = `bold ${Math.round(titleSize)}px "Anton", sans-serif`;
+      ctx.strokeStyle = 'rgba(0,0,0,0.8)';
+      ctx.lineWidth = 5;
+      ctx.strokeText(specialEvt.data.title, CW/2, CH/2 + 50 + titleBounce);
+      ctx.fillText(specialEvt.data.title, CW/2, CH/2 + 50 + titleBounce);
       ctx.lineWidth = 1;
 
-      // Description — larger
-      ctx.fillStyle = 'rgba(255,255,255,0.9)';
-      ctx.font = 'bold 16px "Space Mono", monospace';
-      ctx.fillText(specialEvt.data.desc, CW/2, CH/2 + 75);
+      // Description — large, with typewriter fade-in
+      const descChars = Math.floor(Math.max(0, age - 1.5) * 30);
+      const descText = (specialEvt.data.desc || '').substring(0, descChars);
+      if (descText) {
+        ctx.fillStyle = 'rgba(255,255,255,0.95)';
+        ctx.font = 'bold 18px "Space Mono", monospace';
+        ctx.fillText(descText, CW/2, CH/2 + 110);
+      }
 
-      // Team name + flash border
-      ctx.fillStyle = 'rgba(240,196,76,0.6)';
-      ctx.font = 'bold 13px "Space Mono", monospace';
-      ctx.fillText(`--- ${specialEvt.data.teamName} SPECIAL EVENT ---`, CW/2, CH/2 + 105);
+      // Team name banner — full width gold bar
+      const barAlpha = 0.4 + Math.sin(age * 4) * 0.2;
+      ctx.fillStyle = `rgba(240,196,76,${barAlpha * 0.15})`;
+      ctx.fillRect(0, CH/2 + 130, CW, 30);
+      ctx.fillStyle = `rgba(240,196,76,${barAlpha})`;
+      ctx.font = 'bold 14px "Space Mono", monospace';
+      ctx.fillText(`=== ${specialEvt.data.teamName.toUpperCase()} SPECIAL EVENT ===`, CW/2, CH/2 + 145);
 
-      // Animated border flash
-      const borderAlpha = 0.3 + Math.sin(age * 5) * 0.2;
+      // Animated DOUBLE border flash — thick gold frame
+      const borderPhase = (age * 5) % (Math.PI * 2);
+      const borderAlpha = 0.4 + Math.sin(borderPhase) * 0.3;
       ctx.strokeStyle = `rgba(240,196,76,${borderAlpha})`;
-      ctx.lineWidth = 4;
-      ctx.strokeRect(20, 20, CW - 40, CH - 40);
+      ctx.lineWidth = 6;
+      ctx.strokeRect(8, 8, CW - 16, CH - 16);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = `rgba(255,255,255,${borderAlpha * 0.4})`;
+      ctx.strokeRect(16, 16, CW - 32, CH - 32);
       ctx.lineWidth = 1;
 
-      // Slow-mo indicator
+      // CRT scanlines over the overlay for retro feel
+      ctx.fillStyle = 'rgba(0,0,0,0.08)';
+      for (let y = 0; y < CH; y += 3) {
+        ctx.fillRect(0, y, CW, 1);
+      }
+
+      // Slow-mo indicator — larger
       if (specialSlowMo < 0.5) {
-        ctx.fillStyle = 'rgba(240,196,76,0.5)';
-        ctx.font = '10px "Space Mono", monospace';
+        ctx.fillStyle = 'rgba(240,196,76,0.6)';
+        ctx.font = 'bold 12px "Space Mono", monospace';
         ctx.textAlign = 'right';
-        ctx.fillText('◀◀ SLOW MOTION', CW - 10, CH - 10);
+        ctx.fillText('<<< SLOW MOTION >>>', CW - 15, CH - 15);
         ctx.textAlign = 'center';
       }
+
+      ctx.restore();
     }
   }
 
@@ -3561,7 +3829,7 @@ function parseMidi(buf) {
   const u32=()=>{if(p+4>len)return 0;return(d[p++]<<24)|(d[p++]<<16)|(d[p++]<<8)|d[p++];};
   const u16=()=>{if(p+2>len)return 0;return(d[p++]<<8)|d[p++];};
   const vlq=()=>{let v=0,b,i=0;do{if(p>=len)return v;b=d[p++];v=(v<<7)|(b&0x7f);if(++i>4)break;}while(b&0x80);return v;};
-  p=8; const fmt=u16(),trks=u16(),div=u16()||96; const notes=[];
+  p=8; const fmt=u16(),trks=u16(),div=u16()||96; const notes=[]; let tempo=500000; // default 120 BPM in microseconds per quarter note
   for(let t=0;t<trks&&p<len;t++){
     if(p+8>len)break;
     p+=4; const tl=u32(); const end=Math.min(p+tl,len); let tk=0,ls=0; const on={};
@@ -3573,32 +3841,56 @@ function parseMidi(buf) {
       if(tp===0x90){if(p+2>end){p=end;break;}const n=d[p++],v=d[p++];if(v>0){on[n]={t:tk,v};}else if(on[n]){notes.push({t:on[n].t/div,n,v:on[n].v,dur:(tk-on[n].t)/div});delete on[n];}}
       else if(tp===0x80){if(p+2>end){p=end;break;}const n=d[p++];p++;if(on[n]){notes.push({t:on[n].t/div,n,v:on[n].v,dur:(tk-on[n].t)/div});delete on[n];}}
       else if(tp===0xC0||tp===0xD0){p++;}
-      else if(tp===0xFF){if(p>=end)break;p++;const l=vlq();p=Math.min(p+l,end);}
+      else if(tp===0xFF){
+        if(p>=end)break;
+        const metaType=d[p++]; const l=vlq();
+        // Extract tempo meta event (0x51 = Set Tempo, 3 bytes: microseconds per quarter note)
+        if(metaType===0x51 && l===3 && p+3<=end){
+          tempo=(d[p]<<16)|(d[p+1]<<8)|d[p+2];
+          console.log('[MIDI] Tempo meta event:', tempo, 'us/qn =', Math.round(60000000/tempo), 'BPM');
+        }
+        p=Math.min(p+l,end);
+      }
       else if(tp===0xF0||tp===0xF7){const l=vlq();p=Math.min(p+l,end);}
       else{p+=2;}
     }
     p=end; // ensure we advance to next track even if parsing was incomplete
     for(const n in on)notes.push({t:on[n].t/div,n:+n,v:on[n].v,dur:0.1});
   }
-  return {div,notes:notes.sort((a,b)=>a.t-b.t)};
+  const bpm = Math.round(60000000 / tempo);
+  console.log('[MIDI] Final tempo:', bpm, 'BPM,', notes.length, 'notes');
+  return {div, notes:notes.sort((a,b)=>a.t-b.t), bpm};
 }
 
-function scheduleMidi(midiData, maxSec=10, tempo=120) {
+function scheduleMidi(midiData, maxSec=10) {
   const ac = AudioManager.ctx;
   if (!ac || AudioManager.muted) return;
-  const bps = tempo/60;
-  const mg = ac.createGain(); mg.gain.value=0.5; mg.connect(ac.destination); // louder!
-  for(const n of midiData.notes){
-    const s=n.t/bps; if(s>maxSec) break;
-    const dur=Math.min(n.dur/bps,1.4);
-    const freq=440*Math.pow(2,(n.n-69)/12);
-    const osc=ac.createOscillator(), g=ac.createGain();
-    osc.type='square'; osc.frequency.value=freq;
-    g.gain.setValueAtTime((n.v/127)*0.6, ac.currentTime+s);
-    g.gain.linearRampToValueAtTime(0, ac.currentTime+s+dur);
+  // Use parsed BPM from MIDI file, fallback to 120
+  const bpm = midiData.bpm || 120;
+  const bps = bpm / 60;
+  console.log('[MIDI] Scheduling at', bpm, 'BPM,', midiData.notes.length, 'notes, maxSec=', maxSec);
+  const mg = ac.createGain(); mg.gain.value = 0.6; mg.connect(ac.destination);
+  let scheduled = 0;
+  for (const n of midiData.notes) {
+    const s = n.t / bps; if (s > maxSec) break;
+    const dur = Math.max(0.05, Math.min(n.dur / bps, 2.0));
+    const freq = 440 * Math.pow(2, (n.n - 69) / 12);
+    // Skip inaudible frequencies (below 50Hz or above 8kHz)
+    if (freq < 50 || freq > 8000) continue;
+    const osc = ac.createOscillator(), g = ac.createGain();
+    // Use triangle wave for warmer, more audible anthem sound
+    osc.type = freq < 200 ? 'sawtooth' : 'triangle';
+    osc.frequency.value = freq;
+    const vol = (n.v / 127) * 0.55;
+    g.gain.setValueAtTime(vol, ac.currentTime + s);
+    // Gentle decay envelope for smoother sound
+    g.gain.setValueAtTime(vol, ac.currentTime + s + dur * 0.7);
+    g.gain.linearRampToValueAtTime(0, ac.currentTime + s + dur);
     osc.connect(g); g.connect(mg);
-    osc.start(ac.currentTime+s); osc.stop(ac.currentTime+s+dur+0.05);
+    osc.start(ac.currentTime + s); osc.stop(ac.currentTime + s + dur + 0.05);
+    scheduled++;
   }
+  console.log('[MIDI] Scheduled', scheduled, 'oscillators');
 }
 
 async function playAnthemMidi(slug, maxSec=10) {
