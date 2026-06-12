@@ -143,7 +143,22 @@
       "club": "Wolverhampton Wanderers",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34169114",
+      "full_name": "황희찬",
+      "last_name": "Hwang",
+      "first_name": "Hee-chan",
+      "bio": "Hwang Hee-chan (born 26 January 1996) is a South Korean professional footballer who plays as a winger for Premier League club Wolverhampton Wanderers and the South Korea national team.",
+      "birth_location": "Chuncheon, Gangwon, South Korea",
+      "height": "1.77 m (5 ft 10 in)",
+      "weight": "170 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/hwangheechan/"
+      },
+      "wikidata_id": "Q18551518"
     },
     {
       "number": 12,
@@ -156,7 +171,19 @@
       "club": "Jeonbuk Hyundai Motors",
       "club_nation": "KOR",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34202635",
+      "full_name": "송범근",
+      "last_name": "Song",
+      "first_name": "Bum-keun",
+      "bio": "Song Bum-keun (Hangul: 송범근; Hanja: 宋範根; born 15 October 1997) is a South Korean footballer who plays as a goalkeeper for Jeonbuk Hyundai Motors and the South Korea national team.",
+      "birth_location": "Sangju, Korea Republic",
+      "height": "1.94 m (6 ft 4 in)",
+      "weight": "203 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
@@ -169,7 +196,19 @@
       "club": "Austria Wien",
       "club_nation": "AUT",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34230549",
+      "full_name": "이태석",
+      "last_name": "Lee",
+      "first_name": "Tae-seok",
+      "bio": "Lee Tae-seok (Korean: 이태석; born 28 July 2002) is a South Korean footballer who plays as a left back or left winger for Austria Wien and the South Korea national team. He is the son of South Korean footballer Lee Eul-yong.",
+      "birth_location": "Seoul, South Korea",
+      "height": "174 cm",
+      "weight": "159 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 14,
@@ -195,7 +234,20 @@
       "club": "Daejeon Hana Citizen",
       "club_nation": "KOR",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34195860",
+      "full_name": "김문환",
+      "last_name": "Kim",
+      "first_name": "Moon-hwan",
+      "bio": "Kim Moon-hwan (Korean: 김문환; born 1 August 1995) is a South Korean professional footballer who plays as a right-back for K League 1 club Daejeon Hana Citizen and the South Korea national team.",
+      "birth_location": "Hwaseong, South Korea",
+      "height": "172 cm",
+      "weight": "64 kg",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q31146726"
     },
     {
       "number": 16,
@@ -208,7 +260,19 @@
       "club": "Zhejiang",
       "club_nation": "CHN",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34230415",
+      "full_name": "박진섭",
+      "last_name": "Park",
+      "first_name": "Jin-seob",
+      "bio": "Park Jin-seob (Korean: 박진섭; born 23 October 1995) is a South Korean professional footballer who plays as a defensive midfielder or a centre-back for Chinese Super League club Zhejiang FC and the South Korea national team.",
+      "birth_location": "Jeonju, Korea Republic",
+      "height": "182 cm",
+      "weight": "78 kg",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 17,
@@ -221,7 +285,19 @@
       "club": "Stoke City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34220918",
+      "full_name": "배준호",
+      "last_name": "Bae",
+      "first_name": "Jun-ho",
+      "bio": "Bae Jun-ho (born 21 August 2003) is a South Korean professional footballer who currently plays as an attacking midfielder or left winger for EFL Championship club Stoke City. On 31 August 2023, Bae joined Stoke City for an undisclosed fee on a four-year contract.",
+      "birth_location": "Daegu, South Korea",
+      "height": "180 cm",
+      "weight": "",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 18,
@@ -234,7 +310,19 @@
       "club": "Beşiktaş",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34215706",
+      "full_name": "오현규",
+      "last_name": "Oh",
+      "first_name": "Hyeon-gyu",
+      "bio": "Oh Hyeon-gyu (Korean: 오현규; born 12 April 2001) is a South Korean professional footballer who plays as a striker for Süper Lig club Beşiktaş and the South Korea national team.",
+      "birth_location": "Namyangju, Gyeonggi, Korea, South",
+      "height": "185 cm",
+      "weight": "",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 19,
@@ -247,7 +335,22 @@
       "club": "Paris Saint-Germain",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34170313",
+      "full_name": "이강인",
+      "last_name": "Lee",
+      "first_name": "Kang-in",
+      "bio": "Lee Kang-in (Korean: 이강인; born 19 February 2001) is a South Korean professional footballer who plays as an attacking midfielder or left winger for Ligue 1 club Paris Saint-Germain and the South Korea national team.\r\n\r\nA product of Valencia's youth academy, Lee made his professional debut for the club at the age of 17 in 2018, becoming the youngest South Korean footballer to debut professionally in Europe. In his debut season, he won the Copa del Rey, before making his UEFA Champions League debut",
+      "birth_location": "Incheon, South Korea",
+      "height": "1.73 m (5 ft 8 in)",
+      "weight": "146 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/kanginleeoficial/"
+      },
+      "wikidata_id": "Q16174734"
     },
     {
       "number": 20,
@@ -260,7 +363,19 @@
       "club": "Celtic",
       "club_nation": "SCO",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34221777",
+      "full_name": "양현준",
+      "last_name": "Yang",
+      "first_name": "Hyun-jun",
+      "bio": "Yang Hyun-jun (Korean: 양현준; born 25 May 2002) is a South Korean footballer who plays for Scottish Premiership club Celtic and the South Korea national team.\r\n\r\nYang joined Gangwon FC just after graduating from high school in 2021. He was evaluated as the best K League talent by winning four Young Player of the Month awards and the Young Player of the Year award in his second professional season. He attracted Koreans with his dribbling skills during the season, especially in the K League All-Star",
+      "birth_location": "Busan, Korea, South",
+      "height": "176 cm",
+      "weight": "69 kg",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 21,

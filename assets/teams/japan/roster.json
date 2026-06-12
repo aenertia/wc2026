@@ -13,7 +13,22 @@
       "club": "Parma",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34180612",
+      "full_name": "鈴木 彩艶",
+      "last_name": "Suzuki",
+      "first_name": "Zion",
+      "bio": "Zion Suzuki (鈴木 彩艶, Suzuki Zaion; born 21 August 2002) is a professional footballer who plays as a goalkeeper for Serie A club Parma. Born in the United States, he represents the Japan national team.",
+      "birth_location": "Newark, New Jersey, United States",
+      "height": "1.90 m (6 ft 2 in)",
+      "weight": "214 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/zionsuzuki/"
+      },
+      "wikidata_id": "Q67498669"
     },
     {
       "number": 2,
@@ -26,7 +41,22 @@
       "club": "Werder Bremen",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34170380",
+      "full_name": "菅原 由勢",
+      "last_name": "Sugawara",
+      "first_name": "Yukinari",
+      "bio": "Yukinari Sugawara (菅原 由勢, Sugawara Yukinari; born 28 June 2000) is a Japanese professional footballer who plays as a right-back for Bundesliga club Werder Bremen, on loan from EFL Championship club Southampton, and the Japan national team.",
+      "birth_location": "Toyokawa, Aichi, Japan",
+      "height": "179 cm",
+      "weight": "150 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "twitter": "twitter.com/ssggwwrrr"
+      },
+      "wikidata_id": "Q50073536"
     },
     {
       "number": 3,

@@ -13,7 +13,24 @@
       "club": "Bayern Munich",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34146681",
+      "full_name": "Manuel Peter Neuer",
+      "last_name": "Neuer",
+      "first_name": "Manuel",
+      "bio": "Manuel Peter Neuer (German pronunciation: ; born 27 March 1986) is a German professional footballer who plays as a goalkeeper for and captains Bundesliga club Bayern Munich. Widely regarded as one of the greatest and most influential goalkeepers in the history of the sport, Neuer has been described as a \"sweeper-keeper\" because of his playing style and speed when rushing off his line to anticipate opponents, going out of the penalty area. He was named the best goalkeeper of the decade from 2011 ",
+      "birth_location": "Gelsenkirchen, Germany",
+      "height": "193 cm",
+      "weight": "203 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "adidas Predator 19.1",
+      "social": {
+        "instagram": "www.instagram.com/manuelneuer",
+        "facebook": "www.facebook.com/manuel.neuer",
+        "twitter": "twitter.com/Manuel_Neuer"
+      },
+      "wikidata_id": "Q107365"
     },
     {
       "number": 2,
@@ -26,7 +43,24 @@
       "club": "Real Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34155217",
+      "full_name": "Antonio Rüdiger",
+      "last_name": "Rüdiger",
+      "first_name": "Antonio",
+      "bio": "Antonio Rüdiger (born 3 March 1993) is a German professional footballer who plays as a centre-back for La Liga club Real Madrid and the Germany national team.\r\n\r\nRüdiger began his career at VfB Stuttgart, representing their reserves in 3. Liga and the first team in the Bundesliga. In 2015 he joined Roma, initially on loan and a year later for a €9 million fee. He was signed by Chelsea in 2017 for an estimated £27 million, where he won the FA Cup in his first season, followed by the UEFA Europa L",
+      "birth_location": "Berlin, Germany",
+      "height": "1.91 m (6 ft 3 in)",
+      "weight": "185 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "Nike Tiempo Legend VII",
+      "social": {
+        "instagram": "www.instagram.com/toniruediger",
+        "facebook": "www.facebook.com/toni.ruediger",
+        "twitter": "twitter.com/ToniRuediger"
+      },
+      "wikidata_id": "Q96755"
     },
     {
       "number": 3,
@@ -104,7 +138,24 @@
       "club": "Bayern Munich",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34155261",
+      "full_name": "Leon Christoph Goretzka",
+      "last_name": "Goretzka",
+      "first_name": "Leon",
+      "bio": "Leon Christoph Goretzka (born 6 February 1995) is a German professional footballer who plays as a midfielder for Bundesliga club Bayern Munich and the Germany national team.\r\n\r\nStarting off his career with VfL Bochum in 2012, he went on play more than 100 Bundesliga games for Schalke 04 before signing with Bayern Munich in 2018. A full international since 2014, he has won more than 50 caps for the Germany national team and represented his country at the 2017 FIFA Confederations Cup, the 2018 FIF",
+      "birth_location": "Bochum, Germany",
+      "height": "189 cm",
+      "weight": "181 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "Nike Mercurial Superfly VI Elite",
+      "social": {
+        "instagram": "www.instagram.com/leon_goretzka/",
+        "facebook": "www.facebook.com/LeonGoretzka/",
+        "twitter": "twitter.com/leongoretzka_"
+      },
+      "wikidata_id": "Q520721"
     },
     {
       "number": 9,
@@ -117,7 +168,20 @@
       "club": "VfB Stuttgart",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34174763",
+      "full_name": "Jamie Leweling",
+      "last_name": "Leweling",
+      "first_name": "Jamie",
+      "bio": "Jamie Leweling (born 26 February 2001) is a German professional footballer who plays as an attacking midfielder, right winger, or forward for Bundesliga club VfB Stuttgart and the Germany national team.",
+      "birth_location": "Nürnberg, Germany",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "190 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Both",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q65964628"
     },
     {
       "number": 10,
@@ -130,7 +194,20 @@
       "club": "Bayern Munich",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34173035",
+      "full_name": "Jamal Musiala",
+      "last_name": "Musiala",
+      "first_name": "Jamal",
+      "bio": "Jamal Musiala (German pronunciation: ; born 26 February 2003) is a German professional footballer who plays as an attacking midfielder for Bundesliga club Bayern Munich and the Germany national team. Widely regarded as one of the best attacking midfielders in the world, Musiala is known for his dribbling, passing, goal threat, and technical skills, and is nicknamed \"Bambi\" for his close-control dribbling.\r\n\r\nMusiala has represented Germany at UEFA Euro 2020, the 2022 FIFA World Cup, and Euro 202",
+      "birth_location": "Stuttgart, Germany",
+      "height": "5 ft 11 in (1.80 m)",
+      "weight": "159 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q96072055"
     },
     {
       "number": 11,
@@ -143,7 +220,20 @@
       "club": "Newcastle United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34170126",
+      "full_name": "Nick Woltemade",
+      "last_name": "Woltemade",
+      "first_name": "Nick",
+      "bio": "Nick Woltemade (German pronunciation: ; born 14 February 2002) is a German professional footballer who plays as a forward or attacking midfielder for Premier League club Newcastle United and the Germany national team.",
+      "birth_location": "Bremen, Germany",
+      "height": "1.98 m (6 ft 6 in)",
+      "weight": "196 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q84158344"
     },
     {
       "number": 12,
@@ -156,7 +246,20 @@
       "club": "TSG Hoffenheim",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34155163",
+      "full_name": "Oliver Baumann",
+      "last_name": "Baumann",
+      "first_name": "Oliver",
+      "bio": "Oliver Baumann (German pronunciation: ; born 2 June 1990 in Breisach) is a German professional footballer who plays as a goalkeeper for Bundesliga club TSG Hoffenheim, where he is also captain, and the Germany national team.",
+      "birth_location": "Breisach am Rhein, Germany",
+      "height": "1.87 m (6 ft 1 1⁄2 in)",
+      "weight": "181 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q129116"
     },
     {
       "number": 13,
@@ -169,7 +272,20 @@
       "club": "Brighton & Hove Albion",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34161400",
+      "full_name": "Pascal Alexander Groß",
+      "last_name": "Groß",
+      "first_name": "Pascal",
+      "bio": "Pascal Alexander Groß (or Gross, born 15 June 1991) is a German professional footballer who plays as a midfielder or full-back for Premier League club Brighton & Hove Albion and the Germany national team.\r\n\r\nA versatile player, Groß has played as a defensive-midfielder, right-back, attacking-midfielder, winger, or forward in his career. He was Brighton's all-time top scorer in the Premier League until 2025, when he was overtaken by Danny Welbeck.\r\n\r\nGroß played for Germany at youth international",
+      "birth_location": "Mannheim, Germany",
+      "height": "1.81 m",
+      "weight": "172 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "Nike Tiempo Legend VII",
+      "social": {},
+      "wikidata_id": "Q509489"
     },
     {
       "number": 14,
@@ -182,7 +298,20 @@
       "club": "Borussia Dortmund",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34179930",
+      "full_name": "Maximilian Beier",
+      "last_name": "Beier",
+      "first_name": "Maximilian",
+      "bio": "Maximilian Beier (born 17 October 2002) is a German professional footballer who plays as a forward for Bundesliga club Borussia Dortmund and the Germany national team.",
+      "birth_location": "Brandenburg an der Havel, Germany",
+      "height": "1.83 m (6 ft 0 in)",
+      "weight": "159 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q80314837"
     },
     {
       "number": 15,
@@ -195,7 +324,22 @@
       "club": "Borussia Dortmund",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34169171",
+      "full_name": "Nico Cedric Schlotterbeck",
+      "last_name": "Schlotterbeck",
+      "first_name": "Nico",
+      "bio": "Nico Schlotterbeck (born 1 December 1999) is a German professional footballer who plays as a centre-back for Bundesliga club Borussia Dortmund and the Germany national team. He will join Borussia Dortmund on 1 July 2022.",
+      "birth_location": "Waiblingen, Germany",
+      "height": "1.91 m (6 ft 3 in)",
+      "weight": "190 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/nico.schlotterbeck/?hl=de"
+      },
+      "wikidata_id": "Q62015814"
     },
     {
       "number": 16,
@@ -273,7 +417,22 @@
       "club": "VfB Stuttgart",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34163489",
+      "full_name": "Alexander Nübel",
+      "last_name": "Nübel",
+      "first_name": "Alexander",
+      "bio": "Alexander Nübel (German pronunciation: ; born 30 September 1996) is a German professional footballer who plays as a goalkeeper for Bundesliga club VfB Stuttgart, on loan from Bayern Munich, and the Germany national team.",
+      "birth_location": "Paderborn, Germany",
+      "height": "1.93 m (6 ft 4 in)",
+      "weight": "190 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "adidas Predator 20.1",
+      "social": {
+        "instagram": "http://www.instagram.com/alexandernuebel/"
+      },
+      "wikidata_id": "Q20435178"
     },
     {
       "number": 22,
@@ -286,7 +445,20 @@
       "club": "RB Leipzig",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34174683",
+      "full_name": "David Raum",
+      "last_name": "Raum",
+      "first_name": "David",
+      "bio": "David Raum (born 22 April 1998) is a German professional footballer who plays as a left midfielder or left back for Bundesliga club RB Leipzig and the Germany national team.",
+      "birth_location": "Nürnberg, Germany",
+      "height": "1.80 m (5 ft 9 in)",
+      "weight": "163 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q28540571"
     },
     {
       "number": 23,
@@ -299,7 +471,20 @@
       "club": "Borussia Dortmund",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34175791",
+      "full_name": "Felix Kalu Nmecha",
+      "last_name": "Nmecha",
+      "first_name": "Felix",
+      "bio": "Felix Kalu Nmecha (born 10 October 2000) is a German footballer who plays as a midfielder for Bundesliga club Borussia Dortmund and the Germany national team.",
+      "birth_location": "Hamburg, Germany",
+      "height": "190 cm",
+      "weight": "161 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q60889488"
     },
     {
       "number": 24,
@@ -312,7 +497,20 @@
       "club": "Newcastle United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34174143",
+      "full_name": "Malick Laye Thiaw",
+      "last_name": "Thiaw",
+      "first_name": "Malick",
+      "bio": "Malick Laye Thiaw is a German-Finnish professional footballer who plays as a defender for Premier League club Newcastle United and the Germany national team. Mainly a centre-back, he can also play as a right-back or defensive midfielder.\r\nThiaw was born and raised in Germany to a Senegalese father and Finnish mother, and holds German and Finnish passports. In 2017, he was called up to represent the Finland U17s, but did not play for them. On 15 March 2021, Thiaw was called up to represent the Ge",
+      "birth_location": "Düsseldorf, Germany",
+      "height": "194cm / 6'4\"",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q87268125"
     },
     {
       "number": 25,
@@ -325,7 +523,20 @@
       "club": "RB Leipzig",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34220489",
+      "full_name": "Forzan Assan Ouédraogo",
+      "last_name": "Ouédraogo",
+      "first_name": "Assan",
+      "bio": "Forzan Assan Ouédraogo (born 9 May 2006) is a German professional footballer who plays as a midfielder for Bundesliga club RB Leipzig.",
+      "birth_location": "Mülheim an der Ruhr, Germany",
+      "height": "191 cm",
+      "weight": "183 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q114825245"
     },
     {
       "number": 26,
@@ -338,7 +549,22 @@
       "club": "VfB Stuttgart",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34200113",
+      "full_name": "Deniz Undav",
+      "last_name": "Undav",
+      "first_name": "Deniz",
+      "bio": "Deniz Undav (born 19 July 1996) is a German professional footballer who plays as a forward for Bundesliga club VfB Stuttgart and the Germany national team.",
+      "birth_location": "Varel, Germany",
+      "height": "179 cm",
+      "weight": "190 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Both",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/deniz_un/"
+      },
+      "wikidata_id": "Q55955918"
     }
   ]
 }

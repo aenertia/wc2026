@@ -312,7 +312,19 @@
       "club": "Dynamo Moscow",
       "club_nation": "RUS",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34202390",
+      "full_name": "Luis Gerardo Chávez Magallón",
+      "last_name": "Chávez",
+      "first_name": "Luis",
+      "bio": "Luis Gerardo Chávez Magallón (born 15 January 1996) is a Mexican professional footballer who plays as a midfielder for Russian Premier League club Dynamo Moscow and the Mexico national team.\r\n\r\nOn 27 April 2022, Chávez made his senior national team debut under Gerardo Martino in a friendly match against Guatemala.",
+      "birth_location": "Cihuatlán, Mexico",
+      "height": "178 cm",
+      "weight": "159 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -325,7 +337,22 @@
       "club": "Guadalajara",
       "club_nation": "MEX",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34193007",
+      "full_name": "Roberto Carlos Alvarado Hernández",
+      "last_name": "Alvarado",
+      "first_name": "Roberto",
+      "bio": "Roberto Carlos Alvarado Hernández (born 7 September 1998), also known as Piojito, is a Mexican professional footballer who plays as a winger for Liga MX club Guadalajara and the Mexico national team. He is the youngest player to ever play in Ascenso MX.\r\n\r\nAlvarado started his career with second division Celaya in 2013 until 2017, when he began to play in the top-flight Liga MX where he briefly participated with clubs Pachuca and Necaxa, winning the 2016–17 CONCACAF Champions League and Clausura",
+      "birth_location": "Salamanca, Guanajuato, Mexico",
+      "height": "1.76 m (5 ft 9 in)",
+      "weight": "152 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/piojo.13/?hl=en"
+      },
+      "wikidata_id": "Q21004804"
     },
     {
       "number": 26,
@@ -338,7 +365,20 @@
       "club": "Guadalajara",
       "club_nation": "MEX",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34181103",
+      "full_name": "Brian Gutiérrez",
+      "last_name": "Gutiérrez",
+      "first_name": "Brian",
+      "bio": "Brian Gutiérrez (born June 17, 2003) is a professional football player who plays as an attacking midfielder for Liga MX club Guadalajara. Born in the United States, he represents the Mexico national team.",
+      "birth_location": "Berwyn, Illinois, United States",
+      "height": "5 ft 10 in (1.78 m)",
+      "weight": "139 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q98536293"
     }
   ]
 }
