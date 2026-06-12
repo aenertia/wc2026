@@ -995,6 +995,33 @@ function updateAndDrawEffects() {
       ctx.lineWidth = 1;
     }
 
+    else if (e.type === 'speed_trail') {
+      // Fading afterimage circle — player flying at speed toward fight
+      if (age > (e.duration || 0.4)) { activeEffects.splice(i, 1); continue; }
+      const alpha = 1 - age / (e.duration || 0.4);
+      const shrink = 1 - age / (e.duration || 0.4);
+      const trailR = PLAYER_HEAD_R * shrink * 0.6;
+      if (trailR > 1) {
+        ctx.globalAlpha = alpha * 0.5;
+        ctx.fillStyle = 'rgba(255,255,200,0.6)';
+        ctx.beginPath(); ctx.arc(e.x, e.y, trailR, 0, Math.PI * 2); ctx.fill();
+        // Motion lines radiating outward
+        ctx.strokeStyle = `rgba(255,200,100,${alpha * 0.4})`;
+        ctx.lineWidth = 1;
+        for (let ml = 0; ml < 4; ml++) {
+          const a = (ml / 4) * Math.PI * 2 + age * 6;
+          const innerR = trailR + 2;
+          const outerR = trailR + 6 + age * 20;
+          ctx.beginPath();
+          ctx.moveTo(e.x + Math.cos(a) * innerR, e.y + Math.sin(a) * innerR);
+          ctx.lineTo(e.x + Math.cos(a) * outerR, e.y + Math.sin(a) * outerR);
+          ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+        ctx.lineWidth = 1;
+      }
+    }
+
     else if (e.type === 'special_event') {
       // This renders in SCREEN SPACE (after ctx.restore) — flag it
       e.screenSpace = true;
@@ -2479,7 +2506,21 @@ function updatePlayerAI(p, teammates, opponents, roles) {
       return;
     }
     if (p.state === 'fighting') {
-      if (p.stateTimer <= 0) p.state = 'idle';
+      // Flying-to-fight phase: player zooms toward brawl at high speed
+      if (p.flyingToFight && p.fightTarget) {
+        const d = dist(p.x, p.y, p.fightTarget.x, p.fightTarget.y);
+        if (d > 20) {
+          // Still flying — drop speed trails
+          if (Math.random() < 0.35) addEffect('speed_trail', p.x, p.y, {duration: 0.3});
+          return; // velocity already set, let physics move the player
+        } else {
+          // Arrived at fight — stop and jiggle
+          p.flyingToFight = false;
+          p.fightTarget = null;
+          p.vx = 0; p.vy = 0;
+        }
+      }
+      if (p.stateTimer <= 0) { p.state = 'idle'; p.flyingToFight = false; p.fightTarget = null; }
       return;
     }
     if (p.state === 'slacking') {
@@ -2955,7 +2996,23 @@ function triggerMassConfrontation() {
   for (const p of fighters) {
     p.state = 'fighting';
     p.stateTimer = 300; // 5 seconds at 60fps
-    moveToward(p, cx + (Math.random()-0.5)*40, cy + (Math.random()-0.5)*40, p.speed);
+    // Launch players at high speed toward fight center (they FLY in)
+    const targetX = cx + (Math.random()-0.5)*40;
+    const targetY = cy + (Math.random()-0.5)*40;
+    const d = dist(p.x, p.y, targetX, targetY);
+    if (d > 25) {
+      p.flyingToFight = true;
+      p.fightTarget = {x: targetX, y: targetY};
+      const flySpeed = Math.max(p.speed * 8, 18);
+      p.vx = ((targetX - p.x) / d) * flySpeed;
+      p.vy = ((targetY - p.y) / d) * flySpeed;
+      // Speed trail at launch position
+      addEffect('speed_trail', p.x, p.y, {duration: 0.4});
+    } else {
+      p.flyingToFight = false;
+      p.fightTarget = null;
+      p.vx = 0; p.vy = 0;
+    }
     trackPlayerEvent(p.name, 'fights');
   }
   // Referee runs into fight
@@ -2970,7 +3027,7 @@ function triggerMassConfrontation() {
   // After 5 seconds: card decision
   setTimeout(() => {
     if (typeof ref !== 'undefined') ref.inFight = false;
-    fighters.forEach(p => { if (p.state === 'fighting') p.state = 'idle'; });
+    fighters.forEach(p => { if (p.state === 'fighting') { p.state = 'idle'; p.flyingToFight = false; p.fightTarget = null; } });
     const victim = fighters[Math.floor(Math.random() * fighters.length)];
     if (!victim || victim.sentOff) return;
     const rand = Math.random();
