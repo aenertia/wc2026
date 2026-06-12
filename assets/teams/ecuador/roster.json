@@ -142,7 +142,19 @@
       "club": "Paris Saint-Germain",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34198722",
+      "full_name": "Willian Joel Pacho Tenorio",
+      "last_name": "Pacho",
+      "first_name": "Willian",
+      "bio": "Willian Joel Pacho Tenorio (born 16 October 2001) is an Ecuadorian professional footballer who plays as a centre-back for Ligue 1 club Paris Saint-Germain and the Ecuador national team.",
+      "birth_location": "Quinindé, Ecuador",
+      "height": "1.86 m (6 ft 1 in)",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 7,
@@ -155,7 +167,23 @@
       "club": "Milan",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34170297",
+      "full_name": "Pervis Josué Estupiñán Tenorio",
+      "last_name": "Estupiñán",
+      "first_name": "Pervis",
+      "bio": "Pervis Josué Estupiñán Tenorio (born 21 January 1998) is an Ecuadorian professional footballer who plays as a left-back for Serie A club AC Milan and the Ecuador national team.",
+      "birth_location": "Esmeraldas, Ecuador",
+      "height": "1.75 m (5 ft 9 in)",
+      "weight": "161 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/pervisestupinan_oficial/",
+        "twitter": "twitter.com/pervisestupinan"
+      },
+      "wikidata_id": "Q20994068"
     },
     {
       "number": 8,
@@ -168,7 +196,19 @@
       "club": "Antwerp",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34221775",
+      "full_name": "Anthony Lenín Valencia Bajaña",
+      "last_name": "Valencia",
+      "first_name": "Anthony",
+      "bio": "Anthony Lenín Valencia Bajaña (born 21 July 2003) is an Ecuadorian professional footballer who plays as a midfielder for Belgian club Royal Antwerp and the Ecuador national team.",
+      "birth_location": "Guayaquil, Ecuador",
+      "height": "174 cm",
+      "weight": "64 kg",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 9,
@@ -181,7 +221,22 @@
       "club": "Venezia",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34170618",
+      "full_name": "John Yeboah Zamora",
+      "last_name": "Yeboah",
+      "first_name": "John",
+      "bio": "John Yeboah Zamora (born 23 June 2000) is a professional footballer who plays as a winger for Serie A club Venezia. Born in Germany, he plays for the Ecuador national team.",
+      "birth_location": "Hamburg, Germany",
+      "height": "1.70 m (5 ft 7 in)",
+      "weight": "146 lbs",
+      "position_detail": "Second Striker",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/john_yeboahjr/?hl=de",
+        "twitter": "twitter.com/johnyeb81400440"
+      }
     },
     {
       "number": 10,
@@ -194,7 +249,19 @@
       "club": "River Plate",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34237572",
+      "full_name": "Ray Kendry Páez Andrade",
+      "last_name": "Páez",
+      "first_name": "Kendry",
+      "bio": "Ray Kendry Páez Andrade (born 4 May 2007) is an Ecuadorian professional footballer who plays as an attacking midfielder or right winger for Argentine Primera División club River Plate, on loan from Premier League club Chelsea, and the Ecuador national team.",
+      "birth_location": "Guayaquil, Ecuador",
+      "height": "177 cm",
+      "weight": "157 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 11,
@@ -363,7 +430,19 @@
       "club": "Atlético Mineiro",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34182528",
+      "full_name": "Ángelo Smit Preciado Quiñónez",
+      "last_name": "Preciado",
+      "first_name": "Ángelo",
+      "bio": "Ángelo Smit Preciado Quiñónez (born 18 February 1998) is an Ecuadorian professional footballer who plays as a right-back or winger for Campeonato Brasileiro Série A club Atlético Mineiro and the Ecuador national team.",
+      "birth_location": "Shushufindi, Ecuador",
+      "height": "173cm / 5'8\"",
+      "weight": "161 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 18,
@@ -376,7 +455,19 @@
       "club": "Midtjylland",
       "club_nation": "DEN",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34245658",
+      "full_name": "Denil Daniel Castillo Preciado",
+      "last_name": "Castillo",
+      "first_name": "Denil",
+      "bio": "Denil Daniel Castillo Preciado (born 24 March 2004) is an Ecuadorian professional footballer who plays as a midfielder for FC Midtjylland and the Ecuador national team.\r\n\r\nOn 24 April 2023, Shakhtar Donetsk announced that they'd signed Castillo to a five-year contract from Liga de Quito, commencing 1 July 2023.\r\n\r\nCastillo signed a five-year deal with Danish Superliga side FC Midtjylland for a €4.00m transfer fee on July 1, 2024.\r\n\r\nCastillo has represented Ecuador at youth level.",
+      "birth_location": "Eloy Alfaro Canton, Ecuador",
+      "height": "189 cm",
+      "weight": "70 kg",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 19,
@@ -389,7 +480,19 @@
       "club": "Flamengo",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34191442",
+      "full_name": "Gonzalo Jordy Plata Jiménez",
+      "last_name": "Plata",
+      "first_name": "Gonzalo",
+      "bio": "Gonzalo Jordy Plata Jiménez (born 1 November 2000) is an Ecuadorian professional footballer who plays as a right winger for Campeonato Brasileiro Serie A club Flamengo and the Ecuador national team.\r\n\r\nPlata joined Sporting from Ecuadorean club Independiente del Valle for an undisclosed fee during the 2018–19 winter transfer window. Plata scored his first Primeira Liga goal for Sporting in a 2–0 win over Boavista on 23 February 2020.\r\nOn 19 May 2021, Plata scored in Sporting's 5–1 win over Marít",
+      "birth_location": "Guayaquil, Ecuador",
+      "height": "178 cm",
+      "weight": "65 kg",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 20,
@@ -530,7 +633,19 @@
       "club": "Tijuana",
       "club_nation": "MEX",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34178310",
+      "full_name": "Jackson Gabriel Porozo Vernaza",
+      "last_name": "Porozo",
+      "first_name": "Jackson",
+      "bio": "Jackson Gabriel Porozo Vernaza (born 4 August 2000) is an Ecuadorian professional footballer who plays as a centre-back for Liga MX club Tijuana and the Ecuador national team.",
+      "birth_location": "San Lorenzo, Ecuador",
+      "height": "1.92 m (6 ft 3 in)",
+      "weight": "181 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -543,7 +658,19 @@
       "club": "Genk",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34237571",
+      "full_name": "Yaimar Abel Medina Ortiz",
+      "last_name": "Medina",
+      "first_name": "Yaimar",
+      "bio": "Yaimar Abel Medina Ortiz (born 5 November 2004) is an Ecuadorian professional footballer who plays as a midfielder for Belgian Pro League club Genk and the Ecuador national team.",
+      "birth_location": "Eloy Alfaro, Ecuador",
+      "height": "177 cm",
+      "weight": "73 kg",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     }
   ]
 }

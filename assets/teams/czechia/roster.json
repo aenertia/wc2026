@@ -13,7 +13,19 @@
       "club": "PSV Eindhoven",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34221237",
+      "full_name": "Matěj Kovář",
+      "last_name": "Kovář",
+      "first_name": "Matěj",
+      "bio": "Matěj Kovář (born 17 May 2000) is a Czech professional footballer who plays as a goalkeeper for Eredivisie club PSV, on loan from Bundesliga club Bayer Leverkusen, and the Czech Republic national team. \r\n\r\nKovář joined the Manchester United youth system in 2018, from Czech club 1. FC Slovácko. He spent time on loan at Swindon Town, where he made his senior debut, Burton Albion and Sparta Prague. A former Czech youth international, Kovář represented his country from under-18 to under-21 level.",
+      "birth_location": "Uherské Hradiště, Czech Republic",
+      "height": "184 cm",
+      "weight": "192 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 2,
@@ -26,7 +38,19 @@
       "club": "Slavia Prague",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34177780",
+      "full_name": "David Zima",
+      "last_name": "Zima",
+      "first_name": "David",
+      "bio": "David Zima (born 8 November 2000) is a Czech professional footballer who plays as a defender for Slavia Prague and the Czech Republic national team.",
+      "birth_location": "Olomouc, Czech Republic",
+      "height": "1.90 m",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 3,
@@ -39,7 +63,19 @@
       "club": "Slavia Prague",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34177783",
+      "full_name": "Tomáš Holeš",
+      "last_name": "Holeš",
+      "first_name": "Tomáš",
+      "bio": "Tomáš Holeš (born 31 March 1993) is a Czech professional footballer who plays as a centre-back, right-back or defensive midfielder for Fortuna Liga club Slavia Prague and the Czech national team.",
+      "birth_location": "Polička, Czech Republic",
+      "height": "180cm / 5'11\"",
+      "weight": "161 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 4,
@@ -52,7 +88,19 @@
       "club": "TSG Hoffenheim",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34228704",
+      "full_name": "Robin Hranáč",
+      "last_name": "Hranáč",
+      "first_name": "Robin",
+      "bio": "Robin Hranáč (born 29 January 2000) is a Czech professional footballer who plays as a defender for Bundesliga club TSG Hoffenheim and the Czech Republic national team.",
+      "birth_location": "Plzeň, Czech Republic",
+      "height": "1.90 m",
+      "weight": "185 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 5,
@@ -65,7 +113,23 @@
       "club": "TSG Hoffenheim",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34172602",
+      "full_name": "Vladimír Coufal",
+      "last_name": "Coufal",
+      "first_name": "Vladimír",
+      "bio": "Vladimír Coufal (born 22 August 1992) is a Czech professional footballer who plays as a right-back for German Bundesliga club Hoffenheim and for the Czech Republic national team.  He has previously played for Bílovec, Hlučín, Opava, Slovan Liberec and Slavia Prague.",
+      "birth_location": "Ostrava, CSSR",
+      "height": "1.79 m (5 ft 10 1⁄2 in)",
+      "weight": "168 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/cuf_5/",
+        "twitter": "twitter.com/coufi5"
+      },
+      "wikidata_id": "Q15113326"
     },
     {
       "number": 6,
@@ -260,7 +324,19 @@
       "club": "Slavia Prague",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34221991",
+      "full_name": "Mojmír Chytil",
+      "last_name": "Chytil",
+      "first_name": "Mojmír",
+      "bio": "Mojmír Chytil (born 29 April 1999) is a Czech footballer who currently plays as a forward for Slavia Prague and the Czech Republic national team.",
+      "birth_location": "Skalka, Prostějov District, Czech Republic",
+      "height": "1.87 m (6 ft 2 in)",
+      "weight": "181 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 14,
@@ -273,7 +349,19 @@
       "club": "Slavia Prague",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34216827",
+      "full_name": "David Jurásek",
+      "last_name": "Jurásek",
+      "first_name": "David",
+      "bio": "David Jurásek (born 7 August 2000) is a Czech professional footballer who plays as a left-back for Süper Lig club Beşiktaş on loan from Primeira Liga club Benfica. He also represents the Czech Republic national team.",
+      "birth_location": "Dolní Němčí, Czech Republic",
+      "height": "1.83 m (6 ft 0 in)",
+      "weight": "168 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 15,
@@ -286,7 +374,19 @@
       "club": "Lyon",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34228708",
+      "full_name": "Pavel Šulc",
+      "last_name": "Šulc",
+      "first_name": "Pavel",
+      "bio": "Pavel Šulc (born 29 December 2000) is a Czech professional footballer who plays as an attacking midfielder for Ligue 1 club Lyon and the Czech Republic national team.",
+      "birth_location": "Karlovy Vary, Czechia",
+      "height": "1.77 m (5 ft 10 in)",
+      "weight": "168 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 16,
@@ -299,7 +399,22 @@
       "club": "Slavia Prague",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34145854",
+      "full_name": "Jindřich Staněk",
+      "last_name": "Staněk",
+      "first_name": "Jindřich",
+      "bio": "Jindřich Staněk (born 27 April 1996) is a Czech professional footballer who plays as a goalkeeper for Czech First League side Slavia Prague and the Czech Republic.",
+      "birth_location": "Strakonice, Czech Republic",
+      "height": "192cm / 6'4\"",
+      "weight": "183 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/stanek.js36/",
+        "twitter": "mobile.twitter.com/ejaytime"
+      }
     },
     {
       "number": 17,
@@ -312,7 +427,19 @@
       "club": "Slavia Prague",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34177786",
+      "full_name": "Lukáš Provod",
+      "last_name": "Provod",
+      "first_name": "Lukáš",
+      "bio": "Lukáš Provod (born 23 October 1996) is a Czech professional footballer who plays as a left winger for Czech First League club Slavia Prague and the Czech Republic national team.",
+      "birth_location": "Plzeň, Czech Republic",
+      "height": "1.89 m (6 ft 2 in)",
+      "weight": "84 kg (185 lb)",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 18,
@@ -325,7 +452,21 @@
       "club": "Slavia Prague",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34170518",
+      "full_name": "Michal Sadílek",
+      "last_name": "Sadílek",
+      "first_name": "Michal",
+      "bio": "Michal Sadílek is a Czech professional footballer who plays as a midfielder for Czech First League club Slavia Prague and the Czech Republic national team.",
+      "birth_location": "Uherské Hradiště, Czech Republic",
+      "height": "1.69 m (5 ft 7 in)",
+      "weight": "141 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/michalsadilek32/"
+      }
     },
     {
       "number": 19,
@@ -338,7 +479,19 @@
       "club": "Slavia Prague",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34163747",
+      "full_name": "Tomáš Chorý",
+      "last_name": "Chorý",
+      "first_name": "Tomáš",
+      "bio": "Tomáš Chorý (born 26 January 1995) is a Czech professional footballer who currently plays as a forward for Slavia Prague and the Czech Republic national team.",
+      "birth_location": "Olomouc, Czech Republic",
+      "height": "1.99 m (6 ft 6 in)",
+      "weight": "225 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 20,
@@ -351,7 +504,21 @@
       "club": "Sparta Prague",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34199059",
+      "full_name": "Jaroslav Zelený",
+      "last_name": "Zelený",
+      "first_name": "Jaroslav",
+      "bio": "Jaroslav Zelený (born 20 August 1992) is a Czech professional footballer who plays for Sparta Prague and the Czech Republic national team.\r\n\r\nOn 3 June 2022, Zelený signed a contract with Sparta Prague.",
+      "birth_location": "Hradec Králové, Czech Republic",
+      "height": "190 cm",
+      "weight": "170 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/jarinzeleny/"
+      }
     },
     {
       "number": 21,
@@ -364,7 +531,19 @@
       "club": "Slavia Prague",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34221988",
+      "full_name": "David Douděra",
+      "last_name": "Douděra",
+      "first_name": "David",
+      "bio": "David Douděra (born 31 May 1998) is a Czech footballer who plays as a right midfielder for Czech First League side Slavia Prague and the Czech Republic national team.",
+      "birth_location": "Brandýs nad Labem-Stará Boleslav, Czechia",
+      "height": "1.75 m",
+      "weight": "146 lbs",
+      "position_detail": "Right Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 22,
@@ -377,7 +556,24 @@
       "club": "West Ham United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34169669",
+      "full_name": "Tomáš Souček",
+      "last_name": "Souček",
+      "first_name": "Tomáš",
+      "bio": "Tomáš Souček (Czech pronunciation: ; born 27 February 1995) is a Czech professional footballer who plays as a defensive midfielder for Premier League club West Ham United and captains the Czech Republic national team.\r\n\r\nAfter representing the Czech Republic in several youth categories, Souček made his debut for the senior side on 15 November 2016 in a friendly match against Denmark. He made his competitive debut on 10 June 2017, in Czech Republic's 1–1 away draw against Norway in a 2018 World C",
+      "birth_location": "Havlíčkův Brod, Czech Republic",
+      "height": "1.92 m (6 ft 4 in)",
+      "weight": "190 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/tomassoucek28/",
+        "facebook": "http://www.facebook.com/tomassoucek28/",
+        "twitter": "http://twitter.com/tomassoucek28"
+      },
+      "wikidata_id": "Q20860081"
     },
     {
       "number": 23,
@@ -390,7 +586,19 @@
       "club": "Braga",
       "club_nation": "POR",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34277806",
+      "full_name": "Lukáš Horníček",
+      "last_name": "Horníček",
+      "first_name": "Lukáš",
+      "bio": "Lukáš Horníček (born 13 July 2002) is a Czech professional footballer who plays as a goalkeeper for Primeira Liga club Braga.",
+      "birth_location": "Vysoké Mýto, Czech Republic",
+      "height": "198 cm",
+      "weight": "196 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 24,
@@ -403,7 +611,19 @@
       "club": "Viktoria Plzeň",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34248017",
+      "full_name": "Alexandr Sojka",
+      "last_name": "Sojka",
+      "first_name": "Alexandr",
+      "bio": "Alexandr Sojka (born 27 August 2003) is a Czech professional footballer who plays as a midfielder for Viktoria Plzeň. His previous clubs include Hradec Králové, who he played for in 2025, and Táborsko, where he spent a year and a half on loan from 2023 to 2024. He has represented the Czech Republic internationally, playing for his nation at the 2025 UEFA European Under-21 Championship. He received his first call-up to the senior side in May 2026.",
+      "birth_location": "Plzeň, Czech Republic",
+      "height": "188 cm",
+      "weight": "",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -416,7 +636,19 @@
       "club": "Sparta Prague",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34436068",
+      "full_name": "Hugo Sochůrek",
+      "last_name": "Sochůrek",
+      "first_name": "Hugo",
+      "bio": "Hugo Sochůrek (born 7 June 2008) is a Czech professional footballer who plays as a midfielder for Sparta Prague.",
+      "birth_location": "Tábor, Czech Republic",
+      "height": "183 cm",
+      "weight": "",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -429,7 +661,19 @@
       "club": "Viktoria Plzeň",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34179376",
+      "full_name": "Denis Višinský",
+      "last_name": "Višinský",
+      "first_name": "Denis",
+      "bio": "Denis Višinský (born 21 March 2003) is a Czech professional footballer who plays as a winger for Viktoria Plzeň.",
+      "birth_location": "Mělník, Czech Republic",
+      "height": "177 cm",
+      "weight": "",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     }
   ]
 }

@@ -216,7 +216,19 @@
       "club": "Barcelona B",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34435946",
+      "full_name": "Hamza Mohamed Abdelkarim Selim, حمزة عبدالكريم;",
+      "last_name": "Abdelkarim",
+      "first_name": "Hamza",
+      "bio": "Hamza Mohamed Abdelkarim Selim (Arabic: حمزة عبدالكريم; born 1 January 2008) is an Egyptian professional footballer who plays as a forward for Segunda Federación club Barcelona Atlètic, on loan from Egyptian Premier League club Al Ahly.",
+      "birth_location": "Cairo, Egypt",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Both",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 10,
@@ -229,7 +241,24 @@
       "club": "Liverpool",
       "club_nation": "ENG",
       "captain": true,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34145506",
+      "full_name": "Mohamed Salah Hamed Mahrous Ghaly; محمد صلاح حامد محروس غالى‎",
+      "last_name": "Salah",
+      "first_name": "Mohamed",
+      "bio": "Mohamed Salah Hamed Mahrous Ghaly (Arabic: محمد صلاح حامد محروس غالى‎, born 15 June 1992) is an Egyptian professional footballer who plays as a forward for Premier League club Liverpool and the Egypt national team. Considered one of the best players in the world, he is known for his finishing, dribbling, and speed.\r\n\r\nSalah started his senior career with Egyptian club El Mokawloon, departing shortly thereafter to join Swiss side Basel for an undisclosed fee. In Switzerland, his performances attr",
+      "birth_location": "Nagrig, Basyoun, Egypt",
+      "height": "1.75 m (5 ft 9 in)",
+      "weight": "71 kg (157 lb)",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "adidas X 19.1",
+      "social": {
+        "instagram": "www.instagram.com/mosalah",
+        "facebook": "www.facebook.com/momosalah/",
+        "twitter": "twitter.com/MoSalah"
+      },
+      "wikidata_id": "Q1354960"
     },
     {
       "number": 11,
@@ -242,7 +271,19 @@
       "club": "Pyramids",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34236190",
+      "full_name": "Mostafa Mohamed Zaki Abdelraouf; مصطفي زيكو",
+      "last_name": "Ziko",
+      "first_name": "Mostafa",
+      "bio": "",
+      "birth_location": "Alexandria, Egypt",
+      "height": "182 cm",
+      "weight": "",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 12,
@@ -255,7 +296,19 @@
       "club": "Oviedo",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34216927",
+      "full_name": "هيثم حسن",
+      "last_name": "Hassan",
+      "first_name": "Haissem",
+      "bio": "Haissem Hassan (born 8 February 2002) is a professional footballer who plays as a forward for Spanish club Real Oviedo. Born in France, he plays for the Egypt national team.",
+      "birth_location": "Bagnolet, France",
+      "height": "1.73 m (5 ft 8 in)",
+      "weight": "157 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
@@ -268,7 +321,19 @@
       "club": "Zamalek",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34195918",
+      "full_name": "Ahmed Mohamed Abou El Fotouh Mohamed, أحمد محمد أبو الفتوح محمد; ",
+      "last_name": "Fatouh",
+      "first_name": "Ahmed",
+      "bio": "Ahmed Mohamed Abou El Fotouh Mohamed (Arabic: أحمد محمد أبو الفتوح محمد; born 22 March 1998), simply known as Ahmed Fatouh (Arabic: أحمد فتوح), is an Egyptian footballer who plays for Egyptian Premier League side Zamalek and the Egypt national team as a left-back or left wing-back.\r\n\r\nFatouh featured in the 2021 Africa Cup of Nations Final against Senegal.",
+      "birth_location": "Cairo, Egypt",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 14,
@@ -281,7 +346,20 @@
       "club": "Al-Wakrah",
       "club_nation": "QAT",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34177377",
+      "full_name": "Hamdy Fathy Abdelhalim Abdelfattah; حمدي فتحى",
+      "last_name": "Fathy",
+      "first_name": "Hamdy",
+      "bio": "Hamdy Fathy Abdelhalim Abdelfattah (Arabic: حمدي فتحي عبد الحليم عبد الفتاح; born 29 September 1994) is an Egyptian professional footballer who plays as a defensive midfielder for Qatar Stars League club Al-Wakrah and the Egypt national team.",
+      "birth_location": "Beheira, Egypt",
+      "height": "1.80 m (5 ft 9 in)",
+      "weight": "",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q35841433"
     },
     {
       "number": 15,
@@ -294,7 +372,19 @@
       "club": "Pyramids",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34192868",
+      "full_name": "Karim Hafez Ramadan Seifeldin; كَرِيم حَافِظ رَمَضَان سَيْف الدِّين",
+      "last_name": "Hafez",
+      "first_name": "Karim",
+      "bio": "Karim Hafez Ramadan Seifeldin (Arabic: كَرِيم حَافِظ رَمَضَان سَيْف الدِّين; born 12 March 1996) is an Egyptian professional footballer who plays for Egyptian Premier League club Pyramids and the Egypt national team as a left-back.",
+      "birth_location": "Beheira, Egypt",
+      "height": "175 cm",
+      "weight": "64 kg",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 16,
@@ -307,7 +397,19 @@
       "club": "Zamalek",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34285857",
+      "full_name": "El Mahdy Soliman, المهدي سليمان;",
+      "last_name": "Soliman",
+      "first_name": "El Mahdy",
+      "bio": "El Mahdy Soliman (Arabic: المهدي سليمان; born 8 June 1987) is an Egyptian professional footballer who plays as a goalkeeper for the Egyptian Premier League side Zamalek SC.",
+      "birth_location": "",
+      "height": "1.89 m (6 ft 2 in)",
+      "weight": "",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 17,
@@ -320,7 +422,19 @@
       "club": "Pyramids",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34232279",
+      "full_name": "Mohanad Mostafa Ahmed Abdelmonem Lasheen; مهند مصطفى لاشين",
+      "last_name": "Lasheen",
+      "first_name": "Mohanad",
+      "bio": "Mohanad Mostafa Ahmed Abdelmonem Lasheen (born 29 May 1996) is an Egyptian professional footballer who plays as a central midfielder for Egyptian Premier League club Pyramids and the Egypt national team.",
+      "birth_location": "Cairo, Egypt",
+      "height": "179 cm",
+      "weight": "70 kg",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 18,
@@ -333,7 +447,19 @@
       "club": "Al-Najma",
       "club_nation": "KSA",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34232258",
+      "full_name": "Nabil Emad Aly Elmahdy; نبيل عماد علي المهدي",
+      "last_name": "Emad",
+      "first_name": "Nabil",
+      "bio": "Nabil Emad Aly Elmahdy (Arabic: نبيل عماد علي المهدي; born 6 April 1996) also known as Donga (Arabic: دونجا), is an Egyptian professional footballer who plays as a defensive midfielder for Saudi Pro League club Al-Najma and the Egypt national team.",
+      "birth_location": "El Mahalla El Kubra, Egypt",
+      "height": "179 cm",
+      "weight": "",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 19,
@@ -346,7 +472,19 @@
       "club": "Al Ahly",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34226286",
+      "full_name": "Marwan Attia Fahim Ghallab; مروان عطية",
+      "last_name": "Attia",
+      "first_name": "Marwan",
+      "bio": "Marwan Attia Fahim Ghallab (Arabic: مروان عطية فاهم غلاب; born 1 August 1998) is an Egyptian footballer who plays as a midfielder for Egyptian Premier League club Al Ahly and the Egypt national team.\r\n\r\nHe signed with Al Ahly SC in the middle of the 2022–23 season amid interest from arch-rivals Zamalek SC on a four-and-a-half-year contract.\r\n\r\nHe was called up for the first time to the Egyptian national team in August 2022, before making his first appearance on 24 March 2023.\r\n\r\nAttia's father p",
+      "birth_location": "Kafr El Dawwar, Egypt",
+      "height": "170 cm",
+      "weight": "",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 20,
@@ -359,7 +497,19 @@
       "club": "Nordsjælland",
       "club_nation": "DEN",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34232497",
+      "full_name": "Ibrahim Adel Ali Mohamed Hassan, إِبْرَاهِيم عَادِل عَلِيّ مُحَمَّد حَسَن;",
+      "last_name": "Adel",
+      "first_name": "Ibrahim",
+      "bio": "Ibrahim Adel Ali Mohamed Hassan (Arabic: إِبْرَاهِيم عَادِل عَلِيّ مُحَمَّد حَسَن; born 23 April 2001), is an Egyptian professional footballer who plays for Danish Superliga club FC Nordsjælland, on loan from UAE Pro League side Al Jazira as a winger and the Egypt national team.",
+      "birth_location": "Port Said, Egypt",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 21,
@@ -372,7 +522,19 @@
       "club": "ZED",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34232398",
+      "full_name": "Mahmoud Saber Abdelmohsen Hassan, مَحْمُود صَابِر عَبْد الْمُحْسِن حَسَن‎;",
+      "last_name": "Saber",
+      "first_name": "Mahmoud",
+      "bio": "Mahmoud Saber Abdelmohsen Hassan (Arabic: مَحْمُود صَابِر عَبْد الْمُحْسِن حَسَن‎; born 30 July 2001) is an Egyptian professional footballer who plays as a central midfielder for ZED on loan from Pyramids and the Egypt national team.",
+      "birth_location": "Desouk, Egypt",
+      "height": "1.70 m (5 ft 7 in)",
+      "weight": "",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 22,
@@ -385,7 +547,20 @@
       "club": "Manchester City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34177531",
+      "full_name": "Omar Khaled Mohamed Abd Elsala Marmoush; مَر خَالِد مُحَمَّد مَرمُوش",
+      "last_name": "Marmoush",
+      "first_name": "Omar",
+      "bio": "Omar Khaled Mohamed Abd Elsala Marmoush (born 7 February 1999) is an Egyptian professional footballer who plays as a forward for Premier League club Manchester City and the Egypt national team.",
+      "birth_location": "Cairo, Egypt",
+      "height": "183cm / 6'0\"",
+      "weight": "179 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q28065104"
     },
     {
       "number": 23,
@@ -398,7 +573,19 @@
       "club": "Al Ahly",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34232260",
+      "full_name": "Mostafa Ahmed Abdelaziz Mohamed Shobeir; مصطفي أحمد شوبير",
+      "last_name": "Shobeir",
+      "first_name": "Mostafa",
+      "bio": "Mostafa Ahmed Abdelaziz Mohamed Shobeir (Arabic: مصطفي أحمد عبد العزيز محمد شوبير; born 17 March 2000) is an Egyptian professional footballer who plays as a goalkeeper for Egyptian club Al Ahly SC and the Egypt national team.\r\n\r\nOn 2 December 2025, Shobeir was called up to the Egypt squad for the 2025 Africa Cup of Nations.\r\n\r\nShobeir is the son of former Egyptian national team goalkeeper Ahmed Shobair.",
+      "birth_location": "Giza, Egypt",
+      "height": "185 cm",
+      "weight": "",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 24,
@@ -411,7 +598,19 @@
       "club": "ZED",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34302796",
+      "full_name": "Tarek Alaa El Gebaly, طارق علاء الجبالي",
+      "last_name": "Alaa",
+      "first_name": "Tarek",
+      "bio": "Tarek Alaa (Arabic: طَارِق عَلَاء; born c. 2003) is an Egyptian professional footballer who plays as a midfielder for Egyptian Premier League club Zamalek and the Egypt national team.",
+      "birth_location": ", Egypt",
+      "height": "",
+      "weight": "",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -424,7 +623,18 @@
       "club": "Al Ahly",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34196983",
+      "full_name": "Ahmed Mostafa Mohamed Sayed; أحمد سيد زيزو",
+      "last_name": "Zizo",
+      "bio": "Ahmed Mostafa Mohamed Sayed (Arabic: أحمد مصطفى محمد سيد; born 10 January 1996) commonly known as Zizo (Arabic: زيزو), is an Egyptian professional footballer who plays as a winger for Egyptian Premier League club Al Ahly and the Egypt national team.\r\n\r\nZizo made his Belgian Pro League debut at 29 March 2014 against Waasland-Beveren in a 0–2 away win in the 2013–14 season, he replaced Souleymane Diomandé after 50 minutes. He went onto make 72 appearances and score 49 goals in his first four seaso",
+      "birth_location": "Cairo, Egypt",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "67 kg (148 lb)",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -437,7 +647,19 @@
       "club": "El Gouna",
       "club_nation": "EGY",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34347482",
+      "full_name": "محمد علاء",
+      "last_name": "Alaa",
+      "first_name": "Mohamed",
+      "bio": "Mohamed Alaa is a 26-year-old Egyptian professional footballer who plays as a goalkeeper for the Egyptian Premier League club El Gouna FC\r\nAlaa completed a transfer to El Gouna FC in July 2024 from Canal SC. He has established himself as a primary goalkeeper for the squad, earning a strong reputation for his reflexes and handling. Fans and media often refer to him by his nickname, \"The Octopus\".\r\nHe is part of the Egypt national football team setup, featuring in international squad selections in",
+      "birth_location": ", Egypt",
+      "height": "",
+      "weight": "",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     }
   ]
 }

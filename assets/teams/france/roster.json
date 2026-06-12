@@ -13,7 +13,24 @@
       "club": "Rennes",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34148020",
+      "full_name": "Brice Lauriche Samba",
+      "last_name": "Samba",
+      "first_name": "Brice",
+      "bio": "Brice Lauriche Samba (born 25 April 1994) is a professional footballer who plays as a goalkeeper for Ligue 1 club Rennes. Born in the Republic of Congo, he plays for the France national team.",
+      "birth_location": "Linzolo, Congo",
+      "height": "1.87 m (6 ft 2 in)",
+      "weight": "196 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/brice_samba1/",
+        "facebook": "www.facebook.com/OfficielBriceSamba/",
+        "twitter": "twitter.com/samba_brice"
+      },
+      "wikidata_id": "Q15627817"
     },
     {
       "number": 2,
@@ -26,7 +43,20 @@
       "club": "Chelsea",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34176466",
+      "full_name": "Malo Arthur Gusto",
+      "last_name": "Gusto",
+      "first_name": "Malo",
+      "bio": "Malo Arthur Gusto (born 19 May 2003) is a French professional footballer who plays as a right-back for Premier League club Chelsea and the France national team.\r\n\r\nOriginally a product of the Lyon academy, Gusto entered the Lyon first team in 2021, where he made over 50 league appearances. During the January 2023 transfer window, Gusto moved to Chelsea for a reported €30 million fee.\r\n\r\nInternationally, Gusto has played for France at both youth and senior levels.",
+      "birth_location": "Décines-Charpieu, France",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "148 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q78752401"
     },
     {
       "number": 3,
@@ -39,7 +69,24 @@
       "club": "Aston Villa",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34152565",
+      "full_name": "Lucas Digne",
+      "last_name": "Digne",
+      "first_name": "Lucas",
+      "bio": "Lucas Digne (born 20 July 1993) is a French professional footballer who plays as a left-back for Premier League club Aston Villa and the France national team. \r\n\r\nDigne began his career at Lille before joining Paris Saint-Germain in 2013. After spending a season on loan at Roma, he moved to Barcelona in July 2016. Despite not playing regularly at either club, he won 12 honours at Paris and Barcelona combined. He joined Everton in August 2018.\r\n\r\nHe won the 2013 World Cup with France under-20, an",
+      "birth_location": "Meaux, France",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "161 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/lucasdigne/",
+        "facebook": "www.facebook.com/Lucas.Digne.Official.Player/",
+        "twitter": "twitter.com/lucasdigne"
+      },
+      "wikidata_id": "Q72648"
     },
     {
       "number": 4,
@@ -52,7 +99,20 @@
       "club": "Bayern Munich",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34164100",
+      "full_name": "Dayotchanculle Oswald Upamecano",
+      "last_name": "Upamecano",
+      "first_name": "Dayot",
+      "bio": "Dayotchanculle Oswald Upamecano (born 27 October 1998) is a French professional footballer who plays as a centre-back for Bundesliga club Bayern Munich and the France national team.",
+      "birth_location": "Évreux, France",
+      "height": "186 cm",
+      "weight": "196 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q20723878"
     },
     {
       "number": 5,
@@ -65,7 +125,22 @@
       "club": "Barcelona",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34165619",
+      "full_name": "Jules Olivier Koundé",
+      "last_name": "Koundé",
+      "first_name": "Jules",
+      "bio": "Jules Olivier Koundé (born 12 November 1998) is a French professional footballer who plays as a defender for Spanish La Liga club FC Barcelona",
+      "birth_location": "Paris, France",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "163 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/jkeey4/"
+      },
+      "wikidata_id": "Q47170176"
     },
     {
       "number": 6,
@@ -78,7 +153,21 @@
       "club": "Roma",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34174783",
+      "full_name": "Kouadio Emmanuel Boris Koné",
+      "last_name": "Koné",
+      "first_name": "Manu",
+      "bio": "Kouadio Emmanuel Boris Koné (born 17 May 2001) is a French professional footballer who plays as a midfielder for Serie A club Roma and the France national team.",
+      "birth_location": "Colombes, France",
+      "height": "1.86 m (6 ft 1 in)",
+      "weight": "174 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/manu_kne/"
+      }
     },
     {
       "number": 7,
@@ -91,7 +180,23 @@
       "club": "Paris Saint-Germain",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34161375",
+      "full_name": "Masour Ousmane Dembélé",
+      "last_name": "Dembélé",
+      "first_name": "Ousmane",
+      "bio": "Masour Ousmane Dembélé (born 15 May 1997) is a French professional footballer who plays as a winger for Ligue 1 club Paris Saint-Germain and the France national team. \r\n\r\nBorn in Vernon, Dembélé began his career at Rennes before joining Dortmund in 2016. He won the DFB-Pokal with die Borussen in the 2016–17 season, scoring a goal in the final. A year later, he transferred to Barcelona for an initial fee of €105 million, becoming at the time the joint-second most expensive footballer ever alongsi",
+      "birth_location": "Vernon, France",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "148 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Both",
+      "kit": "Nike Mercurial Vapor XIII Elite FG",
+      "social": {
+        "instagram": "www.instagram.com/o.dembele7/",
+        "twitter": "twitter.com/Dembouz"
+      },
+      "wikidata_id": "Q20851003"
     },
     {
       "number": 8,
@@ -104,7 +209,22 @@
       "club": "Real Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34168133",
+      "full_name": "Aurélien Djani Tchouaméni",
+      "last_name": "Tchouaméni",
+      "first_name": "Aurélien",
+      "bio": "Aurélien Djani Tchouaméni (born 27 January 2000) is a French professional footballer who plays as a defensive midfielder for Ligue 1 club Monaco and the France national team. He will join La Liga club Real Madrid on 1 July 2022.",
+      "birth_location": "Rouen, France",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "179 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "twitter": "twitter.com/atchouameni"
+      },
+      "wikidata_id": "Q46951844"
     },
     {
       "number": 9,
@@ -117,7 +237,20 @@
       "club": "Inter Milan",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34169231",
+      "full_name": "Marcus Lilian Thuram-Ulien",
+      "last_name": "Thuram",
+      "first_name": "Marcus",
+      "bio": "Marcus Lilian Thuram-Ulien (French pronunciation: ; born 6 August 1997) is a French professional footballer who plays as a forward for Serie A club Inter Milan and the France national team.\r\n\r\nThuram began his professional career at Sochaux in 2015, where he played in three Ligue 2 seasons, before moving to Guingamp in 2017, spending two years in Ligue 1. He then joined Borussia Mönchengladbach spending four seasons in Germany, before he signed for Inter Milan as a free agent in 2023, winning Se",
+      "birth_location": "Parma, Italy",
+      "height": "1.92 m (6 ft 4 in)",
+      "weight": "196 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q19903718"
     },
     {
       "number": 10,
@@ -130,7 +263,24 @@
       "club": "Real Madrid",
       "club_nation": "ESP",
       "captain": true,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34162098",
+      "full_name": "Kylian Mbappé Lottin",
+      "last_name": "Mbappé",
+      "first_name": "Kylian",
+      "bio": "Kylian Mbappé Lottin (born 20 December 1998) is a French professional footballer who plays as a forward for La Liga club Real Madrid and captains the France national team. Regarded as one of the best players in the world and of his generation, he is known for his dribbling, finishing, and speed.\r\n\r\nBorn in Paris and raised in nearby Bondy, Mbappé began his senior club career in 2015 with Monaco, where he won the Ligue 1 title in the 2016–17 season. In 2017, aged 18, Mbappé signed for Paris Saint",
+      "birth_location": "Paris, France",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "163 lb (74 kg)",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "Nike Mercurial Superfly VII Elite FG",
+      "social": {
+        "instagram": "www.instagram.com/k.mbappe/",
+        "facebook": "www.facebook.com/kylianmbappeofficiel",
+        "twitter": "twitter.com/KMbappe"
+      },
+      "wikidata_id": "Q21621995"
     },
     {
       "number": 11,
@@ -143,7 +293,23 @@
       "club": "Bayern Munich",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34172857",
+      "full_name": "Michael Akpovie Olise",
+      "last_name": "Olise",
+      "first_name": "Michael",
+      "bio": "Michael Akpovie Olise (born 12 December 2001) is a professional footballer who plays as an attacking midfielder and winger for Bundesliga club Bayern Munich.\r\n\r\nThe product of various English academies, Olise made his professional debut for Reading in 2019. In 2021, he was signed by Premier League club Crystal Palace, where he spent three seasons before departing for Bayern Munich in 2024.\r\n\r\nBorn in England, he represents France at youth level.",
+      "birth_location": "London, England",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "168 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/m.olise/",
+        "twitter": "twitter.com/michaelolise10"
+      },
+      "wikidata_id": "Q62050484"
     },
     {
       "number": 12,
@@ -156,7 +322,22 @@
       "club": "Paris Saint-Germain",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34197250",
+      "full_name": "Bradley Laurent Barcola",
+      "last_name": "Barcola",
+      "first_name": "Bradley",
+      "bio": "Bradley Laurent Barcola (born 2 September 2002) is a French professional footballer who plays as a forward or winger for Ligue 1 club Paris Saint-Germain.",
+      "birth_location": "Lyon, France",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "161 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/bradley_dls/"
+      },
+      "wikidata_id": "Q99670930"
     },
     {
       "number": 13,
@@ -169,7 +350,24 @@
       "club": "Fenerbahçe",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34152545",
+      "full_name": "N'Golo Kanté",
+      "last_name": "Kanté",
+      "first_name": "N'Golo",
+      "bio": "N'Golo Kanté (born 29 March 1991) is a French professional footballer who plays as a defensive midfielder for Süper Lig club Fenerbahçe and the France national team. Regarded as one of the greatest defensive midfielders of his generation, he is known for his stamina and work-rate on the pitch.\r\n\r\nKanté made his senior professional debut with Boulogne in 2012, appearing as a substitute in one Ligue 2 match, and played an entire season in the third division the following year. After that he joined",
+      "birth_location": "Paris, France",
+      "height": "1.68 m (5 ft 6 in)",
+      "weight": "150 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "adidas X 19.1",
+      "social": {
+        "instagram": "www.instagram.com/nglkante/",
+        "facebook": "www.facebook.com/nglkante/",
+        "twitter": "twitter.com/nglkante"
+      },
+      "wikidata_id": "Q16665941"
     },
     {
       "number": 14,
@@ -182,7 +380,23 @@
       "club": "Milan",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34152573",
+      "full_name": "Adrien Thibault Marie Rabiot",
+      "last_name": "Rabiot",
+      "first_name": "Adrien",
+      "bio": "Adrien Thibault Marie Rabiot (born 3 April 1995) is a French professional footballer who plays as a midfielder for Serie A club AC Milan and the France national team. \r\n\r\nRabiot spent most of his career with PSG, making his debut with the first team in 2012 and winning eighteen major honours, including five Ligue 1 titles and a domestic treble in 2015–16 and 2017–18. In 2019, Rabiot signed for Juventus on a free transfer, winning the Serie A title during his first season with the club and the Co",
+      "birth_location": "Saint-Maurice, France",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "159 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Left",
+      "kit": "adidas Copa 19.1",
+      "social": {
+        "instagram": "www.instagram.com/adrienrabiot_25/",
+        "twitter": "twitter.com/adriien_rabiiot"
+      },
+      "wikidata_id": "Q18962"
     },
     {
       "number": 15,
@@ -195,7 +409,23 @@
       "club": "Liverpool",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34164103",
+      "full_name": "Ibrahima Konaté",
+      "last_name": "Konaté",
+      "first_name": "Ibrahima",
+      "bio": "Ibrahima Konaté (born 25 May 1999) is a French professional footballer who plays as a centre-back for Premier League club Liverpool and the France U21 national team.",
+      "birth_location": "Paris, France",
+      "height": "1.92 m (6 ft 4 in)",
+      "weight": "207 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "facebook": "www.facebook.com/IbrahimaKonateOfficial/",
+        "twitter": "twitter.com/ibrahimakonate_"
+      },
+      "wikidata_id": "Q30301454"
     },
     {
       "number": 16,
@@ -208,7 +438,23 @@
       "club": "Milan",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34152558",
+      "full_name": "Mike Peterson Maignan",
+      "last_name": "Maignan",
+      "first_name": "Mike",
+      "bio": "Mike Peterson Maignan (born 3 July 1995) is a French professional footballer who plays as a goalkeeper for Serie A club AC Milan and the France national team. Considered as one of the best goalkeepers in the world, he is known for his reflexes, distribution and leadership qualities.\r\n\r\nMaignan came through the youth teams at Paris Saint-Germain, where he often served as an unused substitute. In 2015 he joined Lille for €1 million, and became their first-choice in 2017. He was voted Ligue 1's goa",
+      "birth_location": "Cayenne, French Guiana",
+      "height": "191 cm",
+      "weight": "194 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/mmseize/",
+        "twitter": "twitter.com/mmseize"
+      },
+      "wikidata_id": "Q17274709"
     },
     {
       "number": 17,

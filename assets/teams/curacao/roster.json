@@ -68,7 +68,19 @@
       "club": "Abha",
       "club_nation": "KSA",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34218477",
+      "full_name": "Juriën Godfried Juan Gaari",
+      "last_name": "Gaari",
+      "first_name": "Juriën",
+      "bio": "Juriën Godfried Juan Gaari (born 23 December 1993) is a professional footballer for Saudi club Abha. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Kerkrade, Netherlands",
+      "height": "181 cm",
+      "weight": "73 kg",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 4,
@@ -81,7 +93,19 @@
       "club": "RKC Waalwijk",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34246316",
+      "full_name": "Roshon Felix Romar Jordan van Eijma",
+      "last_name": "Eijma",
+      "first_name": "Roshon van",
+      "bio": "Roshon Felix Romar Jordan van Eijma (born 6 June 1998) is a professional footballer who plays as a centre-back for Eerste Divisie club RKC Waalwijk. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Tilburg, Netherlands",
+      "height": "186 cm",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 5,
@@ -94,7 +118,21 @@
       "club": "PEC Zwolle",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34170547",
+      "full_name": "Sherel Constancio Floranus",
+      "last_name": "Floranus",
+      "first_name": "Sherel",
+      "bio": "Sherel Floranus (born 23 August 1998) is a professional footballer who plays as a right-back for Eredivisie club PEC Zwolle. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Rotterdam, Netherlands",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "161 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "facebook": "www.facebook.com/roby.floranus"
+      }
     },
     {
       "number": 6,
@@ -146,7 +184,19 @@
       "club": "Miami FC",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34181047",
+      "full_name": "Jürgen Leonardo Locadia",
+      "last_name": "Locadia",
+      "first_name": "Jürgen",
+      "bio": "Jürgen Leonardo Locadia (born 7 November 1993) is a professional footballer who plays as a striker who currently plays for Miami FC in the USL Championship. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Emmen, Netherlands",
+      "height": "193 cm",
+      "weight": "85 kg",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 10,
@@ -159,7 +209,20 @@
       "club": "Iğdır",
       "club_nation": "TUR",
       "captain": true,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34145458",
+      "full_name": "Leandro Jones Johan Bacuna",
+      "last_name": "Bacuna",
+      "first_name": "Leandro",
+      "bio": "Leandro Jones Johan Bacuna (born 21 August 1991) is a professional footballer who plays as a midfielder or right-back for TFF First League club Iğdır FK. Born in the Netherlands, he was a former youth international for them, before switching to represent the Curaçao national team at senior level. He is their joint most-capped player along with Eloy Room.",
+      "birth_location": "Groningen, Netherlands",
+      "height": "1.87 m (6 ft 2 in)",
+      "weight": "170 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q249344"
     },
     {
       "number": 11,
@@ -172,7 +235,19 @@
       "club": "Kifisia",
       "club_nation": "GRE",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34218502",
+      "full_name": "Jeremy Cornelis Jacobus Antonisse",
+      "last_name": "Antonisse",
+      "first_name": "Jeremy",
+      "bio": "Jeremy Cornelis Jacobus Antonisse (born 29 March 2002) is a professional footballer who plays as a left winger for Greek Super League club A.E. Kifisia. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Rosmalen, Netherlands",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "152 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 12,
@@ -185,7 +260,20 @@
       "club": "Middlesbrough",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34220663",
+      "full_name": "Misjonne Juniffer Naigelino Hansen",
+      "last_name": "Hansen",
+      "first_name": "Sontje",
+      "bio": "Misjonne Juniffer Naigelino \"Sontje\" Hansen (born 18 May 2002) is a professional footballer who plays as a winger for EFL Championship club Middlesbrough. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Hoorn, Netherlands",
+      "height": "173 cm",
+      "weight": "152 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q64224437"
     },
     {
       "number": 13,
@@ -198,7 +286,19 @@
       "club": "Telstar",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34252645",
+      "full_name": "Tyrese Noslin",
+      "last_name": "Noslin",
+      "first_name": "Tyrese",
+      "bio": "Tyrese Noslin (born 11 September 2002) is a professional footballer who plays as a right-back or right midfielder for Eredivisie club Telstar. Born in the Netherlands, he plays for the Curaçao national team.\r\n\r\nNoslin was born in Amsterdam in 2002, but moved with his family to Almere at an early age. He grew up in Almere Haven, living with his parents, younger brother, and two sisters. Noslin attended primary school at De Ark in Almere Haven. Reflecting on his childhood, he recalled: \"I actually",
+      "birth_location": "Amsterdam, Netherlands",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "",
+      "position_detail": "Right Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 14,
@@ -276,7 +376,19 @@
       "club": "Terengganu",
       "club_nation": "MAS",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34195008",
+      "full_name": "Gervane Zjandric Adonnis Kastaneer",
+      "last_name": "Kastaneer",
+      "first_name": "Gervane",
+      "bio": "Gervane Zjandric Adonnis Kastaneer (born 9 June 1996) is a professional footballer who plays as a forward for Malaysia Super League club Terengganu. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Rotterdam, Netherlands",
+      "height": "185 cm",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 20,
@@ -289,7 +401,19 @@
       "club": "Kayserispor",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34218474",
+      "full_name": "Joshua Benjamin Brenet",
+      "last_name": "Brenet",
+      "first_name": "Joshua",
+      "bio": "Joshua Benjamin Brenet (born 20 March 1994) is a professional footballer who plays as a full-back for Kayserispor. Born in the Netherlands, and former Netherlands international, he plays for the Curaçao national team.",
+      "birth_location": "Kerkrade, Netherlands",
+      "height": "181 cm",
+      "weight": "161 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 21,
@@ -302,7 +426,24 @@
       "club": "Sheffield United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34170147",
+      "full_name": "Tahith Jose Girigorio Djorkaef Chong",
+      "last_name": "Chong",
+      "first_name": "Tahith",
+      "bio": "Tahith Jose Girigorio Djorkaef Chong (born 4 December 1999) is a Curaçaoan professional footballer who plays as a wide midfielder or attacking midfielder for EFL Championship club Sheffield United and the Curaçao national team.\r\n\r\nChong joined the Manchester United Academy aged 16, after progressing through the Feyenoord youth system. He won both the Jimmy Murphy Young Player of the Year and Denzil Haroun Reserve Player of the Year awards at United. He made his professional debut in 2019, in an ",
+      "birth_location": "Willemstad, Netherlands Antilles",
+      "height": "185 cm",
+      "weight": "163 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "Nike Mercurial Superfly VII Elite FG",
+      "social": {
+        "instagram": "www.instagram.com/tahithchong/",
+        "facebook": "www.facebook.com/TahithChongOfficial/",
+        "twitter": "twitter.com/tahithc"
+      },
+      "wikidata_id": "Q24961840"
     },
     {
       "number": 22,
@@ -315,7 +456,19 @@
       "club": "Den Bosch",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34220704",
+      "full_name": "Kevin Antonio Felida",
+      "last_name": "Felida",
+      "first_name": "Kevin",
+      "bio": "Kevin Felida (born 11 November 1999) is a professional footballer who plays as a defensive midfielder for Eerste Divisie club Den Bosch. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Spijkenisse, Netherlands",
+      "height": "172 cm",
+      "weight": "141 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 23,
@@ -328,7 +481,21 @@
       "club": "Konyaspor",
       "club_nation": "TUR",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34147338",
+      "full_name": "Riechedly Guillermo Bazoer",
+      "last_name": "Bazoer",
+      "first_name": "Riechedly",
+      "bio": "Riechedly Guillermo Bazoer (born 12 October 1996) is a professional footballer who plays as a centre-back or defensive midfielder for Turkish club Konyaspor. Born in the Netherlands, he represents the Curaçao national team.",
+      "birth_location": "Utrecht, Netherlands",
+      "height": "184 cm",
+      "weight": "161 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "Nike Phantom VSN",
+      "social": {
+        "instagram": "www.instagram.com/riechedly/"
+      }
     },
     {
       "number": 24,
@@ -341,7 +508,19 @@
       "club": "NEC",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34292388",
+      "full_name": "Deveron Fonville",
+      "last_name": "Fonville",
+      "first_name": "Deveron",
+      "bio": "Deveron Fonville (born 16 May 2003) is a professional footballer who plays as a defender for Eredivisie club NEC Nijmegen.",
+      "birth_location": "Nieuwegein, Netherlands",
+      "height": "188 cm",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -354,7 +533,19 @@
       "club": "Telstar",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34252768",
+      "full_name": "Tyrick Bodak",
+      "last_name": "Bodak",
+      "first_name": "Tyrick",
+      "bio": "Tyrick Bodak (born 15 May 2002) is a professional footballer who plays as a goalkeeper for Eredivisie club Telstar. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Almere, Netherlands",
+      "height": "190 cm",
+      "weight": "",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -367,7 +558,19 @@
       "club": "VVV-Venlo",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34275130",
+      "full_name": "Trevor Irving Doornbusch",
+      "last_name": "Doornbusch",
+      "first_name": "Trevor",
+      "bio": "Trevor Doornbusch (born 6 July 1999) is a professional footballer who plays as a goalkeeper for Eerste Divisie club VVV-Venlo. Born in the Netherlands, he plays for the Curaçao national team.",
+      "birth_location": "Haarlem, Netherlands",
+      "height": "188 cm",
+      "weight": "174 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     }
   ]
 }

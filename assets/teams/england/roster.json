@@ -13,7 +13,24 @@
       "club": "Everton",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34146165",
+      "full_name": "Jordan Pickford",
+      "last_name": "Pickford",
+      "first_name": "Jordan",
+      "bio": "Jordan Lee Pickford (né Logan; born 7 March 1994) is an English professional footballer who plays as a goalkeeper for Premier League club Everton and the England national team.\r\n\r\nPickford has previously played for Sunderland's academy, reserve, and senior teams in addition to loan spells at Darlington, Alfreton Town, Burton Albion, Carlisle United, Bradford City and Preston North End. He signed for Everton for a fee of £25 million in June 2017.\r\n\r\nPickford has represented England at under-16, u",
+      "birth_location": "Washington, England",
+      "height": "185 cm",
+      "weight": "181 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/jpickford1/",
+        "facebook": "www.facebook.com/JordanPickfordOfficial/",
+        "twitter": "twitter.com/jpickford1"
+      },
+      "wikidata_id": "Q13014035"
     },
     {
       "number": 2,
@@ -26,7 +43,23 @@
       "club": "Aston Villa",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34161727",
+      "full_name": "Ezri Konsa Ngoyo",
+      "last_name": "Konsa",
+      "first_name": "Ezri",
+      "bio": "Ezri Konsa Ngoyo (born 23 October 1997) is an English professional footballer who plays as a central defender for Aston Villa. He came to prominence at Charlton Athletic and is an England U21 international.",
+      "birth_location": "Newham, England",
+      "height": "1.83 m",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "adidas Copa 19+",
+      "social": {
+        "instagram": "www.instagram.com/ekonsa_/",
+        "twitter": "twitter.com/EKonsa15"
+      },
+      "wikidata_id": "Q27063854"
     },
     {
       "number": 3,
@@ -39,7 +72,19 @@
       "club": "Manchester City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34244585",
+      "full_name": "Nico O'Reilly",
+      "last_name": "O'Reilly",
+      "first_name": "Nico",
+      "bio": "Nico O'Reilly (born 21 March 2005) is an English professional footballer who plays as a left-back or midfielder for Premier League club Manchester City and the England national team.\r\n\r\nA product of Manchester City's academy, O'Reilly made his senior debut in 2024. He won his first major trophy with the club in his second season, scoring a brace in the 2026 EFL Cup final.\r\n\r\nA youth international for England, O'Reilly made his senior debut in 2025.",
+      "birth_location": "Manchester, England",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "170 lbs",
+      "position_detail": "Midfielder",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 4,
@@ -52,7 +97,23 @@
       "club": "Arsenal",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34161584",
+      "full_name": "Declan Rice",
+      "last_name": "Rice",
+      "first_name": "Declan",
+      "bio": "Declan Rice (born 14 January 1999) is an English professional footballer who plays as a defensive midfielder for Premier League club Arsenal and the England national team. \r\n\r\nBorn in England, Rice has paternal Irish grandparents and previously represented the Republic of Ireland internationally at both youth and senior levels, before switching allegiance to England in 2019.\r\n\r\nOn 13 February 2019, Rice pledged his future to England. On 5 March, his change of allegiance was confirmed by FIFA. On",
+      "birth_location": "London, England",
+      "height": "185cm / 6'1\"",
+      "weight": "183 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "adidas Copa 19.1",
+      "social": {
+        "instagram": "www.instagram.com/declanrice/",
+        "twitter": "twitter.com/_DeclanRice"
+      },
+      "wikidata_id": "Q30007142"
     },
     {
       "number": 5,
@@ -65,7 +126,23 @@
       "club": "Manchester City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34145830",
+      "full_name": "John Stones",
+      "last_name": "Stones",
+      "first_name": "John",
+      "bio": "John Stones (born 28 May 1994) is an English professional footballer who plays as a centre back for Premier League club Manchester City and the England national team.\r\n\r\nStones began his career with Barnsley, making his first-team debut in the Championship in March 2012 as a 17-year-old. He joined Premier League club Everton for around £3 million in January 2013 and amassed 95 appearances over four seasons. In August 2016, he signed for Manchester City for an initial £47.5 million with add-ons. ",
+      "birth_location": "Barnsley, England",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "Nike Phantom VNM",
+      "social": {
+        "instagram": "http://www.instagram.com/johnstonesofficial/?hl=it",
+        "twitter": "twitter.com/johnstones26"
+      },
+      "wikidata_id": "Q2025900"
     },
     {
       "number": 6,
@@ -78,7 +155,22 @@
       "club": "Manchester City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34173574",
+      "full_name": "Marc Guehi",
+      "last_name": "Guéhi",
+      "first_name": "Marc",
+      "bio": "Addji Keaninkin Marc-Israel Guéhi (born 13 July 2000) is a professional footballer who plays as a centre-back for Premier League club Manchester City and the England national team. \r\n\r\nGuehi came through the youth system at Chelsea before spending two seasons on loan at Swansea City. He joined Crystal Palace in July 2021, becoming the club's third most expensive signing. He has represented England at youth level and was a regular starter in the 2017 FIFA Under-17 World Cup winning squad.",
+      "birth_location": "Abidjan, Cote d'Ivoire",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/marcguehi/"
+      },
+      "wikidata_id": "Q44737396"
     },
     {
       "number": 7,
@@ -91,7 +183,24 @@
       "club": "Arsenal",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34169884",
+      "full_name": "Bukayo Saka",
+      "last_name": "Saka",
+      "first_name": "Bukayo",
+      "bio": "Bukayo Ayoyinka Temidayo Saka (born 5 September 2001) is an English professional footballer who plays as a right winger for Premier League club Arsenal and the England national team. He is considered to be one of the best young players in the world.\r\n\r\nSaka has spent his entire first-team club career with Arsenal, where he has won an FA Cup and two FA Community Shields, progressively becoming one of Arsenal's most influential players. Following both the 2020–21 and 2021–22 seasons, he was named ",
+      "birth_location": "London, England",
+      "height": "178 cm",
+      "weight": "159 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "New Balance Furon v7",
+      "social": {
+        "instagram": "www.instagram.com/bukayosaka87/",
+        "facebook": "www.facebook.com/BukayoSakaOfficial/",
+        "twitter": "twitter.com/bukayosaka87"
+      },
+      "wikidata_id": "Q59306386"
     },
     {
       "number": 8,
@@ -104,7 +213,19 @@
       "club": "Nottingham Forest",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34175393",
+      "full_name": "Elliot Junior Anderson",
+      "last_name": "Anderson",
+      "first_name": "Elliott",
+      "bio": "Elliot Junior Anderson (born 6 November 2002) is an English professional footballer who plays for Premier League club Nottingham Forest as a midfielder. Born in England, he represented Scotland's youth teams internationally, until he switched nationalities to play for England U21.",
+      "birth_location": "Whitley Bay, England",
+      "height": "5 ft 10 in (1.79 m)",
+      "weight": "",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 9,
@@ -117,7 +238,24 @@
       "club": "Bayern Munich",
       "club_nation": "GER",
       "captain": true,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34146220",
+      "full_name": "Harry Kane",
+      "last_name": "Kane",
+      "first_name": "Harry",
+      "bio": "Harry Edward Kane MBE (born 28 July 1993) is an English professional footballer who plays as a striker for Bundesliga club Bayern Munich and the England national team.\r\nRegarded as one of the best strikers in the world, Kane is known for his prolific goalscoring record and ability to link play.\r\n\r\nBorn and raised in the London borough of Waltham Forest, Kane began his career at Tottenham Hotspur, where, after fast progression through the team's youth academy, he was promoted to the senior team i",
+      "birth_location": "London, England",
+      "height": "188cm / 6'2\"",
+      "weight": "86kg / 190lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "Nike Phantom GT Elite Dynamic Fit FG",
+      "social": {
+        "instagram": "www.instagram.com/harrykane",
+        "facebook": "www.facebook.com/harrykaneofficial",
+        "twitter": "twitter.com/hkane"
+      },
+      "wikidata_id": "Q969725"
     },
     {
       "number": 10,
@@ -130,7 +268,22 @@
       "club": "Real Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34171882",
+      "full_name": "Jude Bellingham",
+      "last_name": "Bellingham",
+      "first_name": "Jude",
+      "bio": "Jude Victor William Bellingham (born 29 June 2003) is an English footballer who plays as a midfielder for La Liga club Real Madrid.\r\n\r\nBellingham joined Birmingham City as an under-8, became the club's youngest ever first-team player when he made his senior debut in August 2019, at the age of 16 years, 38 days, and played regularly during the 2019–20 season. He joined Borussia Dortmund in July 2020. He has represented England at under-15, under-16 and under-17 levels.",
+      "birth_location": "Stourbridge, England",
+      "height": "1.86 m (6 ft 1 in)",
+      "weight": "163 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/judebellingham/"
+      },
+      "wikidata_id": "Q66241169"
     },
     {
       "number": 11,
@@ -143,7 +296,24 @@
       "club": "Barcelona",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34160943",
+      "full_name": "Marcus Rashford",
+      "last_name": "Rashford",
+      "first_name": "Marcus",
+      "bio": "Marcus Rashford (born 31 October 1997) is an English professional footballer who plays as a forward for La Liga club Barcelona, on loan from Premier League club Manchester United, and the England national team.\r\n\r\nA product of the Manchester United youth system, Rashford joined the club at the age of seven. 18-year-old Rashford scored two goals on both his first-team and European debut against Midtjylland in the UEFA Europa League in February 2016 and his Premier League debut against Arsenal thr",
+      "birth_location": "Manchester, England",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "69 kg (152 lb)",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "Nike Mercurial Superfly VII Elite FG",
+      "social": {
+        "instagram": "www.instagram.com/marcusrashford",
+        "facebook": "www.facebook.com/MarcusRashford/",
+        "twitter": "twitter.com/MarcusRashford"
+      },
+      "wikidata_id": "Q22951255"
     },
     {
       "number": 12,
@@ -483,7 +653,23 @@
       "club": "Chelsea",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34145645",
+      "full_name": "Reece James",
+      "last_name": "James",
+      "first_name": "Reece",
+      "bio": "Reece James (born 7 November 1993) is an English professional footballer who plays for EFL League One club Rotherham United. His usual position is as a left-back, but also occasionally plays in midfield. \r\n\r\nAfter spending time as a youth player with Rossendale United, Blackburn Rovers and Preston North End, James followed his brother Matty to Manchester United in 2012; however, he failed to break into the first team, and after loan spells with Carlisle United, Rotherham United and Huddersfield ",
+      "birth_location": "Bacup, England",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "157 lbs",
+      "position_detail": "Defender",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/rjames/",
+        "twitter": "twitter.com/reecejames_24"
+      },
+      "wikidata_id": "Q16235475"
     },
     {
       "number": 25,
@@ -496,7 +682,23 @@
       "club": "Tottenham Hotspur",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34173595",
+      "full_name": "Djed Spence",
+      "last_name": "Spence",
+      "first_name": "Djed",
+      "bio": "Diop Tehuti Djed-Hotep Spence (born 9 August 2000) is an English professional footballer who plays as a full-back for Premier League club Tottenham Hotspur.",
+      "birth_location": "London, England",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "157 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/djedspence/",
+        "twitter": "mobile.twitter.com/djedspence"
+      },
+      "wikidata_id": "Q56222532"
     },
     {
       "number": 26,
@@ -509,7 +711,19 @@
       "club": "Bayer Leverkusen",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34217608",
+      "full_name": "Jarell Amorin Quansah",
+      "last_name": "Quansah",
+      "first_name": "Jarell",
+      "bio": "Jarell Amorin Quansah is an English professional footballer who plays as a centre-back for Bundesliga club Bayer Leverkusen.",
+      "birth_location": "Warrington, England",
+      "height": "190cm / 6'3\"",
+      "weight": "80kg / 176lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     }
   ]
 }
