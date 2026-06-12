@@ -2,6 +2,8 @@
 
 A single-file interactive wallchart for all 104 matches of the 2026 FIFA World Cup (11 June – 19 July). Filter by group, stage or team, switch timezones, and see live scores update automatically.
 
+**Live version: [wc26-wallchart.duckdns.org](https://wc26-wallchart.duckdns.org/world-cup-2026-schedule_1.html)**
+
 ## Features
 
 - All 104 matches with correct IST kick-off times and dates
