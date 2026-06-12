@@ -13,7 +13,19 @@
       "club": "Millwall",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34175359",
+      "full_name": "Maxime Teremoana Crocombe",
+      "last_name": "Crocombe",
+      "first_name": "Max",
+      "bio": "Maxime Teremoana Crocombe (born 12 August 1993) is a New Zealand professional footballer who plays as a goalkeeper for EFL Championship club Millwall. He also represents the New Zealand national team.",
+      "birth_location": "Auckland, New Zealand",
+      "height": "1.94 m (6 ft 4 in)",
+      "weight": "",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 2,
@@ -26,7 +38,19 @@
       "club": "Wellington Phoenix",
       "club_nation": "NZL",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34175347",
+      "full_name": "Timothy John Payne",
+      "last_name": "Payne",
+      "first_name": "Tim",
+      "bio": "Timothy John Payne (born 10 January 1994) is a New Zealand professional footballer who plays as a defender for Wellington Phoenix in the A-League and for the New Zealand national team.\r\nA noted utility player, Payne has played almost every outfield position during his career.",
+      "birth_location": "Papakura, New Zealand",
+      "height": "1.79 m (5 ft 9 in)",
+      "weight": "73 kg",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 3,
@@ -39,7 +63,20 @@
       "club": "Auckland FC",
       "club_nation": "NZL",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34252224",
+      "full_name": "Francis de Vries",
+      "last_name": "Vries",
+      "first_name": "Francis de",
+      "bio": "Francis de Vries (born 28 November 1994) is a New Zealand professional footballer who plays for A-League club Auckland FC and the New Zealand national football team.",
+      "birth_location": "Christchurch, New Zealand",
+      "height": "188 cm",
+      "weight": "",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q29113776"
     },
     {
       "number": 4,
@@ -52,7 +89,20 @@
       "club": "Sheffield United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34222101",
+      "full_name": "Tyler Grant Bindon",
+      "last_name": "Bindon",
+      "first_name": "Tyler",
+      "bio": "Tyler Grant Bindon (born 27 January 2005) is a New Zealand professional footballer who plays as a centre-back for EFL Championship club Sheffield United, on loan from Premier League side Nottingham Forest, and the New Zealand national team.\r\n\r\nEarly life\r\nBindon was born on January 27, 2005, to Jenny and Grant Bindon; his mother won 77 caps for the New Zealand women's soccer team and his father captained the New Zealand volleyball team.\r\n\r\nClub career\r\nBindon began his career in New Zealand with",
+      "birth_location": "Auckland, New Zealand",
+      "height": "188 cm",
+      "weight": "168 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q121353909"
     },
     {
       "number": 5,
@@ -65,7 +115,20 @@
       "club": "Minnesota United FC",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34165167",
+      "full_name": "Michael Joseph Boxall",
+      "last_name": "Boxall",
+      "first_name": "Michael",
+      "bio": "Michael Joseph Boxall (born 18 August 1988) is a New Zealand footballer who currently plays for Minnesota United in Major League Soccer, and the New Zealand national football team.\r\nBoxall has represented New Zealand at various international levels. His début with the national set up was with the Junior All-Whites (U-20's) in which he made 14 appearances with no goals. During this time, he appeared in the 2007 U-20 World Cup OFC qualifying tournament and ultimately the 2007 FIFA U-20 World Cup. ",
+      "birth_location": "Auckland, New Zealand",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "207 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q524730"
     },
     {
       "number": 6,
@@ -78,7 +141,19 @@
       "club": "Viking",
       "club_nation": "NOR",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34175984",
+      "full_name": "Joe Zen Robert Bell",
+      "last_name": "Bell",
+      "first_name": "Joe",
+      "bio": "Joe Zen Robert Bell (born 27 April 1999) is a New Zealand professional footballer who plays as a defensive midfielder for Eliteserien club Viking and the New Zealand national team.",
+      "birth_location": "Bristol, England",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "170 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 7,
@@ -91,7 +166,20 @@
       "club": "Peterborough United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34176176",
+      "full_name": "Matthew Jimmy David Garbett",
+      "last_name": "Garbett",
+      "first_name": "Matthew",
+      "bio": "Matthew Jimmy David Garbett (born 13 April 2002) is a professional footballer who plays as a Midfielder for EFL League One side Peterborough United. Born in England, he plays for the New Zealand national team.",
+      "birth_location": "London, England",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "150 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q96091702"
     },
     {
       "number": 8,
@@ -104,7 +192,20 @@
       "club": "Swansea City",
       "club_nation": "WAL",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34200556",
+      "full_name": "Marko Seufatu Nikola Stamenić",
+      "last_name": "Stamenic",
+      "first_name": "Marko",
+      "bio": "Marko Seufatu Nikola Stamenić is a New Zealand professional footballer who plays as a midfielder for EFL Championship club Swansea City and the New Zealand national team.\r\n\r\nBorn in Wellington and raised in Stokes Valley, Stamenić graduated from the Olé Football Academy and signed for FC Copenhagen in September 2020 following extended trials. Following sporadic appearances for the club, including in the UEFA Champions League, Stamenić departed to join Red Star Belgrade in 2023.",
+      "birth_location": "Wellington, New Zealand",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q102257634"
     },
     {
       "number": 9,
@@ -117,7 +218,22 @@
       "club": "Nottingham Forest",
       "club_nation": "ENG",
       "captain": true,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34145711",
+      "full_name": "Christopher Grant Wood",
+      "last_name": "Wood",
+      "first_name": "Chris",
+      "bio": "Christopher Grant Wood (born 7 December 1991) is a New Zealand professional footballer who plays as a striker for Premier League club Nottingham Forest.\r\nWood was born in Auckland and started his senior career with Cambridge FC, Waikato FC and Hamilton Wanderers before moving to England to play for Premier League side West Bromwich Albion.\r\nWood has been capped 52 times for the New Zealand national team, scoring 20 goals. He played for the side at the 2010 FIFA World Cup.",
+      "birth_location": "Auckland, New Zealand",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "179 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "twitter": "http://twitter.com/officialcwood"
+      },
+      "wikidata_id": "Q74548"
     },
     {
       "number": 10,
@@ -130,7 +246,20 @@
       "club": "Wellington Phoenix",
       "club_nation": "NZL",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34174608",
+      "full_name": "Sarpreet Singh",
+      "last_name": "Singh",
+      "first_name": "Sarpreet",
+      "bio": "Sarpreet Singh (born 20 February 1999) is a New Zealand professional footballer who plays as an attacking midfielder for A-League Men club Wellington Phoenix, on loan from Serbian SuperLiga club TSC and the New Zealand national team.\r\n\r\nBorn in New Zealand to Indian parents, Singh played for Onehunga Sports in his youth before joining the Wellington Phoenix Academy in 2015, then making his competitive senior debut for the Wellington Phoenix in 2015. He spent four seasons with the club, becoming ",
+      "birth_location": "Auckland, New Zealand",
+      "height": "1.75 m (5 ft 7 in)",
+      "weight": "157 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q28800473"
     },
     {
       "number": 11,
@@ -143,7 +272,19 @@
       "club": "Motherwell",
       "club_nation": "SCO",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34200684",
+      "full_name": "Elijah Henry Just",
+      "last_name": "Just",
+      "first_name": "Elijah",
+      "bio": "Elijah Henry Just (born 1 May 2000) is a New Zealand professional footballer who plays as a winger for Scottish Premiership club Motherwell and the New Zealand national team.",
+      "birth_location": "Palmerston North, New Zealand",
+      "height": "1.74 m (5 ft 9 in)",
+      "weight": "150 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 12,
@@ -156,7 +297,19 @@
       "club": "Lechia Gdańsk",
       "club_nation": "POL",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34219475",
+      "full_name": "Alexander Noah Paulsen",
+      "last_name": "Paulsen",
+      "first_name": "Alex",
+      "bio": "Alexander Noah Paulsen is a New Zealand professional footballer who plays as a goalkeeper for Ekstraklasa club Lechia Gdańsk, on loan from Bournemouth, and the New Zealand national team. \r\n\r\nBorn in Auckland, Paulsen joined the Wellington Phoenix in 2018. Initially playing for their reserve team, Paulsen signed his first professional deal in September 2021 and largely served as second-choice goalkeeper. Following a standout debut season as starting goalkeeper, Paulsen signed for Bournemouth in J",
+      "birth_location": "Auckland, New Zealand",
+      "height": "183 cm",
+      "weight": "181 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
@@ -169,7 +322,21 @@
       "club": "Wrexham",
       "club_nation": "WAL",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34175717",
+      "full_name": "Liberato Gianpaolo Cacace",
+      "last_name": "Cacace",
+      "first_name": "Liberato",
+      "bio": "Liberato Gianpaolo Cacace (born 27 September 2000) is a New Zealand professional footballer who plays as a left-back for EFL Championship club Wrexham and the New Zealand national team.",
+      "birth_location": "Wellington, New Zealand",
+      "height": "1.70 m (5 ft 6 in)",
+      "weight": "159 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/liberatocacace27/"
+      }
     },
     {
       "number": 14,

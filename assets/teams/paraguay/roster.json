@@ -52,7 +52,19 @@
       "club": "Dynamo Moscow",
       "club_nation": "RUS",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34218594",
+      "full_name": "Juan José Cáceres",
+      "last_name": "Cáceres",
+      "first_name": "Juan José",
+      "bio": "Juan José Cáceres (born 1 June 2000) is a professional footballer who plays as a right-back for Russian Premier League club Dynamo Moscow. Born in Argentina, he plays for the Paraguay national team.\r\n\r\nCáceres spent eight years in the youth system of Boca Juniors, prior to departing to join Racing Club's academy at the start of 2017. In his second year, Cáceres was involved in a training ground fight with Ricardo Centurión. His breakthrough into the Racing first-team occurred in 2020, with the r",
+      "birth_location": "Isla Maciel, Argentina",
+      "height": "177 cm",
+      "weight": "137 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 5,
@@ -65,7 +77,22 @@
       "club": "Grêmio",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34167056",
+      "full_name": "Fabián Cornelio Balbuena González",
+      "last_name": "Balbuena",
+      "first_name": "Fabián",
+      "bio": "Fabián Cornelio Balbuena González (born 23 August 1991) is a Paraguayan professional footballer who plays as a centre-back for Campeonato Brasileiro Série A club Grêmio and the Paraguay national team.\r\n\r\nHe played for Cerro Porteño PF, Rubio Ñu, Nacional and Libertad in the Paraguayan Primera División, before joining Corinthians of Brazil in 2016. He played 120 games for Corinthians, winning the Campeonato Paulista twice and the Campeonato Brasileiro Série A once, and was named in the latter's 2",
+      "birth_location": "Ciudad del Este, Paraguay",
+      "height": "6 ft 2 in (1.88 m)",
+      "weight": "192 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "adidas Copa 19.1",
+      "social": {
+        "twitter": "twitter.com/fbalbuenito"
+      },
+      "wikidata_id": "Q16297591"
     },
     {
       "number": 6,
@@ -78,7 +105,21 @@
       "club": "Atlético Mineiro",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34183061",
+      "full_name": "Júnior Osmar Ignacio Alonso Mujica",
+      "last_name": "Alonso",
+      "first_name": "Júnior",
+      "bio": "Júnior Osmar Ignacio Alonso Mujica (born 9 February 1993) is a Paraguayan footballer who plays either as a centre back or a left back for Campeonato Brasileiro Série A club Atlético Mineiro and the Paraguay national team.",
+      "birth_location": "Asunción, Paraguay",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "twitter": "twitter.com/junior_alonso4"
+      }
     },
     {
       "number": 7,
@@ -91,7 +132,19 @@
       "club": "Palmeiras",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34218652",
+      "full_name": "Ramón Sosa Acosta",
+      "last_name": "Sosa",
+      "first_name": "Ramón",
+      "bio": "Ramón Sosa Acosta (born 31 August 1999) is a Paraguayan professional footballer who plays as a winger for Campeonato Brasileiro Série A club Palmeiras, and the Paraguay national team.\r\nHe has also played for Paraguayan sides Olimpia, River Plate Asunción and Argentinian sides Gimasia La Plata and Talleres.",
+      "birth_location": "Maracaná, Paraguay",
+      "height": "178 cm",
+      "weight": "163 lbs",
+      "position_detail": "Second Striker",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 8,
@@ -104,7 +157,20 @@
       "club": "Brighton & Hove Albion",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34219953",
+      "full_name": "Diego Alexander Gómez Amarilla",
+      "last_name": "Gómez",
+      "first_name": "Diego",
+      "bio": "Diego Alexander Gómez Amarilla (born 27 March 2003) is a Paraguayan professional footballer who plays as a midfielder for Premier League club Brighton & Hove Albion and the Paraguay national team. A versatile player, he can be deployed as a defensive midfielder, central midfielder, attacking midfielder or winger.",
+      "birth_location": "San Juan Bautista, Paraguay",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "170 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q115978703"
     },
     {
       "number": 9,
@@ -117,7 +183,22 @@
       "club": "Cremonese",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34147237",
+      "full_name": "Arnaldo Antonio Sanabria Ayala",
+      "last_name": "Sanabria",
+      "first_name": "Antonio",
+      "bio": "Arnaldo Antonio Sanabria Ayala (born 4 March 1996), also known as Tony Sanabria, is a Paraguayan professional footballer who plays as a forward for Serie A club Cremonese and the Paraguay national team.",
+      "birth_location": "San Lorenzo, Paraguay",
+      "height": "1.81 m (5 ft 11 in)",
+      "weight": "152 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "twitter": "twitter.com/tsanabria9"
+      },
+      "wikidata_id": "Q10856523"
     },
     {
       "number": 10,
@@ -130,7 +211,22 @@
       "club": "Atlanta United FC",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34164579",
+      "full_name": "Miguel Ángel Almirón Rejala",
+      "last_name": "Almirón",
+      "first_name": "Miguel",
+      "bio": "Miguel Ángel Almirón Rejala (born 10 February 1994) is a Paraguayan professional footballer who plays as an attacking midfielder or right winger for Major League Soccer club Atlanta United and the Paraguay national team. \r\n\r\nAlmirón began his career at Cerro Porteño and transferred to Lanús in 2015. After winning the 2016 Argentine Primera División, he signed for Atlanta United for $8 million. He was named in the MLS Best XI for both of his seasons in Major League Soccer, as well as MLS Newcomer",
+      "birth_location": "Asunción, Paraguay",
+      "height": "174 cm",
+      "weight": "152 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "adidas Nemeziz 19.1",
+      "social": {
+        "instagram": "www.instagram.com/miguel_almiron/"
+      },
+      "wikidata_id": "Q16145667"
     },
     {
       "number": 11,
@@ -143,7 +239,18 @@
       "club": "Palmeiras",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34146610",
+      "full_name": "Mauricio",
+      "last_name": "Mauricio",
+      "bio": "Maurício dos Santos Nascimento, commonly called as Maurício (born 20 September 1988 in São Paulo) is a Brazilian football player at the position of defender, who currently plays for Sporting Clube de Portugal.\r\n\r\nCareer\r\nRevealed in the basic categories of Palmeiras, Maurício played in the CRB at the end of 2007.\r\n\r\nThe defender was renowned for his fight he had with teammate Obina during the game against Gremio for the Brazilian Championship in 2009. Both fought in the output for the range, the",
+      "birth_location": "São Paulo, Brazil",
+      "height": "0",
+      "weight": "0",
+      "position_detail": "Defender",
+      "social": {
+        "facebook": "pt-br.facebook.com/mauricio3sporting"
+      }
     },
     {
       "number": 12,
@@ -156,7 +263,19 @@
       "club": "San Lorenzo",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34346881",
+      "full_name": "Orlando Daniel Gill Noldin",
+      "last_name": "Gill",
+      "first_name": "Orlando",
+      "bio": "Orlando Daniel Gill Noldin (born 11 June 2000) is a Paraguayan professional footballer who plays as a goalkeeper for the Argentine Primera División club San Lorenzo and the Paraguay national team.\r\n\r\nClub career\r\nGill is a youth product of the Paraguayan clubs Club 13 de Junio and CS San Lorenzo, and began his senior career with CS San Lorenzo. On 30 December 2023, Gill joined the Argentine club San Lorenzo de Almagro on loan with an option to buy, and was originally assigned to their reserves. ",
+      "birth_location": "San Lorenzo, Paraguay",
+      "height": "1.98 m (6 ft 6 in)",
+      "weight": "",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
@@ -169,7 +288,19 @@
       "club": "Lanús",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34218836",
+      "full_name": "José María Canale Domínguez",
+      "last_name": "Canale",
+      "first_name": "José",
+      "bio": "José María Canale Domínguez (born 20 July 1996) is a Paraguayan professional footballer who plays as a centre-back for Argentine Primera División side Lanús and the Paraguay national team.\r\n\r\nCanale debuted for Libertad on 28 May 2015 in a 3–0 win against San Lorenzo in the Paraguayan Primera División.\r\n\r\nOn 29 July 2021, he moved to Argentina to join Newell's Old Boys on loan.\r\n\r\nOn 7 December 2022, he left Libertad permanently to join Lanús. In August 2024, he joined Liga MX side Querétaro on ",
+      "birth_location": "Itauguá, Paraguay",
+      "height": "183 cm",
+      "weight": "82 kg",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 14,
@@ -182,7 +313,20 @@
       "club": "Vancouver Whitecaps FC",
       "club_nation": "CAN",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34173379",
+      "full_name": "Adrián Andrés Cubas",
+      "last_name": "Cubas",
+      "first_name": "Andrés",
+      "bio": "Adrián Andrés Cubas (born 22 May 1996) is a professional footballer who plays as midfielder for Major League Soccer club Vancouver Whitecaps. Born in Argentina, he plays for the Paraguay national team.",
+      "birth_location": "Aristobulo del Valle, Argentina",
+      "height": "163 cm",
+      "weight": "130 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q16298600"
     },
     {
       "number": 15,

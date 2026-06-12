@@ -221,7 +221,19 @@
       "club": "Bologna",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34226735",
+      "full_name": "Torbjørn Lysaker Heggem",
+      "last_name": "Heggem",
+      "first_name": "Torbjørn",
+      "bio": "Torbjørn Lysaker Heggem (born 12 January 1999) is a Norwegian footballer who plays as a defender for Serie A club Bologna and the Norway national team. Primarily a centre-back, Heggem can also play as a left-back.",
+      "birth_location": "Trondheim, Norway",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "161 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 18,
@@ -234,7 +246,19 @@
       "club": "Sassuolo",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34178456",
+      "full_name": "Kristian Thorstvedt",
+      "last_name": "Thorstvedt",
+      "first_name": "Kristian",
+      "bio": "Kristian Thorstvedt (born 13 March 1999) is a Norwegian professional footballer who plays as a midfielder for Serie A club Sassuolo and the Norway national team.",
+      "birth_location": "Stavanger, Norway",
+      "height": "189 cm",
+      "weight": "183 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 19,
@@ -247,7 +271,20 @@
       "club": "Rangers",
       "club_nation": "SCO",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34178558",
+      "full_name": "Thelonious Gerard Aasgaard",
+      "last_name": "Aasgaard",
+      "first_name": "Thelo",
+      "bio": "Thelonious \"Thelo\" Gerard Aasgaard (born 2 May 2002) is a professional footballer who plays as a midfielder for Scottish Premiership club Rangers. Born in England, he represents the Norway national team.",
+      "birth_location": "Liverpool, England",
+      "height": "1.70 m (5 ft 6 in)",
+      "weight": "58 kg (128 lb)",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q100711783"
     },
     {
       "number": 20,
@@ -260,7 +297,22 @@
       "club": "RB Leipzig",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34200552",
+      "full_name": "Antonio Eromonsele Nordby Nusa",
+      "last_name": "Nusa",
+      "first_name": "Antonio",
+      "bio": "Antonio Eromonsele Nordby Nusa (born 17 April 2005) is a Norwegian professional footballer who plays for German Bundesliga club RB Leipzig and the Norway national team.",
+      "birth_location": "Ski, Norway",
+      "height": "180cm / 5'11\"",
+      "weight": "73kg / 161lbs",
+      "position_detail": "Left Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/nusaantonio/?hl=en"
+      },
+      "wikidata_id": "Q107357509"
     },
     {
       "number": 21,
@@ -273,7 +325,20 @@
       "club": "Benfica",
       "club_nation": "POR",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34202599",
+      "full_name": "Andreas Rædergård Schjelderup",
+      "last_name": "Schjelderup",
+      "first_name": "Andreas",
+      "bio": "Andreas Rædergård Schjelderup (born 1 June 2004) is a Norwegian professional footballer who plays as a left winger or forward for Primeira Liga club Benfica and the Norway national team.",
+      "birth_location": "Bodø, Norway",
+      "height": "176 cm",
+      "weight": "161 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q106099213"
     },
     {
       "number": 22,
@@ -286,7 +351,20 @@
       "club": "Fulham",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34220545",
+      "full_name": "Oscar Bobb",
+      "last_name": "Bobb",
+      "first_name": "Oscar",
+      "bio": "Oscar Bobb (born 12 July 2003) is a Norwegian professional footballer who plays as a midfielder or winger for Premier League club Fulham and the Norway national team.",
+      "birth_location": "Oslo, Norway",
+      "height": "174 cm",
+      "weight": "152 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q110466658"
     },
     {
       "number": 23,
@@ -299,7 +377,20 @@
       "club": "Bodø/Glimt",
       "club_nation": "NOR",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34172636",
+      "full_name": "Jens Petter Hauge",
+      "last_name": "Hauge",
+      "first_name": "Jens Petter",
+      "bio": "Jens Petter Hauge (born 12 October 1999) is a Norwegian professional footballer who plays as a winger for Eliteserien club Bodø/Glimt and the Norway national team.",
+      "birth_location": "Bodø, Norway",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q24007299"
     },
     {
       "number": 24,
@@ -312,7 +403,19 @@
       "club": "Derby County",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34237301",
+      "full_name": "Sondre Klingen Langås",
+      "last_name": "Langås",
+      "first_name": "Sondre",
+      "bio": "Sondre Klingen Langås (born 2 February 2001) is a Norwegian professional footballer who plays as a defender for EFL Championship club Derby County and the Norway national team.\r\n\r\nLangås made his debut in the Norwegian Eliteserien for Viking. He made his debut for Norway in 2024.",
+      "birth_location": "Namsos, Norway",
+      "height": "190 cm",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -325,7 +428,19 @@
       "club": "Viking",
       "club_nation": "NOR",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34346373",
+      "full_name": "Henrik Sælebakke Falchener",
+      "last_name": "Falchener",
+      "first_name": "Henrik",
+      "bio": "Henrik Sælebakke Falchener (born 8 May 2003) is a Norwegian footballer who plays as a centre-back for Viking and the Norway national team.",
+      "birth_location": "Tønsberg, Norway",
+      "height": "194 cm",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -338,7 +453,19 @@
       "club": "Borussia Dortmund",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34169306",
+      "full_name": "Julian Ryerson",
+      "last_name": "Ryerson",
+      "first_name": "Julian",
+      "bio": "Julian Ryerson (born 17 November 1997) is a Norwegian professional footballer who plays as a full-back or wing-back for Bundesliga club Borussia Dortmund and the Norway national team.",
+      "birth_location": "Lyngdal, Norway",
+      "height": "183cm / 6'0\"",
+      "weight": "190 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     }
   ]
 }
