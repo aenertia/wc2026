@@ -13,7 +13,21 @@
       "club": "Red Bull Salzburg",
       "club_nation": "AUT",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34172281",
+      "full_name": "Alexander Schlager",
+      "last_name": "Schlager",
+      "first_name": "Alexander",
+      "bio": "Alexander Schlager (born 1 February 1996) is an Austrian professional footballer who plays as a goalkeeper for Austrian Bundesliga club Red Bull Salzburg and the Austria national team.\r\n\r\nHe was the captain for Austria U-21 in Euro U-21 2019.\r\n\r\nOn 16 November 2019, Schlager played his first match for Austria's national team in the deciding UEFA Euro 2020 qualifier against North Macedonia in Vienna.",
+      "birth_location": "Salzburg, Austria",
+      "height": "184 cm",
+      "weight": "170 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/gassi_31/?hl=de"
+      }
     },
     {
       "number": 2,
@@ -26,7 +40,19 @@
       "club": "Elche",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34192203",
+      "full_name": "David Leopold Affengruber",
+      "last_name": "Affengruber",
+      "first_name": "David",
+      "bio": "David Leopold Affengruber (born 19 March 2001) is an Austrian professional footballer who plays as a centre-back for La Liga club Elche and the Austria national team.",
+      "birth_location": "Scheibbs, Austria",
+      "height": "185 cm",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 3,
@@ -39,7 +65,24 @@
       "club": "Tottenham Hotspur",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34170160",
+      "full_name": "Kevin Danso",
+      "last_name": "Danso",
+      "first_name": "Kevin",
+      "bio": "Kevin Danso (born 19 September 1998) is an Austrian professional footballer who plays as a centre-back for Premier League club Tottenham Hotspur, on loan from Ligue 1 club Lens, and the Austria national team. \r\nFormerly a youth international at various levels from under-15 to under-21, he made his debut for the Austria national football team in 2017.",
+      "birth_location": "Voitsberg, Austria",
+      "height": "1.90 m (6 ft 3 in)",
+      "weight": "185 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "Puma Future 5.1 Netfit",
+      "social": {
+        "instagram": "www.instagram.com/kevin.danso/",
+        "facebook": "www.facebook.com/kevin.danso.official/",
+        "twitter": "twitter.com/kevindanso98"
+      },
+      "wikidata_id": "Q28868192"
     },
     {
       "number": 4,
@@ -52,7 +95,22 @@
       "club": "RB Leipzig",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34169339",
+      "full_name": "Xaver Schlager",
+      "last_name": "Schlager",
+      "first_name": "Xaver",
+      "bio": "Xaver Schlager (born 28 September 1997) is an Austrian footballer who plays as midfielder for Bundesliga club RB Leipzig and the Austria national team.",
+      "birth_location": "Linz, Austria",
+      "height": "1.74 m (5 ft 9 in)",
+      "weight": "168 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/xav_er_/",
+        "facebook": "www.facebook.com/xaver.schlager"
+      }
     },
     {
       "number": 5,
@@ -65,7 +123,19 @@
       "club": "Mainz 05",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34169216",
+      "full_name": "Stefan Posch",
+      "last_name": "Posch",
+      "first_name": "Stefan",
+      "bio": "Stefan Posch (German pronunciation: ; born 14 May 1997) is an Austrian footballer who plays as a right-back or centre-back for German Bundesliga club Mainz 05 on loan from Italian club Como, and the Austria national team.",
+      "birth_location": "Judenburg, Austria",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "181 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 6,
@@ -78,7 +148,19 @@
       "club": "RB Leipzig",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34192204",
+      "full_name": "Nicolas Seiwald",
+      "last_name": "Seiwald",
+      "first_name": "Nicolas",
+      "bio": "Nicolas Seiwald (born 4 May 2001) is an Austrian professional footballer who plays as a defensive midfielder for Bundesliga club RB Leipzig and the Austria national team.\r\n\r\nSeiwald began his career in 2009 with the youth academy of FC Red Bull Salzburg. He made his professional debut playing for Red Bull Salzburg's feeder team, Liefering, against WSG Wattens on 24 May 2019.\r\n\r\nHe made his debut for FC Red Bull Salzburg on 21 November 2020 when he was in the starting XI versus SK Sturm Graz. On ",
+      "birth_location": "Kuchl, Austria",
+      "height": "179 cm",
+      "weight": "172 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 7,
@@ -91,7 +173,20 @@
       "club": "Red Star Belgrade",
       "club_nation": "SRB",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34145959",
+      "full_name": "Marko Arnautović",
+      "last_name": "Arnautović",
+      "first_name": "Marko",
+      "bio": "Marko Arnautović (Serbian Cyrillic: Марко Арнаутовић; born 19 April 1989) is an Austrian professional footballer who plays as a striker for Serbian SuperLiga club Red Star Belgrade and is the all time top goalscorer for the Austria national team.\r\n\r\nArnautović began his career in his native country Austria playing in the youth teams for a number of clubs in the Vienna area before he signed a contract with Dutch club Twente in 2006. He impressed at De Grolsch Veste and after a fine 2008–09 season",
+      "birth_location": "Wien, Austria",
+      "height": "188 cm",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Both",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q313575"
     },
     {
       "number": 8,
@@ -104,7 +199,24 @@
       "club": "Real Madrid",
       "club_nation": "ESP",
       "captain": true,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34146689",
+      "full_name": "David Olatukunbo Alaba",
+      "last_name": "Alaba",
+      "first_name": "David",
+      "bio": "David Olatukunbo Alaba (German pronunciation: ; born 24 June 1992) is an Austrian professional footballer who plays as a centre-back or left-back for La Liga club Real Madrid and captains the Austria national team. Considered one of the best defenders in the world, he is renowned for his versatility, technical skills and ability to contribute effectively in both defensive and offensive roles on the field.\r\n\r\nAlaba started out in Bayern's youth system before being promoted to the reserve team for",
+      "birth_location": "Wien, Austria",
+      "height": "180 cm",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "adidas Nemeziz 19+",
+      "social": {
+        "instagram": "www.instagram.com/da_27/",
+        "facebook": "www.facebook.com/david.alaba.10888/",
+        "twitter": "twitter.com/david_alaba"
+      },
+      "wikidata_id": "Q31981"
     },
     {
       "number": 9,
@@ -117,7 +229,20 @@
       "club": "Borussia Dortmund",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34164093",
+      "full_name": "Marcel Sabitzer",
+      "last_name": "Sabitzer",
+      "first_name": "Marcel",
+      "bio": "Marcel Sabitzer (born 17 March 1994) is an Austrian professional footballer who plays as a midfielder for Bundesliga club Borussia Dortmund and the Austria national team.\r\n  Predominantly a central midfielder, he also plays in a multitude of roles, including attacking midfielder, second striker, winger and defensive midfielder.",
+      "birth_location": "Wels, Austria",
+      "height": "178cm / 5'10\"",
+      "weight": "168 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q472300"
     },
     {
       "number": 10,
@@ -130,7 +255,22 @@
       "club": "Braga",
       "club_nation": "POR",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34169207",
+      "full_name": "Florian Grillitsch",
+      "last_name": "Grillitsch",
+      "first_name": "Florian",
+      "bio": "Florian Grillitsch (born 7 August 1995) is an Austrian professional footballer who plays as a defensive midfielder or centre back for Portuguese Primeira Liga club Braga and the Austria national team.",
+      "birth_location": "Neunkirchen, Austria",
+      "height": "1.87 m (6 ft 2 in)",
+      "weight": "170 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/floriangrillitsch/",
+        "twitter": "mobile.twitter.com/fgrillitsch"
+      }
     },
     {
       "number": 11,
@@ -143,7 +283,23 @@
       "club": "FC Augsburg",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34155160",
+      "full_name": "Michael Gregoritsch",
+      "last_name": "Gregoritsch",
+      "first_name": "Michael",
+      "bio": "Michael Gregoritsch (born 18 April 1994) is an Austrian professional footballer who plays as a forward for Bundesliga club FC Augsburg, on loan from Danish Superliga club Brøndby, and the Austria national team.",
+      "birth_location": "Graz, Austria",
+      "height": "1.93 m (6 ft 4 in)",
+      "weight": "201 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/mgregerl/",
+        "facebook": "www.facebook.com/MichaelGregoritsch/",
+        "twitter": "twitter.com/mgregoritsch"
+      }
     },
     {
       "number": 12,
@@ -156,7 +312,19 @@
       "club": "Viktoria Plzeň",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34346932",
+      "full_name": "Florian Wiegele",
+      "last_name": "Wiegele",
+      "first_name": "Florian",
+      "bio": "Florian Wiegele (born 21 March 2001) is an Austrian professional footballer who plays as a goalkeeper for FC Viktoria Plzeň and the Austria national team.",
+      "birth_location": "Graz, Austria",
+      "height": "205 cm",
+      "weight": "",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
@@ -169,7 +337,19 @@
       "club": "Brøndby",
       "club_nation": "DEN",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34175395",
+      "full_name": "Patrick Pentz",
+      "last_name": "Pentz",
+      "first_name": "Patrick",
+      "bio": "Patrick Pentz (born 2 January 1997) is an Austrian professional footballer who plays as a goalkeeper for Danish Superliga club Brøndby, and the Austria national team.\r\n\r\nPentz made his professional debut for Austria Wien in a 3–0 win over Sturm Graz on 15 May 2016.\r\n\r\nOn 9 July 2022, Pentz signed a three-year contract with Reims in France. He began the 2022–23 Ligue 1 season as the starting goalkeeper for Reims before losing the position to Yehvann Diouf.\r\n\r\nOn 27 January 2023, Pentz moved to Ge",
+      "birth_location": "Salzburg, Austria",
+      "height": "183 cm",
+      "weight": "174 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 14,
@@ -182,7 +362,22 @@
       "club": "LASK",
       "club_nation": "AUT",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34173886",
+      "full_name": "Saša Kalajdžić",
+      "last_name": "Kalajdžić",
+      "first_name": "Saša",
+      "bio": "Saša Kalajdžić (Serbian Cyrillic: Саша Калајџић; born 7 July 1997) is an Austrian professional footballer who plays as a striker for Austrian Bundesliga club LASK on loan from Premier League club Wolverhampton Wanderers and the Austria national team.\r\n\r\nKalajdžić began his senior career playing in the third and fourth tiers of Austrian football with SR Donaufeld Wien. In 2016, he signed for Austrian Bundesliga club Admira Wacker, where he scored twelve goals in 35 matches for the first team. He ",
+      "birth_location": "Wien, Austria",
+      "height": "2.00 m (6 ft 6 in)",
+      "weight": "76 kg",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/sasakalajdzic/"
+      },
+      "wikidata_id": "Q34058084"
     },
     {
       "number": 15,
@@ -195,7 +390,19 @@
       "club": "SC Freiburg",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34164029",
+      "full_name": "Philipp Lienhart",
+      "last_name": "Lienhart",
+      "first_name": "Philipp",
+      "bio": "Philipp Lienhart (born 11 July 1996) is an Austrian professional footballer who plays as a centre-back for Bundesliga club SC Freiburg and the Austria national team.",
+      "birth_location": "Lilienfeld, Austria",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 16,
@@ -208,7 +415,19 @@
       "club": "Mainz 05",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34169252",
+      "full_name": "Phillipp Mwene",
+      "last_name": "Mwene",
+      "first_name": "Phillipp",
+      "bio": "Phillipp Mwene (born 29 January 1994) is an Austrian professional footballer who plays as a right back for Bundesliga club Mainz 05 and the Austria national team.",
+      "birth_location": "Wien, Austria",
+      "height": "1.70 m (5 ft 7 in)",
+      "weight": "150 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 17,
@@ -221,7 +440,23 @@
       "club": "Borussia Dortmund",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34180739",
+      "full_name": "Carney Chibueze Chukwuemeka",
+      "last_name": "Chukwuemeka",
+      "first_name": "Carney",
+      "bio": "Carney Chibueze Chukwuemeka (born 20 October 2003) is an Austrian professional footballer who plays as an attacking midfielder or left winger for Bundesliga club Borussia Dortmund and the Austria national team.\r\n\r\nBorn in Vienna, he represented England at youth level. In 2026, he committed to play for his birth country of Austria.\r\n\r\nA product of the Northampton Town and Aston Villa academies, Chukwuemeka made his debut for the latter club's first team in 2021, before signing for Chelsea in 2022",
+      "birth_location": "Eisenstadt, Austria",
+      "height": "6 ft 1 in (1.85 m)",
+      "weight": "170 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/chukwuemeka10/",
+        "twitter": "twitter.com/carney_chuk10"
+      },
+      "wikidata_id": "Q106915801"
     },
     {
       "number": 18,
@@ -234,7 +469,19 @@
       "club": "Werder Bremen",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34173889",
+      "full_name": "Romano Schmid",
+      "last_name": "Schmid",
+      "first_name": "Romano",
+      "bio": "Romano Christian Schmid (born 27 January 2000) is an Austrian professional footballer who plays as an attacking midfielder for Bundesliga club Werder Bremen and the Austria national team.\r\n\r\nWhile under contract with Red Bull Salzburg Schmid played for its feeder club FC Liefering.\r\n\r\nIn January 2019, Schmid joined Bundesliga side Werder Bremen. One month later, on 5 February 2019, he was loaned out to Wolfsberger AC for the rest of the season. In April 2022, he agreed a contract extension with ",
+      "birth_location": "Graz, Austria",
+      "height": "168 cm",
+      "weight": "150 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 19,
@@ -247,7 +494,19 @@
       "club": "Schalke 04",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34175434",
+      "full_name": "Dejan Ljubičić",
+      "last_name": "Ljubičić",
+      "first_name": "Dejan",
+      "bio": "Dejan Ljubičić (born 8 October 1997) is an Austrian professional footballer who plays as a midfielder.",
+      "birth_location": "Wien, Austria",
+      "height": "187 cm",
+      "weight": "161 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 20,
@@ -260,7 +519,19 @@
       "club": "Bayern Munich",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34164105",
+      "full_name": "Konrad Laimer",
+      "last_name": "Laimer",
+      "first_name": "Konrad",
+      "bio": "Konrad Laimer (born 27 May 1997) is an Austrian professional footballer who plays as a midfielder for Bundesliga club Bayern Munich  and the Austria national team.",
+      "birth_location": "Salzburg, Austria",
+      "height": "180 cm",
+      "weight": "159 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 21,
@@ -273,7 +544,19 @@
       "club": "VfL Wolfsburg",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34175401",
+      "full_name": "Patrick Wimmer",
+      "last_name": "Wimmer",
+      "first_name": "Patrick",
+      "bio": "Patrick Wimmer (born 30 May 2001) is an Austrian professional footballer who plays as a right winger for Bundesliga club VfL Wolfsburg and the Austria national team.",
+      "birth_location": "Tulln, Austria",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "170 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 22,
@@ -286,7 +569,19 @@
       "club": "TSG Hoffenheim",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34198800",
+      "full_name": "Alexander Prass",
+      "last_name": "Prass",
+      "first_name": "Alexander",
+      "bio": "Alexander Prass (born 26 May 2001) is an Austrian professional footballer who plays as a central midfielder or left wing-back for German Bundesliga club TSG Hoffenheim and the Austria national team.",
+      "birth_location": "Hellmonsödt, Austria",
+      "height": "180 cm",
+      "weight": "159 lbs",
+      "position_detail": "Left Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 23,
@@ -299,7 +594,20 @@
       "club": "Werder Bremen",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34162102",
+      "full_name": "Marco Friedl",
+      "last_name": "Friedl",
+      "first_name": "Marco",
+      "bio": "Marco Friedl (born 16 March 1998) is an Austrian professional footballer who plays as a centre-back for Bundesliga club Werder Bremen, which he captains, and the Austria national team.",
+      "birth_location": "Kirchbichl, Austria",
+      "height": "1.87 m (6 ft 2 in)",
+      "weight": "181 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q28692516"
     },
     {
       "number": 24,
@@ -312,7 +620,20 @@
       "club": "PSV Eindhoven",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34195960",
+      "full_name": "Paul Wanner",
+      "last_name": "Wanner",
+      "first_name": "Paul",
+      "bio": "Paul Wanner (German pronunciation: ; born 23 December 2005) is an Austrian professional footballer who plays as an attacking midfielder for Eredivisie club PSV and the Austria national team.",
+      "birth_location": "Dornbirn, Austria",
+      "height": "185 cm",
+      "weight": "159 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q110463620"
     },
     {
       "number": 25,
@@ -325,7 +646,21 @@
       "club": "Venezia",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34174583",
+      "full_name": "Michael Svoboda",
+      "last_name": "Svoboda",
+      "first_name": "Michael",
+      "bio": "Michael Svoboda (born 15 October 1998) is an Austrian professional footballer who plays as a centre-back for Serie A club Venezia and the Austria national team.",
+      "birth_location": "Wien, Austria",
+      "height": "1.95 m (6 ft 4 in)",
+      "weight": "190 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/michisvoboda/"
+      }
     },
     {
       "number": 26,
@@ -338,7 +673,22 @@
       "club": "Wolfsberger AC",
       "club_nation": "AUT",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34149659",
+      "full_name": "Alessandro André Schöpf",
+      "last_name": "Schöpf",
+      "first_name": "Alessandro",
+      "bio": "Alessandro André Schöpf (born 7 February 1994) is an Austrian professional footballer who plays as a midfielder for Wolfsberger AC and the Austria national team.",
+      "birth_location": "Umhausen, Austria",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "161 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/alessandroschoepf/"
+      },
+      "wikidata_id": "Q16528455"
     }
   ]
 }

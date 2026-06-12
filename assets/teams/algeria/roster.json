@@ -13,7 +13,19 @@
       "club": "Stade Nyonnais",
       "club_nation": "SUI",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34436062",
+      "full_name": "Melvin Feyçal Mastil",
+      "last_name": "Mastil",
+      "first_name": "Melvin",
+      "bio": "Melvin Feyçal Mastil (born 19 February 2000) is a professional footballer who plays as a goalkeeper for the Swiss Challenge League club Stade Nyonnais, on loan from Lausanne-Sport. Born in France, he plays for the Algeria national team.",
+      "birth_location": "Thonon-les-Bains, France",
+      "height": "194 cm",
+      "weight": "",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 2,
@@ -26,7 +38,22 @@
       "club": "Lille",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34152909",
+      "full_name": "عيسى ماندي",
+      "last_name": "Mandi",
+      "first_name": "Aïssa",
+      "bio": "Aïssa Mandi (Arabic: عيسى ماندي; born 22 October 1991) is a professional footballer who plays for Ligue 1 club Lille. Born in France, he plays for the Algeria national team. Mainly a centre-back, he can also play as a right-back.\r\n\r\nMandi made his international debut for Algeria in March 2014. He was a member of the Algerian team for the 2014 FIFA World Cup in Brazil, as well as the Africa Cup of Nations in 2015, 2017, 2019, 2021 and 2023, winning the 2019 tournament.",
+      "birth_location": "Châlons-en-Champagne, France",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/aissamandi23/?hl=en"
+      },
+      "wikidata_id": "Q2876432"
     },
     {
       "number": 3,
@@ -39,7 +66,19 @@
       "club": "USM Alger",
       "club_nation": "ALG",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34231344",
+      "full_name": "أشرف عبادة",
+      "last_name": "Abada",
+      "first_name": "Achref",
+      "bio": "Achref Abada (Arabic: أشرف عبادة; born 15 June 1999) is an Algerian professional footballer who plays as a Center back for USM Alger in the Algerian Ligue Professionnelle 1 and the Algeria national team.",
+      "birth_location": "Touggourt, Algeria",
+      "height": "187 cm",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 4,
@@ -52,7 +91,19 @@
       "club": "Espérance de Tunis",
       "club_nation": "TUN",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34287382",
+      "full_name": "محمد أمين توقاي",
+      "last_name": "Tougai",
+      "first_name": "Mohamed Amine",
+      "bio": "Mohamed Amine Tougai (Arabic: محمد أمين توغاي; born 22 January 2000) is an Algerian professional footballer who plays as a centre-back for Tunisian Ligue Professionnelle 1 club Espérance de Tunis and the Algeria national team.",
+      "birth_location": "Bourouba, Algeria",
+      "height": "191 cm",
+      "weight": "79 kg",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 5,
@@ -65,7 +116,19 @@
       "club": "JS Kabylie",
       "club_nation": "ALG",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34231485",
+      "full_name": "زَيْن الدِّين بَلْعِيد",
+      "last_name": "Belaïd",
+      "first_name": "Zinéddine",
+      "bio": "Zineddine Belaïd (Arabic: زَيْن الدِّين بَلْعِيد; Tamazight: ⵣⵉⵏⴷⴷⵉⵏ ⴱⵍⵄⵉⴷ; born 20 March 1999) is an Algerian professional footballer who plays as a centre-back for JS Kabylie and the Algeria national team.",
+      "birth_location": "Thénia, Algeria",
+      "height": "187 cm",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 6,
@@ -78,7 +141,19 @@
       "club": "Twente",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34176063",
+      "full_name": "Ramiz Larbi Zerrouki; رامز العربي زروقي",
+      "last_name": "Zerrouki",
+      "first_name": "Ramiz",
+      "bio": "Ramiz Larbi Zerrouki (Arabic: رامز العربي زروقي; born 26 May 1998) is a professional footballer who plays as a central midfielder for Eredivisie club Twente, on loan from Feyenoord, and the Algeria national team.\r\n\r\nZerrouki was born in the Netherlands and is Algerian by descent. He had his debut with the Algeria national team in a 3–3 2021 Africa Cup of Nations qualification tie with Zambia on 25 March 2021. He scored his first goal with the Algerian Flag on the 2nd of September 2021 against Dj",
+      "birth_location": "Amsterdam, Netherlands",
+      "height": "183 cm",
+      "weight": "168 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 7,
@@ -91,7 +166,24 @@
       "club": "Al-Ahli",
       "club_nation": "KSA",
       "captain": true,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34145708",
+      "full_name": "Riyad Karim Mahrez; رياض محرز",
+      "last_name": "Mahrez",
+      "first_name": "Riyad",
+      "bio": "Riyad Karim Mahrez (born 21 February 1991) is a professional footballer who plays as a winger for Saudi Professional League club Al-Ahli and captains the Algeria national team. \r\n\r\nMahrez began his career as a youth player for French club AAS Sarcelles. He turned professional in 2009 with Quimper, where he played for only one season before moving to Le Havre, spending a total of three years with them, initially playing for their reserve team and then becoming a first-team regular. In January 201",
+      "birth_location": "Sarcelles, France",
+      "height": "1.79 m (5 ft 10 in)",
+      "weight": "148 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "Nike Mercurial Superfly VII Elite FG",
+      "social": {
+        "instagram": "www.instagram.com/riyadmahrez26.7",
+        "facebook": "www.facebook.com/Riyad.Mahrez.RM26.7/",
+        "twitter": "twitter.com/Mahrez22"
+      },
+      "wikidata_id": "Q8338725"
     },
     {
       "number": 8,
@@ -104,7 +196,23 @@
       "club": "Al-Ittihad",
       "club_nation": "KSA",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34163670",
+      "full_name": "Houssem-Eddine Chaâbane Aouar; حُسَام الدِّين شَعْبَان عَوَار",
+      "last_name": "Aouar",
+      "first_name": "Houssem",
+      "bio": "Houssem-Eddine Chaâbane Aouar (Arabic: حُسَام الدِّين شَعْبَان عَوَار; born 30 June 1998) is a professional footballer who plays as a midfielder for Saudi Pro League club Al-Ittihad. Born in France, he plays for the Algeria national team.\r\n\r\nGraduating from the youth setup of Lyon, Aouar spent his professional career at the club for seven seasons before he joined the Italian club Roma in 2023. After playing one season with the Italian club, he joined the Saudi Arabian club Al-Ittihad in 2024.\r\n\r",
+      "birth_location": "Lyon, France",
+      "height": "1.75 m (5 ft 9 in)",
+      "weight": "152 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/houssem_aouar/",
+        "twitter": "twitter.com/houssemaouar"
+      },
+      "wikidata_id": "Q27927442"
     },
     {
       "number": 9,
@@ -117,7 +225,22 @@
       "club": "Marseille",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34163672",
+      "full_name": "Amine Ferid Gouiri; أمين فريد غويري",
+      "last_name": "Gouiri",
+      "first_name": "Amine",
+      "bio": "Amine Ferid Gouiri (Arabic: أمين فريد غويري; born 16 February 2000) is a professional footballer who plays as a striker or left winger for Ligue 1 club Marseille. Born in France, he plays for the Algeria national team.",
+      "birth_location": "Bourgoin-Jallieu, France",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "159 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/amine_gouiri/"
+      },
+      "wikidata_id": "Q30045780"
     },
     {
       "number": 10,
@@ -130,7 +253,20 @@
       "club": "Eintracht Frankfurt",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34200627",
+      "full_name": "فارس شايبي",
+      "last_name": "Chaïbi",
+      "first_name": "Farès",
+      "bio": "Farès Chaïbi (Arabic: فارس شايبي; born 28 November 2002) is a professional footballer who plays as a winger or midfielder for Bundesliga club Eintracht Frankfurt. Born in France, he represents the Algeria national team.",
+      "birth_location": "Lyon, France",
+      "height": "1.83 m (6 ft 0 in)",
+      "weight": "150 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q113474248"
     },
     {
       "number": 11,
@@ -143,7 +279,19 @@
       "club": "Feyenoord",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34246125",
+      "full_name": "أنيس حاج موسى",
+      "last_name": "Moussa",
+      "first_name": "Anis Hadj",
+      "bio": "Anis Hadj Moussa (born 11 February 2002) is a professional footballer who plays as a forward for Eredivisie club Feyenoord. Born in France, he represents the Algeria national team.",
+      "birth_location": "Paris, France",
+      "height": "1.76 m (5 ft 9 in)",
+      "weight": "159 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 12,
@@ -156,7 +304,19 @@
       "club": "Győri ETO",
       "club_nation": "HUN",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34241121",
+      "full_name": "Ahmed Nadhir Benbouali; أحمد نذير بن بوعلي",
+      "last_name": "Benbouali",
+      "first_name": "Nadhir",
+      "bio": "Ahmed Nadhir Benbouali (Arabic: أحمد نذير بن بوعلي; born 17 April 2000) is an Algerian professional footballer who plays as a forward for Nemzeti Bajnokság I club Győr and the Algeria national team.",
+      "birth_location": "Chlef, Algeria",
+      "height": "190 cm",
+      "weight": "85 kg",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
@@ -169,7 +329,19 @@
       "club": "Young Boys",
       "club_nation": "SUI",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34174799",
+      "full_name": "Jaouen Djimmy Hadjam; جوين حجام",
+      "last_name": "Hadjam",
+      "first_name": "Jaouen",
+      "bio": "Jaouen Djimmy Hadjam (Arabic: جوين حجام; born 26 March 2003) is a professional footballer who plays as a left-back for Swiss Super League club Young Boys. Born in France, he represents the Algeria national team.",
+      "birth_location": "Paris, France",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "181 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 14,
@@ -182,7 +354,19 @@
       "club": "Nice",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34173880",
+      "full_name": "هشام بوداوي",
+      "last_name": "Boudaoui",
+      "first_name": "Hicham",
+      "bio": "Hicham Boudaoui (Arabic: هشام بوداوي; born 23 September 1999) is an Algerian professional footballer who plays as a midfielder for Ligue 1 club Nice and the Algeria national team.\r\n\r\nOn 6 January 2018, Boudaoui made his professional debut for Paradou AC, coming as a second-half substitute in a league match against USM Alger.\r\n\r\nIn September 2019 he joined Ligue 1 side OGC Nice.\r\n\r\nBoudaoui made his debut for the Algeria national football team on 27 December 2018 in a friendly against Qatar, as a",
+      "birth_location": "Béchar, Algeria",
+      "height": "1.75 m (5 ft 7 in)",
+      "weight": "61 kg",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 15,
@@ -195,7 +379,19 @@
       "club": "Manchester City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34168127",
+      "full_name": "رَيَّان آيَت نُورِيّ ",
+      "last_name": "Aït-Nouri",
+      "first_name": "Rayan",
+      "bio": "Rayan Aït-Nouri (born 6 June 2001) is a professional footballer who plays as a left-back or a left wing-back for Premier League club Manchester City. Born in France, he represents the Algeria national team.",
+      "birth_location": "Montreuil, France",
+      "height": "1.79 m (5 ft 10 in)",
+      "weight": "70 kg",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 16,
@@ -208,7 +404,19 @@
       "club": "USM Alger",
       "club_nation": "ALG",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34231482",
+      "full_name": "أُسَامَة بن بُوط",
+      "last_name": "Benbot",
+      "first_name": "Oussama",
+      "bio": "Oussama Benbot (Arabic: أُسَامَة بن بُوط; born 11 October 1994) is an Algerian professional footballer who plays as a goalkeeper for USM Alger in the Algerian Ligue Professionnelle 1.",
+      "birth_location": "Ain M'lila, Algeria",
+      "height": "188 cm",
+      "weight": "196 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 17,
@@ -221,7 +429,19 @@
       "club": "Hellas Verona",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34220638",
+      "full_name": "رفيق بلغالي",
+      "last_name": "Belghali",
+      "first_name": "Rafik",
+      "bio": "Rafik Belghali (born 7 June 2002) is a professional footballer who plays as a winger for Italian Serie A club Hellas Verona. Born in Belgium, he represents Algeria at international level.",
+      "birth_location": "Leuven, Belgium",
+      "height": "186 cm",
+      "weight": "161 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 18,
@@ -234,7 +454,19 @@
       "club": "VfL Wolfsburg",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34221973",
+      "full_name": "Mohamed El Amine Amoura; محمد الأمين عمورة",
+      "last_name": "Amoura",
+      "first_name": "Mohamed",
+      "bio": "Mohamed El Amine Amoura (Arabic: محمد الأمين عمورة; born 9 May 2000) is an Algerian professional footballer who plays as a striker for club VfL Wolfsburg and the Algeria national team.",
+      "birth_location": "Tahir, Algeria",
+      "height": "1.68 m (5 ft 6 in)",
+      "weight": "61 kg",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 19,
@@ -247,7 +479,23 @@
       "club": "Lille",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34146211",
+      "full_name": "نبيل بن طالب",
+      "last_name": "Bentaleb",
+      "first_name": "Nabil",
+      "bio": "Nabil Bentaleb (Arabic: نبيل بن طالب; born 24 November 1994) is a professional footballer who plays as a central midfielder for Ligue 1 club Lille. Born in France, he plays for the Algeria national team.\r\n\r\nBentaleb made his senior international debut in March 2014 and has represented Algeria at the 2014 FIFA World Cup and the 2015 and 2017 Africa Cup of Nations.",
+      "birth_location": "Lille, France",
+      "height": "1.87 m (6 ft 2 in)",
+      "weight": "172 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Left",
+      "kit": "adidas Nemeziz 19.1",
+      "social": {
+        "instagram": "www.instagram.com/nabilbentaleb",
+        "twitter": "twitter.com/nabilbentaleb42"
+      },
+      "wikidata_id": "Q15410320"
     },
     {
       "number": 20,
@@ -260,7 +508,19 @@
       "club": "Al-Duhail",
       "club_nation": "QAT",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34234198",
+      "full_name": "عادل بولبينة",
+      "last_name": "Boulbina",
+      "first_name": "Adil",
+      "bio": "Adil Boulbina (Arabic: عادل بولبينة; born May 2, 2003) is an Algerian professional footballer who plays for Al-Duhail and the Algeria national team.",
+      "birth_location": "El Milia, Algeria",
+      "height": "179 cm",
+      "weight": "",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 21,
@@ -273,7 +533,19 @@
       "club": "Borussia Dortmund",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34166996",
+      "full_name": "Amir Selmane Rami Bensebaini; أمير رامي بن سبعيني‎",
+      "last_name": "Bensebaini",
+      "first_name": "Ramy",
+      "bio": "Amir Selmane Ramy Bensebaïni (Arabic: أمير سلمان رامي بنسبعيني; born 16 April 1995) is an Algerian professional footballer who plays as a left-back or centre-back for Bundesliga club Borussia Dortmund and the Algeria national team.",
+      "birth_location": "Constantine, Algeria",
+      "height": "1.87 m (6 ft 2 in)",
+      "weight": "181 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 22,
@@ -286,7 +558,20 @@
       "club": "Bayer Leverkusen",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34219244",
+      "full_name": "Ibrahim Maza, إبراهيم مازة ",
+      "last_name": "Maza",
+      "first_name": "Ibrahim",
+      "bio": "Ibrahim Maza (Arabic: إبراهيم مازة; born 24 November 2005) is a professional footballer who plays as a forward for Bundesliga club Bayer Leverkusen. Born in Germany, he plays for the Algeria national team.",
+      "birth_location": "Berlin, Germany",
+      "height": "180 cm",
+      "weight": "152 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q118118504"
     },
     {
       "number": 23,
@@ -299,7 +584,20 @@
       "club": "Granada",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34175251",
+      "full_name": "Luca Zinedine Zidane Fernández; لوكا زين الدين زيدان",
+      "last_name": "Zidane",
+      "first_name": "Luca",
+      "bio": "Luca Zinedine Zidane (born 13 May 1998) is a professional footballer who plays as a goalkeeper for Segunda División club Granada. Born in France, he plays for the Algeria national team.\r\n\r\nBorn in France, Zidane began his career with Real Madrid before competing professionally in Spain, mainly in Segunda División with Racing Santander, Rayo Vallecano and Eibar.\r\n\r\nHe represented his native France at youth international levels before opting to play for Algeria in 2025, for which he qualifies thro",
+      "birth_location": "Marseille, France",
+      "height": "1.83 m (6 ft 0 in)",
+      "weight": "172 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q19952334"
     },
     {
       "number": 24,
@@ -312,7 +610,19 @@
       "club": "Charleroi",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34231444",
+      "full_name": "Yacine Mohamed El Ghazali Titraoui; ياسين محمد الغزالي تيطراوي",
+      "last_name": "Titraoui",
+      "first_name": "Yacine",
+      "bio": "Yacine Mohamed El Ghazali Titraoui (Arabic: ياسين محمد الغزالي تيطراوي; born 26 August 2003) is an Algerian professional footballer who plays as a midfielder for Belgian club Charleroi and the Algeria national team.",
+      "birth_location": "M'Sila, Algeria",
+      "height": "170 cm",
+      "weight": "",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -325,7 +635,19 @@
       "club": "Frosinone",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34228039",
+      "full_name": "Farès Ghedjemis",
+      "last_name": "Ghedjemis",
+      "first_name": "Farès",
+      "bio": "Farès Ghedjemis (born 6 September 2002) is a professional footballer who plays as a forward for Italian Serie A club Frosinone. Born in France, he plays for the Algeria national team.",
+      "birth_location": "Montreuil, France",
+      "height": "183 cm",
+      "weight": "",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -338,7 +660,19 @@
       "club": "Paris FC",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34195246",
+      "full_name": "Samir Sophian Chergui; سمير سفيان شرقي",
+      "last_name": "Chergui",
+      "first_name": "Samir",
+      "bio": "Samir Sophian Chergui (born 6 February 1999) is a professional footballer who plays as a centre-back for Ligue 1 club Paris FC. Born in France, he plays for the Algeria national team.",
+      "birth_location": "Arpajon, France",
+      "height": "185 cm",
+      "weight": "78 kg",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     }
   ]
 }

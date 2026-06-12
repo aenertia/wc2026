@@ -26,7 +26,20 @@
       "club": "APOEL",
       "club_nation": "CYP",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34155221",
+      "full_name": "Милош Дегенек",
+      "last_name": "Degenek",
+      "first_name": "Miloš",
+      "bio": "Miloš Degenek (/ˈmɪlɒʃ ˈdɛɡənɛk/ MIL-osh DEG-ə-nek; Serbian Cyrillic: Милош Дегенек, pronounced ; born 28 April 1994) is a professional soccer player who plays as a centre-back for Cypriot First Division club APOEL. Born in Croatia, he represents the Australia national team.\r\n\r\nDegenek represented both Serbia and Australia at youth levels before making his senior international debut for Australia against England in 2016.",
+      "birth_location": "Knin, Serbian Krajina",
+      "height": "1.87 m (6 ft 2 in)",
+      "weight": "83 kg (183 lb)",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q14309492"
     },
     {
       "number": 3,
@@ -39,7 +52,21 @@
       "club": "Parma",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34229943",
+      "full_name": "Alessandro Circati",
+      "last_name": "Circati",
+      "first_name": "Alessandro",
+      "bio": "Alessandro Circati (born 10 October 2003) is a professional footballer who plays as a central defender for Serie A club Parma. Born in Italy and a former youth international for Italy, he plays for the Australian national team.\r\n\r\nCircati was born in Fidenza, Italy, to Gianfranco Circati, who was a professional footballer. Born in the province of Parma and Emilia-Romagna region of Italy, his grandparents resided in Salsomaggiore Terme and orignated from the region. Circati moved to Perth, Austra",
+      "birth_location": "Fidenza, Italy",
+      "height": "190 cm",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/alessandrocircati/"
+      }
     },
     {
       "number": 4,
@@ -52,7 +79,19 @@
       "club": "Grazer AK",
       "club_nation": "AUT",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34247882",
+      "full_name": "Jacob Michael Italiano",
+      "last_name": "Italiano",
+      "first_name": "Jacob",
+      "bio": "Jacob Michael Italiano (born 30 July 2001) is an Australian professional footballer who plays as a right back for Austrian Bundesliga club Grazer AK and the Australia national team.\r\nHe has previously played for Australian club Perth Glory and German club Borussia Mönchengladbach II.",
+      "birth_location": "Perth, Australia",
+      "height": "177 cm",
+      "weight": "161 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Both",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 5,
@@ -65,7 +104,21 @@
       "club": "Feyenoord",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34198695",
+      "full_name": "Jordan Jacob Bos",
+      "last_name": "Bos",
+      "first_name": "Jordan",
+      "bio": "Jordan Jacob Bos (born 29 October 2002) is an Australian professional soccer player who plays as a left back for Dutch Eredivisie side Feyenoord and the Australia national team. \r\n\r\nBos grew up in the Melbourne suburb of Point Cook and played junior football for Hoppers Crossing SC. He went to secondary school at the Point Cook campus of Emmanuel College. He is of Dutch descent and holds dual nationality.\r\n\r\nBos made his international debut for Australia in a friendly against Ecuador at Dockland",
+      "birth_location": "Melbourne, Australia",
+      "height": "5' 11\"",
+      "weight": "183 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "facebook": "www.facebook.com/jordan.bos.1"
+      }
     },
     {
       "number": 6,
@@ -78,7 +131,19 @@
       "club": "Albirex Niigata",
       "club_nation": "JPN",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34219307",
+      "full_name": "Jason Kato Geria",
+      "last_name": "Geria",
+      "first_name": "Jason",
+      "bio": "Jason Kato Geria (born 10 May 1993) is an Australian professional soccer player who plays as a defender for Albirex Niigata in the J2 League, and the Australia national team.\r\n\r\nBorn in Canberra, Geria played youth football with the Australian Institute of Sport and Brisbane Roar youth before joining Melbourne Victory in 2012, where he made his professional debut and played for five years. He then joined Japanese club JEF United Chiba in 2018.\r\n\r\nGeria is Melbourne Victory's third most capped pl",
+      "birth_location": "Canberra, Australia",
+      "height": "1.84 m",
+      "weight": "163 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 7,
@@ -91,7 +156,22 @@
       "club": "Melbourne City",
       "club_nation": "AUS",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34169196",
+      "full_name": "Mathew Allan Leckie",
+      "last_name": "Leckie",
+      "first_name": "Mathew",
+      "bio": "Mathew Allan Leckie (born 4 February 1991) is an Australian footballer who plays for Melbourne City FC in the A-League and the Australian national team (for whom he has previously been the captain). Leckie, being a quick and agile player, is usually placed on the wing. However, he has previously been deployed as a midfielder, striker/second striker and even as a wing-back.",
+      "birth_location": "Melbourne, Australia",
+      "height": "1.81 m (5 ft 11 in)",
+      "weight": "172 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/lecks.7/"
+      },
+      "wikidata_id": "Q176304"
     },
     {
       "number": 8,
@@ -104,7 +184,19 @@
       "club": "FC St. Pauli",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34173980",
+      "full_name": "Connor Isaac Metcalfe",
+      "last_name": "Metcalfe",
+      "first_name": "Connor",
+      "bio": "Connor Isaac Metcalfe (born 5 November 1999) is an Australian professional soccer player who plays as a central midfielder for Bundesliga club FC St. Pauli and the Australia national team.",
+      "birth_location": "Newcastle, NSW, Australia",
+      "height": "1.78 m (5 ft 8 in)",
+      "weight": "163 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 9,
@@ -117,7 +209,19 @@
       "club": "Norwich City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34173976",
+      "full_name": "Mohamed Touré",
+      "last_name": "Touré",
+      "first_name": "Mohamed",
+      "bio": "Mohamed \"Mo\" Touré (moh-HAM-ed TOO-ray; born 26 March 2004) is a professional soccer player who plays as a striker for Norwich City. Born a Liberian refugee in Guinea, he plays for the Australia national team.\r\n\r\nHe began his professional career at Adelaide United making his debut and scoring his first goal for the club in February 2020, as the third youngest debutant and youngest goalscorer in A-League history at the age of 15. Following his breakthrough season, he joined Stade de Reims, initia",
+      "birth_location": "Conakry, Guinea",
+      "height": "186 cm",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 10,
@@ -130,7 +234,23 @@
       "club": "Heracles Almelo",
       "club_nation": "NED",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34170413",
+      "full_name": "Ajdin Hrustic",
+      "last_name": "Hrustic",
+      "first_name": "Ajdin",
+      "bio": "Ajdin Hrustic is an Australian professional soccer player who plays as an attacking midfielder for Eredivisie club Heracles Almelo and the Australia national team.",
+      "birth_location": "Melbourne, Australia",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "172 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/ajdinhrustic23/",
+        "facebook": "www.facebook.com/ajdin.hrustic.562"
+      },
+      "wikidata_id": "Q29109911"
     },
     {
       "number": 11,
@@ -143,7 +263,19 @@
       "club": "Castellón",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34149194",
+      "full_name": "Awer Bul Mabil",
+      "last_name": "Mabil",
+      "first_name": "Awer",
+      "bio": "Awer Bul Mabil (born 15 September 1995) is a professional soccer player who plays as a winger for Segunda División club CD Castellón. Born as a South Sudanese refugee in Kenya, he plays for the Australia national team.\r\n\r\nMabil played youth soccer at the South Australian National Training Centre and with Adelaide United. He made his senior debut for Campbelltown City, before making his debut in the A-League for Adelaide United in 2013.\r\n\r\nHe is co-founder of the humanitarian charity Barefoot to ",
+      "birth_location": "Kakuma, Kenya",
+      "height": "1.79m (5 ft 10 in)",
+      "weight": "161 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 12,
@@ -156,7 +288,19 @@
       "club": "Randers",
       "club_nation": "DEN",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34218218",
+      "full_name": "Paul David Izzo",
+      "last_name": "Izzo",
+      "first_name": "Paul",
+      "bio": "Paul David Izzo (born 6 January 1995) is an Australian professional soccer player who plays as a goalkeeper for Danish Superliga side Randers and the Australia national team. \r\nIzzo played youth football at the Australian Institute of Sport before making his professional debut for Adelaide United. In 2015, he joined Central Coast Mariners before returning to Adelaide United in 2017.\r\nHe has appeared numerous times for the Australian under-20 side.",
+      "birth_location": "Adelaide, Australia",
+      "height": "185 cm",
+      "weight": "81 kg",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
@@ -169,7 +313,20 @@
       "club": "New York City FC",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34275048",
+      "full_name": "Aiden Connor O'Neill",
+      "last_name": "O'Neill",
+      "first_name": "Aiden",
+      "bio": "Aiden Connor O'Neill (born 4 July 1998) is an Australian professional soccer player who currently plays as a defensive midfielder for New York City FC and the Australia national team.",
+      "birth_location": "Brisbane, Australia",
+      "height": "178cm",
+      "weight": "172 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q26485052"
     },
     {
       "number": 14,
@@ -182,7 +339,19 @@
       "club": "Heart of Midlothian",
       "club_nation": "SCO",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34175349",
+      "full_name": "Cameron Peter Devlin",
+      "last_name": "Devlin",
+      "first_name": "Cammy",
+      "bio": "Cameron Peter Devlin (born 7 June 1998) is an Australian professional soccer player who plays as a defensive midfielder for Heart of Midlothian and the Australia national team.\r\n\r\nDevlin was called up to the Australian senior side for the first time in September 2022 for two friendly matches against New Zealand in the leadup to the 2022 FIFA World Cup. He came on for his senior international debut as a second-half substitute in the second game on 25 September 2022, in Auckland.\r\n\r\nOn 8 November ",
+      "birth_location": "Sydney, Australia",
+      "height": "169 cm",
+      "weight": "",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 15,
@@ -195,7 +364,19 @@
       "club": "New York City FC",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34177265",
+      "full_name": "Kai Clifton Trewin",
+      "last_name": "Trewin",
+      "first_name": "Kai",
+      "bio": "Kai Clifton Trewin (born 18 May 2001) is an Australian professional soccer player who plays as a central defender for Major League Soccer club New York City FC and the Australia national team.\r\nOn 6 March 2020, Trewin made his professional debut in a Round 22 clash against Western Sydney Wanderers, replacing Scott McDonald in the 92nd minute as the Roar ran out 3-1 winners.",
+      "birth_location": "Batemans Bay, New South Wales, Australia",
+      "height": "183 cm",
+      "weight": "",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 16,
@@ -208,7 +389,22 @@
       "club": "Melbourne City",
       "club_nation": "AUS",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34158552",
+      "full_name": "Aziz Eraltay Behiç",
+      "last_name": "Behich",
+      "first_name": "Aziz",
+      "bio": "Aziz Eraltay Behiç (Turkish: , /ˈæzɪz ˈbeɪ.ɪtʃ/ AZ-iz BAY-itch; born 16 December 1990) is an Australian professional soccer player who plays as a left back for A-League Men club Melbourne City and the Australia national team.",
+      "birth_location": "Melbourne, Australia",
+      "height": "1.70 m (5 ft 7 in)",
+      "weight": "150 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/azizbehich/",
+        "twitter": "twitter.com/azizbehich"
+      }
     },
     {
       "number": 17,
@@ -221,7 +417,19 @@
       "club": "Watford",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34227137",
+      "full_name": "Nestory Irankunda",
+      "last_name": "Irankunda",
+      "first_name": "Nestory",
+      "bio": "Nestory Irankunda (/nɛstəriː ɪrənkʊndɑ/ NEST-ər-EE irən-KUN-da; Kirundi: ; born 9 February 2006) is a professional soccer player who plays as a winger for EFL Championship club Watford. Born a Burundian refugee in Tanzania, he plays for the Australia national team.\r\n\r\nIrankunda played youth football for Adelaide Croatia Raiders before moving to Adelaide United in 2021. He started his professional career when he signed a scholarship contract in September 2021, followed by his league debut in Janu",
+      "birth_location": "Kigoma, Tanzania",
+      "height": "174cm / 5'9\"",
+      "weight": "161 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 18,
@@ -234,7 +442,19 @@
       "club": "Melbourne City",
       "club_nation": "AUS",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34292393",
+      "full_name": "Patrick Thomas Beach",
+      "last_name": "Beach",
+      "first_name": "Patrick",
+      "bio": "Patrick Beach (born 6 August 2003) is an Australian professional soccer player who plays as a goalkeeper for A-League Men club Melbourne City and the Australia national team.\r\n\r\nBeach developed his football skills playing in the NSW Football Competition. His junior club was Glenmore Park Football Club where he played his first 5 years, then transferring to Mount Druitt Town Rangers for the SAP program. After completing 3 years in the SAP program Beach played a further 3 years with Rangers in the",
+      "birth_location": "Sydney, Australia",
+      "height": "190 cm",
+      "weight": "163 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 19,
@@ -247,7 +467,23 @@
       "club": "Leicester City",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34161588",
+      "full_name": "Harry James Souttar",
+      "last_name": "Souttar",
+      "first_name": "Harry",
+      "bio": "Harry James Souttar (born 22 October 1998) is a professional soccer player who plays as a centre-back for EFL Championship club Leicester City. Born in Scotland, he plays for the Australia national team. \r\n\r\nSouttar began his career with Dundee United, making three first team appearances, before joining Stoke in September 2016. He has also played for Ross County on loan.\r\n\r\nBorn in Scotland to an Australian mother, Souttar previously represented Scotland at youth levels before making his debut f",
+      "birth_location": "Aberdeen, Scotland",
+      "height": "198 cm",
+      "weight": "223 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/harrysouttar_fanpage/",
+        "twitter": "twitter.com/harryjsouttar"
+      },
+      "wikidata_id": "Q24084205"
     },
     {
       "number": 20,
@@ -260,7 +496,19 @@
       "club": "Sassuolo",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34432980",
+      "full_name": "Cristian Volpato",
+      "last_name": "Volpato",
+      "first_name": "Cristian",
+      "bio": "Cristian Volpato (born 15 November 2003) is a professional soccer player who plays as an attacking midfielder or winger for Serie A club Sassuolo. Born in Australia, he represented Italy internationally at youth level, before switching allegiance to Australia at senior level.\r\n\r\nVolpato was born in Camperdown, an inner western suburb of Sydney in Australia. He attended the prestigious rugby school St Joseph's College Hunters Hill. Volpato is of Italian descent, both his parents are second genera",
+      "birth_location": "Camperdown, New South Wales, Australia",
+      "height": "1.87 m (6 ft 2 in)",
+      "weight": "",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 21,
@@ -273,7 +521,20 @@
       "club": "Swansea City",
       "club_nation": "WAL",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34148631",
+      "full_name": "Cameron Robert Burgess",
+      "last_name": "Burgess",
+      "first_name": "Cameron",
+      "bio": "Cameron Robert Burgess (born 21 October 1995) is an Australian professional footballer who plays as a central or left defender for Swansea City .",
+      "birth_location": "Aberdeen, Scotland",
+      "height": "1.94 m (6 ft 4 in)",
+      "weight": "203 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q17496350"
     },
     {
       "number": 22,
@@ -286,7 +547,20 @@
       "club": "FC St. Pauli",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34158358",
+      "full_name": "Jackson Alexander Irvine",
+      "last_name": "Irvine",
+      "first_name": "Jackson",
+      "bio": "Jackson Alexander Irvine (born 7 March 1993) is an Australian professional soccer player who plays as a central midfielder for Bundesliga club FC St. Pauli, whom he captains, and the Australia national team. \r\nIrvine has represented the Scotland national under-19 football team, but has since made his debut for the Australian national side.",
+      "birth_location": "Melbourne, Australia",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "168 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q10544594"
     },
     {
       "number": 23,
@@ -299,7 +573,19 @@
       "club": "Melbourne Victory",
       "club_nation": "AUS",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34227114",
+      "full_name": "Nishan Matthew Velupillay; நிஷான் மேத்யூ வேலுப்பிள்ளை",
+      "last_name": "Velupillay",
+      "first_name": "Nishan",
+      "bio": "Nishan Matthew Velupillay (Tamil: நிஷான் மேத்யூ வேலுப்பிள்ளை, pronounced ; born 7 May 2001) is an Australian professional soccer player who plays as a winger for Melbourne Victory and the Australia national team.",
+      "birth_location": "Melbourne, Australia",
+      "height": "181 cm",
+      "weight": "170 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 24,
@@ -312,7 +598,19 @@
       "club": "Sydney FC",
       "club_nation": "AUS",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34433191",
+      "full_name": "Paul Michael Junior Okon-Engstler",
+      "last_name": "Okon-Engstler",
+      "first_name": "Paul",
+      "bio": "Paul Michael Junior Okon-Engstler (West Flemish: : born 24 January 2005) is a professional soccer player who plays as a defensive midfielder for Sydney FC in the A-League Men. Born in Belgium, he represents the Australia national team.\r\n\r\nClub career\r\nBorn in Belgium while his father, former Australian international soccer player Paul Okon was playing for Belgian Pro League club K.V. Oostende, Okon-Engstler moved to Australia in 2006 when his father signed for the Newcastle Jets. He started his ",
+      "birth_location": "Gent, Belgium",
+      "height": "186 cm",
+      "weight": "84 kg",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -325,7 +623,19 @@
       "club": "Colorado Rapids",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34347220",
+      "full_name": "Lucas Herrington",
+      "last_name": "Herrington",
+      "first_name": "Lucas",
+      "bio": "Lucas Herrington (born 5 September 2007) is an Australian professional soccer player who plays as a central defender for Major League Soccer club Colorado Rapids and the Australia national team.\r\n\r\nHerrington is a product of the youth systems of Taringa Rovers, Toowong FC and Brisbane City FC, before joining the academy of Brisbane Roar in 2019, where he completed his development. In 2023, he featured for the club’s reserve side, Brisbane Roar Youth. On 9 September 2024, he signed a three-year s",
+      "birth_location": "Brisbane, Queensland, Australia",
+      "height": "1.92 m (6 ft 4 in)",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -338,7 +648,19 @@
       "club": "Machida Zelvia",
       "club_nation": "JPN",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34258660",
+      "full_name": "Tete Yengi",
+      "last_name": "Yengi",
+      "first_name": "Tete",
+      "bio": "Tete Yengi (born 28 November 2000) is an Australian professional soccer player who plays as a striker for J1 League club Machida Zelvia, on loan from Scottish Championship club Livingston. Yengi has previously played for Newcastle Jets, Ipswich Town, VPS, Northampton Town and KuPS.",
+      "birth_location": "Adelaide, Australia",
+      "height": "197 cm",
+      "weight": "83 kg",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     }
   ]
 }

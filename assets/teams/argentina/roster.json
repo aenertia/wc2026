@@ -13,7 +13,23 @@
       "club": "Atlético Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/1.png"
+      "photo": "players/1.png",
+      "tsdb_id": "34164510",
+      "full_name": "Juan Agustín Musso",
+      "last_name": "Musso",
+      "first_name": "Juan",
+      "bio": "Juan Agustín Musso (born 6 May 1994) is an Argentine professional footballer who plays as a goalkeeper for La Liga club Atlético Madrid and the Argentina national team.",
+      "birth_location": "San Nicolás de los Arroyos, Argentina",
+      "height": "1.91 m (6 ft 3 in)",
+      "weight": "203 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/juanmusso/",
+        "twitter": "twitter.com/musso_juan"
+      },
+      "wikidata_id": "Q5951550"
     },
     {
       "number": 2,
@@ -26,7 +42,23 @@
       "club": "Bournemouth",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/2.png"
+      "photo": "players/2.png",
+      "tsdb_id": "34170459",
+      "full_name": "Marcos Senesi",
+      "last_name": "Senesi",
+      "first_name": "Marcos",
+      "bio": "Marcos Nicolás Senesi Barón (born 10 May 1997) is an Argentine professional footballer who plays as a centre-back for Premier League club Bournemouth and the Argentina national team. He will join Tottenham Hotspur on 1 July 2026.",
+      "birth_location": "Concordia, Argentina",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/marcosenesi/",
+        "twitter": "twitter.com/senesimarcos"
+      },
+      "wikidata_id": "Q23413053"
     },
     {
       "number": 3,
@@ -39,7 +71,20 @@
       "club": "Lyon",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/3.png"
+      "photo": "players/3.png",
+      "tsdb_id": "34167125",
+      "full_name": "Nicolás Alejandro Tagliafico",
+      "last_name": "Tagliafico",
+      "first_name": "Nicolás",
+      "bio": "Nicolás Alejandro Tagliafico (born 31 August 1992) is an Argentine professional footballer who plays as a left back for Ligue 1 club Lyon and the Argentina national team.",
+      "birth_location": "Rafael Calzada, Argentina",
+      "height": "1.72 m (5 ft 8 in)",
+      "weight": "148 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "Nike Phantom VSN",
+      "social": {},
+      "wikidata_id": "Q3876530"
     },
     {
       "number": 4,
@@ -52,7 +97,23 @@
       "club": "River Plate",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/4.png"
+      "photo": "players/4.png",
+      "tsdb_id": "34174112",
+      "full_name": "Gonzalo Ariel Montiel",
+      "last_name": "Montiel",
+      "first_name": "Gonzalo",
+      "bio": "Gonzalo Ariel Montiel (born 1 January 1997) is an Argentine professional footballer who plays as right-back for the Argentine Primera División club River Plate and the Argentina national team.\r\n\r\nMontiel began his professional career with River Plate in 2016, playing 140 games and winning honours including the Argentine Primera División in 2021 and the Copa Libertadores in 2018. In 2021, he signed for Sevilla for €11 million but was loaned to Nottingham Forest in England for the 2023/24 season b",
+      "birth_location": "González Catán, Argentina",
+      "height": "1.76 m (5 ft 9 in)",
+      "weight": "68 kg (150 lb)",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "instagram.com/gonzalo_montiel29/",
+        "twitter": "twitter.com/gonza_river5"
+      },
+      "wikidata_id": "Q26255087"
     },
     {
       "number": 5,
@@ -65,7 +126,23 @@
       "club": "Boca Juniors",
       "club_nation": "ARG",
       "captain": false,
-      "photo": "players/5.png"
+      "photo": "players/5.png",
+      "tsdb_id": "34147236",
+      "full_name": "Leandro Daniel Paredes",
+      "last_name": "Paredes",
+      "first_name": "Leandro",
+      "bio": "Leandro Daniel Paredes (born 29 June 1994) is an Argentine professional footballer who plays as a defensive midfielder for Boca Juniors and the Argentina national team. He was part of the squad that won the 2022 FIFA World Cup.",
+      "birth_location": "San Justo, Argentina",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "163 lbs",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "Nike Phantom VNM",
+      "social": {
+        "instagram": "www.instagram.com/leoparedes20/",
+        "twitter": "twitter.com/LParedss"
+      },
+      "wikidata_id": "Q630170"
     },
     {
       "number": 6,
@@ -78,7 +155,22 @@
       "club": "Manchester United",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34167150",
+      "full_name": "Lisandro Martínez",
+      "last_name": "Martínez",
+      "first_name": "Lisandro",
+      "bio": "Lisandro Martínez (born 18 January 1998) is an Argentine professional footballer who plays primarily as a centre-back for Premier League club Manchester United and the Argentina national team.\r\n\r\nMartínez began his career at Newell's Old Boys before joining Defensa y Justicia in 2017, initially on loan. In 2019, he signed for Ajax and has since won two Eredivisie titles and one KNVB Cup. He won the Ajax Player of the Year award in the 2021–22 season.\r\n\r\nMartínez represented Argentina at under-20",
+      "birth_location": "Gualeguay, Argentina",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "159 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "Nike Mercurial Superfly VII Elite FG",
+      "social": {
+        "instagram": "www.instagram.com/lisandromartinezzz/"
+      },
+      "wikidata_id": "Q30881092"
     },
     {
       "number": 7,
@@ -91,7 +183,24 @@
       "club": "Inter Miami CF",
       "club_nation": "USA",
       "captain": false,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34149739",
+      "full_name": "Rodrigo Javier De Paul",
+      "last_name": "Paul",
+      "first_name": "Rodrigo de",
+      "bio": "Rodrigo Javier De Paul (born 24 May 1994) is an Argentine professional football player who plays as a midfielder for Major League Soccer club Inter Miami and the Argentina national team.",
+      "birth_location": "Sarandí, Argentina",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "69 kg (152 lb)",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/rodridepaul/",
+        "facebook": "www.facebook.com/rodrigodepaul/",
+        "twitter": "twitter.com/rodridepaul"
+      },
+      "wikidata_id": "Q6110670"
     },
     {
       "number": 8,
@@ -104,7 +213,20 @@
       "club": "Strasbourg",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34231622",
+      "full_name": "Valentín Barco",
+      "last_name": "Barco",
+      "first_name": "Valentín",
+      "bio": "Valentín Barco (born 23 July 2004) is an Argentine professional footballer who plays as a left-back or wide midfielder for Ligue 1 club Strasbourg and the Argentina national team. He was included in The Guardian's \"Next Generation\" list for 2021.",
+      "birth_location": "25 de Mayo, Argentina",
+      "height": "1.70 m (5 ft 7 in)",
+      "weight": "146 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q107542811"
     },
     {
       "number": 9,
@@ -117,7 +239,22 @@
       "club": "Atlético Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34174250",
+      "full_name": "Julián Álvarez",
+      "last_name": "Álvarez",
+      "first_name": "Julián",
+      "bio": "Julián Álvarez (Spanish pronunciation: ; born 31 January 2000) is an Argentine professional footballer who plays as a forward for La Liga club Atlético Madrid and the Argentina national team. He is the first ever player to win the FIFA World Cup and a continental treble in the same season.\r\n\r\nÁlvarez began his football career in his native Argentina, where he is an academy graduate of River Plate, making his first-team debut for the club in 2018. There he spent four seasons and won the Copa Arge",
+      "birth_location": "Calchín, Argentina",
+      "height": "1.70 m (5 ft 7 in)",
+      "weight": "157 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "instagram.com/juliaanalvarez/"
+      },
+      "wikidata_id": "Q59381180"
     },
     {
       "number": 10,
@@ -130,7 +267,23 @@
       "club": "Inter Miami CF",
       "club_nation": "USA",
       "captain": true,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34146370",
+      "full_name": "Lionel Andrés Messi Cuccitini",
+      "last_name": "Messi",
+      "first_name": "Lionel",
+      "bio": "Lionel Andrés \"Leo\" Messi (Spanish:  ⓘ; born 24 June 1987) is an Argentine professional footballer who plays as a forward for and captains both Major League Soccer club Inter Miami and the Argentina national team. Widely regarded as one of the greatest players in history, Messi has set numerous records for individual accolades won throughout his professional footballing career, including eight Ballon d'Ors, six European Golden Shoes, and eight times being named the world's best player by FIFA. I",
+      "birth_location": "Rosario, Argentina",
+      "height": "1.70 m (5 ft 7 in)",
+      "weight": "148 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "adidas Nemeziz 19.1",
+      "social": {
+        "instagram": "www.instagram.com/leomessi/",
+        "facebook": "www.facebook.com/leomessi/"
+      },
+      "wikidata_id": "Q615"
     },
     {
       "number": 11,
@@ -143,7 +296,23 @@
       "club": "Real Betis",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34162096",
+      "full_name": "Giovani Lo Celso",
+      "last_name": "Celso",
+      "first_name": "Giovani Lo",
+      "bio": "Giovani Lo Celso (born 9 April 1996) is an Argentine professional footballer who plays as an attacking midfielder for La Liga side Real Betis and the Argentina national team. .",
+      "birth_location": "Rosario, Argentina",
+      "height": "1.77 m (5 ft 9 1⁄2 in)",
+      "weight": "150 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "Puma Future 19.1 Netfit",
+      "social": {
+        "instagram": "www.instagram.com/locelsogiovani/",
+        "twitter": "twitter.com/locelsogiovani"
+      },
+      "wikidata_id": "Q20743436"
     },
     {
       "number": 12,
@@ -156,7 +325,24 @@
       "club": "Marseille",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34149700",
+      "full_name": "Gerónimo Rulli",
+      "last_name": "Rulli",
+      "first_name": "Gerónimo",
+      "bio": "Gerónimo Rulli (Spanish pronunciation: ; born 20 May 1992) is an Argentine footballer who plays as a goalkeeper for Ligue 1 club Marseille and the Argentina national team.\r\n\r\nRulli joined Estudiantes's youth team in 2009, making his professional debut for them in 2013. Between 2014 and 2020, he played for Real Sociedad, twice on loan before joining them on a permanent deal in 2017. He played in 170 matches for Sociedad in five seasons. He joined French club Montpellier on loan in 2019. In 2020, ",
+      "birth_location": "La Plata, Argentina",
+      "height": "1.89 m (6 ft 2+1⁄2 in)",
+      "weight": "183 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/gerorulli",
+        "facebook": "www.facebook.com/gero.rulli",
+        "twitter": "twitter.com/gerorulli"
+      },
+      "wikidata_id": "Q5879014"
     },
     {
       "number": 13,
@@ -169,7 +355,22 @@
       "club": "Tottenham Hotspur",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/13.png"
+      "photo": "players/13.png",
+      "tsdb_id": "34164243",
+      "full_name": "Cristian Romero",
+      "last_name": "Romero",
+      "first_name": "Cristian",
+      "bio": "Cristian \"Cuti\" Gabriel Romero (born 27 April 1998) is an Argentine professional footballer who plays as a centre-back for Premier League club Tottenham Hotspur and the Argentina national team.",
+      "birth_location": "Córdoba, Argentina",
+      "height": "185cm / 6'1\"",
+      "weight": "172 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/cutiromero2/"
+      },
+      "wikidata_id": "Q28058687"
     },
     {
       "number": 14,
@@ -182,7 +383,20 @@
       "club": "Bayer Leverkusen",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34169228",
+      "full_name": "Exequiel Alejandro Palacios",
+      "last_name": "Palacios",
+      "first_name": "Exequiel",
+      "bio": "Exequiel Alejandro Palacios (5 October 1998) is an Argentine footballer who plays as a midfielder for Bayer Leverkusen and the Argentina national team.",
+      "birth_location": "Famaillá, Argentina",
+      "height": "1.77 m (5 ft 10 in)",
+      "weight": "150 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q19345715"
     },
     {
       "number": 15,
@@ -195,7 +409,22 @@
       "club": "Atlético Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34173115",
+      "full_name": "Nicolás Iván González",
+      "last_name": "González",
+      "first_name": "Nicolás",
+      "bio": "Nicolás Iván González (born 6 April 1998) is an Argentine professional footballer who plays as a winger or wide midfielder for La Liga club Atlético Madrid, on loan from Serie A club Juventus, and the Argentina national team. \r\n\r\nAfter over ten years in the club's youth system, González made his professional debut for Argentinos Juniors in a 2015–16 Copa Argentina defeat to Deportivo Laferrere of Primera C Metropolitana in July 2016. He made his Primera B Nacional debut on 28 August against San ",
+      "birth_location": "Escobar, Argentina",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "159 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/nicoigonzalez/"
+      },
+      "wikidata_id": "Q43381082"
     },
     {
       "number": 16,
@@ -208,7 +437,22 @@
       "club": "Atlético Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34197736",
+      "full_name": "Thiago Ezequiel Almada",
+      "last_name": "Almada",
+      "first_name": "Thiago",
+      "bio": "Thiago Ezequiel Almada (born 26 April 2001) is an Argentine professional footballer who plays as an attacking midfielder or winger for La Liga club Atlético Madrid and the Argentina national team.",
+      "birth_location": "Ciudadela, Argentina",
+      "height": "171cm / 5'7\"",
+      "weight": "139 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/thiago_almada23/"
+      },
+      "wikidata_id": "Q57293140"
     },
     {
       "number": 17,
@@ -221,7 +465,19 @@
       "club": "Atlético Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34228685",
+      "full_name": "Giuliano Simeone Baldini",
+      "last_name": "Simeone",
+      "first_name": "Giuliano",
+      "bio": "Giuliano Simeone Baldini (born 18 December 2002) is an Argentine professional footballer who plays as a forward for La Liga club Atlético Madrid. Born in Italy, he is a youth international for Argentina.",
+      "birth_location": "Roma, Italy",
+      "height": "173cm / 5'8\"",
+      "weight": "163 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 18,
@@ -234,7 +490,20 @@
       "club": "Como",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34222648",
+      "full_name": "Nicolás Paz Martínez",
+      "last_name": "Paz",
+      "first_name": "Nico",
+      "bio": "Nicolás Paz Martínez (born 8 September 2004) is a professional footballer who plays as an attacking midfielder for Serie A club Como. Born in Spain, he plays for the Argentina national team.",
+      "birth_location": "Santa Cruz de Tenerife, Spain",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "161 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q111336539"
     },
     {
       "number": 19,
@@ -247,7 +516,24 @@
       "club": "Benfica",
       "club_nation": "POR",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34149734",
+      "full_name": "Nicolás Hernán Gonzalo Otamendi",
+      "last_name": "Otamendi",
+      "first_name": "Nicolás",
+      "bio": "Nicolás Hernán Gonzalo Otamendi (born 12 February 1988) is an Argentine professional footballer who plays as a centre back for Primeira Liga club Benfica and the Argentina national team.\r\n\r\nOtamendi played for Vélez Sarsfield and Porto in his early career, winning eight major titles with Porto, including three Primeira Liga championships and the 2011 Europa League. He signed for Valencia in 2014 and spent four months on loan to Atlético Mineiro of Brazil. In 2015 he moved to Manchester City and ",
+      "birth_location": "Buenos Aires, Argentina",
+      "height": "1.83 m (6 ft 0 in)",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "Nike Phantom VSN",
+      "social": {
+        "instagram": "www.instagram.com/nicolasotamendi30/?hl=it",
+        "facebook": "www.facebook.com/fcOtamendi",
+        "twitter": "twitter.com/notamendi30"
+      },
+      "wikidata_id": "Q182063"
     },
     {
       "number": 20,
@@ -260,7 +546,22 @@
       "club": "Liverpool",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/20.png"
+      "photo": "players/20.png",
+      "tsdb_id": "34170133",
+      "full_name": "Alexis Mac Allister",
+      "last_name": "Allister",
+      "first_name": "Alexis Mac",
+      "bio": "Alexis Mac Allister (born 24 December 1998) is an Argentine professional footballer who plays as a central midfielder for Premier League club Liverpool, and the Argentina national team.",
+      "birth_location": "Santa Rosa, Argentina",
+      "height": "176cm / 5'9\"",
+      "weight": "150 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/alemacallister/"
+      },
+      "wikidata_id": "Q33297140"
     },
     {
       "number": 21,
@@ -273,7 +574,21 @@
       "club": "Palmeiras",
       "club_nation": "BRA",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34200399",
+      "full_name": "José Manuel Alberto López",
+      "last_name": "López",
+      "first_name": "José Manuel",
+      "bio": "José Manuel Alberto López (born 6 December 2000), commonly known as Flaco López, is an Argentine professional footballer who plays as a striker for Campeonato Brasileiro Série A club Palmeiras and the Argentina national team.",
+      "birth_location": "San Lorenzo, Argentina",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/flacolopez_10/"
+      }
     },
     {
       "number": 22,
@@ -286,7 +601,23 @@
       "club": "Inter Milan",
       "club_nation": "ITA",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34164252",
+      "full_name": "Lautaro Javier Martínez",
+      "last_name": "Martínez",
+      "first_name": "Lautaro",
+      "bio": "Lautaro Javier Martínez (Spanish pronunciation: ; born 22 August 1997) is an Argentine professional footballer who plays as a striker for Italian club Inter Milan and the Argentina national team.\r\n\r\nHe began his football career in his native Argentina where he made his senior debut in 2015 with Racing Club. There he spent four seasons and represented the club in the league and Copa Libertadores, scoring 27 goals in 60 appearances before joining Inter in 2018.\r\n\r\nMartínez also previously represen",
+      "birth_location": "Bahía Blanca, Argentina",
+      "height": "1.74 m (5 ft 9 in)",
+      "weight": "72 kg (159 lb)",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/lautaromartinezz10/",
+        "facebook": "www.facebook.com/LautaroMartinezOfficial/"
+      },
+      "wikidata_id": "Q21484126"
     },
     {
       "number": 23,
@@ -299,7 +630,24 @@
       "club": "Aston Villa",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34145423",
+      "full_name": "Damián Emiliano Martínez Romero",
+      "last_name": "Martinez",
+      "first_name": "Emiliano",
+      "bio": "Damián Emiliano Martínez Romero (born 2 September 1992) is an Argentine professional footballer who plays as a goalkeeper for Premier League club Aston Villa and the Argentina national team.\r\n\r\nMartínez trained at Independiente's youth ranks before moving to Arsenal in 2010. At Arsenal, he served as understudy, being loaned to various English clubs, before breaking into the starting line-up in 2019, helping them win a FA Cup and FA Community Shield. In September 2020, Martínez moved to fellow Pr",
+      "birth_location": "Mar del Plata, Argentina",
+      "height": "195 cm",
+      "weight": "192 lbs",
+      "position_detail": "Goalkeeper",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/emi_martinez26/",
+        "facebook": "www.facebook.com/emimartinez26/",
+        "twitter": "twitter.com/emimartinezz1"
+      },
+      "wikidata_id": "Q3275904"
     },
     {
       "number": 24,
@@ -312,7 +660,22 @@
       "club": "Chelsea",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34198448",
+      "full_name": "Enzo Jeremías Fernández",
+      "last_name": "Fernández",
+      "first_name": "Enzo",
+      "bio": "Enzo Jeremías Fernández (born 17 January 2001) is an Argentine professional footballer who plays as a central midfielder for Premier League club Chelsea.",
+      "birth_location": "San Martín, Argentina",
+      "height": "1.78 m (5 ft 10 in)",
+      "weight": "168 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/enzojfernandez/"
+      },
+      "wikidata_id": "Q326477"
     },
     {
       "number": 25,
@@ -325,7 +688,19 @@
       "club": "Marseille",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34173402",
+      "full_name": "Facundo Axel Medina",
+      "last_name": "Medina",
+      "first_name": "Facundo",
+      "bio": "Facundo Axel Medina (born 28 May 1999) is an Argentine professional footballer who plays as a centre-back or left-back for Ligue 1 club Marseille, on loan from Lens, and the Argentina national team.\r\n\r\nClub career\r\nMedina's career got underway with a stint with River Plate, who he was an unused substitute for four times during the 2016–17 Argentine Primera División season. In January 2018, Medina completed a move to fellow Argentine Primera División side Talleres. After featuring for their U20s ",
+      "birth_location": "Buenos Aires, Argentina",
+      "height": "1.80 m (5 ft 9 in)",
+      "weight": "78 kg",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
@@ -338,7 +713,22 @@
       "club": "Atlético Madrid",
       "club_nation": "ESP",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34172405",
+      "full_name": "Nahuel Molina Lucero",
+      "last_name": "Molina",
+      "first_name": "Nahuel",
+      "bio": "Nahuel Molina Lucero (born 6 April 1998) is an Argentine professional footballer who plays as a right-back for La Liga club club Atlético Madrid and the Argentina national team.",
+      "birth_location": "Embalse, Argentina",
+      "height": "1.75 m (5 ft 9 in)",
+      "weight": "152 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "instagram.com/nahuelmolina35?igshid=5bny6y7icll3"
+      },
+      "wikidata_id": "Q22082590"
     }
   ]
 }
