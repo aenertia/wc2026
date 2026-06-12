@@ -751,7 +751,7 @@ const ref = { x: 0, y: 0, targetX: 0, targetY: 0, inFight: false, fightX: 0, fig
 // User interaction state
 let clickTarget = null; // {x, y, framesLeft}
 let mouseWorldX = 0, mouseWorldY = 0;
-const COMEDY_COOLDOWN = 10000; // 10 seconds minimum between comedy events
+const COMEDY_COOLDOWN = 4000; // 4 seconds between comedy events — more drama!
 const playerEventCounts = new Map(); // name → {dives:0, fights:0, selfies:0}
 
 function canTriggerComedy() {
@@ -1361,9 +1361,9 @@ function drawPitch(ctx) {
   ctx.fill();
 
   // --- Center spot ---
-  ctx.fillStyle = 'rgba(255,255,255,0.9)';
+  ctx.fillStyle = 'rgba(255,255,255,0.3)';
   ctx.beginPath();
-  ctx.arc(px + pw / 2, midY, 4, 0, Math.PI * 2);
+  ctx.arc(px + pw / 2, midY, 2.5, 0, Math.PI * 2);
   ctx.fill();
 
   // --- Penalty boxes (16.5m deep × 40.32m wide) ---
@@ -1382,9 +1382,9 @@ function drawPitch(ctx) {
 
   // --- Penalty spots (11m from goal line) ---
   const pspY = 11 * m;
-  ctx.fillStyle = 'rgba(255,255,255,0.9)';
-  ctx.beginPath(); ctx.arc(px + pw / 2, py + pspY, 4, 0, Math.PI * 2); ctx.fill();
-  ctx.beginPath(); ctx.arc(px + pw / 2, py + ph - pspY, 4, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = 'rgba(255,255,255,0.35)';
+  ctx.beginPath(); ctx.arc(px + pw / 2, py + pspY, 2, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(px + pw / 2, py + ph - pspY, 2, 0, Math.PI * 2); ctx.fill();
 
   // --- Penalty arcs (D) ---
   // Arc outside the penalty box, centred on penalty spot, radius = 9.15m
@@ -1457,10 +1457,28 @@ function drawPlayer(ctx, p) {
   const frame = Math.floor(Date.now() / 120) % 2; // 2-frame walk cycle ~8fps
   const hasBall = ball.owner === p;
 
+  // Dramatic states: rotate player horizontal + jiggle
+  const isDramatic = p.state === 'diving' || p.state === 'fighting' || p.state === 'celebrating' || p.state === 'slacking';
+  if (isDramatic) {
+    ctx.save();
+    ctx.translate(x, y);
+    if (p.state === 'diving') {
+      ctx.rotate(Math.PI / 2 + Math.sin(p.stateTimer * 0.4) * 0.3); // on their side, writhing
+    } else if (p.state === 'fighting') {
+      ctx.rotate(Math.sin(Date.now() / 80) * 0.5); // jiggling aggressively
+      ctx.translate(Math.sin(Date.now() / 50) * 4, Math.cos(Date.now() / 60) * 3); // shaking
+    } else if (p.state === 'celebrating') {
+      ctx.rotate(Math.sin(Date.now() / 200) * 0.4); // swaying happily
+    } else if (p.state === 'slacking') {
+      ctx.rotate(Math.PI / 2); // lying down
+    }
+    x = 0; y = 0; // relative to translated origin
+  }
+
   // --- Shadow ---
   ctx.fillStyle = 'rgba(0,0,0,0.25)';
   ctx.beginPath();
-  ctx.ellipse(x, y + 3, 10, 4, 0, 0, Math.PI * 2);
+  ctx.ellipse(x, y + 3, isDramatic ? 14 : 10, 4, 0, 0, Math.PI * 2);
   ctx.fill();
 
   // --- Body (tiny rectangle) ---
@@ -1597,6 +1615,11 @@ function drawPlayer(ctx, p) {
     ctx.fillStyle = 'rgba(240,196,76,0.8)';
     ctx.font = '7px "Space Mono", monospace';
     ctx.fillText(p.slackLabel || '', x, y + bh/2 + 18);
+  }
+
+  // Close dramatic rotation transform
+  if (isDramatic) {
+    ctx.restore();
   }
 }
 
@@ -1751,12 +1774,37 @@ function updateBall() {
   if (Math.abs(ball.vx) < 0.1) ball.vx = 0;
   if (Math.abs(ball.vy) < 0.1) ball.vy = 0;
 
-  // Side boundaries (throw-in)
+  // Side boundaries → throw-in
   if (ball.x < PITCH_L || ball.x > PITCH_R) {
-    ball.x = Math.max(PITCH_L + 5, Math.min(PITCH_R - 5, ball.x));
+    const side = ball.x < PITCH_L ? 'left' : 'right';
+    const throwX = side === 'left' ? PITCH_L + 5 : PITCH_R - 5;
+    const throwY = ball.y;
+    ball.x = throwX; ball.y = throwY;
     ball.vx = 0; ball.vy = 0;
-    ball.free = true;
-    ball.owner = null;
+    ball.free = true; ball.owner = null;
+
+    // Award to team that DIDN'T touch it last
+    const throwingTeam = (ball.lastTouchedBy && ball.lastTouchedBy.team === 0) ? 1 : 0;
+    const throwers = (throwingTeam === 0 ? homePlayers : awayPlayers).filter(p => !p.sentOff);
+    const thrower = throwers.sort((a,b) => dist(a.x,a.y,throwX,throwY) - dist(b.x,b.y,throwX,throwY))[0];
+    const tName = throwingTeam === 0 ? homeTeamName : awayTeamName;
+    if (Math.random() < 0.3) addCommentary('default', `Throw-in for ${tName}. ${thrower?.lastName || 'Someone'} to deliver.`);
+
+    if (thrower) {
+      thrower.x = throwX + (side === 'left' ? -8 : 8);
+      thrower.y = throwY;
+      // Throw the ball infield after 0.5s
+      setTimeout(() => {
+        if (ball.free && dist(ball.x, ball.y, throwX, throwY) < 30) {
+          const infield = side === 'left' ? 1 : -1;
+          ball.vx = infield * (4 + Math.random() * 3);
+          ball.vy = (Math.random() - 0.5) * 6;
+          ball.lastTouchedBy = thrower;
+          AudioManager.playKick();
+        }
+      }, 500);
+    }
+    return; // skip further boundary checks this frame
   }
 
   // End boundaries — check for goal or corner/goal-kick
@@ -2104,22 +2152,49 @@ function triggerCornerKick(attackingTeam, goalEnd, side) {
   ball.x = cx; ball.y = cy; ball.vx = 0; ball.vy = 0;
   ball.owner = null; ball.free = true;
   const takers = (attackingTeam === 0 ? homePlayers : awayPlayers).filter(p => !p.sentOff);
+  const defenders = (attackingTeam === 0 ? awayPlayers : homePlayers).filter(p => !p.sentOff);
   const taker = takers.sort((a,b)=>dist(a.x,a.y,cx,cy)-dist(b.x,b.y,cx,cy))[0];
   const tName = attackingTeam === 0 ? homeTeamName : awayTeamName;
   addCommentary('default', `Corner for ${tName}! ${taker?.lastName||''} to deliver...`);
   snapCamera(cx, cy);
+
+  // Defensive positioning — defenders fall back to penalty area
+  const goalBoxY = goalEnd === 'top' ? PITCH_T + PH * 0.15 : PITCH_B - PH * 0.15;
+  defenders.forEach((p, i) => {
+    if (p.position === 'GK') return; // GK stays on line
+    if (p.position === 'DF' || i < 5) {
+      // Defenders cluster in penalty area
+      p.targetX = WORLD_W/2 + (Math.random()-0.5) * 200;
+      p.targetY = goalBoxY + (Math.random()-0.5) * 60;
+      // Move them toward defensive positions
+      const dx = p.targetX - p.x, dy = p.targetY - p.y;
+      const d = Math.sqrt(dx*dx+dy*dy) || 1;
+      p.vx = (dx/d) * p.speed * 0.8;
+      p.vy = (dy/d) * p.speed * 0.8;
+    }
+  });
+
+  // Attackers move into the box for the header
+  takers.forEach((p, i) => {
+    if (p === taker || p.position === 'GK') return;
+    if (p.position === 'FW' || p.position === 'DF' || i < 6) {
+      p.targetX = WORLD_W/2 + (Math.random()-0.5) * 180;
+      p.targetY = goalBoxY + (Math.random()-0.5) * 80;
+    }
+  });
+
   if (taker) {
     taker.x = cx; taker.y = cy + (goalEnd==='top'?15:-15);
     setTimeout(() => {
       if (!ball.free) return;
       const targetX = WORLD_W/2 + (Math.random()-0.5)*150;
-      const targetY = goalEnd==='top' ? PITCH_T+PH*0.17 : PITCH_B-PH*0.17;
+      const targetY = goalBoxY;
       const d = dist(cx, cy, targetX, targetY);
       ball.vx = ((targetX-cx)/d)*9;
       ball.vy = ((targetY-cy)/d)*9;
       ball.lastTouchedBy = taker;
       AudioManager.playKick();
-    }, 800);
+    }, 900);
   }
 }
 
@@ -2263,10 +2338,12 @@ function updatePlayerAI(p, teammates, opponents, roles) {
   const home = getShiftedHomePos(p, myTeamHasBall, isHomeTeam);
   const dx = home.x - p.x, dy = home.y - p.y;
   const d = Math.sqrt(dx * dx + dy * dy);
-  if (d > 60) {
-    // Drift at 40% speed when far from formation
-    p.vx = (dx / d) * p.speed * 0.4;
-    p.vy = (dy / d) * p.speed * 0.4;
+  // Stronger pull for defenders (they should NOT crowd the GK)
+  const pullStrength = (p.position === 'DF') ? 0.7 : (p.position === 'MF') ? 0.5 : 0.4;
+  const pullThreshold = (p.position === 'DF') ? 30 : 60;
+  if (d > pullThreshold) {
+    p.vx = (dx / d) * p.speed * pullStrength;
+    p.vy = (dy / d) * p.speed * pullStrength;
   } else {
     // Small idle jitter near home position
     p.vx = (Math.random() - 0.5) * 0.5;
@@ -2540,34 +2617,35 @@ function checkComedyEvents() {
   if (!canTriggerComedy()) return; // 10-second cooldown between all comedy events
   const t = matchClock / 90; // progress factor
 
-  if (Math.random() < 0.001 * (1 + t)) {
+  // Rates increased 3-5x for more drama — it's COMEDY football
+  if (Math.random() < 0.004 * (1 + t)) {
     triggerComedyCooldown();
     const victim = randomPlayer(Math.random() < 0.5 ? homePlayers : awayPlayers);
     const fouler = randomPlayer(Math.random() < 0.5 ? awayPlayers : homePlayers);
     theatricalDive(victim, fouler);
     return;
   }
-  if (Math.random() < 0.0003 * (1 + t * 2)) {
+  if (Math.random() < 0.0015 * (1 + t * 2)) {
     triggerComedyCooldown();
     triggerMassConfrontation();
     return;
   }
-  if (Math.random() < 0.0004) {
+  if (Math.random() < 0.001) {
     triggerComedyCooldown();
     triggerKeeperRush(Math.random() < 0.5 ? 0 : 1);
     return;
   }
-  if (Math.random() < 0.0003 * (1 + t)) {
+  if (Math.random() < 0.001 * (1 + t)) {
     triggerComedyCooldown();
     triggerVAR();
     return;
   }
-  if (Math.random() < 0.0001) {
+  if (Math.random() < 0.0004) {
     triggerComedyCooldown();
     triggerPitchInvader();
     return;
   }
-  if (Math.random() < 0.001) {
+  if (Math.random() < 0.002) {
     triggerComedyCooldown();
     triggerOwnGoal(Math.random() < 0.5 ? 0 : 1);
     return;
@@ -3165,13 +3243,21 @@ function scheduleMidi(midiData, maxSec=10, tempo=120) {
 }
 
 async function playAnthemMidi(slug, maxSec=10) {
-  if (!AudioManager.ctx || AudioManager.muted) return 2000;
+  console.log('[MIDI] playAnthemMidi called, slug=', slug, 'audioCtx=', AudioManager.ctx?.state);
+  if (!AudioManager.ctx) { console.warn('[MIDI] No AudioContext!'); return 2000; }
+  if (AudioManager.muted) { console.log('[MIDI] Muted, skipping'); return 2000; }
   try {
-    const resp = await fetch(`assets/teams/${slug}/anthem.mid`);
-    if (!resp.ok) return 2000;
-    scheduleMidi(parseMidi(await resp.arrayBuffer()), maxSec);
+    const url = `assets/teams/${slug}/anthem.mid`;
+    console.log('[MIDI] Fetching:', url);
+    const resp = await fetch(url);
+    if (!resp.ok) { console.warn('[MIDI] Fetch failed:', resp.status, url); return 2000; }
+    const buf = await resp.arrayBuffer();
+    console.log('[MIDI] Loaded', buf.byteLength, 'bytes, parsing...');
+    const midi = parseMidi(buf);
+    console.log('[MIDI] Parsed', midi.notes.length, 'notes, scheduling...');
+    scheduleMidi(midi, maxSec);
     return maxSec * 1000;
-  } catch(e) { return 2000; }
+  } catch(e) { console.error('[MIDI] Error:', e); return 2000; }
 }
 
 async function showPrematch(homeName, awayName, onComplete) {
