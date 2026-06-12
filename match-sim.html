@@ -1085,8 +1085,10 @@ function updateCamera() {
     tx += (mouseWorldX - ball.x) * 0.1;
     ty += (mouseWorldY - ball.y) * 0.1;
   }
-  tx = Math.max(0, Math.min(tx, WORLD_W - CW));
-  ty = Math.max(0, Math.min(ty, WORLD_H - CH));
+  // Allow camera to show goals + audience margin (60px beyond pitch edges)
+  const CAM_MARGIN = 60;
+  tx = Math.max(-CAM_MARGIN, Math.min(tx, WORLD_W - CW + CAM_MARGIN));
+  ty = Math.max(-CAM_MARGIN, Math.min(ty, WORLD_H - CH + CAM_MARGIN));
   if (Math.abs(tx - camera.targetX) > DEAD_ZONE || Math.abs(ty - camera.targetY) > DEAD_ZONE) {
     camera.targetX = tx;
     camera.targetY = ty;
@@ -1096,8 +1098,9 @@ function updateCamera() {
 }
 
 function snapCamera(worldX, worldY) {
-  camera.x = camera.targetX = Math.max(0, Math.min(worldX - CW / 2, WORLD_W - CW));
-  camera.y = camera.targetY = Math.max(0, Math.min(worldY - CH / 2, WORLD_H - CH));
+  const M = 60; // margin — show goals + audience area
+  camera.x = camera.targetX = Math.max(-M, Math.min(worldX - CW / 2, WORLD_W - CW + M));
+  camera.y = camera.targetY = Math.max(-M, Math.min(worldY - CH / 2, WORLD_H - CH + M));
 }
 
 // ---- DOM REFS ----
@@ -1538,13 +1541,18 @@ function drawPlayer(ctx, p) {
     ctx.restore();
   }
 
-  // --- Name label (initial letter of surname only) ---
-  const initial = (p.lastName || p.name || '?').charAt(0).toUpperCase();
-  ctx.fillStyle = 'rgba(255,255,255,0.7)';
-  ctx.font = '7px "Space Mono", monospace';
+  // --- Name label (surname, hovering above head) ---
+  const surname = p.lastName || (p.name||'?').split(' ').pop();
+  ctx.fillStyle = 'rgba(255,255,255,0.85)';
+  ctx.font = '8px "Space Mono", monospace';
   ctx.textAlign = 'center';
-  ctx.textBaseline = 'top';
-  ctx.fillText(initial, x, y + bh / 2 + 7);
+  ctx.textBaseline = 'bottom';
+  ctx.fillText(surname, x, headY - hr - 3);
+  // Shirt number on body
+  ctx.fillStyle = 'rgba(0,0,0,0.6)';
+  ctx.font = 'bold 6px monospace';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(String(p.number), x, y - 1);
 
   // --- Ball at feet ---
   if (hasBall) {
@@ -2487,6 +2495,21 @@ function gameLoop() {
 
   if (gameState === 'teamSelect' || gameState === 'fulltime') return;
 
+  // Lineup animation — move players to positions + render
+  if (gameState === 'lineup') {
+    [...homePlayers, ...awayPlayers].forEach(p => {
+      if (p.targetX !== undefined) {
+        const dx = p.targetX - p.x, dy = p.targetY - p.y;
+        const d = Math.sqrt(dx*dx+dy*dy);
+        if (d > 3) { p.vx = (dx/d)*3; p.vy = (dy/d)*3; p.x += p.vx; p.y += p.vy; }
+        else { p.vx = 0; p.vy = 0; }
+      }
+    });
+    updateCamera();
+    drawFrame();
+    return;
+  }
+
   // VAR pause
   if (varActive) {
     varTimer--;
@@ -2880,6 +2903,14 @@ async function startMatch() {
   buildSpriteCache(TEAM_META[homeTeamName]?.slug || '', homePlayers, homeImgs);
   buildSpriteCache(TEAM_META[awayTeamName]?.slug || '', awayPlayers, awayImgs);
 
+  // Rebuild sprite cache after 2s to catch late-loading images
+  setTimeout(() => {
+    const homeImgs2 = {}; homePlayers.forEach(p => { homeImgs2[p.number] = p.img; });
+    const awayImgs2 = {}; awayPlayers.forEach(p => { awayImgs2[p.number] = p.img; });
+    buildSpriteCache(TEAM_META[homeTeamName]?.slug || '', homePlayers, homeImgs2);
+    buildSpriteCache(TEAM_META[awayTeamName]?.slug || '', awayPlayers, awayImgs2);
+  }, 2500);
+
   // Reset state
   homeScore = 0; awayScore = 0;
   matchClock = 0; realTick = 0;
@@ -2900,6 +2931,11 @@ async function startMatch() {
   snapCamera(WORLD_W / 2, WORLD_H / 2);
 
   updateScoreboard();
+
+  // Start game loop in 'lineup' state so players render during ceremony
+  gameState = 'lineup';
+  if (animId) cancelAnimationFrame(animId);
+  gameLoop();
 
   // Show pre-match banter overlay, then kick off
   showPrematch(homeTeamName, awayTeamName, function actualKickoff() {
