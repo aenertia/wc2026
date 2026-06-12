@@ -665,6 +665,8 @@ const IDLE_INTERVAL = 27000;
 
 // ---- COMEDY COOLDOWN & VISUAL EFFECTS ----
 let lastComedyTime = 0;
+let lastCornerTime = 0;
+const CORNER_COOLDOWN = 3000;
 const COMEDY_COOLDOWN = 10000; // 10 seconds minimum between comedy events
 const playerEventCounts = new Map(); // name → {dives:0, fights:0, selfies:0}
 
@@ -932,7 +934,7 @@ let matchClock = 0; // in "minutes" (0-90)
 let realTick = 0;
 const TICKS_PER_MINUTE = 120; // ~2 sec real per game minute → 90min ≈ 3min
 let homeScore = 0, awayScore = 0;
-let ball = { x: WORLD_W/2, y: WORLD_H/2, vx: 0, vy: 0, owner: null, free: true };
+let ball = { x: WORLD_W/2, y: WORLD_H/2, vx: 0, vy: 0, owner: null, free: true, lastTouchedBy: null };
 let homePlayers = [], awayPlayers = [];
 let homeData = null, awayData = null;
 let homeTeamName = '', awayTeamName = '';
@@ -1542,29 +1544,42 @@ function updateBall() {
     ball.owner = null;
   }
 
-  // End boundaries — check for goal
+  // End boundaries — check for goal or corner/goal-kick
   if (ball.y < PITCH_T) {
     if (ball.x > GOAL_L && ball.x < GOAL_R) {
-      // GOAL for home (attacking top)
-      scoreGoal(0);
-      return;
+      scoreGoal(0); return;
     }
-    ball.y = PITCH_T + 5;
-    ball.vy = 0; ball.vx = 0;
-    ball.free = true;
-    ball.owner = null;
+    // Missed — corner or goal kick
+    const lastTeam = ball.lastTouchedBy?.team;
+    // home attacks toward PITCH_T (team 0), so if away last touched → corner for home
+    if (lastTeam === 1 && Date.now() - lastCornerTime > CORNER_COOLDOWN) {
+      lastCornerTime = Date.now();
+      triggerCornerKick(0, 'top', ball.x < WORLD_W/2 ? 'left' : 'right');
+    } else {
+      // Goal kick for team 1 (defending)
+      ball.x = WORLD_W/2; ball.y = PITCH_T + 30;
+      ball.vx = 0; ball.vy = 0; ball.free = true; ball.owner = null;
+      addCommentary('default', `Goal kick — ${awayTeamName} to restart.`);
+    }
+    return;
   }
 
   if (ball.y > PITCH_B) {
     if (ball.x > GOAL_L && ball.x < GOAL_R) {
-      // GOAL for away (attacking bottom)
-      scoreGoal(1);
-      return;
+      scoreGoal(1); return;
     }
-    ball.y = PITCH_B - 5;
-    ball.vy = 0; ball.vx = 0;
-    ball.free = true;
-    ball.owner = null;
+    // Missed — corner or goal kick
+    const lastTeam = ball.lastTouchedBy?.team;
+    // away attacks toward PITCH_B (team 1), so if home last touched → corner for away
+    if (lastTeam === 0 && Date.now() - lastCornerTime > CORNER_COOLDOWN) {
+      lastCornerTime = Date.now();
+      triggerCornerKick(1, 'bottom', ball.x < WORLD_W/2 ? 'left' : 'right');
+    } else {
+      ball.x = WORLD_W/2; ball.y = PITCH_B - 30;
+      ball.vx = 0; ball.vy = 0; ball.free = true; ball.owner = null;
+      addCommentary('default', `Goal kick — ${homeTeamName} to restart.`);
+    }
+    return;
   }
 }
 
@@ -1670,7 +1685,11 @@ function getShiftedHomePos(player, myTeamHasBall, isHomeTeam) {
   } else {
     sy += (ownGoalY - hy) * shiftFactor;
   }
-  return { x: hx, y: sy };
+  // Widen x-spread by 30% for more use of pitch width
+  const cx = WORLD_W / 2;
+  const widenedX = cx + (hx - cx) * 1.3;
+  const clampedX = Math.max(PITCH_L + 20, Math.min(PITCH_R - 20, widenedX));
+  return { x: clampedX, y: sy };
 }
 
 function moveToward(p, tx, ty, speed) {
@@ -1698,7 +1717,10 @@ function findTeammate(p, players) {
     const ahead = (t.y - p.y) * attackDir;
     const lateral = Math.abs(t.x - p.x);
     const space = nearestOpponentDist(t);
-    const score = ahead * 0.5 + space * 0.3 - lateral * 0.1;
+    // Reward wide players — encourage lateral passes for wider play
+    const isWide = Math.abs(t.x - WORLD_W / 2) > PW * 0.25;
+    const wideBonus = isWide ? 35 : 0;
+    const score = ahead * 0.5 + space * 0.3 - lateral * 0.05 + wideBonus;
     if (score > bestScore) { bestScore = score; best = t; }
   }
   return best;
@@ -1719,9 +1741,13 @@ function shootBall(p) {
   const goalX = WORLD_W / 2 + (Math.random() - 0.5) * GOAL_W * 0.7;
   const goalY = p.team === 0 ? PITCH_T - 5 : PITCH_B + 5;
   const d = dist(p.x, p.y, goalX, goalY);
-  const accuracy = 0.85 + Math.random() * 0.3; // some randomness
-  ball.vx = ((goalX - p.x) / d) * SHOOT_SPEED * accuracy;
-  ball.vy = ((goalY - p.y) / d) * SHOOT_SPEED * accuracy;
+  const accuracy = 0.85 + Math.random() * 0.3;
+  // Add ±20° angle spread for wider shot variety
+  const baseAngle = Math.atan2(goalY - p.y, goalX - p.x);
+  const spread = (Math.random() - 0.5) * (Math.PI / 9);
+  ball.vx = Math.cos(baseAngle + spread) * SHOOT_SPEED * accuracy;
+  ball.vy = Math.sin(baseAngle + spread) * SHOOT_SPEED * accuracy;
+  ball.lastTouchedBy = p;
   ball.owner = null;
   ball.free = true;
   p.state = 'idle';
@@ -1734,9 +1760,10 @@ function shootBall(p) {
 
 function passBall(p, target) {
   const d = dist(p.x, p.y, target.x, target.y);
-  const inaccuracy = (Math.random() - 0.5) * 3;
+  const inaccuracy = (Math.random() - 0.5) * 5; // wider inaccuracy for more lateral play
   ball.vx = ((target.x - p.x) / d) * PASS_SPEED + inaccuracy;
   ball.vy = ((target.y - p.y) / d) * PASS_SPEED + inaccuracy;
+  ball.lastTouchedBy = p;
   ball.owner = null;
   ball.free = true;
   p.state = 'idle';
@@ -1745,6 +1772,31 @@ function passBall(p, target) {
 
   if (Math.random() < 0.15) {
     addCommentary('default', `${p.lastName} finds ${target.lastName} with a lovely ball.`);
+  }
+}
+
+function triggerCornerKick(attackingTeam, goalEnd, side) {
+  const cx = side === 'left' ? PITCH_L + 10 : PITCH_R - 10;
+  const cy = goalEnd === 'top' ? PITCH_T + 10 : PITCH_B - 10;
+  ball.x = cx; ball.y = cy; ball.vx = 0; ball.vy = 0;
+  ball.owner = null; ball.free = true;
+  const takers = (attackingTeam === 0 ? homePlayers : awayPlayers).filter(p => !p.sentOff);
+  const taker = takers.sort((a,b)=>dist(a.x,a.y,cx,cy)-dist(b.x,b.y,cx,cy))[0];
+  const tName = attackingTeam === 0 ? homeTeamName : awayTeamName;
+  addCommentary('default', `Corner for ${tName}! ${taker?.lastName||''} to deliver...`);
+  snapCamera(cx, cy);
+  if (taker) {
+    taker.x = cx; taker.y = cy + (goalEnd==='top'?15:-15);
+    setTimeout(() => {
+      if (!ball.free) return;
+      const targetX = WORLD_W/2 + (Math.random()-0.5)*150;
+      const targetY = goalEnd==='top' ? PITCH_T+PH*0.17 : PITCH_B-PH*0.17;
+      const d = dist(cx, cy, targetX, targetY);
+      ball.vx = ((targetX-cx)/d)*9;
+      ball.vy = ((targetY-cy)/d)*9;
+      ball.lastTouchedBy = taker;
+      AudioManager.playKick();
+    }, 800);
   }
 }
 
@@ -1814,7 +1866,7 @@ function updatePlayerAI(p, teammates, opponents, roles) {
     p.state = 'chasing';
     moveToward(p, ball.x, ball.y, p.speed);
     if (dist(p.x, p.y, ball.x, ball.y) < 24) {
-      ball.owner = p;
+      ball.owner = p; ball.lastTouchedBy = p;
       ball.free = false;
       p.state = 'hasBall';
     }
@@ -1828,7 +1880,7 @@ function updatePlayerAI(p, teammates, opponents, roles) {
     const sy = ball.y + supportDir * 80;
     moveToward(p, sx, sy, p.speed * 0.7);
     if (dist(p.x, p.y, ball.x, ball.y) < 20) {
-      ball.owner = p;
+      ball.owner = p; ball.lastTouchedBy = p;
       ball.free = false;
       p.state = 'hasBall';
     }
@@ -2298,7 +2350,7 @@ function gameLoop() {
       const all = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff && p.state !== 'diving' && p.state !== 'celebrating');
       for (const p of all) {
         if (dist(p.x, p.y, ball.x, ball.y) < 20) {
-          ball.owner = p;
+          ball.owner = p; ball.lastTouchedBy = p;
           ball.free = false;
           p.state = 'hasBall';
           break;
