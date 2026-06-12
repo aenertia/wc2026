@@ -1,6 +1,8 @@
 {
-  "name": null,
-  "audio_file": null,
-  "has_audio": false,
+  "name": "Himno Istmeño",
+  "video_id": "q98udmYA1u0",
+  "video_title": "National Anthem: Panama - Himno Istmeño",
+  "audio_file": "anthem.m4a",
+  "has_audio": true,
   "midi_file": "anthem.mid"
 }
