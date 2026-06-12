@@ -641,7 +641,7 @@ async function fetchScores(){
     data.games.forEach(g=>{
       const finished=g.finished==="TRUE";
       const elapsed=g.time_elapsed;
-      const live=!finished&&elapsed!=="notstarted"&&elapsed!=="null"&&!!elapsed;
+      const live=!finished&&elapsed!=null&&elapsed!=="notstarted"&&elapsed!=="null"&&!!elapsed;
       if(finished||live){
         const home=normName(g.home_team_name_en);
         const away=normName(g.away_team_name_en);
@@ -746,14 +746,14 @@ function updateBanner(){
   for(const r of D){
     const ov=teamOverrides.get(r[0]);
     const h=ov?.home??r[5], a=ov?.away??r[6];
-    const sc=scores.get(h+"|"+a);
+    const sc=scores.get(h+"|"+a)??scores.get(a+"|"+h);
     if(sc?.live){liveRow={r,sc,h,a};break;}
   }
   if(liveRow){
     const {r,sc,h,a}=liveRow;
     $("kickoff").querySelector(".k-label").textContent="Live now";
-    $("countdown").textContent=sc.elapsed+"'";
-    $("koLine").textContent="Match "+r[0]+" · "+h+" v "+a;
+    $("countdown").textContent=sc.home+" – "+sc.away;
+    $("koLine").textContent="Match "+r[0]+" · "+h+" v "+a+" · "+sc.elapsed+"'";
     return;
   }
   // find next upcoming match
