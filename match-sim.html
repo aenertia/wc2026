@@ -1043,7 +1043,7 @@ const GOAL_L = (WORLD_W / 2) - (GOAL_W / 2), GOAL_R = (WORLD_W / 2) + (GOAL_W / 
 const GOAL_TOP_Y = PITCH_T - GOAL_H, GOAL_BOT_Y = PITCH_B;
 const BALL_R = 7, PLAYER_HEAD_R = 20, PLAYER_BODY_W = 6, PLAYER_BODY_H = 10;
 const FRICTION = 0.98, MAX_SPEED = 10, SPRINT_SPEED = 5.6, JOG_SPEED = 2.4, GK_SPEED = 7;
-const TACKLE_RANGE = 32, PASS_SPEED = 9, SHOOT_SPEED = 14, DRIBBLE_SPEED = 4.4;
+const TACKLE_RANGE = 32, PASS_SPEED = 12, SHOOT_SPEED = 16, DRIBBLE_SPEED = 4.0;
 
 // ---- STATE ----
 let gameState = 'teamSelect'; // teamSelect | playing | halftime | goalScored | fulltime
@@ -1653,8 +1653,10 @@ function drawReferee(ctx) {
 }
 
 function drawBall(ctx) {
-  const bx = ball.x, by = ball.y, br = BALL_R;
+  const bx = ball.x, by = ball.y;
   const speed = Math.sqrt(ball.vx*ball.vx + ball.vy*ball.vy);
+  // Ball grows when kicked hard — simulates "coming toward camera" effect
+  const br = BALL_R + Math.min(speed * 0.3, 4); // up to +4px at max speed
 
   // Velocity blur trail — ghosted copies behind the ball
   if (speed > 2) {
@@ -1994,7 +1996,7 @@ function getShiftedHomePos(player, myTeamHasBall, isHomeTeam) {
   }
   // Widen x-spread by 30% for more use of pitch width
   const cx = WORLD_W / 2;
-  const widenedX = cx + (hx - cx) * 1.3;
+  const widenedX = cx + (hx - cx) * 1.6; // spread formations VERY wide
   const clampedX = Math.max(PITCH_L + 20, Math.min(PITCH_R - 20, widenedX));
   return { x: clampedX, y: sy };
 }
@@ -2023,11 +2025,14 @@ function findTeammate(p, players) {
     if (t === p || t.sentOff || t.position === 'GK') continue;
     const ahead = (t.y - p.y) * attackDir;
     const lateral = Math.abs(t.x - p.x);
+    const passDist = dist(p.x, p.y, t.x, t.y);
     const space = nearestOpponentDist(t);
-    // Reward wide players — encourage lateral passes for wider play
-    const isWide = Math.abs(t.x - WORLD_W / 2) > PW * 0.25;
-    const wideBonus = isWide ? 35 : 0;
-    const score = ahead * 0.5 + space * 0.3 - lateral * 0.05 + wideBonus;
+    // STRONGLY reward wide players + long passes = outfield play
+    const isWide = Math.abs(t.x - WORLD_W / 2) > PW * 0.2;
+    const wideBonus = isWide ? 60 : 0;
+    const longPassBonus = passDist > 200 ? 30 : (passDist > 100 ? 15 : 0); // reward longer passes
+    const centralPenalty = Math.abs(t.x - WORLD_W/2) < PW * 0.1 ? -20 : 0; // penalize center
+    const score = ahead * 0.4 + space * 0.3 + lateral * 0.1 + wideBonus + longPassBonus + centralPenalty;
     if (score > bestScore) { bestScore = score; best = t; }
   }
   return best;
@@ -2281,25 +2286,26 @@ function updatePlayerAI(p, teammates, opponents, roles) {
     const attackGoalY = isHomeTeam ? PITCH_T : PITCH_B;
     const distToGoal = dist(p.x, p.y, WORLD_W / 2, attackGoalY);
 
-    // Shooting range
-    if (distToGoal < 360 && Math.abs(p.x - WORLD_W / 2) < 280) {
-      if (Math.random() < 0.03 + (360 - distToGoal) / 6000) {
+    // Shooting range — tighter, must be closer and more central
+    if (distToGoal < 250 && Math.abs(p.x - WORLD_W / 2) < 180) {
+      if (Math.random() < 0.02 + (250 - distToGoal) / 8000) {
         shootBall(p);
         return;
       }
     }
 
-    // Pass to teammate ahead
+    // Pass to teammate — MUCH more frequent = more outfield play + longer passes
     const tm = findTeammate(p, teammates);
-    if (tm && Math.random() < 0.025) {
+    if (tm && Math.random() < 0.08) {
       passBall(p, tm);
       return;
     }
 
-    // Dribble toward goal
+    // Dribble — lateral movement, NOT pulled to center
     const dribDir = isHomeTeam ? -1 : 1;
-    p.vx = (WORLD_W / 2 - p.x) * 0.02 + (Math.random() - 0.5) * 1.6;
-    p.vy = DRIBBLE_SPEED * dribDir + (Math.random() - 0.5) * 0.6;
+    const lateralDrift = Math.sin(Date.now() / 800 + p.number) * 2.5; // weave side to side
+    p.vx = lateralDrift + (Math.random() - 0.5) * 2.0; // wider lateral movement
+    p.vy = DRIBBLE_SPEED * dribDir + (Math.random() - 0.5) * 0.8;
     return;
   }
 
