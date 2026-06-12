@@ -1074,8 +1074,17 @@ function updateCamera() {
   if (gameState === 'lineup') {
     // Slow pan during anthem ceremony
     const pan = Math.sin(Date.now()/3200) * PW * 0.28;
-    camera.x += (Math.max(0, Math.min(WORLD_W-CW, WORLD_W/2-CW/2+pan)) - camera.x) * 0.018;
-    camera.y += (Math.max(0, Math.min(WORLD_H-CH, WORLD_H/2-CH/2)) - camera.y) * 0.018;
+    camera.x += (Math.max(-60, Math.min(WORLD_W-CW+60, WORLD_W/2-CW/2+pan)) - camera.x) * 0.018;
+    camera.y += (Math.max(-60, Math.min(WORLD_H-CH+60, WORLD_H/2-CH/2)) - camera.y) * 0.018;
+    return;
+  }
+  // Minimap director zoom — hold position until timer expires
+  if (minimapZoomTimer > 0 && minimapZoomTarget) {
+    // Gently lerp toward zoom target
+    const ztx = minimapZoomTarget.x - CW/2;
+    const zty = minimapZoomTarget.y - CH/2;
+    camera.x += (Math.max(-60, Math.min(ztx, WORLD_W-CW+60)) - camera.x) * 0.08;
+    camera.y += (Math.max(-60, Math.min(zty, WORLD_H-CH+60)) - camera.y) * 0.08;
     return;
   }
   let tx = ball.x - CW / 2;
@@ -1586,6 +1595,18 @@ function drawPlayer(ctx, p) {
     ctx.textAlign = 'center';
     ctx.fillText(['\u{1F4A5}', '\u{1F44A}', '\u{1F92C}'][Math.floor(t / 10) % 3], x + 10, headY - 8);
   }
+
+  // Slacking — idle comedy antic when camera zooms via minimap
+  if (p.state === 'slacking' && p.slackEmoji) {
+    // Sit/lie down: shift body down
+    ctx.font = '16px serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(p.slackEmoji, x + 14, y - 4);
+    // Label below
+    ctx.fillStyle = 'rgba(240,196,76,0.8)';
+    ctx.font = '7px "Space Mono", monospace';
+    ctx.fillText(p.slackLabel || '', x, y + bh/2 + 18);
+  }
 }
 
 // ---- DRAW BALL ----
@@ -1958,6 +1979,68 @@ function passBall(p, target) {
   }
 }
 
+// ---- MINIMAP CLICK → DIRECTOR'S CAMERA ----
+let minimapZoomTimer = 0; // frames remaining for minimap zoom
+let minimapZoomTarget = null; // {x, y}
+
+const IDLE_ANTICS = [
+  {emoji: '🚬', label: 'having a smoke'},
+  {emoji: '🍺', label: 'drinking a beer'},
+  {emoji: '😴', label: 'taking a nap'},
+  {emoji: '📱', label: 'checking their phone'},
+  {emoji: '🧘', label: 'doing yoga'},
+  {emoji: '💅', label: 'fixing their nails'},
+  {emoji: '🤳', label: 'taking a selfie'},
+  {emoji: '🎸', label: 'air guitar solo'},
+  {emoji: '🪩', label: 'dancing'},
+  {emoji: '🍿', label: 'eating popcorn'},
+  {emoji: '📰', label: 'reading the paper'},
+  {emoji: '🎮', label: 'playing on their Switch'},
+];
+
+function handleMinimapClick(localX, localY, mmw, mmh) {
+  if (gameState !== 'playing') return;
+
+  // Convert minimap coords to world coords
+  const targetWX = (localX / mmw) * WORLD_W;
+  const targetWY = (localY / mmh) * WORLD_H;
+
+  // Snap camera to clicked area
+  minimapZoomTarget = {x: targetWX, y: targetWY};
+  minimapZoomTimer = 180; // 3 seconds at 60fps
+  snapCamera(targetWX, targetWY);
+
+  // Find idle players in that area (not ball carrier, not chasing, not near ball)
+  const allP = [...homePlayers, ...awayPlayers];
+  const nearbyIdle = allP.filter(p =>
+    !p.sentOff &&
+    p.state !== 'fighting' &&
+    p.state !== 'celebrating' &&
+    p !== ball.owner &&
+    dist(p.x, p.y, targetWX, targetWY) < 250 &&
+    dist(p.x, p.y, ball.x, ball.y) > 300
+  );
+
+  // Make them do something stupid
+  for (const p of nearbyIdle) {
+    const antic = IDLE_ANTICS[Math.floor(Math.random() * IDLE_ANTICS.length)];
+    p.state = 'slacking';
+    p.stateTimer = 160; // ~2.7 seconds
+    p.slackEmoji = antic.emoji;
+    p.slackLabel = antic.label;
+
+    // Visual effect
+    addEffect('player_highlight', p.x, p.y, {duration: 0.5});
+  }
+
+  if (nearbyIdle.length > 0) {
+    const names = nearbyIdle.slice(0, 2).map(p => p.lastName).join(' and ');
+    const antic = nearbyIdle[0].slackLabel;
+    addCommentary('comedy', `The camera catches ${names} ${antic} off the ball. Professionalism at its finest.`);
+    AudioManager.playComedy();
+  }
+}
+
 function handlePitchClick(wx, wy) {
   if (gameState !== 'playing') return;
   const allP = [...homePlayers, ...awayPlayers];
@@ -2033,6 +2116,10 @@ function updatePlayerAI(p, teammates, opponents, roles) {
     }
     if (p.state === 'fighting') {
       if (p.stateTimer <= 0) p.state = 'idle';
+      return;
+    }
+    if (p.state === 'slacking') {
+      if (p.stateTimer <= 0) { p.state = 'idle'; p.slackEmoji = null; p.slackLabel = null; }
       return;
     }
     if (p.state === 'celebrating') {
@@ -2559,6 +2646,15 @@ function gameLoop() {
     realTick++;
     matchClock = realTick / TICKS_PER_MINUTE;
 
+    // Minimap zoom snap-back timer
+    if (minimapZoomTimer > 0) {
+      minimapZoomTimer--;
+      if (minimapZoomTimer <= 0) {
+        // Snap camera back to ball
+        minimapZoomTarget = null;
+      }
+    }
+
     // Halftime
     if (!halfSwapped && matchClock >= 45) {
       AudioManager.playWhistle(false);
@@ -2614,7 +2710,7 @@ function gameLoop() {
 
     // Ball pickup (free ball)
     if (!ball.owner) {
-      const all = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff && p.state !== 'diving' && p.state !== 'celebrating');
+      const all = [...homePlayers, ...awayPlayers].filter(p => !p.sentOff && p.state !== 'diving' && p.state !== 'celebrating' && p.state !== 'slacking');
       for (const p of all) {
         if (dist(p.x, p.y, ball.x, ball.y) < 20) {
           ball.owner = p; ball.lastTouchedBy = p;
@@ -2727,6 +2823,23 @@ function drawMinimap() {
   const by = my + (ball.y / WORLD_H) * mh;
   ctx.fillStyle = '#fff';
   ctx.beginPath(); ctx.arc(bx, by, 2, 0, Math.PI * 2); ctx.fill();
+
+  // Zoom target indicator (pulsing ring when minimap zoom is active)
+  if (minimapZoomTimer > 0 && minimapZoomTarget) {
+    const ztx = mx + (minimapZoomTarget.x / WORLD_W) * mw;
+    const zty = my + (minimapZoomTarget.y / WORLD_H) * mh;
+    const pulse = 3 + Math.sin(Date.now() / 150) * 2;
+    ctx.strokeStyle = `rgba(240,196,76,${0.5 + Math.sin(Date.now()/200)*0.3})`;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.arc(ztx, zty, pulse, 0, Math.PI * 2); ctx.stroke();
+    ctx.lineWidth = 1;
+  }
+
+  // "Click to explore" hint
+  ctx.fillStyle = 'rgba(255,255,255,0.3)';
+  ctx.font = '6px "Space Mono", monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('click to explore', mx + mw/2, my + mh + 8);
 }
 
 function drawFrame() {
@@ -2870,6 +2983,12 @@ async function startMatch() {
     const rect = canvas.getBoundingClientRect();
     const sx = (e.clientX - rect.left) * (CW / rect.width);
     const sy = (e.clientY - rect.top) * (CH / rect.height);
+    // Check if click is on minimap
+    const mmx = CW - 130, mmy = CH - 88, mmw = 120, mmh = 78;
+    if (sx >= mmx && sx <= mmx + mmw && sy >= mmy && sy <= mmy + mmh) {
+      handleMinimapClick(sx - mmx, sy - mmy, mmw, mmh);
+      return;
+    }
     const wx = sx + camera.x, wy = sy + camera.y;
     handlePitchClick(wx, wy);
   };
