@@ -325,7 +325,20 @@
       "club": "Chelsea",
       "club_nation": "ENG",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34217889",
+      "full_name": "Jorrel Evan Hato",
+      "last_name": "Hato",
+      "first_name": "Jorrel",
+      "bio": "Jorrel Evan Hato (born 7 March 2006) is a Dutch professional footballer who plays as a centre-back or left-back for Premier League club Chelsea and the Netherlands national team.\r\n\r\nBorn in Rotterdam, Hato moved from his hometown club Sparta Rotterdam to Ajax in 2018.\r\n\r\nBorn in the Netherlands, Hato is of Curaçaoan descent. In November 2021, he was included in the Dutch under-16 squad. He became captain of the under-16 Dutch team in 2022.",
+      "birth_location": "Rotterdam, Netherlands",
+      "height": "182cm / 6'0\"",
+      "weight": "168 lbs",
+      "position_detail": "Left-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q115059438"
     },
     {
       "number": 26,
@@ -338,7 +351,21 @@
       "club": "Marseille",
       "club_nation": "FRA",
       "captain": false,
-      "photo": "players/26.png"
+      "photo": "players/26.png",
+      "tsdb_id": "34194990",
+      "full_name": "Quinten Ryan Crispito Timber",
+      "last_name": "Timber",
+      "first_name": "Quinten",
+      "bio": "Quinten Ryan Crispito Timber (Dutch: ; born 17 June 2001) is a Dutch professional footballer who plays as midfielder forLigue 1 club Marseille and the Netherlands national team. He is the twin brother of Arsenal defender Jurriën Timber and they have an elder brother, Dylan Timber, who is also a professional footballer.\r\n\r\nTimber came through the youth academies of DVSU and Feyenoord before joining the Ajax youth academy along with his brother Jurriën in 2014. After a spell at FC Utrecht, he sign",
+      "birth_location": "Utrecht, Netherlands",
+      "height": "177 cm",
+      "weight": "157 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/quintentimber/"
+      }
     }
   ]
 }

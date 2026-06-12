@@ -330,7 +330,20 @@
       "club": "Kalba",
       "club_nation": "UAE",
       "captain": false,
-      "photo": "players/14.png"
+      "photo": "players/14.png",
+      "tsdb_id": "34170705",
+      "full_name": "Seyed Saman Ghoddoos; سامان قدّوس",
+      "last_name": "Ghoddos",
+      "first_name": "Saman",
+      "bio": "Seyed Saman Ghoddoos (Persian: سامان قدّوس; born 6 September 1993) is a professional footballer who plays as an attacking midfielder or striker for the Iran national team and Kalba in UAE Pro League. A versatile player, Ghoddos can also be deployed as a winger, wing-back or full-back. Born in Sweden and a former Swedish international, he represents the Iran national team..",
+      "birth_location": "Malmö, Sweden",
+      "height": "1.77 m (5 ft 10 in)",
+      "weight": "172 lbs",
+      "position_detail": "Attacking Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q16632974"
     },
     {
       "number": 15,
@@ -343,7 +356,21 @@
       "club": "Esteghlal",
       "club_nation": "IRN",
       "captain": false,
-      "photo": "players/15.png"
+      "photo": "players/15.png",
+      "tsdb_id": "34202679",
+      "full_name": "Roozbeh Cheshmi; روزبه چشمی",
+      "last_name": "Cheshmi",
+      "first_name": "Rouzbeh",
+      "bio": "Roozbeh Cheshmi (born 24 June 1993) is an Iranian professional footballer who plays as a defensive midfielder or a centre-back for Esteghlal FC in the Persian Gulf League League and the Iran national team.",
+      "birth_location": "Tehran, Iran",
+      "height": "1.92 m (6 ft 3 1⁄2 in)",
+      "weight": "",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/roozbeh.cheshmi4/?hl=en"
+      }
     },
     {
       "number": 16,
@@ -356,7 +383,21 @@
       "club": "Tractor",
       "club_nation": "IRN",
       "captain": false,
-      "photo": "players/16.png"
+      "photo": "players/16.png",
+      "tsdb_id": "34202690",
+      "full_name": "مهدی ترابی",
+      "last_name": "Torabi",
+      "first_name": "Mehdi",
+      "bio": "Mehdi Torabi (born 10 September 1994) is an Iranian professional footballer who plays as a winger for Persian Gulf Pro League club Tractor and the Iran national team.\r\n\r\nHe began his career at Saipa, and then played for Persepolis between 2019 and 2020. He played for Qatari side Al-Arabi between 2020 and 2021, later rejoining Persepolis. He joined Tractor in 2024 and has been regarded as the club's fan favorite.\r\n\r\nTorabi made his first senior appearance in 2015, and represented Iran at the FIFA",
+      "birth_location": "Eshtehard, Iran",
+      "height": "1.85 m (6 ft 1 in)",
+      "weight": "161 lbs",
+      "position_detail": "Left Wing",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/mahditorabi.m"
+      }
     },
     {
       "number": 17,
@@ -369,7 +410,19 @@
       "club": "Sepahan",
       "club_nation": "IRN",
       "captain": false,
-      "photo": "players/17.png"
+      "photo": "players/17.png",
+      "tsdb_id": "34253139",
+      "full_name": "آریا یوسفی",
+      "last_name": "Yousefi",
+      "first_name": "Aria",
+      "bio": "Aria Yousefi (Persian: آریا یوسفی; born 22 April 2002) is an Iranian football defender who plays for Sepahan in the Persian Gulf Pro League and the Iran national team.",
+      "birth_location": "Mahshahr, Khuzestan, Iran",
+      "height": "181 cm",
+      "weight": "161 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 18,
@@ -382,7 +435,19 @@
       "club": "Tractor",
       "club_nation": "IRN",
       "captain": false,
-      "photo": "players/18.png"
+      "photo": "players/18.png",
+      "tsdb_id": "34249984",
+      "full_name": "امیرحسین حسین زاده",
+      "last_name": "Hosseinzadeh",
+      "first_name": "Amirhossein",
+      "bio": "Amirhossein Hosseinzadeh (Persian: امیرحسین حسین‌زاده; born 30 October 2000) is an Iranian footballer who plays as a winger for Persian Gulf Pro League club Tractor and the Iran national team.",
+      "birth_location": "Tehran, Iran",
+      "height": "176 cm",
+      "weight": "159 lbs",
+      "position_detail": "Right Winger",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 19,
@@ -395,7 +460,19 @@
       "club": "Foolad",
       "club_nation": "IRN",
       "captain": false,
-      "photo": "players/19.png"
+      "photo": "players/19.png",
+      "tsdb_id": "34229511",
+      "full_name": "علی نعمتی",
+      "last_name": "Nemati",
+      "first_name": "Ali",
+      "bio": "Ali Nemati (Persian: علی نعمتی, born 7 February 1996) is an Iranian professional footballer who plays as a defender for Persian Gulf Pro League club Foolad and the Iran national team.",
+      "birth_location": "Nishabur, Razavi Khorasan, Iran",
+      "height": "182 cm",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 20,
@@ -421,7 +498,19 @@
       "club": "Al Wahda",
       "club_nation": "UAE",
       "captain": false,
-      "photo": "players/21.png"
+      "photo": "players/21.png",
+      "tsdb_id": "34347082",
+      "full_name": "محمد قربانی",
+      "last_name": "Ghorbani",
+      "first_name": "Mohammad",
+      "bio": "Mohammad Ghorbani (Persian: محمد قربانی; born 7 October 2001) is an Iranian professional footballer who plays for Emirati club Al Wahda and the Iran national team.",
+      "birth_location": "Arak, Iran",
+      "height": "186 cm",
+      "weight": "82 kg",
+      "position_detail": "Defensive Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 22,
@@ -434,7 +523,19 @@
       "club": "Sepahan",
       "club_nation": "IRN",
       "captain": false,
-      "photo": "players/22.png"
+      "photo": "players/22.png",
+      "tsdb_id": "34192805",
+      "full_name": "Seyed Majid Hosseini; سید مجید حسینی",
+      "last_name": "Hosseini",
+      "first_name": "Seyed",
+      "bio": "Seyed Majid Hosseini (Persian: سید مجید حسینی; born 20 June 1996) is an Iranian professional footballer who plays as a defender for Turkish club Kayserispor and the Iran national team.\r\n\r\nHosseini made his full international debut in 2018 and represented Iran at the 2018 FIFA World Cup and 2019 AFC Asian Cup.",
+      "birth_location": "Tehran, Iran",
+      "height": "183 cm",
+      "weight": "78 kg",
+      "position_detail": "Defender",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 23,
@@ -447,7 +548,21 @@
       "club": "Foolad",
       "club_nation": "IRN",
       "captain": false,
-      "photo": "players/23.png"
+      "photo": "players/23.png",
+      "tsdb_id": "34202686",
+      "full_name": "Ramin Rezaeian Semeskandi; رامین رضائیان سمسکندی",
+      "last_name": "Rezaeian",
+      "first_name": "Ramin",
+      "bio": "Ramin Rezaeian Semeskandi (Persian: رامین رضائیان سمسکندی; born 21 March 1990) is an Iranian professional footballer who plays as a defender for Persian Gulf Pro League club Foolad and the Iran national team.\r\n\r\nHe started his career as a right-back, but he often plays as a winger. Rezaeian was Carlos Queiroz's first choice on the right side of the defence of the Iran men's national team in the 2018 FIFA World Cup qualification matches. Known for his great speed, agility, and athleticism, he is ",
+      "birth_location": "Sari, Mazandaran, Iran",
+      "height": "1.80 m (5 ft 11 in)",
+      "weight": "161 lbs",
+      "position_detail": "Right-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "www.instagram.com/raminrezaeian/"
+      }
     },
     {
       "number": 24,
@@ -460,7 +575,19 @@
       "club": "Standard Liège",
       "club_nation": "BEL",
       "captain": false,
-      "photo": "players/24.png"
+      "photo": "players/24.png",
+      "tsdb_id": "34218050",
+      "full_name": "Dennis-Yerai Eckert Ayensa; دنیس درگاهی",
+      "last_name": "Eckert",
+      "first_name": "Dennis",
+      "bio": "Dennis-Yerai Eckert Ayensa (born 9 January 1997), known in Iran as Dennis Dargahi (Persian: دنیس درگاهی), is a professional footballer who plays as a forward and midfielder for Standard Liège in the Belgian Pro League. Born in Germany and a former German youth international, he represents the Iran national team.",
+      "birth_location": "Bonn, Germany",
+      "height": "182 cm",
+      "weight": "80 kg",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 25,
@@ -473,7 +600,19 @@
       "club": "Malavan",
       "club_nation": "IRN",
       "captain": false,
-      "photo": "players/25.png"
+      "photo": "players/25.png",
+      "tsdb_id": "34436104",
+      "full_name": "دانیال ایری",
+      "last_name": "Eiri",
+      "first_name": "Danial",
+      "bio": "",
+      "birth_location": "Gonbad-e Kavus, Golestan, Iran",
+      "height": "185 cm",
+      "weight": "",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 26,
