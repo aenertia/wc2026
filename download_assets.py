@@ -746,12 +746,12 @@ def enrich_player_bios(slug, dry_run=False, force=False):
 
         search_url = "https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=" + urllib.parse.quote(name)
         try:
-            raw = fetch_url(search_url, retries=2, delay=2)
+            raw = fetch_url(search_url, retries=3, delay=5)
             data = json.loads(raw)
             tsdb_players = data.get("player") or []
         except Exception as e:
             print(f"    Search failed for {name}: {e}")
-            time.sleep(2)
+            time.sleep(6)
             continue
 
         soccer_players = [p for p in tsdb_players if p.get("strSport") == "Soccer"]
@@ -766,29 +766,29 @@ def enrich_player_bios(slug, dry_run=False, force=False):
 
         if not matched:
             print(f"    No TSDB match for {name}")
-            time.sleep(2)
+            time.sleep(4)
             continue
 
         id_player = matched.get("idPlayer")
         if not id_player:
-            time.sleep(2)
+            time.sleep(4)
             continue
 
-        time.sleep(2)
+        time.sleep(4)
 
         lookup_url = f"https://www.thesportsdb.com/api/v1/json/3/lookupplayer.php?id={id_player}"
         try:
-            raw = fetch_url(lookup_url, retries=2, delay=2)
+            raw = fetch_url(lookup_url, retries=3, delay=5)
             ldata = json.loads(raw)
             plist = ldata.get("players") or []
             p = plist[0] if plist else None
         except Exception as e:
             print(f"    Lookup failed for {name} (id={id_player}): {e}")
-            time.sleep(2)
+            time.sleep(6)
             continue
 
         if not p:
-            time.sleep(2)
+            time.sleep(4)
             continue
 
         social = {
@@ -828,7 +828,7 @@ def enrich_player_bios(slug, dry_run=False, force=False):
 
         enriched_count += 1
         print(f"    ✓ {name} → {player.get('full_name', name)} ({player.get('position_detail', '')})")
-        time.sleep(2)
+        time.sleep(4)
 
     if not dry_run:
         with open(roster_path, "w") as f:

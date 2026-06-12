@@ -78,7 +78,19 @@
       "club": "Slavia Prague",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/6.png"
+      "photo": "players/6.png",
+      "tsdb_id": "34237769",
+      "full_name": "Štěpán Chaloupek",
+      "last_name": "Chaloupek",
+      "first_name": "Štěpán",
+      "bio": "Štěpán Chaloupek (born 8 March 2003) is a Czech professional footballer who plays as a defender for Slavia Prague and the Czech Republic national team.",
+      "birth_location": "Meziboří, Czechia",
+      "height": "182 cm",
+      "weight": "150 lbs",
+      "position_detail": "Centre-Back",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 7,
@@ -91,7 +103,19 @@
       "club": "Wolverhampton Wanderers",
       "club_nation": "ENG",
       "captain": true,
-      "photo": "players/7.png"
+      "photo": "players/7.png",
+      "tsdb_id": "34196369",
+      "full_name": "Ladislav Krejčí",
+      "last_name": "Krejčí",
+      "first_name": "Ladislav",
+      "bio": "Ladislav Krejčí (born 5 July 1992) is a Czech professional footballer who plays as a left-winger for Teplice. A full international, Krejčí scored five goals in 41 appearances for the Czech Republic between 2012 and 2019. \r\n\r\nIn 2024, the Czech edition of Forbes featured Krejčí in their 30 under 30 list: 30 of the most talented Czechs under 30 years old.",
+      "birth_location": "Prague, Czechoslovakia",
+      "height": "180 cm",
+      "weight": "67 kg",
+      "position_detail": "Midfielder",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 8,
@@ -104,7 +128,22 @@
       "club": "Hradec Králové",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/8.png"
+      "photo": "players/8.png",
+      "tsdb_id": "34154983",
+      "full_name": "Vladimír Darida",
+      "last_name": "Darida",
+      "first_name": "Vladimír",
+      "bio": "Vladimír Darida (Czech pronunciation: ; born 8 August 1990) is a Czech professional footballer who plays as a central midfielder for Czech First League club Hradec Králové and for the Czech Republic national team.",
+      "birth_location": "Plzeň, CSSR",
+      "height": "1.71 m (5 ft 7 1⁄2 in)",
+      "weight": "148 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/v_dary/",
+        "facebook": "http://www.facebook.com/DaridaVladimir7"
+      }
     },
     {
       "number": 9,
@@ -117,7 +156,20 @@
       "club": "TSG Hoffenheim",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/9.png"
+      "photo": "players/9.png",
+      "tsdb_id": "34179091",
+      "full_name": "Adam Hložek",
+      "last_name": "Hložek",
+      "first_name": "Adam",
+      "bio": "Adam Hložek (born 25 July 2002) is a Czech professional footballer who plays as a forward for Bundesliga club TSG Hoffenheim and the Czech Republic national team.",
+      "birth_location": "Ivančice, Czech Republic",
+      "height": "1.88 m (6 ft 2 in)",
+      "weight": "183 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {},
+      "wikidata_id": "Q59782306"
     },
     {
       "number": 10,
@@ -130,7 +182,22 @@
       "club": "Bayer Leverkusen",
       "club_nation": "GER",
       "captain": false,
-      "photo": "players/10.png"
+      "photo": "players/10.png",
+      "tsdb_id": "34163662",
+      "full_name": "Patrik Schick",
+      "last_name": "Schick",
+      "first_name": "Patrik",
+      "bio": "Patrik Schick (born 24 January 1996) is a Czech professional footballer who plays as a striker for Bundesliga club Bayer Leverkusen and the Czech Republic national team.\r\n\r\nBorn in Prague, Schick began his career with local club Sparta Prague, rising through their youth ranks, before making his senior debut as a teenager. He spent the 2015–16 season on loan with Bohemians 1905, from where he moved at the age of 20 to Sampdoria in Italy. After his debut season in Italy, he moved to Roma in 2017. ",
+      "birth_location": "Prague, Czech Republic",
+      "height": "1.86 m (6 ft 1 in)",
+      "weight": "192 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Left",
+      "kit": "",
+      "social": {
+        "instagram": "http://www.instagram.com/p_schicky/",
+        "facebook": "http://www.facebook.com/PatrikSchickOfficial/"
+      }
     },
     {
       "number": 11,
@@ -143,7 +210,19 @@
       "club": "Sparta Prague",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/11.png"
+      "photo": "players/11.png",
+      "tsdb_id": "34177785",
+      "full_name": "Jan Kuchta",
+      "last_name": "Kuchta",
+      "first_name": "Jan",
+      "bio": "Jan Kuchta (born 8 January 1997) is a Czech professional footballer who plays as a forward for Sparta Prague and the Czech Republic national team.",
+      "birth_location": "Liberec, Czech Republic",
+      "height": "1.84 m (6 ft 0 in)",
+      "weight": "174 lbs",
+      "position_detail": "Centre-Forward",
+      "preferred_foot": "Right",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 12,
@@ -156,7 +235,19 @@
       "club": "Viktoria Plzeň",
       "club_nation": "CZE",
       "captain": false,
-      "photo": "players/12.png"
+      "photo": "players/12.png",
+      "tsdb_id": "34228707",
+      "full_name": "Lukáš Červ",
+      "last_name": "Červ",
+      "first_name": "Lukáš",
+      "bio": "Lukáš Červ (born 10 April 2001) is a Czech professional footballer who plays as a central midfielder for Viktoria Plzeň and the Czech Republic national team.\r\n\r\nClub career\r\nČerv played for the youth team of SK Slavia Prague, with which he also played in the 2019–20 UEFA Youth League. He made his senior league debut for Slavia Prague on 5 July 2020 in their Czech First League 3–1 away win against Slovan Liberec. He then spent the 2020–21 season on loan at Vysočina Jihlava playing the Czech Natio",
+      "birth_location": "Prague, Czechia",
+      "height": "1.82 m (6 ft 0 in)",
+      "weight": "152 lbs",
+      "position_detail": "Central Midfield",
+      "preferred_foot": "",
+      "kit": "",
+      "social": {}
     },
     {
       "number": 13,
