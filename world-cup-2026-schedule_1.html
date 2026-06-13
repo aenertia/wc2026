@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>World Cup 26 — Match Wallchart</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230c1713'/><text y='78' x='50' text-anchor='middle' font-size='72'>⚽</text></svg>">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0c1713">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WC26">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -82,6 +88,44 @@ button{font-family:inherit;cursor:pointer}
 .kickoff .k-match{font-size:13px;color:var(--chalk-dim)}
 .kickoff .k-facts{display:block;font-family:var(--font-body);font-size:12px;color:var(--chalk-faint);font-style:italic;margin-top:8px;line-height:1.5;max-width:52ch}
 
+/* ---------- live banner (expanded) ---------- */
+.kickoff.live{display:block;padding:16px 20px}
+.live-matches{display:flex;gap:0;flex-wrap:wrap}
+.live-match{
+  flex:1;min-width:240px;padding:0 20px;
+  border-left:1px solid var(--line);
+}
+.live-match:first-child{padding-left:0;border-left:none}
+.lm-header{
+  display:flex;align-items:center;gap:8px;margin-bottom:10px;
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;
+}
+.lm-dot{
+  width:7px;height:7px;border-radius:50%;background:#4dc97b;flex-shrink:0;
+  animation:livepulse 1.2s ease-in-out infinite;
+}
+.lm-meta{color:var(--chalk-faint)}
+.lm-half{color:#4dc97b;margin-left:auto;white-space:nowrap}
+.lm-score-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.lm-team{flex:1}
+.lm-team.lm-home{text-align:right}
+.lm-team.lm-away{text-align:left}
+.lm-name{font-size:14px;font-weight:600;color:var(--chalk);display:block;line-height:1.3}
+.lm-scorers{
+  font-family:var(--font-mono);font-size:10px;color:var(--chalk-faint);
+  display:block;margin-top:3px;line-height:1.5;
+}
+.lm-goals{
+  font-family:var(--font-mono);font-size:26px;font-weight:700;color:#4dc97b;
+  white-space:nowrap;min-width:52px;text-align:center;line-height:1.2;padding-top:1px;
+  font-variant-numeric:tabular-nums;
+}
+.lm-venue{font-family:var(--font-mono);font-size:10px;color:var(--chalk-faint);margin-top:2px}
+@media(max-width:560px){
+  .live-match{border-left:none;border-top:1px solid var(--line);padding:12px 0 0;margin-top:12px}
+  .live-match:first-child{border-top:none;margin-top:0}
+}
+
 /* ---------- controls ---------- */
 .controls{padding:28px 0 8px;position:sticky;top:0;z-index:20;background:linear-gradient(var(--pitch) 88%,transparent)}
 .views{display:flex;gap:8px;margin-bottom:16px}
@@ -126,6 +170,12 @@ button{font-family:inherit;cursor:pointer}
   text-decoration:underline;text-underline-offset:3px;padding:6px 4px;
 }
 .clear-btn:hover{color:var(--chalk)}
+.notif-btn{
+  font-size:13px;background:none;border:none;color:var(--chalk-faint);
+  padding:6px 4px;cursor:pointer;white-space:nowrap;
+}
+.notif-btn:hover{color:var(--chalk)}
+.notif-btn.on{color:var(--chalk)}
 .tz-row{margin-top:-2px}
 .tz-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--chalk-faint)}
 .tz-select{
@@ -616,6 +666,7 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
       <div class="filter-row">
         <input class="search" id="search" type="text" placeholder="Search a team — e.g. Scotland, Argentina…" aria-label="Search by team">
         <button class="clear-btn" id="clearAll">Clear filters</button>
+        <button class="notif-btn" id="notifBtn" title="Notifications fire only while this page is open">🔔 Match alerts</button>
       </div>
       <div class="filter-row tz-row">
         <label class="tz-label" for="tzSel">Times in</label>
@@ -645,8 +696,13 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
     <span><span id="tzNote">Times shown in your timezone. </span><span title="Kick-offs between midnight and 6am">☾ marks a late-night kick-off.</span></span>
     <span class="mono">104 matches · 12 groups · 48 teams</span>
   </div>
+  <div class="wrap" style="margin-top:8px;font-size:11px;color:var(--chalk-faint);font-family:var(--font-mono)">
+    Built by Patrick Leathen · Foundations by Sean O'Callaghan
+  </div>
 </footer>
 
+<script data-goatcounter="https://wc26-chart.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 <script>
 const STAGES={G:"Group stage",R32:"Round of 32",R16:"Round of 16",QF:"Quarter-finals",SF:"Semi-finals",TP:"Third place",F:"Final"};
 const GROUP_COLORS={A:"#f25c5c",B:"#f2913d",C:"#f2c14e",D:"#a8d44d",E:"#4dc97b",F:"#3dd6c3",G:"#4dc3f2",H:"#5c8df2",I:"#8b7bf2",J:"#b06cf2",K:"#e05cd9",L:"#f25c9e"};
@@ -1187,6 +1243,7 @@ const $=id=>document.getElementById(id);
 let scores=new Map();
 const teamOverrides=new Map();
 let groupStandings=new Map();
+let flagByName=new Map(); // team display name → flag URL, populated by fetchStandings
 
 /* build stage pills */
 const stageRow=$("stageRow");
@@ -1235,7 +1292,8 @@ $("clearAll").addEventListener("click",()=>{
 /* groups view */
 const localTeams={};
 D.filter(r=>r[1]==="G").forEach(r=>{
-  (localTeams[r[2]]??=new Set()).add(r[5]);localTeams[r[2]].add(r[6]);
+  if(!localTeams[r[2]])localTeams[r[2]]=new Set();
+  localTeams[r[2]].add(r[5]);localTeams[r[2]].add(r[6]);
 });
 renderGroups();
 
@@ -1280,17 +1338,23 @@ zones.forEach(z=>{
 });
 if(!zones.includes(tz))tz=deviceTZ;
 tzSel.value=tz;
-tzSel.addEventListener("change",()=>{
-  tz=tzSel.value;
-  localStorage.setItem("wc26tz",tz);
-  updateTzLabels();render();
-});
 const fmtTime=e=>new Intl.DateTimeFormat("en-IE",{timeZone:tz,hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).format(e);
 const fmtDateLong=e=>new Intl.DateTimeFormat("en-IE",{timeZone:tz,weekday:"long",day:"numeric",month:"long"}).format(e);
 const fmtDateShort=e=>new Intl.DateTimeFormat("en-IE",{timeZone:tz,weekday:"short",day:"numeric",month:"long"}).format(e);
 const dateKey=e=>new Intl.DateTimeFormat("en-CA",{timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit"}).format(e);
 const hourIn=e=>Number(new Intl.DateTimeFormat("en-IE",{timeZone:tz,hour:"numeric",hourCycle:"h23"}).format(e));
 const isLate=e=>hourIn(e)<6;
+tzSel.addEventListener("change",()=>{
+  tz=tzSel.value;
+  localStorage.setItem("wc26tz",tz);
+  updateTzLabels();render();
+});
+function fmtElapsed(e){
+  if(!e||e==="notstarted"||e==="null")return "";
+  if(e==="HT"||e==="ht")return "HT";
+  if(e.endsWith("'"))return e; // ESPN already formats as "79'" — don't double-append
+  return e+"'";                // raw number (legacy) — append '
+}
 function updateTzLabels(){
   $("tzNote").textContent="Times shown in "+tz.replace(/_/g," ")+". ";
   updateBanner();
@@ -1304,6 +1368,7 @@ function tagFor(r){
 /* ---- live scores ---- */
 const NAME_MAP={
   "Bosnia and Herzegovina":"Bosnia & Herzegovina",
+  "Bosnia-Herzegovina":"Bosnia & Herzegovina",
   "Cape Verde":"Cabo Verde",
   "Czech Republic":"Czechia",
   "Democratic Republic of the Congo":"Congo DR",
@@ -1326,36 +1391,51 @@ function parseScorers(v){
 
 async function fetchScores(){
   try{
-    const res=await fetch("/api/games",{cache:"no-store"});
+    const res=await fetch("/scores",{cache:"no-store"});
     if(!res.ok)throw new Error(res.status);
     const data=await res.json();
     const map=new Map();
-    data.games.forEach(g=>{
-      const finished=g.finished==="TRUE";
-      const elapsed=g.time_elapsed;
-      const live=!finished&&elapsed!=="notstarted"&&elapsed!=="null"&&!!elapsed;
-      if(finished||live){
-        const home=normName(g.home_team_name_en);
-        const away=normName(g.away_team_name_en);
-        map.set(home+"|"+away,{
-          home:g.home_score,
-          away:g.away_score,
-          finished,live,elapsed,
-          homeScorers:parseScorers(g.home_scorers),
-          awayScorers:parseScorers(g.away_scorers),
-        });
-      }
+    (data.events||[]).forEach(ev=>{
+      const comp=ev.competitions?.[0];
+      if(!comp)return;
+      const homeComp=comp.competitors?.find(c=>c.homeAway==="home");
+      const awayComp=comp.competitors?.find(c=>c.homeAway==="away");
+      if(!homeComp||!awayComp)return;
+      const home=normName(homeComp.team.displayName);
+      const away=normName(awayComp.team.displayName);
+      const st=comp.status?.type;
+      const finished=st?.state==="post";
+      const live=st?.state==="in";
+      if(!finished&&!live)return;
+      // elapsed: "HT" at halftime, displayClock ("79'") during play, "" otherwise
+      const stName=st?.name||"";
+      const elapsed=stName==="STATUS_HALFTIME"?"HT":live?comp.status.displayClock:"";
+      const half=stName==="STATUS_FIRST_HALF"?"1st Half"
+        :stName==="STATUS_HALFTIME"?"Half Time"
+        :stName==="STATUS_SECOND_HALF"?"2nd Half"
+        :stName.includes("EXTRA_TIME")?"Extra Time"
+        :stName==="STATUS_PENALTIES"?"Penalties"
+        :"";
+      // goal scorers from details array
+      const homeId=homeComp.team.id;
+      const goals=(comp.details||[]).filter(d=>d.scoringPlay);
+      const homeScorers=goals.filter(d=>d.team?.id===homeId)
+        .map(d=>(d.athletesInvolved?.[0]?.displayName||"")+" "+d.clock?.displayValue).map(s=>s.trim()).filter(Boolean);
+      const awayScorers=goals.filter(d=>d.team?.id&&d.team.id!==homeId)
+        .map(d=>(d.athletesInvolved?.[0]?.displayName||"")+" "+d.clock?.displayValue).map(s=>s.trim()).filter(Boolean);
+      map.set(home+"|"+away,{
+        home:homeComp.score,away:awayComp.score,
+        finished,live,elapsed,half,homeScorers,awayScorers,
+      });
+      // patch knockout team names — match ESPN event to D array by epoch (±10 min)
+      const evEpoch=new Date(ev.date).getTime();
+      const dRow=D.find(r=>r[1]!=="G"&&Math.abs(r.epoch-evEpoch)<10*60*1000);
+      if(dRow)teamOverrides.set(dRow[0],{home,away});
     });
     scores=map;
+    computeStandings();
     updateBanner();
-    // patch knockout team names once the API knows the real teams
-    data.games.forEach(g=>{
-      if(g.type==="group"||g.home_team_id==="0"||!g.home_team_name_en)return;
-      teamOverrides.set(parseInt(g.id,10),{
-        home:normName(g.home_team_name_en),
-        away:normName(g.away_team_name_en),
-      });
-    });
+    scheduleNotifications();
     render();
   }catch(e){
     console.warn("Score fetch failed:",e);
@@ -1420,7 +1500,7 @@ function render(){
       if(sc){
         const stateHtml=sc.finished
           ?'<span class="sc-state ft">FT</span>'
-          :sc.live?'<span class="sc-state live-label"><span class="live-dot"></span>'+sc.elapsed+"'</span>"
+          :sc.live?'<span class="sc-state live-label"><span class="live-dot"></span>'+fmtElapsed(sc.elapsed)+'</span>'
           :'';
         scoreHtml='<div class="m-score"><span class="sc">'+sc.home+'<span class="sep">–</span>'+sc.away+'</span>'+stateHtml+'</div>';
       }else{
@@ -1453,13 +1533,16 @@ let _bannerMatchId=null;
 function pickFact(team){const a=TEAM_ANECDOTES?.[team];return a?.length?a[Math.floor(Math.random()*a.length)]:"";}
 function updateBanner(){
   const now=Date.now();
-  // prefer a live match from scores map
-  let liveRow=null;
+  const MATCH_WINDOW=115*60*1000;
+  const el=$("kickoff");
+
+  // collect ALL API-flagged live matches
+  const liveRows=[];
   for(const r of D){
     const ov=teamOverrides.get(r[0]);
     const h=ov?.home??r[5], a=ov?.away??r[6];
-    const sc=scores.get(h+"|"+a);
-    if(sc?.live){liveRow={r,sc,h,a};break;}
+    const sc=scores.get(h+"|"+a)??scores.get(a+"|"+h);
+    if(sc?.live)liveRows.push({r,sc,h,a});
   }
   if(liveRow){
     const {r,sc,h,a}=liveRow;
@@ -1469,7 +1552,9 @@ function updateBanner(){
     if(_bannerMatchId!==r[0]){_bannerMatchId=r[0];$("koFacts").innerHTML="<b>"+h+":</b> "+pickFact(h)+"<br><b>"+a+":</b> "+pickFact(a);}
     return;
   }
-  // find next upcoming match
+
+  // countdown / complete
+  el.className="kickoff";
   const next=D.slice().sort((a,b)=>a.epoch-b.epoch).find(r=>r.epoch>now);
   if(!next){
     $("kickoff").querySelector(".k-label").textContent="Tournament";
@@ -1483,38 +1568,58 @@ function updateBanner(){
   $("koLine").innerHTML="Match "+next[0]+" · "+teamLink(nh)+" v "+teamLink(na)+" · "+fmtDateShort(next.epoch)+", "+fmtTime(next.epoch);
   if(_bannerMatchId!==next[0]){_bannerMatchId=next[0];$("koFacts").innerHTML="<b>"+nh+":</b> "+pickFact(nh)+"<br><b>"+na+":</b> "+pickFact(na);}
   const ms=next.epoch-now;
-  const d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4),s=Math.floor(ms%6e4/1e3);
-  $("countdown").textContent=(d>0?d+"d ":"")+String(h).padStart(2,"0")+"h "+String(m).padStart(2,"0")+"m "+String(s).padStart(2,"0")+"s";
+  const dd=Math.floor(ms/864e5),hh=Math.floor(ms%864e5/36e5),mm=Math.floor(ms%36e5/6e4),ss=Math.floor(ms%6e4/1e3);
+  const tStr=(dd>0?dd+"d ":"")+String(hh).padStart(2,"0")+"h "+String(mm).padStart(2,"0")+"m "+String(ss).padStart(2,"0")+"s";
+  const nh=teamOverrides.get(next[0])?.home??next[5];
+  const na=teamOverrides.get(next[0])?.away??next[6];
+  el.innerHTML='<span class="k-label">Next kick-off in</span>'
+    +'<span class="k-time">'+tStr+'</span>'
+    +'<span class="k-match">Match '+next[0]+' · '+nh+' v '+na+' · '+fmtDateShort(next.epoch)+', '+fmtTime(next.epoch)+'</span>';
 }
 updateBanner();setInterval(updateBanner,1000);
 
 /* ---------- standings ---------- */
 async function fetchStandings(){
   try{
-    const [tRes,gRes]=await Promise.all([
-      fetch("/api/teams",{cache:"no-store"}),
-      fetch("/api/groups",{cache:"no-store"}),
-    ]);
-    if(!tRes.ok||!gRes.ok)return;
-    const [td,gd]=await Promise.all([tRes.json(),gRes.json()]);
-    const teamMeta=new Map();
-    td.teams.forEach(t=>teamMeta.set(t.id,{name:normName(t.name_en),flag:t.flag}));
-    const map=new Map();
-    gd.groups.forEach(grp=>{
-      const letter=grp.name;
-      const teams=grp.teams
-        .map(t=>{
-          const meta=teamMeta.get(t.team_id)||{name:"?",flag:""};
-          return{name:meta.name,flag:meta.flag,
-            mp:+t.mp,w:+t.w,d:+t.d,l:+t.l,gf:+t.gf,ga:+t.ga,gd:+t.gd,pts:+t.pts};
-        })
-        .sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf||a.name.localeCompare(b.name));
-      map.set(letter,teams);
-    });
-    groupStandings=map;
-    renderGroups();
-    renderStrip();
+    const tRes=await fetch("/flags",{cache:"no-store"});
+    if(!tRes.ok)return;
+    const td=await tRes.json();
+    flagByName=new Map();
+    td.teams.forEach(t=>flagByName.set(normName(t.name_en),t.flag));
+    computeStandings();
   }catch(e){console.warn("Standings fetch failed:",e);}
+}
+
+function computeStandings(){
+  // Build standings from finished ESPN scores — no external standings API needed
+  const gMap=new Map(); // letter → Map<teamName, row>
+  D.forEach(r=>{
+    if(r[1]!=="G")return;
+    const g=r[2];
+    if(!gMap.has(g))gMap.set(g,new Map());
+    const grp=gMap.get(g);
+    const ov=teamOverrides.get(r[0]);
+    const h=ov?.home??r[5], a=ov?.away??r[6];
+    [h,a].forEach(n=>{if(!grp.has(n))grp.set(n,{name:n,flag:flagByName.get(n)||"",mp:0,w:0,d:0,l:0,gf:0,ga:0,gd:0,pts:0});});
+    const sc=scores.get(h+"|"+a)??scores.get(a+"|"+h);
+    if(!sc?.finished)return;
+    const hg=parseInt(sc.home,10)||0, ag=parseInt(sc.away,10)||0;
+    const hr=grp.get(h), ar=grp.get(a);
+    hr.mp++;ar.mp++;
+    hr.gf+=hg;hr.ga+=ag;hr.gd+=hg-ag;
+    ar.gf+=ag;ar.ga+=hg;ar.gd+=ag-hg;
+    if(hg>ag){hr.w++;hr.pts+=3;ar.l++;}
+    else if(hg<ag){ar.w++;ar.pts+=3;hr.l++;}
+    else{hr.d++;hr.pts++;ar.d++;ar.pts++;}
+  });
+  const result=new Map();
+  gMap.forEach((grp,letter)=>{
+    const teams=[...grp.values()].sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf||a.name.localeCompare(b.name));
+    result.set(letter,teams);
+  });
+  groupStandings=result;
+  renderGroups();
+  renderStrip();
 }
 
 function standingsTableRows(teams,qualify){
@@ -1591,11 +1696,86 @@ function renderStrip(){
     +'</tbody></table>';
 }
 
+/* ---------- notifications ---------- */
+let notifTimers=[];
+let notifsEnabled=localStorage.getItem("wc26_notifs")==="on";
+
+function fireNotif(r){
+  const ov=teamOverrides.get(r[0]);
+  const home=ov?.home??r[5], away=ov?.away??r[6];
+  const n=new Notification("⚽ Kick-off in 15 minutes",{
+    body:"Match "+r[0]+" · "+home+" v "+away+"\n"+(VENUES[r[0]]||"")+" · "+fmtTime(r.epoch),
+    icon:"/icon-192.png",
+  });
+  n.onclick=()=>window.focus();
+}
+
+function cancelNotifications(){
+  notifTimers.forEach(clearTimeout);
+  notifTimers=[];
+}
+
+function scheduleNotifications(){
+  cancelNotifications();
+  if(!notifsEnabled||Notification.permission!=="granted")return;
+  const now=Date.now();
+  const FIFTEEN=15*60*1000;
+  const HORIZON=48*60*60*1000;
+  D.forEach(r=>{
+    const ms=r.epoch-now-FIFTEEN;
+    if(ms>0&&ms<HORIZON)notifTimers.push(setTimeout(()=>fireNotif(r),ms));
+  });
+}
+
+function updateNotifBtn(){
+  const btn=$("notifBtn");
+  if(!btn)return;
+  if(Notification.permission==="denied"){
+    btn.textContent="🔕 Blocked";
+    btn.title="Enable notifications in your browser settings";
+    btn.classList.remove("on");
+    return;
+  }
+  if(notifsEnabled&&Notification.permission==="granted"){
+    btn.textContent="🔔 Alerts on";
+    btn.classList.add("on");
+  }else{
+    btn.textContent=notifsEnabled?"🔔 Match alerts":"🔕 Alerts off";
+    btn.classList.remove("on");
+  }
+}
+
+$("notifBtn").addEventListener("click",async()=>{
+  if(Notification.permission==="denied")return;
+  if(Notification.permission==="default"){
+    const result=await Notification.requestPermission();
+    if(result!=="granted"){updateNotifBtn();return;}
+  }
+  notifsEnabled=!notifsEnabled;
+  localStorage.setItem("wc26_notifs",notifsEnabled?"on":"off");
+  if(notifsEnabled)scheduleNotifications();else cancelNotifications();
+  updateNotifBtn();
+});
+
+// restore on load
+if(Notification.permission==="granted"&&notifsEnabled)scheduleNotifications();
+updateNotifBtn();
+
 updateTzLabels();
 render();
-fetchScores();
-fetchStandings();
-setInterval(()=>{fetchScores();fetchStandings();},2*60*1000);
+// fetch flags first so computeStandings has them when scores arrive
+fetchStandings().then(()=>fetchScores());
+setInterval(fetchScores,2*60*1000);
+setInterval(fetchStandings,30*60*1000); // flags rarely change
+
+// iOS bfcache: when navigating back, Safari restores the frozen page state.
+// Timers were paused, scores are stale, and the view may have been left on Groups.
+// pageshow with persisted:true fires on bfcache restore — re-sync everything.
+window.addEventListener("pageshow",e=>{
+  if(!e.persisted)return;
+  setView("schedule");
+  fetchStandings().then(()=>fetchScores());
+});
 </script>
 
 <dialog id="teamDialog" aria-labelledby="td-title">

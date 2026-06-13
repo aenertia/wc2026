@@ -2,10 +2,13 @@
 
 A single-file interactive wallchart for all 104 matches of the 2026 FIFA World Cup (11 June – 19 July). Filter by group, stage or team, switch timezones, and see live scores update automatically.
 
+**Live version: [wc26-wallchart.duckdns.org](https://wc26-wallchart.duckdns.org/world-cup-2026-schedule_1.html)**
+
 ## Features
 
 - All 104 matches with correct IST kick-off times and dates
-- Live scores and final results via the [worldcup26.ir](https://worldcup26.ir) API — no API key required, polls every 2 minutes
+- Live scores, elapsed time, half-time indicator, and goal scorers via the ESPN scoreboard API — no API key required, polls every 2 minutes; group standings via [worldcup26.ir](https://worldcup26.ir)
+- Header banner counts down to the next kick-off; switches to live score during a match; reverts to countdown when the final whistle goes
 - Knockout stage team names update automatically once teams qualify — placeholder labels (e.g. "Winner Group A") are replaced with real country names as the API confirms them
 - In-play matches show a live score with pulsing indicator and current minute
 - Full-time matches show the final score with FT stamp, losing team dimmed, and goal scorers listed under each team name
@@ -14,6 +17,8 @@ A single-file interactive wallchart for all 104 matches of the 2026 FIFA World C
 - Timezone conversion — remembers your preference via localStorage
 - Late-night kick-off indicator (☾)
 - Live group standings (MP, W, D, L, GD, Pts) with flags — visible as a table in the Groups view and as an inline strip above the schedule when a group filter is active; top 2 qualification places highlighted
+- Opt-in match alerts — browser notification 15 minutes before each kick-off (requires page to be open)
+- Installable as a PWA on iOS, Android, and desktop — add to home screen for a full-screen app experience
 
 ## Running locally
 
@@ -116,5 +121,6 @@ The app falls back to live APIs (Wikipedia, GeoAPI.info, Wikidata) if local asse
 | Data | Source |
 |------|--------|
 | Match schedule & times | Verified against Sky Sports BST kick-off times |
-| Live scores & results | [worldcup26.ir](https://worldcup26.ir) (free, no key) |
+| Live scores, elapsed time & goal scorers | ESPN unofficial scoreboard API (no key, ~9s refresh) |
+| Group standings & team flags | [worldcup26.ir](https://worldcup26.ir) (free, no key) |
 | Venues | worldcup26.ir stadiums endpoint |

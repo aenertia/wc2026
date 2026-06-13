@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """
 Local server for the World Cup 2026 wallchart.
-Serves static files and proxies /api/* to worldcup26.ir to avoid CORS.
+Serves static files and proxies:
+  /api/espn   → ESPN scoreboard (live scores, results)
+  /api/*      → worldcup26.ir (group standings, team flags)
 Usage: python3 server.py [port]   (default port: 8191)
 """
-import http.server, subprocess, os, sys
+import http.server, subprocess, os, sys, time, threading, logging
+from datetime import date
 
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8191
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
@@ -56,25 +59,38 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             endpoint = self.path[5:]  # strip /api/
             url = f"{API_BASE}/{endpoint}"
             try:
-                result = subprocess.run(
-                    ["curl", "-s", "--max-time", "10", "-H", "Accept: application/json", url],
-                    capture_output=True, timeout=12
-                )
-                if result.returncode != 0:
-                    raise RuntimeError(f"curl exit {result.returncode}")
-                self.send_response(200)
-                self.send_header("Content-Type", "application/json; charset=utf-8")
-                self.send_header("Access-Control-Allow-Origin", "*")
-                self.send_header("Cache-Control", "no-store")
-                self.end_headers()
-                self.wfile.write(result.stdout)
+                data = fetch_url(url, "espn")
+                self._send_json(data)
             except Exception as e:
-                self.send_error(502, f"Proxy error: {e}")
+                self.send_error(502, f"Scores proxy error: {e}")
+        elif self.path == "/flags":
+            url = f"{WC_API_BASE}/teams"
+            try:
+                data = fetch_url(url, "teams")
+                self._send_json(data)
+            except Exception as e:
+                self.send_error(502, f"Flags proxy error: {e}")
         else:
             super().do_GET()
 
+    def end_headers(self):
+        # Prevent browsers from caching HTML — ensures iOS always gets fresh code
+        if self.path.endswith(".html") or self.path == "/" or "." not in self.path.split("/")[-1]:
+            self.send_header("Cache-Control", "no-cache, must-revalidate")
+        super().end_headers()
+
+    def _send_json(self, data: bytes):
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(data)
+
     def log_message(self, fmt, *args):
-        pass  # suppress request noise in the log file
+        logging.info("%s - - [%s] %s", self.address_string(),
+                     self.log_date_time_string(), fmt % args)
+
 
 if __name__ == "__main__":
     import socket
