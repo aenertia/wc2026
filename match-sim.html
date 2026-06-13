@@ -171,6 +171,11 @@ a.back-link:hover{color:var(--chalk)}
       <span id="awayNick" class="sel-nick"></span>
     </div>
   </div>
+  <div class="sel-row" id="scoreRow" style="gap:12px">
+    <div class="sel-col"><label class="sel-label">Home Score</label><input type="number" id="homeScoreInput" class="team-select" style="min-width:80px;text-align:center" min="0" max="20" placeholder="—"></div>
+    <div class="sel-col"><span class="sel-label" style="color:var(--chalk-faint);font-size:11px">SET RESULT (optional)</span></div>
+    <div class="sel-col"><label class="sel-label">Away Score</label><input type="number" id="awayScoreInput" class="team-select" style="min-width:80px;text-align:center" min="0" max="20" placeholder="—"></div>
+  </div>
   <button id="kickoffBtn" disabled>Kick Off</button>
   <a href="world-cup-2026-schedule_1.html" class="back-link">← Back to Wallchart</a>
 </div>
@@ -707,6 +712,33 @@ const COMMENT = {
     "{scorer} slides to the corner flag and the entire bench pile on.",
   ],
   idle: [], // filled from TEAM_ANECDOTES dynamically
+  replay_fall: [
+    "{player} has gone down with nobody near him! Ghost tackle!",
+    "He's tripped over the grass! The pitch is fighting back!",
+    "{player} just... fell over. No explanation available.",
+    "{player} appears to have forgotten how legs work.",
+  ],
+  replay_own_goal: [
+    "OWN GOAL! {player} will want to forget that one!",
+    "It's in his own net! He's playing like he's been paid to lose!",
+    "That's gone in off his own defender! Absolutely catastrophic!",
+  ],
+  replay_wrong_way: [
+    "{player} appears to have forgotten which end they're attacking.",
+    "He's running the wrong way! Someone check his compass!",
+    "{player} heading toward their own goal. Bold strategy.",
+  ],
+  replay_gk_blunder: [
+    "The goalkeeper has gone walkabout! Nobody knows why!",
+    "He's abandoned his post! The goal is WIDE OPEN!",
+    "{player} has decided goalkeeping isn't for him today.",
+  ],
+  replay_chaos: [
+    "This isn't a football match, it's a car crash.",
+    "Tactical masterclass in self-destruction.",
+    "Has anyone checked if {player} has a bet on?",
+    "The dugout looks like a hostage situation.",
+  ],
 };
 
 // ---- COMMENTARY HELPERS ----
@@ -1162,6 +1194,36 @@ function buildAllPlayers() {
 let varActive = false, varTimer = 0, varResult = '';
 let _prevSbScore = '', _prevSbClock = '';
 
+// ---- REPLAY MODE ----
+let replayMode = false;
+let targetHomeScore = 0, targetAwayScore = 0;
+let scheduledGoals = []; // [{minute, team, scored: false}]
+let replayForceMode = null; // {team, startMinute, goalRef} when forcing a goal
+
+function scheduleReplayGoals() {
+  scheduledGoals = [];
+  const totalGoals = targetHomeScore + targetAwayScore;
+  if (totalGoals === 0) return;
+  const goals = [];
+  for (let i = 0; i < targetHomeScore; i++) goals.push({team: 0});
+  for (let i = 0; i < targetAwayScore; i++) goals.push({team: 1});
+  // Shuffle
+  for (let i = goals.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [goals[i], goals[j]] = [goals[j], goals[i]];
+  }
+  // Spread across match time
+  const startMin = 5, endMin = 85;
+  const interval = (endMin - startMin) / Math.max(totalGoals, 1);
+  goals.forEach((g, idx) => {
+    const baseMinute = startMin + idx * interval;
+    const jitter = (Math.random() - 0.5) * Math.min(interval * 0.6, 8);
+    g.minute = Math.max(3, Math.min(88, baseMinute + jitter));
+    g.scored = false;
+  });
+  scheduledGoals = goals.sort((a, b) => a.minute - b.minute);
+}
+
 // ---- FRAME STATS (toggle with 'D' key during gameplay) ----
 window.FRAME_STATS = { times: [], mean: 0, min: 0, max: 0, show: false };
 let _lastFrameTime = 0;
@@ -1263,6 +1325,10 @@ function parseURLParams() {
     const match = TEAM_NAMES.find(t => t.toLowerCase() === away.toLowerCase() || TEAM_META[t]?.slug === away.toLowerCase().replace(/ /g, '-'));
     if (match) $('awaySelect').value = match;
   }
+  const hsParam = p.get('homeScore');
+  const asParam = p.get('awayScore');
+  if (hsParam !== null) $('homeScoreInput').value = hsParam;
+  if (asParam !== null) $('awayScoreInput').value = asParam;
   updateSelectUI('home');
   updateSelectUI('away');
 }
@@ -2454,13 +2520,22 @@ function nearestOpponentDist(p) {
 }
 
 function shootBall(p) {
+  // Replay mode: boost shots for force-mode team, nerf for opponent
+  let shotAccuracyMod = 1;
+  if (replayMode && replayForceMode) {
+    if (p.team === replayForceMode.team) {
+      shotAccuracyMod = 0.2; // Very accurate — inaccuracy × 0.2
+    } else {
+      shotAccuracyMod = 3.0; // Very inaccurate
+    }
+  }
   const goalX = WORLD_W / 2 + (Math.random() - 0.5) * GOAL_W * 0.7;
   const goalY = p.team === 0 ? PITCH_T - 5 : PITCH_B + 5;
   const d = dist(p.x, p.y, goalX, goalY);
   const accuracy = 0.85 + Math.random() * 0.3;
   // Add ±20° angle spread for wider shot variety
   const baseAngle = Math.atan2(goalY - p.y, goalX - p.x);
-  const spread = (Math.random() - 0.5) * (Math.PI / 9);
+  const spread = (Math.random() - 0.5) * (Math.PI / 9) * shotAccuracyMod;
   ball.vx = Math.cos(baseAngle + spread) * SHOOT_SPEED * accuracy;
   ball.vy = Math.sin(baseAngle + spread) * SHOOT_SPEED * accuracy;
   ball.lastTouchedBy = p;
@@ -2722,6 +2797,27 @@ function updatePlayerAI(p, teammates, opponents, roles) {
     }
   }
 
+  // Replay mode: passive chaos for losing team
+  if (replayMode) {
+    const scoreDiff = (p.team === 0) ? (targetHomeScore - homeScore) - (targetAwayScore - awayScore) : (targetAwayScore - awayScore) - (targetHomeScore - homeScore);
+    if (scoreDiff < 0 && Math.abs(scoreDiff) > 0) {
+      const chaosLevel = Math.min(Math.abs(scoreDiff) / 5, 1);
+      // Random trip/fall
+      if (Math.random() < 0.001 * chaosLevel && p.position !== 'GK' && p.state === 'idle') {
+        p.state = 'diving'; p.stateTimer = 30; p.slideX = 0; p.slideY = 0;
+        addEffect('dust', p.x, p.y, {dir: Math.random() < 0.5 ? 1 : -1});
+        if (Math.random() < 0.3) addCommentary('comedy', pickComment('replay_fall', {player: p.lastName}));
+        return;
+      }
+      // GK randomly rushes out
+      if (Math.random() < 0.0005 * chaosLevel && p.position === 'GK') {
+        triggerKeeperRush(p.team);
+        if (Math.random() < 0.4) addCommentary('comedy', pickComment('replay_gk_blunder', {player: p.lastName}));
+        return;
+      }
+    }
+  }
+
   // Goalkeeper AI
   if (p.position === 'GK') {
     updateGK(p, opponents);
@@ -2843,6 +2939,10 @@ function updatePlayerAI(p, teammates, opponents, roles) {
 }
 
 function updateGK(gk, opponents) {
+  // Replay mode: nerf GK when opponent should score
+  if (replayMode && replayForceMode && gk.team !== replayForceMode.team) {
+    if (Math.random() < 0.4) return; // Skip this frame's GK logic entirely
+  }
   const goalY = gk.team === 0 ? PITCH_B - 12 : PITCH_T + 12;
   const goalCenterX = WORLD_W / 2;
 
@@ -3593,6 +3693,22 @@ function gameLoop() {
     // Check for guaranteed team special events
     checkSpecialEvents();
 
+    // Replay mode: check goal schedule
+    if (replayMode && scheduledGoals.length > 0) {
+      const nextGoal = scheduledGoals.find(g => !g.scored);
+      if (nextGoal && matchClock >= nextGoal.minute) {
+        if (!replayForceMode) {
+          replayForceMode = {team: nextGoal.team, startMinute: matchClock, goalRef: nextGoal};
+        }
+      }
+      // If force mode active for too long (3+ minutes), force a goal directly
+      if (replayForceMode && matchClock - replayForceMode.startMinute > 3) {
+        scoreGoal(replayForceMode.team);
+        replayForceMode.goalRef.scored = true;
+        replayForceMode = null;
+      }
+    }
+
     // Minimap zoom snap-back timer
     if (minimapZoomTimer > 0) {
       minimapZoomTimer--;
@@ -3625,6 +3741,13 @@ function gameLoop() {
 
     // Full time
     if (matchClock >= 90) {
+      // Replay mode: force any remaining scheduled goals before fulltime
+      if (replayMode) {
+        for (const g of scheduledGoals) {
+          if (!g.scored) { scoreGoal(g.team); g.scored = true; }
+        }
+        replayForceMode = null;
+      }
       AudioManager.playWhistle(true);
       AudioManager.setCrowd(0.6);
       gameState = 'fulltime';
@@ -4053,6 +4176,22 @@ function showResult() {
 async function startMatch() {
   homeTeamName = $('homeSelect').value;
   awayTeamName = $('awaySelect').value;
+
+  // Replay mode: read pre-set scores
+  const hsVal = $('homeScoreInput').value;
+  const asVal = $('awayScoreInput').value;
+  if (hsVal !== '' && asVal !== '') {
+    replayMode = true;
+    targetHomeScore = parseInt(hsVal, 10) || 0;
+    targetAwayScore = parseInt(asVal, 10) || 0;
+    scheduleReplayGoals();
+  } else {
+    replayMode = false;
+    targetHomeScore = 0;
+    targetAwayScore = 0;
+    scheduledGoals = [];
+  }
+  replayForceMode = null;
 
   $('teamSelect').classList.add('hidden');
   $('matchView').classList.add('active');
