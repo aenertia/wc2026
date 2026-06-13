@@ -1243,7 +1243,8 @@ const $=id=>document.getElementById(id);
 let scores=new Map();
 const teamOverrides=new Map();
 let groupStandings=new Map();
-let flagByName=new Map(); // team display name → flag URL, populated by fetchStandings
+// Pre-populate flags from local assets — always available even without API
+let flagByName=new Map(Object.entries(TEAM_META).map(([name,m])=>[name,"assets/teams/"+m.slug+"/flag.svg"]));
 
 /* build stage pills */
 const stageRow=$("stageRow");
@@ -1596,8 +1597,8 @@ async function fetchStandings(){
       try{const r=await fetch(url,{cache:"no-store"});if(r.ok){td=await r.json();break;}}catch(_){}
     }
     if(td?.teams){
-      flagByName=new Map();
-      td.teams.forEach(t=>flagByName.set(normName(t.name_en),t.flag));
+      // Overlay API flags onto local ones (API may have higher-res PNGs)
+      td.teams.forEach(t=>{if(t.flag)flagByName.set(normName(t.name_en),t.flag);});
     }
     // Always compute standings from ESPN scores even if flags unavailable
     computeStandings();
