@@ -2193,8 +2193,11 @@ function drawPossessionArrow(ctx) {
 function drawBall(ctx, frameTime = Date.now()) {
   const bx = ball.x, by = ball.y;
   const speed = Math.sqrt(ball.vx*ball.vx + ball.vy*ball.vy);
+  // Shot effect: ball grows extra large + glows during shot
+  const shotBoost = (ball.shotEffect && ball.shotEffect > 0) ? ball.shotEffect / 20 : 0; // 1..0 fading
+  if (ball.shotEffect > 0) ball.shotEffect--;
   // Ball grows when kicked hard — simulates "coming toward camera" effect
-  const br = BALL_R + Math.min(speed * 0.3, 4); // up to +4px at max speed
+  const br = BALL_R + Math.min(speed * 0.3, 4) + shotBoost * 6; // extra +6px during shot
 
   // Velocity blur trail — ghosted copies behind the ball
   if (speed > 2) {
@@ -2209,6 +2212,14 @@ function drawBall(ctx, frameTime = Date.now()) {
       ctx.arc(tx, ty, br * (1 - i*0.1), 0, Math.PI * 2);
       ctx.fill();
     }
+  }
+
+  // Shot glow effect — golden ring around ball during shot
+  if (shotBoost > 0.1) {
+    ctx.strokeStyle = `rgba(240,196,76,${shotBoost * 0.8})`;
+    ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.arc(bx, by, br + 4, 0, Math.PI * 2); ctx.stroke();
+    ctx.lineWidth = 1;
   }
 
   // Shadow (stretches with speed)
@@ -2699,6 +2710,7 @@ function shootBall(p, longRange) {
   ball.lastTouchedBy = p;
   ball.owner = null;
   ball.free = true;
+  ball.shotEffect = 20; // frames of shot effect (larger ball + brief slow-mo)
   AudioManager.playKick();
 
   if (longRange) {
@@ -3016,17 +3028,23 @@ function updatePlayerAI(p, teammates, opponents, roles) {
     const attackGoalY = isHomeTeam ? PITCH_T : PITCH_B;
     const distToGoal = dist(p.x, p.y, WORLD_W / 2, attackGoalY);
 
-    // Shooting range — close range shots + long-range efforts
-    if (distToGoal < 280 && Math.abs(p.x - WORLD_W / 2) < 200) {
-      // Close-range: higher probability
-      if (Math.random() < 0.04 + (280 - distToGoal) / 4000) {
+    // Inside penalty box or very close — MUST shoot
+    if (distToGoal < 150) {
+      shootBall(p);
+      return;
+    }
+    // Shooting range — high probability, escalates as player gets closer
+    if (distToGoal < 300 && Math.abs(p.x - WORLD_W / 2) < 250) {
+      const shotChance = 0.06 + (300 - distToGoal) / 1500; // up to ~26% near goal
+      if (Math.random() < shotChance) {
         shootBall(p);
         return;
       }
-    } else if (distToGoal < 450 && distToGoal > 250 && Math.abs(p.x - WORLD_W / 2) < 300) {
-      // Long-range: rare but spectacular — triggers bicycle kick spin
-      if (Math.random() < 0.005) {
-        shootBall(p, true); // long-range flag
+    }
+    // Long-range: rare but spectacular — triggers bicycle kick spin
+    if (distToGoal < 500 && distToGoal > 280 && Math.abs(p.x - WORLD_W / 2) < 350) {
+      if (Math.random() < 0.008) {
+        shootBall(p, true);
         return;
       }
     }
@@ -4058,10 +4076,13 @@ function applyVelocity(p) {
   p.vy *= 0.9;
 
   // Soft boundary repulsion — push players back toward pitch interior
-  // Instead of hard clamping (which causes "sticking"), apply an inward force
-  const softMargin = p.position === 'GK' ? 8 : 20; // GKs can go closer to line
-  const repulsionZone = 25; // start pushing back within 25px of edge
-  const repulsionForce = 0.5;
+  // Ball carriers attacking goal are EXEMPT from repulsion on the attack end
+  const isCarrier = ball.owner === p;
+  const attackingTop = isCarrier && p.team === 0; // team 0 attacks toward PITCH_T
+  const attackingBot = isCarrier && p.team === 1; // team 1 attacks toward PITCH_B
+  const softMargin = p.position === 'GK' ? 8 : 15;
+  const repulsionZone = 20;
+  const repulsionForce = 0.4;
 
   // Left edge
   if (p.x < PITCH_L + softMargin + repulsionZone) {
@@ -4073,23 +4094,24 @@ function applyVelocity(p) {
     const depth = Math.max(0, 1 - (PITCH_R - softMargin - p.x) / repulsionZone);
     p.vx -= depth * repulsionForce;
   }
-  // Top edge
-  if (p.y < PITCH_T + softMargin + repulsionZone) {
+  // Top edge — exempt ball carriers attacking this end
+  if (!attackingTop && p.y < PITCH_T + softMargin + repulsionZone) {
     const depth = Math.max(0, 1 - (p.y - PITCH_T - softMargin) / repulsionZone);
     p.vy += depth * repulsionForce;
   }
-  // Bottom edge
-  if (p.y > PITCH_B - softMargin - repulsionZone) {
+  // Bottom edge — exempt ball carriers attacking this end
+  if (!attackingBot && p.y > PITCH_B - softMargin - repulsionZone) {
     const depth = Math.max(0, 1 - (PITCH_B - softMargin - p.y) / repulsionZone);
     p.vy -= depth * repulsionForce;
   }
 
-  // Hard clamp as absolute safety net (shouldn't normally trigger)
-  const hardMargin = p.position === 'GK' ? 2 : 8;
+  // Hard clamp as absolute safety net
+  // Ball carriers can go right to the line (they'll shoot or the ball crosses for a goal)
+  const hardMargin = isCarrier ? 0 : (p.position === 'GK' ? 2 : 5);
   if (p.x < PITCH_L + hardMargin) { p.x = PITCH_L + hardMargin; p.vx = Math.abs(p.vx) * 0.3; }
   if (p.x > PITCH_R - hardMargin) { p.x = PITCH_R - hardMargin; p.vx = -Math.abs(p.vx) * 0.3; }
-  if (p.y < PITCH_T + hardMargin) { p.y = PITCH_T + hardMargin; p.vy = Math.abs(p.vy) * 0.3; }
-  if (p.y > PITCH_B - hardMargin) { p.y = PITCH_B - hardMargin; p.vy = -Math.abs(p.vy) * 0.3; }
+  if (!attackingTop && p.y < PITCH_T + hardMargin) { p.y = PITCH_T + hardMargin; p.vy = Math.abs(p.vy) * 0.3; }
+  if (!attackingBot && p.y > PITCH_B - hardMargin) { p.y = PITCH_B - hardMargin; p.vy = -Math.abs(p.vy) * 0.3; }
 }
 
 function resetPositions() {
