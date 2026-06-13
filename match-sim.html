@@ -178,7 +178,7 @@ a.back-link:hover{color:var(--chalk)}
     <div class="sel-col"><label class="sel-label">Away Score</label><input type="number" id="awayScoreInput" class="team-select" style="min-width:80px;text-align:center" min="0" max="20" placeholder="—"></div>
   </div>
   <button id="kickoffBtn" disabled>Kick Off</button>
-  <a href="world-cup-2026-schedule_1.html" class="back-link">← Back to Wallchart</a>
+  <a href="./" class="back-link">← Back to Wallchart</a>
 </div>
 
 <!-- ===== MATCH VIEW ===== -->
@@ -203,7 +203,7 @@ a.back-link:hover{color:var(--chalk)}
   <div class="res-stats" id="resStats"></div>
   <div class="res-btns">
     <button class="res-btn gold" id="rematchBtn">Rematch</button>
-    <a href="world-cup-2026-schedule_1.html" class="res-btn outline">Back to Wallchart</a>
+    <a href="./" class="res-btn outline">Back to Wallchart</a>
   </div>
 </div>
 
@@ -4830,7 +4830,16 @@ $('startOverlay').addEventListener('click', function() {
 $('muteBtn').addEventListener('click', function() {
   AudioManager.muted = !AudioManager.muted;
   this.textContent = AudioManager.muted ? '\u{1F507}' : '\u{1F50A}';
-  if (AudioManager.crowdGain) AudioManager.crowdGain.gain.value = AudioManager.muted ? 0 : 0.04;
+  if (AudioManager.crowdGain && AudioManager.ctx) {
+    // Cancel any scheduled gain changes then set immediately
+    AudioManager.crowdGain.gain.cancelScheduledValues(AudioManager.ctx.currentTime);
+    AudioManager.crowdGain.gain.setValueAtTime(AudioManager.muted ? 0 : 0.04, AudioManager.ctx.currentTime);
+  }
+  // Also suspend/resume the audio context itself for complete silence
+  if (AudioManager.ctx) {
+    if (AudioManager.muted) AudioManager.ctx.suspend();
+    else AudioManager.ctx.resume();
+  }
 });
 
 $('crtBtn').addEventListener('click', () => {
