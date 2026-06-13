@@ -1677,7 +1677,11 @@ function drawPlayer(ctx, p, frameTime = Date.now()) {
       ctx.translate(Math.sin(frameTime / 50) * 4, Math.cos(frameTime / 60) * 3); // shaking
     } else if (p.state === 'celebrating') {
       // Varied celebration rotations based on type
-      if (p.celebrationType === 'kneeSlide') {
+      if (p.celebrationType === 'bicycleKick') {
+        // Full 360° spin — bicycle kick rotation
+        const spinProgress = (p.celebPhase || 0) / 30; // 0..1 over 30 frames
+        ctx.rotate(spinProgress * Math.PI * 2); // full 360° rotation
+      } else if (p.celebrationType === 'kneeSlide') {
         ctx.rotate(0.3); // slight lean forward
         ctx.translate((p.celebSlideX || 0), 4); // sliding forward + lower
       } else if (p.celebrationType === 'cornerFlag' && p.celebPhase > 30) {
@@ -2608,13 +2612,13 @@ function getShiftedHomePos(player, myTeamHasBall, isHomeTeam) {
     sy += (ownGoalY - hy) * shiftFactor;
   }
   // Enforce minimum distance from back line — defenders shouldn't crowd the GK
-  const backLineBuffer = player.position === 'DF' ? 60 : player.position === 'MF' ? 80 : 40;
+  const backLineBuffer = player.position === 'DF' ? 40 : player.position === 'MF' ? 50 : 30;
   if (isHomeTeam) {
     sy = Math.min(sy, PITCH_B - backLineBuffer);
-    sy = Math.max(sy, PITCH_T + 40);
+    sy = Math.max(sy, PITCH_T + 30);
   } else {
     sy = Math.max(sy, PITCH_T + backLineBuffer);
-    sy = Math.min(sy, PITCH_B - 40);
+    sy = Math.min(sy, PITCH_B - 30);
   }
   // Widen x-spread by 30% for more use of pitch width
   const cx = WORLD_W / 2;
@@ -2671,7 +2675,7 @@ function nearestOpponentDist(p) {
   return minD;
 }
 
-function shootBall(p) {
+function shootBall(p, longRange) {
   // Replay mode: boost shots for force-mode team, nerf for opponent
   let shotAccuracyMod = 1;
   if (replayMode && replayForceMode) {
@@ -2684,20 +2688,39 @@ function shootBall(p) {
   const goalX = WORLD_W / 2 + (Math.random() - 0.5) * GOAL_W * 0.7;
   const goalY = p.team === 0 ? PITCH_T - 5 : PITCH_B + 5;
   const d = dist(p.x, p.y, goalX, goalY);
-  const accuracy = 0.85 + Math.random() * 0.3;
-  // Add ±20° angle spread for wider shot variety
+  const accuracy = longRange ? (0.7 + Math.random() * 0.2) : (0.85 + Math.random() * 0.3);
+  const speed = longRange ? SHOOT_SPEED * 1.4 : SHOOT_SPEED;
+  // Add ±20° angle spread for wider shot variety (long range is less accurate)
   const baseAngle = Math.atan2(goalY - p.y, goalX - p.x);
-  const spread = (Math.random() - 0.5) * (Math.PI / 9) * shotAccuracyMod;
-  ball.vx = Math.cos(baseAngle + spread) * SHOOT_SPEED * accuracy;
-  ball.vy = Math.sin(baseAngle + spread) * SHOOT_SPEED * accuracy;
+  const spreadMult = longRange ? 1.5 : 1;
+  const spread = (Math.random() - 0.5) * (Math.PI / 9) * shotAccuracyMod * spreadMult;
+  ball.vx = Math.cos(baseAngle + spread) * speed * accuracy;
+  ball.vy = Math.sin(baseAngle + spread) * speed * accuracy;
   ball.lastTouchedBy = p;
   ball.owner = null;
   ball.free = true;
-  p.state = 'idle';
   AudioManager.playKick();
 
-  if (Math.random() < 0.4) {
-    addCommentary('default', `${p.lastName} lets fly! ${Math.random() < 0.5 ? 'Powerful effort!' : 'What a strike!'}`);
+  if (longRange) {
+    // Bicycle kick spin — player does a 360° rotation
+    p.state = 'celebrating'; // reuse celebrating state for the spin
+    p.celebrationType = 'bicycleKick';
+    p.stateTimer = 30; // ~0.5 seconds of spin
+    p.celebPhase = 0;
+    addEffect('dust', p.x, p.y, {dir: 1});
+    addEffect('dust', p.x, p.y, {dir: -1});
+    const longComments = [
+      `${p.lastName} from DISTANCE! What an effort!`,
+      `${p.lastName} with a THUNDERBOLT from 30 yards!`,
+      `BICYCLE KICK! ${p.lastName} tries the spectacular!`,
+      `${p.lastName} unleashes an absolute ROCKET!`,
+    ];
+    addCommentary('default', randomFrom(longComments));
+  } else {
+    p.state = 'idle';
+    if (Math.random() < 0.4) {
+      addCommentary('default', `${p.lastName} lets fly! ${Math.random() < 0.5 ? 'Powerful effort!' : 'What a strike!'}`);
+    }
   }
 }
 
@@ -2993,10 +3016,17 @@ function updatePlayerAI(p, teammates, opponents, roles) {
     const attackGoalY = isHomeTeam ? PITCH_T : PITCH_B;
     const distToGoal = dist(p.x, p.y, WORLD_W / 2, attackGoalY);
 
-    // Shooting range — tighter, must be closer and more central
-    if (distToGoal < 250 && Math.abs(p.x - WORLD_W / 2) < 180) {
-      if (Math.random() < 0.02 + (250 - distToGoal) / 8000) {
+    // Shooting range — close range shots + long-range efforts
+    if (distToGoal < 280 && Math.abs(p.x - WORLD_W / 2) < 200) {
+      // Close-range: higher probability
+      if (Math.random() < 0.04 + (280 - distToGoal) / 4000) {
         shootBall(p);
+        return;
+      }
+    } else if (distToGoal < 450 && distToGoal > 250 && Math.abs(p.x - WORLD_W / 2) < 300) {
+      // Long-range: rare but spectacular — triggers bicycle kick spin
+      if (Math.random() < 0.005) {
+        shootBall(p, true); // long-range flag
         return;
       }
     }
@@ -3119,7 +3149,7 @@ function updateGK(gk, opponents) {
       if (timeToGoal < 30 && ballArriveX > GOAL_L - 20 && ballArriveX < GOAL_R + 20) {
         // Dive!
         moveToward(gk, ballArriveX, ball.y, GK_SPEED * 1.5);
-        if (dist(gk.x, gk.y, ball.x, ball.y) < 40) {
+        if (dist(gk.x, gk.y, ball.x, ball.y) < 30) {
           // Save!
           AudioManager.playSave();
           ball.vx = (Math.random() - 0.5) * 6;
@@ -4030,8 +4060,8 @@ function applyVelocity(p) {
   // Soft boundary repulsion — push players back toward pitch interior
   // Instead of hard clamping (which causes "sticking"), apply an inward force
   const softMargin = p.position === 'GK' ? 8 : 20; // GKs can go closer to line
-  const repulsionZone = 40; // start pushing back within 40px of edge
-  const repulsionForce = 0.8;
+  const repulsionZone = 25; // start pushing back within 25px of edge
+  const repulsionForce = 0.5;
 
   // Left edge
   if (p.x < PITCH_L + softMargin + repulsionZone) {
