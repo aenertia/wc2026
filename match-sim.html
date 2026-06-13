@@ -137,9 +137,9 @@ a.back-link:hover{color:var(--chalk)}
 
 /* ---- Pre-match Banter Overlay ---- */
 #prematchOverlay{
-  position:fixed;inset:0;background:rgba(12,23,19,.95);z-index:80;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:24px;padding:40px;text-align:center;
+  position:fixed;inset:auto 0 0 0;background:rgba(12,23,19,.75);z-index:80;
+  display:flex;flex-direction:row;align-items:center;justify-content:center;
+  gap:24px;padding:16px 40px;text-align:center;
 }
 .pm-team{max-width:480px}
 .pm-team-name{font-family:var(--font-display);font-size:28px;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
@@ -4102,6 +4102,43 @@ function drawFrame(frameTime = Date.now()) {
   if (pitchOffscreen) ctx.drawImage(pitchOffscreen, 0, 0);
   const sortedPlayers = [...allPlayers].sort((a, b) => a.y - b.y);
   for (const p of sortedPlayers) drawPlayer(ctx, p, frameTime);
+
+  // Lineup state: show player name + position + number labels on the pitch
+  if (gameState === 'lineup') {
+    ctx.save();
+    for (const p of sortedPlayers) {
+      if (p.sentOff) continue;
+      const lx = p.x, ly = p.y;
+      // Position badge (GK/DF/MF/FW) + number — above the head
+      const posCol = p.position === 'GK' ? '#ccdd22' : p.position === 'DF' ? '#44aaff' : p.position === 'MF' ? '#44ff88' : '#ff6644';
+      // Background pill for position
+      ctx.fillStyle = 'rgba(0,0,0,0.7)';
+      const posText = `${p.number} ${p.position}`;
+      ctx.font = 'bold 8px "Space Mono", monospace';
+      const posW = ctx.measureText(posText).width + 8;
+      ctx.fillRect(lx - posW/2, ly - PLAYER_HEAD_R - 36, posW, 12);
+      ctx.fillStyle = posCol;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(posText, lx, ly - PLAYER_HEAD_R - 30);
+      // Full name — below the body
+      ctx.fillStyle = 'rgba(0,0,0,0.7)';
+      const nameText = p.lastName || (p.name || '?').split(' ').pop();
+      ctx.font = 'bold 9px "Space Mono", monospace';
+      const nameW = ctx.measureText(nameText).width + 8;
+      ctx.fillRect(lx - nameW/2, ly + 12, nameW, 13);
+      ctx.fillStyle = '#fff';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(nameText, lx, ly + 18);
+      // Caps stat — below name
+      if (p.caps !== undefined) {
+        ctx.fillStyle = 'rgba(240,196,76,0.7)';
+        ctx.font = '7px "Space Mono", monospace';
+        ctx.fillText(`${p.caps} caps`, lx, ly + 30);
+      }
+    }
+    ctx.restore();
+  }
+
   drawReferee(ctx);
   drawBall(ctx, frameTime);
   drawPossessionArrow(ctx);
@@ -4599,9 +4636,9 @@ async function showPrematch(homeName, awayName, onComplete) {
   const homeAnthemName = (typeof ANTHEM_TRANSLATIONS !== 'undefined' && ANTHEM_TRANSLATIONS[homeName]) ? ANTHEM_TRANSLATIONS[homeName][0] : '';
   const awayAnthemName = (typeof ANTHEM_TRANSLATIONS !== 'undefined' && ANTHEM_TRANSLATIONS[awayName]) ? ANTHEM_TRANSLATIONS[awayName][0] : '';
 
-  // Home anthem
+  // Show BOTH team names throughout — overlay is now a bottom bar
   $('pmHomeName').textContent = homeName + (TEAM_NICKNAMES[homeName] ? ` — ${TEAM_NICKNAMES[homeName]}` : '');
-  $('pmAwayName').textContent = '';
+  $('pmAwayName').textContent = awayName + (TEAM_NICKNAMES[awayName] ? ` — ${TEAM_NICKNAMES[awayName]}` : '');
   $('pmHomeAnecdote').textContent = homeAnthemName ? `♪ ${homeAnthemName} ♪` : '♪ National Anthem ♪';
   $('pmAwayAnecdote').textContent = '';
   $('pmTimer').textContent = '10';
@@ -4630,10 +4667,8 @@ async function showPrematch(homeName, awayName, onComplete) {
   clearInterval(homeTimer);
   if (skipCeremony) { overlay.removeChild(skipBtn); overlay.style.display='none'; onComplete(); return; }
 
-  // Away anthem
-  $('pmHomeName').textContent = '';
-  $('pmAwayName').textContent = awayName + (TEAM_NICKNAMES[awayName] ? ` — ${TEAM_NICKNAMES[awayName]}` : '');
-  $('pmHomeAnecdote').textContent = '';
+  // Away anthem — keep both team names visible, update anthem indicator
+  $('pmHomeAnecdote').textContent = '✓ Anthem complete';
   $('pmAwayAnecdote').textContent = awayAnthemName ? `♪ ${awayAnthemName} ♪` : '♪ National Anthem ♪';
   $('pmTimer').textContent = '10';
 
