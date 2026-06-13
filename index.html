@@ -1391,11 +1391,17 @@ function parseScorers(v){
 
 async function fetchScores(){
   try{
-    // Try proxy first (server.py), fall back to direct ESPN API (for GitHub Pages)
-    let res;
-    try { res=await fetch("/scores",{cache:"no-store"}); if(!res.ok) throw 0; }
-    catch(_){ res=await fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard",{cache:"no-store"}); }
-    if(!res.ok)throw new Error(res.status);
+    // Try multiple score sources — proxy first, then direct APIs
+    let res=null;
+    const scoreSources=[
+      "/scores",
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard",
+      "https://site.web.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard",
+    ];
+    for(const url of scoreSources){
+      try{const r=await fetch(url,{cache:"no-store"});if(r.ok){res=r;break;}}catch(_){}
+    }
+    if(!res)throw new Error("All score sources failed");
     const data=await res.json();
     const map=new Map();
     (data.events||[]).forEach(ev=>{
@@ -1583,14 +1589,17 @@ updateBanner();setInterval(updateBanner,1000);
 /* ---------- standings ---------- */
 async function fetchStandings(){
   try{
-    // Try proxy first, fall back to direct API (for GitHub Pages)
-    let tRes;
-    try { tRes=await fetch("/flags",{cache:"no-store"}); if(!tRes.ok) throw 0; }
-    catch(_){ tRes=await fetch("https://worldcup26.ir/get/teams",{cache:"no-store"}); }
-    if(!tRes.ok)return;
-    const td=await tRes.json();
-    flagByName=new Map();
-    td.teams.forEach(t=>flagByName.set(normName(t.name_en),t.flag));
+    // Try multiple sources for team flags
+    let td=null;
+    const sources=["/flags","https://worldcup26.ir/get/teams"];
+    for(const url of sources){
+      try{const r=await fetch(url,{cache:"no-store"});if(r.ok){td=await r.json();break;}}catch(_){}
+    }
+    if(td?.teams){
+      flagByName=new Map();
+      td.teams.forEach(t=>flagByName.set(normName(t.name_en),t.flag));
+    }
+    // Always compute standings from ESPN scores even if flags unavailable
     computeStandings();
   }catch(e){console.warn("Standings fetch failed:",e);}
 }
