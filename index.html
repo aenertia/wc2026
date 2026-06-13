@@ -1529,7 +1529,7 @@ function render(){
 }
 
 /* dynamic banner — next match countdown / live indicator */
-let _bannerMatchId=null;
+let _bannerMatchId=null,_bannerFacts="";
 function pickFact(team){const a=TEAM_ANECDOTES?.[team];return a?.length?a[Math.floor(Math.random()*a.length)]:"";}
 function updateBanner(){
   const now=Date.now();
@@ -1544,12 +1544,14 @@ function updateBanner(){
     const sc=scores.get(h+"|"+a)??scores.get(a+"|"+h);
     if(sc?.live)liveRows.push({r,sc,h,a});
   }
-  if(liveRow){
-    const {r,sc,h,a}=liveRow;
+  if(liveRows.length){
+    const {r,sc,h,a}=liveRows[0];
     $("kickoff").querySelector(".k-label").textContent="Live now";
     $("countdown").textContent=sc.elapsed+"'";
     $("koLine").innerHTML="Match "+r[0]+" · "+teamLink(h)+" v "+teamLink(a);
-    if(_bannerMatchId!==r[0]){_bannerMatchId=r[0];$("koFacts").innerHTML="<b>"+h+":</b> "+pickFact(h)+"<br><b>"+a+":</b> "+pickFact(a);}
+    // Always show anecdotes — pick once per page load per match
+    if(_bannerMatchId!==r[0]){_bannerMatchId=r[0];_bannerFacts="<b>"+h+":</b> "+pickFact(h)+"<br><b>"+a+":</b> "+pickFact(a);}
+    $("koFacts").innerHTML=_bannerFacts||"";
     return;
   }
 
@@ -1566,15 +1568,12 @@ function updateBanner(){
   const nh=teamOverrides.get(next[0])?.home??next[5], na=teamOverrides.get(next[0])?.away??next[6];
   $("kickoff").querySelector(".k-label").textContent="Next kick-off in";
   $("koLine").innerHTML="Match "+next[0]+" · "+teamLink(nh)+" v "+teamLink(na)+" · "+fmtDateShort(next.epoch)+", "+fmtTime(next.epoch);
-  if(_bannerMatchId!==next[0]){_bannerMatchId=next[0];$("koFacts").innerHTML="<b>"+nh+":</b> "+pickFact(nh)+"<br><b>"+na+":</b> "+pickFact(na);}
+  if(_bannerMatchId!==next[0]){_bannerMatchId=next[0];_bannerFacts="<b>"+nh+":</b> "+pickFact(nh)+"<br><b>"+na+":</b> "+pickFact(na);}
+  $("koFacts").innerHTML=_bannerFacts||"";
   const ms=next.epoch-now;
   const dd=Math.floor(ms/864e5),hh=Math.floor(ms%864e5/36e5),mm=Math.floor(ms%36e5/6e4),ss=Math.floor(ms%6e4/1e3);
   const tStr=(dd>0?dd+"d ":"")+String(hh).padStart(2,"0")+"h "+String(mm).padStart(2,"0")+"m "+String(ss).padStart(2,"0")+"s";
-  const nh=teamOverrides.get(next[0])?.home??next[5];
-  const na=teamOverrides.get(next[0])?.away??next[6];
-  el.innerHTML='<span class="k-label">Next kick-off in</span>'
-    +'<span class="k-time">'+tStr+'</span>'
-    +'<span class="k-match">Match '+next[0]+' · '+nh+' v '+na+' · '+fmtDateShort(next.epoch)+', '+fmtTime(next.epoch)+'</span>';
+  $("countdown").textContent = tStr;
 }
 updateBanner();setInterval(updateBanner,1000);
 
