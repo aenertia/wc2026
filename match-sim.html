@@ -3028,24 +3028,33 @@ function updatePlayerAI(p, teammates, opponents, roles) {
     const attackGoalY = isHomeTeam ? PITCH_T : PITCH_B;
     const distToGoal = dist(p.x, p.y, WORLD_W / 2, attackGoalY);
 
-    // Inside penalty box or very close — MUST shoot
-    if (distToGoal < 150) {
-      shootBall(p);
-      return;
-    }
-    // Shooting range — high probability, escalates as player gets closer
-    if (distToGoal < 300 && Math.abs(p.x - WORLD_W / 2) < 250) {
-      const shotChance = 0.06 + (300 - distToGoal) / 1500; // up to ~26% near goal
-      if (Math.random() < shotChance) {
+    // Shot cooldown — prevent spam-shooting after saves
+    const now = Date.now();
+    const canShoot = !p.lastShotTime || (now - p.lastShotTime > 2000); // 2 second cooldown
+
+    if (canShoot) {
+      // Inside penalty box — very high shot probability
+      if (distToGoal < 180 && Math.random() < 0.35) {
         shootBall(p);
+        p.lastShotTime = now;
         return;
       }
-    }
-    // Long-range: rare but spectacular — triggers bicycle kick spin
-    if (distToGoal < 500 && distToGoal > 280 && Math.abs(p.x - WORLD_W / 2) < 350) {
-      if (Math.random() < 0.008) {
-        shootBall(p, true);
-        return;
+      // Shooting range — probability escalates closer to goal
+      if (distToGoal < 320 && Math.abs(p.x - WORLD_W / 2) < 250) {
+        const shotChance = 0.03 + (320 - distToGoal) / 3000;
+        if (Math.random() < shotChance) {
+          shootBall(p);
+          p.lastShotTime = now;
+          return;
+        }
+      }
+      // Long-range: rare but spectacular — triggers bicycle kick spin
+      if (distToGoal < 500 && distToGoal > 300 && Math.abs(p.x - WORLD_W / 2) < 350) {
+        if (Math.random() < 0.006) {
+          shootBall(p, true);
+          p.lastShotTime = now;
+          return;
+        }
       }
     }
 
