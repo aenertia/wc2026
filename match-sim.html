@@ -1797,18 +1797,21 @@ function drawPlayer(ctx, p, frameTime = Date.now()) {
   }
 
   // --- Name label (surname, hovering above head — bold with outline for readability) ---
-  const surname = p.lastName || (p.name||'?').split(' ').pop();
-  ctx.font = 'bold 9px "Space Mono", monospace';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'bottom';
-  const nameY = headY - hr - 4;
-  // Dark stroke outline for contrast
-  ctx.strokeStyle = 'rgba(0,0,0,0.7)';
-  ctx.lineWidth = 2.5;
-  ctx.strokeText(surname, x, nameY);
-  ctx.fillStyle = '#fff';
-  ctx.fillText(surname, x, nameY);
-  ctx.lineWidth = 1;
+  // Suppress during lineup — lineup labels handle all text below the player
+  if (gameState !== 'lineup') {
+    const surname = p.lastName || (p.name||'?').split(' ').pop();
+    ctx.font = 'bold 9px "Space Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'bottom';
+    const nameY = headY - hr - 4;
+    // Dark stroke outline for contrast
+    ctx.strokeStyle = 'rgba(0,0,0,0.7)';
+    ctx.lineWidth = 2.5;
+    ctx.strokeText(surname, x, nameY);
+    ctx.fillStyle = '#fff';
+    ctx.fillText(surname, x, nameY);
+    ctx.lineWidth = 1;
+  }
   // Shirt number on body
   ctx.fillStyle = 'rgba(0,0,0,0.6)';
   ctx.font = 'bold 6px monospace';
@@ -4103,37 +4106,40 @@ function drawFrame(frameTime = Date.now()) {
   const sortedPlayers = [...allPlayers].sort((a, b) => a.y - b.y);
   for (const p of sortedPlayers) drawPlayer(ctx, p, frameTime);
 
-  // Lineup state: show player name + position + number labels on the pitch
+  // Lineup state: show player info below sprite in a clean vertical stack
   if (gameState === 'lineup') {
     ctx.save();
+    const bh = 8; // body height constant
     for (const p of sortedPlayers) {
       if (p.sentOff) continue;
-      const lx = p.x, ly = p.y;
-      // Position badge (GK/DF/MF/FW) + number — above the head
+      const lx = p.x;
+      const baseY = p.y + bh/2 + 6; // start below body + socks + gap
       const posCol = p.position === 'GK' ? '#ccdd22' : p.position === 'DF' ? '#44aaff' : p.position === 'MF' ? '#44ff88' : '#ff6644';
-      // Background pill for position
-      ctx.fillStyle = 'rgba(0,0,0,0.7)';
-      const posText = `${p.number} ${p.position}`;
-      ctx.font = 'bold 8px "Space Mono", monospace';
-      const posW = ctx.measureText(posText).width + 8;
-      ctx.fillRect(lx - posW/2, ly - PLAYER_HEAD_R - 36, posW, 12);
-      ctx.fillStyle = posCol;
-      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillText(posText, lx, ly - PLAYER_HEAD_R - 30);
-      // Full name — below the body
-      ctx.fillStyle = 'rgba(0,0,0,0.7)';
+
+      // Row 1: Surname (bold, white on dark pill)
       const nameText = p.lastName || (p.name || '?').split(' ').pop();
       ctx.font = 'bold 9px "Space Mono", monospace';
-      const nameW = ctx.measureText(nameText).width + 8;
-      ctx.fillRect(lx - nameW/2, ly + 12, nameW, 13);
+      ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+      const nameW = ctx.measureText(nameText).width + 10;
+      ctx.fillStyle = 'rgba(0,0,0,0.75)';
+      ctx.fillRect(lx - nameW/2, baseY, nameW, 13);
       ctx.fillStyle = '#fff';
-      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillText(nameText, lx, ly + 18);
-      // Caps stat — below name
-      if (p.caps !== undefined) {
-        ctx.fillStyle = 'rgba(240,196,76,0.7)';
+      ctx.fillText(nameText, lx, baseY + 2);
+
+      // Row 2: "#number · POSITION" (colored, smaller)
+      const infoText = `#${p.number} · ${p.position}`;
+      ctx.font = 'bold 8px "Space Mono", monospace';
+      const infoW = ctx.measureText(infoText).width + 10;
+      ctx.fillStyle = 'rgba(0,0,0,0.65)';
+      ctx.fillRect(lx - infoW/2, baseY + 14, infoW, 11);
+      ctx.fillStyle = posCol;
+      ctx.fillText(infoText, lx, baseY + 15);
+
+      // Row 3: Caps (gold, smallest)
+      if (p.caps !== undefined && p.caps > 0) {
         ctx.font = '7px "Space Mono", monospace';
-        ctx.fillText(`${p.caps} caps`, lx, ly + 30);
+        ctx.fillStyle = 'rgba(240,196,76,0.8)';
+        ctx.fillText(`${p.caps} caps`, lx, baseY + 27);
       }
     }
     ctx.restore();
