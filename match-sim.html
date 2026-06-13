@@ -4212,24 +4212,32 @@ function drawFrame(frameTime = Date.now()) {
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
-      // SCATTER ICONS across the entire pitch — fill screen with team iconography
-      // Use a seeded pattern so positions are stable across frames
+      // SCATTER team label text across the pitch — fill screen with team iconography
+      // Simple text labels scattered, NOT full drawSpecialIcon (which has heavy brackets)
       const scatterAlpha = Math.min(alpha * 1.5, 0.6);
-      const scatterCount = 24;
+      const scatterCount = 18;
+      // Resolve the icon label once (same logic as drawSpecialIcon)
+      let scatterLabel = specialEvt.data.title || 'EVENT';
       for (let si = 0; si < scatterCount; si++) {
-        // Deterministic pseudo-random positions based on index (stable across frames)
         const sx = ((si * 137 + 43) % CW);
         const sy = ((si * 97 + 29) % CH);
-        const sSize = 20 + (si % 5) * 8; // sizes from 20-52
-        const sRot = Math.sin(age * 1.5 + si) * 0.3; // gentle rotation wobble
+        const sFontSize = 14 + (si % 4) * 6; // font sizes 14-32px
+        const sRot = Math.sin(age * 1.5 + si) * 0.2;
         ctx.save();
-        ctx.globalAlpha = scatterAlpha * (0.3 + (si % 3) * 0.2); // varying opacity
+        ctx.globalAlpha = scatterAlpha * (0.15 + (si % 4) * 0.1);
         ctx.translate(sx, sy);
         ctx.rotate(sRot);
-        drawSpecialIcon(ctx, specialEvt.data.icon, 0, 0, sSize);
+        ctx.font = `bold ${sFontSize}px "Anton", sans-serif`;
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+        ctx.lineWidth = 2;
+        ctx.strokeText(scatterLabel, 0, 0);
+        ctx.fillStyle = 'rgba(240,196,76,0.9)';
+        ctx.fillText(scatterLabel, 0, 0);
         ctx.restore();
       }
       ctx.globalAlpha = 1;
+      ctx.lineWidth = 1;
 
       // GIANT canvas-drawn icon — MUCH bigger, pulsing, with glow (center)
       const pulse = Math.sin(age * 3) * 0.2 + 1;
