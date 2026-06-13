@@ -749,7 +749,7 @@ function formatComment(template, vars) {
 function pickComment(type, vars = {}) {
   const templates = COMMENT[type] || [];
   if (!templates.length) return '';
-  const t = templates[Math.floor(Math.random() * templates.length)];
+  const t = randomFrom(templates);
   return formatComment(t, vars);
 }
 
@@ -760,7 +760,7 @@ function getPlayerFact(player) {
 function getTeamAnecdote(teamName) {
   const anecs = TEAM_ANECDOTES?.[teamName];
   if (!anecs || !anecs.length) return '';
-  return anecs[Math.floor(Math.random() * anecs.length)];
+  return randomFrom(anecs);
 }
 
 function findPlayerInRoster(name, side) {
@@ -1950,11 +1950,9 @@ function drawPlayer(ctx, p, frameTime = Date.now()) {
   }
 
   // Slacking — idle comedy antic when camera zooms via minimap
-  if (p.state === 'slacking' && p.slackEmoji) {
-    // Sit/lie down: shift body down
-    ctx.font = '16px serif';
-    ctx.textAlign = 'center';
-    ctx.fillText(p.slackEmoji, x + 14, y - 4);
+  if (p.state === 'slacking' && p.slackAntic) {
+    // Canvas-drawn pictogram
+    drawIdleAntic(ctx, p.slackAntic, x + 14, y - 4);
     // Label below
     ctx.fillStyle = 'rgba(240,196,76,0.8)';
     ctx.font = '7px "Space Mono", monospace';
@@ -1965,6 +1963,84 @@ function drawPlayer(ctx, p, frameTime = Date.now()) {
   if (isDramatic) {
     ctx.restore();
   }
+}
+
+function drawIdleAntic(ctx, key, x, y) {
+  ctx.save();
+  switch(key) {
+    case 'smoke': // cigarette: grey rect + red tip + smoke wisp
+      ctx.fillStyle = '#aaa'; ctx.fillRect(x, y - 2, 10, 3);
+      ctx.fillStyle = '#e44'; ctx.fillRect(x + 10, y - 2, 2, 3);
+      ctx.strokeStyle = 'rgba(200,200,200,0.5)'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x + 11, y - 3); ctx.quadraticCurveTo(x + 14, y - 8, x + 11, y - 12); ctx.stroke();
+      break;
+    case 'beer': // yellow rect + white foam
+      ctx.fillStyle = '#d4a020'; ctx.fillRect(x, y - 8, 7, 12);
+      ctx.fillStyle = '#fff'; ctx.fillRect(x - 1, y - 10, 9, 3);
+      ctx.strokeStyle = '#888'; ctx.lineWidth = 0.5; ctx.strokeRect(x, y - 8, 7, 12);
+      break;
+    case 'sleep': // three Z's floating up
+      ctx.fillStyle = 'rgba(200,200,255,0.8)'; ctx.font = 'bold 8px monospace'; ctx.textAlign = 'center';
+      ctx.fillText('Z', x + 2, y - 4);
+      ctx.fillText('Z', x + 6, y - 10);
+      ctx.font = 'bold 10px monospace';
+      ctx.fillText('Z', x + 10, y - 16);
+      break;
+    case 'phone': // dark rect + blue screen
+      ctx.fillStyle = '#222'; ctx.fillRect(x, y - 10, 7, 12);
+      ctx.fillStyle = '#4488ff'; ctx.fillRect(x + 1, y - 9, 5, 8);
+      break;
+    case 'yoga': // stick figure cross-legged
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(x + 5, y - 10, 3, 0, Math.PI * 2); ctx.stroke(); // head
+      ctx.beginPath(); ctx.moveTo(x + 5, y - 7); ctx.lineTo(x + 5, y); ctx.stroke(); // body
+      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 10, y); ctx.stroke(); // legs
+      ctx.beginPath(); ctx.moveTo(x + 1, y - 4); ctx.lineTo(x + 9, y - 4); ctx.stroke(); // arms
+      break;
+    case 'nails': // hand outline + colored dots
+      ctx.fillStyle = '#ffaacc';
+      for (let i = 0; i < 4; i++) ctx.fillRect(x + i * 3, y - 6 - i, 2, 4);
+      ctx.fillStyle = '#f44'; // nail polish
+      for (let i = 0; i < 4; i++) { ctx.beginPath(); ctx.arc(x + i * 3 + 1, y - 7 - i, 1.5, 0, Math.PI * 2); ctx.fill(); }
+      break;
+    case 'selfie': // phone + arm
+      ctx.fillStyle = '#222'; ctx.fillRect(x, y - 12, 6, 10);
+      ctx.fillStyle = '#4488ff'; ctx.fillRect(x + 1, y - 11, 4, 7);
+      ctx.strokeStyle = '#d4a574'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(x + 3, y - 2); ctx.lineTo(x + 3, y + 4); ctx.stroke();
+      break;
+    case 'guitar': // triangle body + neck
+      ctx.fillStyle = '#8B4513';
+      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 8, y - 4); ctx.lineTo(x + 8, y + 4); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = '#654321'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(x + 8, y); ctx.lineTo(x + 18, y - 2); ctx.stroke();
+      break;
+    case 'disco': // circle + grid lines
+      ctx.fillStyle = 'rgba(200,200,255,0.6)';
+      ctx.beginPath(); ctx.arc(x + 5, y - 5, 6, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.4)'; ctx.lineWidth = 0.5;
+      ctx.beginPath(); ctx.moveTo(x - 1, y - 5); ctx.lineTo(x + 11, y - 5); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x + 5, y - 11); ctx.lineTo(x + 5, y + 1); ctx.stroke();
+      break;
+    case 'popcorn': // cup + kernels
+      ctx.fillStyle = '#e44'; ctx.fillRect(x + 1, y - 4, 8, 8);
+      ctx.fillStyle = '#ffffaa';
+      for (let i = 0; i < 4; i++) { ctx.beginPath(); ctx.arc(x + 2 + i * 2, y - 6, 2, 0, Math.PI * 2); ctx.fill(); }
+      break;
+    case 'paper': // rectangle + lines
+      ctx.fillStyle = '#f5f5dc'; ctx.fillRect(x, y - 10, 10, 14);
+      ctx.strokeStyle = '#888'; ctx.lineWidth = 0.5;
+      for (let i = 0; i < 4; i++) { ctx.beginPath(); ctx.moveTo(x + 2, y - 7 + i * 3); ctx.lineTo(x + 8, y - 7 + i * 3); ctx.stroke(); }
+      break;
+    case 'gaming': // controller
+      ctx.fillStyle = '#333'; ctx.fillRect(x, y - 4, 12, 6);
+      ctx.fillStyle = '#4f4'; ctx.beginPath(); ctx.arc(x + 3, y - 1, 1.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#44f'; ctx.beginPath(); ctx.arc(x + 9, y - 1, 1.5, 0, Math.PI * 2); ctx.fill();
+      break;
+    default:
+      ctx.fillStyle = '#fff'; ctx.font = '10px monospace'; ctx.textAlign = 'center'; ctx.fillText('?', x + 5, y);
+  }
+  ctx.restore();
 }
 
 // ---- DRAW BALL ----
@@ -2404,7 +2480,7 @@ function scoreGoal(scoringTeam) {
       pileOnCount++;
     } else {
       // Others get random celebration
-      p.celebrationType = celebTypes[Math.floor(Math.random() * celebTypes.length)];
+      p.celebrationType = randomFrom(celebTypes);
       p.celebPhase = 0;
       if (p.celebrationType === 'cornerFlag') {
         // Target nearest corner
@@ -2433,7 +2509,7 @@ function scoreGoal(scoringTeam) {
     } else if (p.position === 'GK') {
       p.dejectionType = Math.random() < 0.5 ? 'dropToKnees' : 'stareAtGround';
     } else {
-      p.dejectionType = dejectionTypes[Math.floor(Math.random() * dejectionTypes.length)];
+      p.dejectionType = randomFrom(dejectionTypes);
     }
   }
 
@@ -2467,6 +2543,9 @@ function scoreGoal(scoringTeam) {
 }
 
 // ---- PLAYER AI ----
+function randomFrom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
 function dist(x1, y1, x2, y2) {
   return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 }
@@ -2611,18 +2690,18 @@ let minimapZoomTimer = 0; // frames remaining for minimap zoom
 let minimapZoomTarget = null; // {x, y}
 
 const IDLE_ANTICS = [
-  {emoji: '🚬', label: 'having a smoke'},
-  {emoji: '🍺', label: 'drinking a beer'},
-  {emoji: '😴', label: 'taking a nap'},
-  {emoji: '📱', label: 'checking their phone'},
-  {emoji: '🧘', label: 'doing yoga'},
-  {emoji: '💅', label: 'fixing their nails'},
-  {emoji: '🤳', label: 'taking a selfie'},
-  {emoji: '🎸', label: 'air guitar solo'},
-  {emoji: '🪩', label: 'dancing'},
-  {emoji: '🍿', label: 'eating popcorn'},
-  {emoji: '📰', label: 'reading the paper'},
-  {emoji: '🎮', label: 'playing on their Switch'},
+  {key: 'smoke', label: 'having a smoke'},
+  {key: 'beer', label: 'drinking a beer'},
+  {key: 'sleep', label: 'taking a nap'},
+  {key: 'phone', label: 'checking their phone'},
+  {key: 'yoga', label: 'doing yoga'},
+  {key: 'nails', label: 'fixing their nails'},
+  {key: 'selfie', label: 'taking a selfie'},
+  {key: 'guitar', label: 'air guitar solo'},
+  {key: 'disco', label: 'dancing'},
+  {key: 'popcorn', label: 'eating popcorn'},
+  {key: 'paper', label: 'reading the paper'},
+  {key: 'gaming', label: 'playing on their Switch'},
 ];
 
 function handleMinimapClick(localX, localY, mmw, mmh) {
@@ -2648,10 +2727,10 @@ function handleMinimapClick(localX, localY, mmw, mmh) {
 
   // Make them do something stupid
   for (const p of nearbyIdle) {
-    const antic = IDLE_ANTICS[Math.floor(Math.random() * IDLE_ANTICS.length)];
+    const antic = randomFrom(IDLE_ANTICS);
     p.state = 'slacking';
     p.stateTimer = 160; // ~2.7 seconds
-    p.slackEmoji = antic.emoji;
+    p.slackAntic = antic.key;
     p.slackLabel = antic.label;
 
     // Visual effect
@@ -2791,7 +2870,7 @@ function updatePlayerAI(p, teammates, opponents, roles) {
       return;
     }
     if (p.state === 'slacking') {
-      if (p.stateTimer <= 0) { p.state = 'idle'; p.slackEmoji = null; p.slackLabel = null; }
+      if (p.stateTimer <= 0) { p.state = 'idle'; p.slackAntic = null; p.slackLabel = null; }
       return;
     }
     if (p.state === 'celebrating') {
@@ -3310,7 +3389,7 @@ function triggerVAR() {
     'YELLOW CARD UPGRADED TO RED... no wait, downgraded to a stern look',
     'DECISION: referee had something in his eye',
   ];
-  varResult = results[Math.floor(Math.random() * results.length)];
+  varResult = randomFrom(results);
 }
 
 function triggerMassConfrontation() {
@@ -3351,13 +3430,13 @@ function triggerMassConfrontation() {
   addEffect('exclaim', cx - 25, cy + 15);
   addEffect('exclaim', cx + 30, cy - 20);
   const zones = ['halfway line', 'penalty area', 'corner flag', 'centre circle'];
-  const fightVars = { zone: zones[Math.floor(Math.random() * zones.length)], fouler: fighters[0]?.lastName || 'Someone' };
+  const fightVars = { zone: randomFrom(zones), fouler: fighters[0]?.lastName || 'Someone' };
   addCommentary('comedy', pickComment('fight', fightVars));
   // After 5 seconds: card decision
   setTimeout(() => {
     if (typeof ref !== 'undefined') ref.inFight = false;
     fighters.forEach(p => { if (p.state === 'fighting') { p.state = 'idle'; p.flyingToFight = false; p.fightTarget = null; } });
-    const victim = fighters[Math.floor(Math.random() * fighters.length)];
+    const victim = randomFrom(fighters);
     if (!victim || victim.sentOff) return;
     const rand = Math.random();
     if (rand < 0.15) {
@@ -3405,7 +3484,7 @@ function triggerPitchInvader() {
 function triggerOwnGoal(team) {
   const defenders = (team === 0 ? homePlayers : awayPlayers).filter(p => p.position === 'DF' && !p.sentOff);
   if (!defenders.length) return;
-  const unlucky = defenders[Math.floor(Math.random() * defenders.length)];
+  const unlucky = randomFrom(defenders);
   const ownGoalY = team === 0 ? PITCH_B + 5 : PITCH_T - 5;
   ball.x = unlucky.x;
   ball.y = unlucky.y;
