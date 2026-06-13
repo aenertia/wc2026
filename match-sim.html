@@ -1234,6 +1234,17 @@ function scheduleReplayGoals() {
     g.minute = Math.max(3, Math.min(88, baseMinute + jitter));
     g.scored = false;
   });
+  // Attach actual scorer names from live data if available
+  const homeScorers = window._replayHomeScorers || [];
+  const awayScorers = window._replayAwayScorers || [];
+  let hsi = 0, asi = 0;
+  goals.forEach(g => {
+    if (g.team === 0 && hsi < homeScorers.length) {
+      g.scorerInfo = homeScorers[hsi++];
+    } else if (g.team === 1 && asi < awayScorers.length) {
+      g.scorerInfo = awayScorers[asi++];
+    }
+  });
   scheduledGoals = goals.sort((a, b) => a.minute - b.minute);
 }
 
@@ -1342,6 +1353,10 @@ function parseURLParams() {
   const asParam = p.get('awayScore');
   if (hsParam !== null) $('homeScoreInput').value = hsParam;
   if (asParam !== null) $('awayScoreInput').value = asParam;
+  const hScorersParam = p.get('homeScorers');
+  const aScorersParam = p.get('awayScorers');
+  if (hScorersParam) window._replayHomeScorers = hScorersParam.split(',');
+  if (aScorersParam) window._replayAwayScorers = aScorersParam.split(',');
   updateSelectUI('home');
   updateSelectUI('away');
 }
@@ -2442,6 +2457,11 @@ function scoreGoal(scoringTeam) {
     team_anecdote: getTeamAnecdote(teamName),
   };
   addCommentary('goal', pickComment('goal', goalVars));
+
+  // In replay mode, add actual match event commentary if available
+  if (replayMode && replayForceMode && replayForceMode.goalRef?.scorerInfo) {
+    setTimeout(() => addCommentary('info', `ACTUAL MATCH EVENT: ${replayForceMode.goalRef.scorerInfo}`), 1500);
+  }
 
   // Country event hooks on goal/concede
   const concedingTeamName = scoringTeam === 0 ? awayTeamName : homeTeamName;
@@ -3870,9 +3890,13 @@ function gameLoop() {
     if (matchClock >= 90) {
       // Replay mode: force any remaining scheduled goals before fulltime
       if (replayMode) {
+        // Force any remaining scheduled goals
         for (const g of scheduledGoals) {
           if (!g.scored) { scoreGoal(g.team); g.scored = true; }
         }
+        // Correct any score discrepancy — ensure exact target score
+        while (homeScore < targetHomeScore) { scoreGoal(0); }
+        while (awayScore < targetAwayScore) { scoreGoal(1); }
         replayForceMode = null;
       }
       AudioManager.playWhistle(true);
@@ -4133,9 +4157,9 @@ function drawFrame(frameTime = Date.now()) {
         Math.cos(frameTime * 0.04) * shakeIntensity
       );
 
-      // FULL SCREEN dramatic overlay — near-total blackout
-      const alpha = age < 0.5 ? age * 1.8 : (age > specialEvt.duration - 1.2 ? (specialEvt.duration - age) * 0.75 : 0.88);
-      ctx.fillStyle = `rgba(0,0,0,${Math.min(0.92, alpha)})`;
+      // Light dramatic overlay — lets gameplay show through
+      const alpha = age < 0.5 ? age * 0.6 : (age > specialEvt.duration - 1.2 ? (specialEvt.duration - age) * 0.25 : 0.3);
+      ctx.fillStyle = `rgba(0,0,0,${Math.min(0.35, alpha)})`;
       ctx.fillRect(-10, -10, CW + 20, CH + 20);
 
       ctx.textAlign = 'center';
@@ -4261,6 +4285,10 @@ function showResult() {
   $('resultScreen').classList.add('active');
 
   $('resScore').textContent = `${homeScore} – ${awayScore}`;
+  // In replay mode, show target scores as the official result
+  if (replayMode) {
+    $('resScore').textContent = `${targetHomeScore} – ${targetAwayScore}`;
+  }
   $('resTeams').textContent = `${homeTeamName} vs ${awayTeamName}`;
 
   // Scorers
