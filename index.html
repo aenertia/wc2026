@@ -1391,7 +1391,10 @@ function parseScorers(v){
 
 async function fetchScores(){
   try{
-    const res=await fetch("/scores",{cache:"no-store"});
+    // Try proxy first (server.py), fall back to direct ESPN API (for GitHub Pages)
+    let res;
+    try { res=await fetch("/scores",{cache:"no-store"}); if(!res.ok) throw 0; }
+    catch(_){ res=await fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard",{cache:"no-store"}); }
     if(!res.ok)throw new Error(res.status);
     const data=await res.json();
     const map=new Map();
@@ -1580,7 +1583,10 @@ updateBanner();setInterval(updateBanner,1000);
 /* ---------- standings ---------- */
 async function fetchStandings(){
   try{
-    const tRes=await fetch("/flags",{cache:"no-store"});
+    // Try proxy first, fall back to direct API (for GitHub Pages)
+    let tRes;
+    try { tRes=await fetch("/flags",{cache:"no-store"}); if(!tRes.ok) throw 0; }
+    catch(_){ tRes=await fetch("https://worldcup26.ir/get/teams",{cache:"no-store"}); }
     if(!tRes.ok)return;
     const td=await tRes.json();
     flagByName=new Map();
