@@ -78,6 +78,7 @@ body{background:var(--pitch);color:var(--chalk);font-family:var(--font-body);ove
 .commentary .event.card{color:#f25c5c}
 .commentary .event.comedy{color:#4dc3f2}
 .commentary .event.var{color:#b06cf2}
+.commentary .event.special{color:var(--gold);font-weight:700;font-size:14px;padding:6px 0;border-bottom:1px solid var(--line);border-top:1px solid var(--line);margin-bottom:8px}
 
 /* Result screen */
 #resultScreen{display:none;flex-direction:column;align-items:center;gap:20px;padding:60px 20px}
@@ -3669,10 +3670,11 @@ function triggerSpecialEvent(teamName, teamSide) {
     p.stateTimer = 400;
   });
 
-  // Commentary
-  addCommentary('comedy', `=== ${evt.title} ===`);
-  setTimeout(() => addCommentary('comedy', evt.desc), 2000);
-  setTimeout(() => addCommentary('comedy', `The ${teamSide === 'home' ? awayTeamName : homeTeamName} players are on the floor! DEVASTATED!`), 4000);
+  // Commentary — special type persists longer and is styled prominently
+  addCommentary('special', `★★★ ${evt.title} ★★★`);
+  setTimeout(() => addCommentary('special', evt.desc), 2000);
+  setTimeout(() => addCommentary('special', `The ${teamSide === 'home' ? awayTeamName : homeTeamName} players are on the floor! DEVASTATED!`), 4000);
+  setTimeout(() => addCommentary('special', `${teamName.toUpperCase()} — THIS IS THEIR MOMENT!`), 6000);
 
   // Draw overlay effect — 8 seconds
   addEffect('special_event', WORLD_W/2, WORLD_H/2, {
@@ -3731,10 +3733,12 @@ function checkSpecialEvents() {
 // ---- COMMENTARY ----
 function addCommentary(type, text) {
   if (!text) return;
+  // During special events, suppress non-special commentary so event text stays visible
+  if (specialEventActive && type !== 'special' && type !== 'goal') return;
   lastCommentaryTime = Date.now();
   const minute = Math.floor(matchClock);
   const el = $('commentary');
-  const cls = type === 'goal' ? 'goal' : type === 'card' ? 'card' : type === 'comedy' ? 'comedy' : type === 'var' ? 'var' : type === 'info' ? '' : '';
+  const cls = type === 'goal' ? 'goal' : type === 'card' ? 'card' : type === 'comedy' ? 'comedy' : type === 'var' ? 'var' : type === 'special' ? 'special' : type === 'info' ? '' : '';
   const div = document.createElement('div');
   div.className = 'event ' + cls;
   div.innerHTML = `<span class="min">${minute}'</span>${text}`;
@@ -4165,7 +4169,26 @@ function drawFrame(frameTime = Date.now()) {
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
-      // GIANT canvas-drawn icon — MUCH bigger, pulsing, with glow
+      // SCATTER ICONS across the entire pitch — fill screen with team iconography
+      // Use a seeded pattern so positions are stable across frames
+      const scatterAlpha = Math.min(alpha * 1.5, 0.6);
+      const scatterCount = 24;
+      for (let si = 0; si < scatterCount; si++) {
+        // Deterministic pseudo-random positions based on index (stable across frames)
+        const sx = ((si * 137 + 43) % CW);
+        const sy = ((si * 97 + 29) % CH);
+        const sSize = 20 + (si % 5) * 8; // sizes from 20-52
+        const sRot = Math.sin(age * 1.5 + si) * 0.3; // gentle rotation wobble
+        ctx.save();
+        ctx.globalAlpha = scatterAlpha * (0.3 + (si % 3) * 0.2); // varying opacity
+        ctx.translate(sx, sy);
+        ctx.rotate(sRot);
+        drawSpecialIcon(ctx, specialEvt.data.icon, 0, 0, sSize);
+        ctx.restore();
+      }
+      ctx.globalAlpha = 1;
+
+      // GIANT canvas-drawn icon — MUCH bigger, pulsing, with glow (center)
       const pulse = Math.sin(age * 3) * 0.2 + 1;
       const iconSize = Math.min(CW * 0.22, 160) * pulse;
       // Glow behind icon
