@@ -1149,7 +1149,7 @@ let ball = { x: WORLD_W/2, y: WORLD_H/2, vx: 0, vy: 0, owner: null, free: true, 
 let homePlayers = [], awayPlayers = [];
 let homeData = null, awayData = null;
 let homeTeamName = '', awayTeamName = '';
-let events = []; // commentary
+
 let goalScorers = []; // {player, team, minute}
 let comedyStats = { dives: 0, varReviews: 0, fights: 0, redCards: 0, pitchInvaders: 0, selfies: 0 };
 let pauseTimer = 0;
@@ -1169,7 +1169,7 @@ document.addEventListener('keydown', e => {
   if (e.key === 'd' || e.key === 'D') window.FRAME_STATS.show = !window.FRAME_STATS.show;
 });
 let pitchInvader = null;
-let celebrationTimer = 0;
+
 let pitchOffscreen = null; // Pre-rendered pitch canvas
 function buildPitchCanvas() {
   pitchOffscreen = document.createElement('canvas');
@@ -2572,10 +2572,16 @@ function handlePitchClick(wx, wy) {
     return;
   }
 
-  // Direction hint: ball carrier biases toward click for 1 second
-  if (ball.owner && ball.owner.team === 0) {
-    clickTarget = {x: wx, y: wy, framesLeft: 60};
-    addEffect('target_circle', wx, wy, {duration: 1.0});
+  // Click drops ball at cursor position — forces scramble
+  if (gameState === 'playing') {
+    ball.x = wx; ball.y = wy;
+    ball.vx = 0; ball.vy = 0;
+    ball.owner = null; ball.free = true;
+    addEffect('target_circle', wx, wy, {duration: 0.8});
+    AudioManager.playKick();
+    if (Math.random() < 0.3) {
+      addCommentary('default', 'The ball drops loose! Everyone scrambles!');
+    }
   }
 }
 
@@ -3341,55 +3347,55 @@ let specialEventTimer = 0;
 let specialSlowMo = 1; // 1 = normal speed, 0.2 = slow motion
 
 const TEAM_SPECIAL_EVENTS = {
-  "Argentina":  {icon:"✋🏈",  title:"HAND OF GOD", desc:"Maradona reaches from beyond to guide the ball...", zoom:1.8},
-  "Brazil":     {icon:"7️⃣1️⃣",  title:"THE MINEIRAZO", desc:"The ghosts of 2014 haunt the pitch...", zoom:1.5},
-  "England":    {icon:"🏠❌",  title:"IT'S NOT COMING HOME", desc:"55 years of hurt... and counting...", zoom:1.6},
-  "Germany":    {icon:"⚙️🎯",  title:"GERMAN EFFICIENCY", desc:"Ze machine is perfectly calibrated...", zoom:1.4},
-  "France":     {icon:"🤕💫",  title:"ZIDANE'S GHOST", desc:"An invisible headbutt shakes the stadium...", zoom:1.8},
-  "Italy":      {icon:"🤌🍝",  title:"CATENACCIO", desc:"The great wall of Italy descends...", zoom:1.3},
-  "Spain":      {icon:"🔄🔄",  title:"TIKI-TAKA OVERLOAD", desc:"Pass... pass... pass... is anyone going to shoot?", zoom:1.2},
-  "Netherlands":{icon:"🟠🌊",  title:"TOTAL FOOTBALL", desc:"Everyone is everywhere. Cruyff smiles from above.", zoom:1.5},
-  "Portugal":   {icon:"😤🐐",  title:"SIIIUUU!", desc:"A familiar celebration echoes across the stadium...", zoom:2.0},
-  "Mexico":     {icon:"🌮🎉",  title:"NO ERA PENAL", desc:"The referee makes a controversial decision. Mexico disagrees. Violently.", zoom:1.6},
-  "USA":        {icon:"🦅🇺🇸",  title:"FREEDOM GOAL", desc:"A bald eagle circles the stadium. Fireworks explode. It's the 4th of July.", zoom:1.8},
-  "Japan":      {icon:"🗾⚡",  title:"SAMURAI SPIRIT", desc:"The blade is drawn. One perfect strike.", zoom:1.7},
-  "Korea Republic":{icon:"🇰🇷🔴",title:"2002 FLASHBACK", desc:"The referee looks confused. So does everyone else.", zoom:1.5},
-  "Australia":  {icon:"🦘⚽",  title:"SOCCEROO BOUNCE", desc:"A kangaroo hops across the pitch. Nobody questions it.", zoom:1.6},
-  "New Zealand":{icon:"🖤💀",  title:"THE HAKA", desc:"The All Whites perform a terrifying war dance. Opponents reconsider.", zoom:2.0},
-  "South Africa":{icon:"📯🐝", title:"VUVUZELA BLAST", desc:"BZZZZZZZZZZZZZZZ. Nobody can hear anything. Perfect.", zoom:1.3},
-  "Scotland":   {icon:"🏴󠁧󠁢󠁳󠁣󠁴󠁿🥃", title:"FLOWER OF SCOTLAND", desc:"The Tartan Army sings. Tears flow. Whisky flows faster.", zoom:1.5},
-  "Morocco":    {icon:"🦁🏔️",  title:"ATLAS LION ROAR", desc:"2022 semi-final energy returns. Africa believes.", zoom:1.7},
-  "Senegal":    {icon:"🦁🥁",  title:"TERANGA POWER", desc:"The drums beat. The lion stalks. Papa Bouba Diop dances in spirit.", zoom:1.6},
-  "Ghana":      {icon:"⭐🖐️",  title:"SUÁREZ REVENGE", desc:"A mysterious handball occurs. Ghana has waited since 2010.", zoom:1.8},
-  "Colombia":   {icon:"☕💃",  title:"CAFETERO MAGIC", desc:"The coffee kicks in. The hips don't lie. Neither does the scoreboard.", zoom:1.5},
-  "Uruguay":    {icon:"🦷😬",  title:"THE BITE", desc:"A player nervously checks their shoulder. Suárez energy is eternal.", zoom:1.9},
-  "Croatia":    {icon:"🔥🏁",  title:"VATRENI FIRE", desc:"The checkered warriors ignite. 2018 final energy.", zoom:1.5},
-  "Belgium":    {icon:"🍟😈",  title:"GOLDEN GENERATION... AGAIN", desc:"This is definitely their year. Again. For real this time.", zoom:1.4},
-  "Switzerland":{icon:"🧀⏰",  title:"SWISS PRECISION", desc:"The goal arrives exactly on schedule. Like a Swiss train.", zoom:1.3},
-  "Türkiye":    {icon:"🌙⭐",  title:"CRESCENT STRIKE", desc:"The star and crescent align. 2002 semi-final vibes.", zoom:1.5},
-  "Egypt":      {icon:"🏛️👁️",  title:"PHARAOH'S CURSE", desc:"Ancient powers awaken. The referee starts speaking hieroglyphics.", zoom:1.8},
-  "IR Iran":    {icon:"🏟️🤐",  title:"SILENT PROTEST", desc:"The players stand. The crowd roars. History watches.", zoom:1.6},
-  "Saudi Arabia":{icon:"🦅🏜️", title:"DESERT STORM", desc:"Remember Argentina 2022? It's happening again.", zoom:1.7},
-  "Qatar":      {icon:"🏗️💰",  title:"THE INVESTMENT", desc:"Money can't buy you happiness. But it can buy a World Cup.", zoom:1.4},
-  "Tunisia":    {icon:"🦅🏛️",  title:"CARTHAGE RISES", desc:"Hannibal would be proud. Or confused. Probably confused.", zoom:1.5},
-  "Canada":     {icon:"🍁🏒",  title:"WRONG SPORT?", desc:"A player asks for a puck. Confusion reigns.", zoom:1.6},
-  "Iraq":       {icon:"🦁📜",  title:"MESOPOTAMIAN MAGIC", desc:"The cradle of civilization produces a goal. 5000 years in the making.", zoom:1.5},
-  "Jordan":     {icon:"🏜️👑",  title:"ROYAL DECREE", desc:"The king has spoken. Jordan shall not lose.", zoom:1.4},
-  "Cabo Verde": {icon:"🦈🌊",  title:"SHARK ATTACK", desc:"The Blue Sharks smell blood in the water.", zoom:1.6},
-  "Curaçao":    {icon:"🏝️🌺",  title:"ISLAND TIME", desc:"Everything moves at island pace. Including the referee.", zoom:1.3},
-  "Haiti":      {icon:"🥊🏔️",  title:"GRENADIER EXPLOSION", desc:"Les Grenadiers detonate. The underdogs bite.", zoom:1.5},
-  "Panama":     {icon:"🚢🔓",  title:"CANAL OPENED", desc:"The floodgates open. Goals flow through.", zoom:1.5},
-  "Paraguay":   {icon:"🔴⚪",  title:"ALBIRROJA FURY", desc:"Red and white fury. South American grit.", zoom:1.4},
-  "Ecuador":    {icon:"🌋⚡",  title:"VOLCANIC ERUPTION", desc:"The altitude advantage kicks in. Wait, this isn't Quito.", zoom:1.5},
-  "Norway":     {icon:"🧊⚡",  title:"VIKING THUNDER", desc:"Haaland's spirit possesses the entire team.", zoom:1.7},
-  "Sweden":     {icon:"👑🎵",  title:"ABBA GOAL", desc:"The winner takes it all. Waterloo for the opposition.", zoom:1.4},
-  "Austria":    {icon:"🎵🏔️",  title:"SOUND OF FOOTBALL", desc:"The hills are alive with the sound of goals.", zoom:1.3},
-  "Czechia":    {icon:"🍺⚡",  title:"CZECH MATE", desc:"A perfectly calculated move. Like a chess grandmaster with a beer.", zoom:1.4},
-  "Algeria":    {icon:"🦊🏜️",  title:"FENNEC FOX STRIKE", desc:"Small, fast, deadly. The desert fox hunts at night.", zoom:1.5},
-  "Uzbekistan": {icon:"🐺🌙",  title:"WHITE WOLF HOWL", desc:"Central Asia announces itself. The wolf pack hunts.", zoom:1.5},
-  "Bosnia & Herzegovina":{icon:"🐉🔥",title:"DRAGON FIRE", desc:"The Zmajevi breathe fire. Nobody expected this.", zoom:1.6},
-  "Congo DR":   {icon:"🐆💥",  title:"LEOPARD POUNCE", desc:"Les Léopards strike from the shadows.", zoom:1.5},
-  "Côte d'Ivoire":{icon:"🐘🌍",title:"ELEPHANT CHARGE", desc:"Les Éléphants stampede. The ground shakes.", zoom:1.7},
+  "Argentina":  {icon:"✋🏈",  title:"HAND OF GOD", desc:"Maradona reaches from beyond to guide the ball..."},
+  "Brazil":     {icon:"7️⃣1️⃣",  title:"THE MINEIRAZO", desc:"The ghosts of 2014 haunt the pitch..."},
+  "England":    {icon:"🏠❌",  title:"IT'S NOT COMING HOME", desc:"55 years of hurt... and counting..."},
+  "Germany":    {icon:"⚙️🎯",  title:"GERMAN EFFICIENCY", desc:"Ze machine is perfectly calibrated..."},
+  "France":     {icon:"🤕💫",  title:"ZIDANE'S GHOST", desc:"An invisible headbutt shakes the stadium..."},
+  "Italy":      {icon:"🤌🍝",  title:"CATENACCIO", desc:"The great wall of Italy descends..."},
+  "Spain":      {icon:"🔄🔄",  title:"TIKI-TAKA OVERLOAD", desc:"Pass... pass... pass... is anyone going to shoot?"},
+  "Netherlands":{icon:"🟠🌊",  title:"TOTAL FOOTBALL", desc:"Everyone is everywhere. Cruyff smiles from above."},
+  "Portugal":   {icon:"😤🐐",  title:"SIIIUUU!", desc:"A familiar celebration echoes across the stadium..."},
+  "Mexico":     {icon:"🌮🎉",  title:"NO ERA PENAL", desc:"The referee makes a controversial decision. Mexico disagrees. Violently."},
+  "USA":        {icon:"🦅🇺🇸",  title:"FREEDOM GOAL", desc:"A bald eagle circles the stadium. Fireworks explode. It's the 4th of July."},
+  "Japan":      {icon:"🗾⚡",  title:"SAMURAI SPIRIT", desc:"The blade is drawn. One perfect strike."},
+  "Korea Republic":{icon:"🇰🇷🔴",title:"2002 FLASHBACK", desc:"The referee looks confused. So does everyone else."},
+  "Australia":  {icon:"🦘⚽",  title:"SOCCEROO BOUNCE", desc:"A kangaroo hops across the pitch. Nobody questions it."},
+  "New Zealand":{icon:"🖤💀",  title:"THE HAKA", desc:"The All Whites perform a terrifying war dance. Opponents reconsider."},
+  "South Africa":{icon:"📯🐝", title:"VUVUZELA BLAST", desc:"BZZZZZZZZZZZZZZZ. Nobody can hear anything. Perfect."},
+  "Scotland":   {icon:"🏴󠁧󠁢󠁳󠁣󠁴󠁿🥃", title:"FLOWER OF SCOTLAND", desc:"The Tartan Army sings. Tears flow. Whisky flows faster."},
+  "Morocco":    {icon:"🦁🏔️",  title:"ATLAS LION ROAR", desc:"2022 semi-final energy returns. Africa believes."},
+  "Senegal":    {icon:"🦁🥁",  title:"TERANGA POWER", desc:"The drums beat. The lion stalks. Papa Bouba Diop dances in spirit."},
+  "Ghana":      {icon:"⭐🖐️",  title:"SUÁREZ REVENGE", desc:"A mysterious handball occurs. Ghana has waited since 2010."},
+  "Colombia":   {icon:"☕💃",  title:"CAFETERO MAGIC", desc:"The coffee kicks in. The hips don't lie. Neither does the scoreboard."},
+  "Uruguay":    {icon:"🦷😬",  title:"THE BITE", desc:"A player nervously checks their shoulder. Suárez energy is eternal."},
+  "Croatia":    {icon:"🔥🏁",  title:"VATRENI FIRE", desc:"The checkered warriors ignite. 2018 final energy."},
+  "Belgium":    {icon:"🍟😈",  title:"GOLDEN GENERATION... AGAIN", desc:"This is definitely their year. Again. For real this time."},
+  "Switzerland":{icon:"🧀⏰",  title:"SWISS PRECISION", desc:"The goal arrives exactly on schedule. Like a Swiss train."},
+  "Türkiye":    {icon:"🌙⭐",  title:"CRESCENT STRIKE", desc:"The star and crescent align. 2002 semi-final vibes."},
+  "Egypt":      {icon:"🏛️👁️",  title:"PHARAOH'S CURSE", desc:"Ancient powers awaken. The referee starts speaking hieroglyphics."},
+  "IR Iran":    {icon:"🏟️🤐",  title:"SILENT PROTEST", desc:"The players stand. The crowd roars. History watches."},
+  "Saudi Arabia":{icon:"🦅🏜️", title:"DESERT STORM", desc:"Remember Argentina 2022? It's happening again."},
+  "Qatar":      {icon:"🏗️💰",  title:"THE INVESTMENT", desc:"Money can't buy you happiness. But it can buy a World Cup."},
+  "Tunisia":    {icon:"🦅🏛️",  title:"CARTHAGE RISES", desc:"Hannibal would be proud. Or confused. Probably confused."},
+  "Canada":     {icon:"🍁🏒",  title:"WRONG SPORT?", desc:"A player asks for a puck. Confusion reigns."},
+  "Iraq":       {icon:"🦁📜",  title:"MESOPOTAMIAN MAGIC", desc:"The cradle of civilization produces a goal. 5000 years in the making."},
+  "Jordan":     {icon:"🏜️👑",  title:"ROYAL DECREE", desc:"The king has spoken. Jordan shall not lose."},
+  "Cabo Verde": {icon:"🦈🌊",  title:"SHARK ATTACK", desc:"The Blue Sharks smell blood in the water."},
+  "Curaçao":    {icon:"🏝️🌺",  title:"ISLAND TIME", desc:"Everything moves at island pace. Including the referee."},
+  "Haiti":      {icon:"🥊🏔️",  title:"GRENADIER EXPLOSION", desc:"Les Grenadiers detonate. The underdogs bite."},
+  "Panama":     {icon:"🚢🔓",  title:"CANAL OPENED", desc:"The floodgates open. Goals flow through."},
+  "Paraguay":   {icon:"🔴⚪",  title:"ALBIRROJA FURY", desc:"Red and white fury. South American grit."},
+  "Ecuador":    {icon:"🌋⚡",  title:"VOLCANIC ERUPTION", desc:"The altitude advantage kicks in. Wait, this isn't Quito."},
+  "Norway":     {icon:"🧊⚡",  title:"VIKING THUNDER", desc:"Haaland's spirit possesses the entire team."},
+  "Sweden":     {icon:"👑🎵",  title:"ABBA GOAL", desc:"The winner takes it all. Waterloo for the opposition."},
+  "Austria":    {icon:"🎵🏔️",  title:"SOUND OF FOOTBALL", desc:"The hills are alive with the sound of goals."},
+  "Czechia":    {icon:"🍺⚡",  title:"CZECH MATE", desc:"A perfectly calculated move. Like a chess grandmaster with a beer."},
+  "Algeria":    {icon:"🦊🏜️",  title:"FENNEC FOX STRIKE", desc:"Small, fast, deadly. The desert fox hunts at night."},
+  "Uzbekistan": {icon:"🐺🌙",  title:"WHITE WOLF HOWL", desc:"Central Asia announces itself. The wolf pack hunts."},
+  "Bosnia & Herzegovina":{icon:"🐉🔥",title:"DRAGON FIRE", desc:"The Zmajevi breathe fire. Nobody expected this."},
+  "Congo DR":   {icon:"🐆💥",  title:"LEOPARD POUNCE", desc:"Les Léopards strike from the shadows."},
+  "Côte d'Ivoire":{icon:"🐘🌍",title:"ELEPHANT CHARGE", desc:"Les Éléphants stampede. The ground shakes."},
 };
 
 function triggerSpecialEvent(teamName, teamSide) {
@@ -3435,7 +3441,6 @@ function triggerSpecialEvent(teamName, teamSide) {
     icon: evt.icon,
     title: evt.title,
     desc: evt.desc,
-    zoom: evt.zoom,
     teamName: teamName,
     screenSpace: true,
   });
@@ -4168,6 +4173,8 @@ async function startMatch() {
 
 // ---- REMATCH ----
 function rematch() {
+  playerSpriteCache.clear();
+  activeEffects.length = 0;
   $('resultScreen').classList.remove('active');
   if (animId) cancelAnimationFrame(animId);
   gameState = 'teamSelect';
@@ -4199,7 +4206,6 @@ function parseMidi(buf) {
         // Extract tempo meta event (0x51 = Set Tempo, 3 bytes: microseconds per quarter note)
         if(metaType===0x51 && l===3 && p+3<=end){
           tempo=(d[p]<<16)|(d[p+1]<<8)|d[p+2];
-          console.log('[MIDI] Tempo meta event:', tempo, 'us/qn =', Math.round(60000000/tempo), 'BPM');
         }
         p=Math.min(p+l,end);
       }
@@ -4210,7 +4216,6 @@ function parseMidi(buf) {
     for(const n in on)notes.push({t:on[n].t/div,n:+n,v:on[n].v,dur:0.1});
   }
   const bpm = Math.round(60000000 / tempo);
-  console.log('[MIDI] Final tempo:', bpm, 'BPM,', notes.length, 'notes');
   return {div, notes:notes.sort((a,b)=>a.t-b.t), bpm};
 }
 
@@ -4220,7 +4225,6 @@ function scheduleMidi(midiData, maxSec=10) {
   // Use parsed BPM from MIDI file, fallback to 120
   const bpm = midiData.bpm || 120;
   const bps = bpm / 60;
-  console.log('[MIDI] Scheduling at', bpm, 'BPM,', midiData.notes.length, 'notes, maxSec=', maxSec);
   const mg = ac.createGain(); mg.gain.value = 0.6; mg.connect(ac.destination);
   let scheduled = 0;
   for (const n of midiData.notes) {
@@ -4242,22 +4246,17 @@ function scheduleMidi(midiData, maxSec=10) {
     osc.start(ac.currentTime + s); osc.stop(ac.currentTime + s + dur + 0.05);
     scheduled++;
   }
-  console.log('[MIDI] Scheduled', scheduled, 'oscillators');
 }
 
 async function playAnthemMidi(slug, maxSec=10) {
-  console.log('[MIDI] playAnthemMidi called, slug=', slug, 'audioCtx=', AudioManager.ctx?.state);
-  if (!AudioManager.ctx) { console.warn('[MIDI] No AudioContext!'); return 2000; }
-  if (AudioManager.muted) { console.log('[MIDI] Muted, skipping'); return 2000; }
+  if (!AudioManager.ctx) return 2000;
+  if (AudioManager.muted) return 2000;
   try {
     const url = `assets/teams/${slug}/anthem.mid`;
-    console.log('[MIDI] Fetching:', url);
     const resp = await fetch(url);
-    if (!resp.ok) { console.warn('[MIDI] Fetch failed:', resp.status, url); return 2000; }
+    if (!resp.ok) return 2000;
     const buf = await resp.arrayBuffer();
-    console.log('[MIDI] Loaded', buf.byteLength, 'bytes, parsing...');
     const midi = parseMidi(buf);
-    console.log('[MIDI] Parsed', midi.notes.length, 'notes, scheduling...');
     scheduleMidi(midi, maxSec);
     return maxSec * 1000;
   } catch(e) { console.error('[MIDI] Error:', e); return 2000; }
