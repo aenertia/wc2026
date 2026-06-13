@@ -647,6 +647,7 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
   <div class="wrap">
     <div class="views" role="tablist" aria-label="View">
       <button class="view-btn on" id="viewSchedule" role="tab" aria-selected="true">Schedule</button>
+      <button class="view-btn" id="viewResults" role="tab" aria-selected="false">Results</button>
       <button class="view-btn" id="viewGroups" role="tab" aria-selected="false">Groups</button>
     </div>
     <div id="schedControls">
@@ -673,6 +674,7 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
 <main class="wrap">
   <div class="standings-strip" id="standingsStrip"></div>
   <section class="list" id="list" aria-label="Match schedule"></section>
+  <section class="list" id="resultsView" style="display:none" aria-label="Match results"></section>
   <div class="empty" id="empty"><span class="big">Full time.</span>No matches found — try clearing a filter.</div>
   <section class="groups" id="groupsView" aria-label="Group overview">
     <p class="hint">Tap a group to see its six fixtures →</p>
@@ -1240,7 +1242,7 @@ const stageRow=$("stageRow");
   const b=document.createElement("button");
   b.className="stage-pill"+(key===""?" on":"");
   b.textContent=label;b.dataset.stage=key;
-  b.addEventListener("click",()=>{state.stage=key;syncPills();render();});
+  b.addEventListener("click",()=>{state.stage=key;syncPills();renderActive();});
   stageRow.appendChild(b);
 });
 function syncPills(){
@@ -1267,15 +1269,16 @@ const chipRow=$("chipRow");
   c.addEventListener("click",()=>{
     state.group=state.group===g?"":g;
     if(state.group)state.stage="G";
-    syncPills();render();
+    syncPills();renderActive();
   });
   chipRow.appendChild(c);
 });
 
-$("search").addEventListener("input",e=>{state.q=e.target.value.trim().toLowerCase();render();});
+function renderActive(){if($("resultsView").style.display!=="none")renderResults();else render();}
+$("search").addEventListener("input",e=>{state.q=e.target.value.trim().toLowerCase();renderActive();});
 $("clearAll").addEventListener("click",()=>{
   state.stage="";state.group="";state.q="";$("search").value="";
-  syncPills();render();
+  syncPills();renderActive();
 });
 
 /* groups view */
@@ -1288,17 +1291,23 @@ renderGroups();
 
 /* view toggle */
 function setView(v){
-  const sched=v==="schedule";
+  const sched=v==="schedule",results=v==="results",groups=v==="groups";
   $("viewSchedule").classList.toggle("on",sched);
-  $("viewGroups").classList.toggle("on",!sched);
+  $("viewResults").classList.toggle("on",results);
+  $("viewGroups").classList.toggle("on",groups);
   $("viewSchedule").setAttribute("aria-selected",sched);
-  $("viewGroups").setAttribute("aria-selected",!sched);
+  $("viewResults").setAttribute("aria-selected",results);
+  $("viewGroups").setAttribute("aria-selected",groups);
   $("list").style.display=sched?"block":"none";
-  $("schedControls").style.display=sched?"block":"none";
-  $("groupsView").style.display=sched?"none":"block";
-  if(sched)render();else $("empty").style.display="none";
+  $("resultsView").style.display=results?"block":"none";
+  $("schedControls").style.display=(sched||results)?"block":"none";
+  $("groupsView").style.display=groups?"block":"none";
+  if(sched){render();$("empty").style.display="none";}
+  else if(results){renderResults();}
+  else{$("empty").style.display="none";}
 }
 $("viewSchedule").addEventListener("click",()=>setView("schedule"));
+$("viewResults").addEventListener("click",()=>setView("results"));
 $("viewGroups").addEventListener("click",()=>setView("groups"));
 
 /* ---- timezone handling ----
@@ -1331,7 +1340,7 @@ const isLate=e=>hourIn(e)<6;
 tzSel.addEventListener("change",()=>{
   tz=tzSel.value;
   localStorage.setItem("wc26tz",tz);
-  updateTzLabels();render();
+  updateTzLabels();renderActive();
 });
 function fmtElapsed(e){
   if(!e||e==="notstarted"||e==="null")return "";
@@ -1422,7 +1431,7 @@ async function fetchScores(){
     computeStandings();
     updateBanner();
     scheduleNotifications();
-    render();
+    renderActive();
   }catch(e){
     _log("fetchScores FAILED: "+e);
     console.warn("Score fetch failed:",e);
@@ -1447,6 +1456,10 @@ function render(){
   $("sCount").textContent=rows.length;
   $("sDays").textContent=new Set(rows.map(r=>dateKey(r.epoch))).size;
   $("sLate").textContent=rows.filter(r=>isLate(r.epoch)).length;
+  // restore stat labels (may have been changed by results view)
+  document.querySelectorAll(".stat .l")[0].textContent="Matches";
+  document.querySelectorAll(".stat .l")[1].textContent="Match days";
+  document.querySelectorAll(".stat .l")[2].textContent="Late-night KOs";
   const list=$("list");list.innerHTML="";
   $("empty").style.display=rows.length?"none":"block";
   const byDate=new Map();
@@ -1501,6 +1514,87 @@ function render(){
   renderStrip();
   _log("render ok: "+rows.length+" rows, scores="+scores.size+", list.display="+($("list").style.display||"block"));
   }catch(err){_log("render FAILED: "+err);}
+}
+
+/* ---------- results view ---------- */
+function renderResults(){
+  try{
+  let rows=D.filter(r=>{
+    const ov=teamOverrides.get(r[0]);
+    const homeName=ov?.home??r[5], awayName=ov?.away??r[6];
+    const sc=scores.get(homeName+"|"+awayName);
+    if(!sc?.finished&&!sc?.live)return false;
+    if(state.stage&&r[1]!==state.stage)return false;
+    if(state.group&&r[2]!==state.group)return false;
+    if(state.q){
+      const h=(ov?.home??r[5]).toLowerCase(), a=(ov?.away??r[6]).toLowerCase();
+      if(!h.includes(state.q)&&!a.includes(state.q))return false;
+    }
+    return true;
+  });
+  rows=rows.slice().sort((a,b)=>b.epoch-a.epoch||b[0]-a[0]); // newest first
+  // stats
+  let totalGoals=0;
+  rows.forEach(r=>{
+    const ov=teamOverrides.get(r[0]);
+    const sc=scores.get((ov?.home??r[5])+"|"+(ov?.away??r[6]));
+    if(sc){totalGoals+=(parseInt(sc.home,10)||0)+(parseInt(sc.away,10)||0);}
+  });
+  $("sCount").textContent=rows.length;
+  $("sDays").textContent=totalGoals;
+  $("sLate").textContent=rows.filter(r=>{
+    const ov=teamOverrides.get(r[0]);
+    const sc=scores.get((ov?.home??r[5])+"|"+(ov?.away??r[6]));
+    return sc&&parseInt(sc.home,10)===parseInt(sc.away,10);
+  }).length;
+  // relabel stats for results context
+  document.querySelectorAll(".stat .l")[0].textContent="Results";
+  document.querySelectorAll(".stat .l")[1].textContent="Goals";
+  document.querySelectorAll(".stat .l")[2].textContent="Draws";
+
+  const rv=$("resultsView");rv.innerHTML="";
+  $("empty").style.display=rows.length?"none":"block";
+  if(!rows.length)return;
+  const byDate=new Map();
+  rows.forEach(r=>{
+    const k=dateKey(r.epoch);
+    if(!byDate.has(k))byDate.set(k,[]);
+    byDate.get(k).push(r);
+  });
+  byDate.forEach(matches=>{
+    const h=document.createElement("div");
+    h.className="date-head";
+    h.innerHTML="<span>"+fmtDateLong(matches[0].epoch)+"</span><span class='count'>"+matches.length+(matches.length===1?" result":" results")+"</span>";
+    rv.appendChild(h);
+    matches.forEach(r=>{
+      const m=document.createElement("div");
+      const ov=teamOverrides.get(r[0]);
+      const homeName=ov?.home??r[5], awayName=ov?.away??r[6];
+      const sc=scores.get(homeName+"|"+awayName);
+      m.className="match"+(sc?.finished?" finished":sc?.live?" live":"");
+      m.style.borderLeftColor=accent(r);
+      const timeHtml='<div class="time"><span class="time-main">'+fmtTime(r.epoch)+'</span></div>';
+      const hNum=sc?parseInt(sc.home,10):null,aNum=sc?parseInt(sc.away,10):null;
+      const stateHtml=sc?.finished
+        ?'<span class="sc-state ft">FT</span>'
+        :sc?.live?'<span class="sc-state live-label"><span class="live-dot"></span>'+fmtElapsed(sc.elapsed)+'</span>'
+        :'';
+      const scoreHtml='<div class="m-score"><span class="sc">'+sc.home+'<span class="sep">–</span>'+sc.away+'</span>'+stateHtml+'</div>';
+      const hLoser=sc?.finished&&hNum<aNum,aLoser=sc?.finished&&aNum<hNum;
+      const hScorers=sc?.homeScorers?.length?'<span class="scorers">'+sc.homeScorers.join(' · ')+'</span>':'';
+      const aScorers=sc?.awayScorers?.length?'<span class="scorers">'+sc.awayScorers.join(' · ')+'</span>':'';
+      const homeLink=isRealTeam(homeName)?'<a href="#" class="team-link" data-team="'+homeName+'">'+homeName+'</a>':homeName;
+      const awayLink=isRealTeam(awayName)?'<a href="#" class="team-link" data-team="'+awayName+'">'+awayName+'</a>':awayName;
+      const homeHtml='<div class="m-home"><b class="'+(hLoser?"loser":"")+'">'+homeLink+'</b>'+hScorers+'</div>';
+      const awayHtml='<div class="m-away"><b class="'+(aLoser?"loser":"")+'">'+awayLink+'</b>'+aScorers+'</div>';
+      const venueHtml=VENUES[r[0]]?'<div class="m-venue">'+VENUES[r[0]]+'</div>':'';
+      m.innerHTML=timeHtml+homeHtml+scoreHtml+awayHtml+'<div class="meta">'+tagFor(r)+'<span class="num">#'+String(r[0]).padStart(3,"0")+'</span></div>'+venueHtml;
+      rv.appendChild(m);
+    });
+  });
+  renderStrip();
+  _log("renderResults ok: "+rows.length+" results, "+totalGoals+" goals");
+  }catch(err){_log("renderResults FAILED: "+err);}
 }
 
 /* dynamic banner — next match countdown / live indicator */
@@ -2426,6 +2520,10 @@ function inferFormation(roster) {
 
 /* delegated team-link click handlers */
 document.getElementById("list").addEventListener("click",e=>{
+  const link=e.target.closest(".team-link");
+  if(link){e.preventDefault();e.stopPropagation();showTeamDialog(link.dataset.team);}
+});
+document.getElementById("resultsView").addEventListener("click",e=>{
   const link=e.target.closest(".team-link");
   if(link){e.preventDefault();e.stopPropagation();showTeamDialog(link.dataset.team);}
 });
