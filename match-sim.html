@@ -2607,10 +2607,19 @@ function getShiftedHomePos(player, myTeamHasBall, isHomeTeam) {
   } else {
     sy += (ownGoalY - hy) * shiftFactor;
   }
+  // Enforce minimum distance from back line — defenders shouldn't crowd the GK
+  const backLineBuffer = player.position === 'DF' ? 60 : player.position === 'MF' ? 80 : 40;
+  if (isHomeTeam) {
+    sy = Math.min(sy, PITCH_B - backLineBuffer);
+    sy = Math.max(sy, PITCH_T + 40);
+  } else {
+    sy = Math.max(sy, PITCH_T + backLineBuffer);
+    sy = Math.min(sy, PITCH_B - 40);
+  }
   // Widen x-spread by 30% for more use of pitch width
   const cx = WORLD_W / 2;
   const widenedX = cx + (hx - cx) * 1.6; // spread formations VERY wide
-  const clampedX = Math.max(PITCH_L + 20, Math.min(PITCH_R - 20, widenedX));
+  const clampedX = Math.max(PITCH_L + 30, Math.min(PITCH_R - 30, widenedX));
   return { x: clampedX, y: sy };
 }
 
@@ -3086,7 +3095,7 @@ function updateGK(gk, opponents) {
   if (replayMode && replayForceMode && gk.team !== replayForceMode.team) {
     if (Math.random() < 0.4) return; // Skip this frame's GK logic entirely
   }
-  const goalY = gk.team === 0 ? PITCH_B - 12 : PITCH_T + 12;
+  const goalY = gk.team === 0 ? PITCH_B - 25 : PITCH_T + 25;
   const goalCenterX = WORLD_W / 2;
 
   // Track ball laterally
@@ -3488,7 +3497,7 @@ function triggerKeeperRush(team) {
   addCommentary('comedy', pickComment('keeper_rush', { keeper: gk.lastName }));
   setTimeout(() => {
     gk.homeX = WORLD_W / 2;
-    gk.homeY = team === 0 ? PITCH_B - 12 : PITCH_T + 12;
+    gk.homeY = team === 0 ? PITCH_B - 25 : PITCH_T + 25;
   }, 4000);
 }
 
@@ -4018,10 +4027,39 @@ function applyVelocity(p) {
   p.vx *= 0.9;
   p.vy *= 0.9;
 
-  // Keep on pitch (with slight margin for GKs)
-  const margin = p.position === 'GK' ? -10 : 5;
-  p.x = Math.max(PITCH_L + margin, Math.min(PITCH_R - margin, p.x));
-  p.y = Math.max(PITCH_T + margin, Math.min(PITCH_B - margin, p.y));
+  // Soft boundary repulsion — push players back toward pitch interior
+  // Instead of hard clamping (which causes "sticking"), apply an inward force
+  const softMargin = p.position === 'GK' ? 8 : 20; // GKs can go closer to line
+  const repulsionZone = 40; // start pushing back within 40px of edge
+  const repulsionForce = 0.8;
+
+  // Left edge
+  if (p.x < PITCH_L + softMargin + repulsionZone) {
+    const depth = Math.max(0, 1 - (p.x - PITCH_L - softMargin) / repulsionZone);
+    p.vx += depth * repulsionForce;
+  }
+  // Right edge
+  if (p.x > PITCH_R - softMargin - repulsionZone) {
+    const depth = Math.max(0, 1 - (PITCH_R - softMargin - p.x) / repulsionZone);
+    p.vx -= depth * repulsionForce;
+  }
+  // Top edge
+  if (p.y < PITCH_T + softMargin + repulsionZone) {
+    const depth = Math.max(0, 1 - (p.y - PITCH_T - softMargin) / repulsionZone);
+    p.vy += depth * repulsionForce;
+  }
+  // Bottom edge
+  if (p.y > PITCH_B - softMargin - repulsionZone) {
+    const depth = Math.max(0, 1 - (PITCH_B - softMargin - p.y) / repulsionZone);
+    p.vy -= depth * repulsionForce;
+  }
+
+  // Hard clamp as absolute safety net (shouldn't normally trigger)
+  const hardMargin = p.position === 'GK' ? 2 : 8;
+  if (p.x < PITCH_L + hardMargin) { p.x = PITCH_L + hardMargin; p.vx = Math.abs(p.vx) * 0.3; }
+  if (p.x > PITCH_R - hardMargin) { p.x = PITCH_R - hardMargin; p.vx = -Math.abs(p.vx) * 0.3; }
+  if (p.y < PITCH_T + hardMargin) { p.y = PITCH_T + hardMargin; p.vy = Math.abs(p.vy) * 0.3; }
+  if (p.y > PITCH_B - hardMargin) { p.y = PITCH_B - hardMargin; p.vy = -Math.abs(p.vy) * 0.3; }
 }
 
 function resetPositions() {
