@@ -1367,6 +1367,7 @@ const NAME_MAP={
   "Democratic Republic of the Congo":"Congo DR",
   "Ivory Coast":"Côte d'Ivoire",
   "Iran":"IR Iran",
+  "Czech Republic":"Czechia",
   "South Korea":"Korea Republic",
   "Turkey":"Türkiye",
   "United States":"USA",
@@ -1382,12 +1383,48 @@ function parseScorers(v){
   return v.split(",").map(s=>s.trim()).filter(Boolean);
 }
 
-async function fetchScores(){
+/* --- worldcup26.ir score source (stable baseline) --- */
+async function fetchWCIRScores(){
+  try{
+    const res=await fetch("https://worldcup26.ir/get/games",{cache:"no-store"});
+    if(!res.ok)throw new Error(res.status);
+    const data=await res.json();
+    const games=data.games||data.matches||[];
+    let count=0;
+    games.forEach(g=>{
+      const fin=g.finished==="TRUE";
+      const elapsed=g.time_elapsed||"";
+      const live=!fin&&elapsed!=="notstarted"&&elapsed!=="finished"&&elapsed!=="";
+      if(!fin&&!live)return;
+      const matchNum=parseInt(g.id,10);
+      const dRow=D.find(r=>r[0]===matchNum);
+      if(!dRow)return;
+      const home=dRow[5], away=dRow[6];
+      const key=home+"|"+away;
+      if(scores.has(key))return;
+      scores.set(key,{
+        home:String(g.home_score||"0"),away:String(g.away_score||"0"),
+        finished:fin,live,
+        elapsed:fin?"":elapsed,half:"",
+        homeScorers:parseScorers(g.home_scorers),
+        awayScorers:parseScorers(g.away_scorers),
+      });
+      count++;
+    });
+    _log("fetchWCIRScores ok: "+count+" added ("+games.length+" total games)");
+  }catch(e){
+    _log("fetchWCIRScores FAILED: "+e);
+    console.warn("WCIR score fetch failed:",e);
+  }
+}
+
+/* --- ESPN score source (real-time, takes precedence) --- */
+async function fetchESPNScores(){
   try{
     const res=await fetch("/scores",{cache:"no-store"});
     if(!res.ok)throw new Error(res.status);
     const data=await res.json();
-    const map=new Map();
+    let count=0;
     (data.events||[]).forEach(ev=>{
       const comp=ev.competitions?.[0];
       if(!comp)return;
@@ -1400,7 +1437,6 @@ async function fetchScores(){
       const finished=st?.state==="post";
       const live=st?.state==="in";
       if(!finished&&!live)return;
-      // elapsed: "HT" at halftime, displayClock ("79'") during play, "" otherwise
       const stName=st?.name||"";
       const elapsed=stName==="STATUS_HALFTIME"?"HT":live?comp.status.displayClock:"";
       const half=stName==="STATUS_FIRST_HALF"?"1st Half"
@@ -1409,32 +1445,36 @@ async function fetchScores(){
         :stName.includes("EXTRA_TIME")?"Extra Time"
         :stName==="STATUS_PENALTIES"?"Penalties"
         :"";
-      // goal scorers from details array
       const homeId=homeComp.team.id;
       const goals=(comp.details||[]).filter(d=>d.scoringPlay);
       const homeScorers=goals.filter(d=>d.team?.id===homeId)
         .map(d=>(d.athletesInvolved?.[0]?.displayName||"")+" "+d.clock?.displayValue).map(s=>s.trim()).filter(Boolean);
       const awayScorers=goals.filter(d=>d.team?.id&&d.team.id!==homeId)
         .map(d=>(d.athletesInvolved?.[0]?.displayName||"")+" "+d.clock?.displayValue).map(s=>s.trim()).filter(Boolean);
-      map.set(home+"|"+away,{
+      scores.set(home+"|"+away,{
         home:homeComp.score,away:awayComp.score,
         finished,live,elapsed,half,homeScorers,awayScorers,
       });
-      // patch knockout team names — match ESPN event to D array by epoch (±10 min)
+      count++;
       const evEpoch=new Date(ev.date).getTime();
       const dRow=D.find(r=>r[1]!=="G"&&Math.abs(r.epoch-evEpoch)<10*60*1000);
       if(dRow)teamOverrides.set(dRow[0],{home,away});
     });
-    scores=map;
-    _log("fetchScores ok: "+map.size+" entries");
-    computeStandings();
-    updateBanner();
-    scheduleNotifications();
-    renderActive();
+    _log("fetchESPNScores ok: "+count+" entries");
   }catch(e){
-    _log("fetchScores FAILED: "+e);
-    console.warn("Score fetch failed:",e);
+    _log("fetchESPNScores FAILED: "+e);
+    console.warn("ESPN score fetch failed:",e);
   }
+}
+
+/* --- combined fetch: WCIR baseline first, then ESPN overwrites --- */
+async function fetchScores(){
+  await fetchWCIRScores();
+  await fetchESPNScores();
+  computeStandings();
+  updateBanner();
+  scheduleNotifications();
+  renderActive();
 }
 
 function isRealTeam(name){return!/^(Winner|Runner-up|Loser|3rd place)/.test(name)}
