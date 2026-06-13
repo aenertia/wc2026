@@ -1372,7 +1372,8 @@ function render(){
       const ov=teamOverrides.get(r[0]);
       const h=ov?.home??r[5], a=ov?.away??r[6];
       const sc=scores.get(h+'|'+a);
-      if(!sc?.finished)return false;
+      // Show match if API confirms finished OR if kickoff time has passed (fallback when API unavailable)
+      if(!sc?.finished&&!(r.epoch&&r.epoch<Date.now()))return false;
     } else if(state.q){
       const ov=teamOverrides.get(r[0]);
       const h=(ov?.home??r[5]).toLowerCase(), a=(ov?.away??r[6]).toLowerCase();
@@ -1381,9 +1382,14 @@ function render(){
     return true;
   });
   rows=rows.slice().sort((a,b)=>a.epoch-b.epoch||a[0]-b[0]);
+  // Update stat labels for Results view vs normal schedule view
+  const isResults=state.q==="results";
   $("sCount").textContent=rows.length;
-  $("sDays").textContent=new Set(rows.map(r=>dateKey(r.epoch))).size;
-  $("sLate").textContent=rows.filter(r=>isLate(r.epoch)).length;
+  $("sCount").nextElementSibling.textContent=isResults?"Results":"Matches";
+  $("sDays").textContent=isResults?rows.reduce((t,r)=>{const ov=teamOverrides.get(r[0]);const h=ov?.home??r[5],a=ov?.away??r[6];const sc=scores.get(h+'|'+a);return t+(sc?parseInt(sc.home||0,10)+parseInt(sc.away||0,10):0);},0):new Set(rows.map(r=>dateKey(r.epoch))).size;
+  $("sDays").nextElementSibling.textContent=isResults?"Goals":"Match days";
+  $("sLate").textContent=isResults?rows.filter(r=>{const ov=teamOverrides.get(r[0]);const h=ov?.home??r[5],a=ov?.away??r[6];const sc=scores.get(h+'|'+a);return sc&&parseInt(sc.home||0,10)===parseInt(sc.away||0,10);}).length:rows.filter(r=>isLate(r.epoch)).length;
+  $("sLate").nextElementSibling.textContent=isResults?"Draws":"Late-night KOs";
   const list=$("list");list.innerHTML="";
   $("empty").style.display=rows.length?"none":"block";
   const byDate=new Map();
