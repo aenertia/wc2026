@@ -608,6 +608,7 @@ footer .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;te
     <div class="views" role="tablist" aria-label="View">
       <button class="view-btn on" id="viewSchedule" role="tab" aria-selected="true">Schedule</button>
       <button class="view-btn" id="viewGroups" role="tab" aria-selected="false">Groups</button>
+      <button class="view-btn" id="viewResults" role="tab" aria-selected="false">Results</button>
     </div>
     <div id="schedControls">
       <div class="filter-row" id="stageRow" aria-label="Filter by stage"></div>
@@ -1240,18 +1241,23 @@ renderGroups();
 
 /* view toggle */
 function setView(v){
-  const sched=v==="schedule";
-  $("viewSchedule").classList.toggle("on",sched);
-  $("viewGroups").classList.toggle("on",!sched);
-  $("viewSchedule").setAttribute("aria-selected",sched);
-  $("viewGroups").setAttribute("aria-selected",!sched);
+  const sched=v==="schedule"||v==="results";
+  $("viewSchedule").classList.toggle("on",v==="schedule");
+  $("viewGroups").classList.toggle("on",v==="groups");
+  $("viewResults").classList.toggle("on",v==="results");
+  $("viewSchedule").setAttribute("aria-selected",v==="schedule");
+  $("viewGroups").setAttribute("aria-selected",v==="groups");
+  $("viewResults").setAttribute("aria-selected",v==="results");
   $("list").style.display=sched?"block":"none";
   $("schedControls").style.display=sched?"block":"none";
   $("groupsView").style.display=sched?"none":"block";
-  if(sched)render();else $("empty").style.display="none";
+  if(v==="results"){state.stage="";state.group="";state.q="results";render();}
+  else if(sched){if(state.q==="results")state.q="";render();}
+  else $("empty").style.display="none";
 }
 $("viewSchedule").addEventListener("click",()=>setView("schedule"));
 $("viewGroups").addEventListener("click",()=>setView("groups"));
+$("viewResults").addEventListener("click",()=>setView("results"));
 
 /* ---- timezone handling ----
    Source schedule is Irish time; the whole tournament falls inside
@@ -1362,7 +1368,12 @@ function render(){
   let rows=D.filter(r=>{
     if(state.stage&&r[1]!==state.stage)return false;
     if(state.group&&r[2]!==state.group)return false;
-    if(state.q){
+    if(state.q==="results"){
+      const ov=teamOverrides.get(r[0]);
+      const h=ov?.home??r[5], a=ov?.away??r[6];
+      const sc=scores.get(h+'|'+a);
+      if(!sc?.finished)return false;
+    } else if(state.q){
       const ov=teamOverrides.get(r[0]);
       const h=(ov?.home??r[5]).toLowerCase(), a=(ov?.away??r[6]).toLowerCase();
       if(!h.includes(state.q)&&!a.includes(state.q))return false;
@@ -1421,7 +1432,9 @@ function render(){
 
       const venueHtml=VENUES[r[0]]?'<div class="m-venue">'+VENUES[r[0]]+'</div>':'';
       const simLink=isRealTeam(homeName)&&isRealTeam(awayName)?'<a href="match-sim.html?home='+encodeURIComponent(homeName)+'&away='+encodeURIComponent(awayName)+'" class="sim-btn" title="Simulate this match">▶ Sim</a>':'';
-      const replayLink=(sc?.finished&&isRealTeam(homeName)&&isRealTeam(awayName)&&hNum!==null&&aNum!==null)?'<a href="match-sim.html?home='+encodeURIComponent(homeName)+'&away='+encodeURIComponent(awayName)+'&homeScore='+hNum+'&awayScore='+aNum+'" class="sim-btn replay-btn" title="Replay actual result: '+homeName+' '+hNum+'–'+aNum+' '+awayName+'">↺ Replay</a>':'';
+      const hScorersParam=sc?.homeScorers?.length?'&homeScorers='+encodeURIComponent(sc.homeScorers.join(',')):'';
+      const aScorersParam=sc?.awayScorers?.length?'&awayScorers='+encodeURIComponent(sc.awayScorers.join(',')):'';
+      const replayLink=(sc?.finished&&isRealTeam(homeName)&&isRealTeam(awayName)&&hNum!==null&&aNum!==null)?'<a href="match-sim.html?home='+encodeURIComponent(homeName)+'&away='+encodeURIComponent(awayName)+'&homeScore='+hNum+'&awayScore='+aNum+hScorersParam+aScorersParam+'" class="sim-btn replay-btn" title="Replay actual result: '+homeName+' '+hNum+'–'+aNum+' '+awayName+'">↺ Replay</a>':'';
       m.innerHTML=timeHtml+homeHtml+scoreHtml+awayHtml+'<div class="meta">'+simLink+replayLink+tagFor(r)+'<span class="num">#'+String(r[0]).padStart(3,"0")+'</span></div>'+venueHtml;
       list.appendChild(m);
     });
